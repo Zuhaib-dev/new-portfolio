@@ -7,7 +7,7 @@ const experiences = [
   {
     title: "Freelance Web Developer",
     company: "travelwithtehseen",
-    period: "Jan 2024 – Present",
+    period: "Jan 2025 – Jun 2025 ",
     responsibilities: [
       "Built and maintained a dynamic website for a travel and tours business, showcasing destinations, tours, and client testimonials.",
       "Implemented smooth animations with Framer Motion to enhance user experience and engagement.",
