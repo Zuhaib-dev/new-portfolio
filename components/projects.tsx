@@ -25,11 +25,11 @@ const projects = [
     ],
   },
   {
-    logo: "/resumaid.webp",
+    logo: "/resumind.png",
     title: "Resumind",
     description:
       "An AI-powered resume builder that tailors content to specific job roles, improving job match rates significantly.",
-    image: "/resumaid.webp",
+    image: "/resumind.png",
     tags: ["Next.js", "Tailwind CSS", "OpenAI API", "Supabase"],
     demoUrl: "https://resumind-ebon.vercel.app/",
     githubUrl: "https://github.com/Zuhaib-dev/Resumind",
@@ -40,10 +40,10 @@ const projects = [
     ],
   },
   {
-    logo: "https://zuhaib-dev.github.io/Friend-circle/photo%20Galarry/photo.jpg",
+    logo: "/friendcirlce.png",
     description:
       "A dynamic website showcasing my adventurous friend circle with profiles, testimonials, and stunning visuals of our trips and hobbies.",
-    image: "https://zuhaib-dev.github.io/Friend-circle/photo%20Galarry/photo.jpg",
+    image: "/friendcircle.png",
     tags: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Framer Motion"],
     demoUrl: "https://zuhaib-dev.github.io/Friend-circle/index.html",
     githubUrl: "https://zuhaib-dev.github.io/Friend-circle/index.html",
@@ -55,11 +55,11 @@ const projects = [
     ],
   },
   {
-    logo: "https://images.unsplash.com/photo-1753424005736-c0d06fb710dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzNnx8fGVufDB8fHx8fA%3D%3D",
+    logo: "/petzone.png",
     title: "Portfolio X (Awwwards Winner)",
     description:
       "An immersive portfolio site featuring scroll animations, 3D models, parallax effects and minimal UX — honored by Awwwards.",
-    image: "/portfoliox.webp",
+    image: "/petzone.png",
     tags: ["Three.js", "GSAP", "Framer Motion", "React", "Tailwind CSS"],
     demoUrl: "https://portfoliox.site/",
     githubUrl: "",
@@ -71,11 +71,11 @@ const projects = [
     ],
   },
   {
-    logo: "/https://images.unsplash.com/photo-1753424005736-c0d06fb710dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzNnx8fGVufDB8fHx8fA%3D%3D",
+    logo: "/portfolio.png",
     title: "PetZone",
     description:
       "A beautiful pet store website with product listings, cart integration, pet care blogs, and a fully responsive layout.",
-    image: "/petstore.webp",
+    image: "/portfolio.png",
     tags: ["HTML", "CSS", "JavaScript", "Swiper.js", "Bootstrap"],
     demoUrl: "https://petzone.vercel.app/",
     githubUrl: "",
@@ -113,7 +113,7 @@ export default function Projects() {
                 <div className="absolute inset-0 overflow-y-auto scrollbar-hide">
                   <Image
                     src={project.image || "/placeholder.svg"}
-                    alt={project.title}
+                    alt={project.title ?? "Project image"}
                     width={800}
                     height={1200}
                     className="w-full object-contain transition-transform duration-300 group-hover:scale-105"
