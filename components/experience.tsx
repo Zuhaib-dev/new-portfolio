@@ -5,46 +5,16 @@ import { Badge } from "@/components/ui/badge"
 
 const experiences = [
   {
-    title:  "Frontend Developer Intern",
-    company: "Lincode",
-    period: "May 2025 - Present",
+    title: "Freelance Web Developer",
+    company: "travelwithtehseen",
+    period: "Jan 2024 – Present",
     responsibilities: [
-      "Working on frontend development.",
+      "Built and maintained a dynamic website for a travel and tours business, showcasing destinations, tours, and client testimonials.",
+      "Implemented smooth animations with Framer Motion to enhance user experience and engagement.",
+      "Integrated itinerary and booking forms to streamline customer inquiries and trip planning."
     ],
-    skills: ["React", "TypeScript", "Material UI", "SCSS"],
-  },
-  {
-    title: "Frontend Developer Intern",
-    company: "WhatBytes",
-    period: "Jan 2025 - May 2025",
-    responsibilities: [
-      "Worked on a live project called Cura Care (curacare.in)",
-      "Implemented website analytics to track user interactions using PostHog, Google Analytics, and Facebook Pixel",
-      "Developed dynamic slot management system based on bookings",
-    ],
-    skills: ["Next.js","ReactJs", "JavaScript", "TailwindCSS"],
-  },
-  {
-    title: "Web Developer",
-    company: "Ministry of Electronics and Information Technology",
-    period: "Mar 2024 – Jun 2024",
-    responsibilities: [
-      "Developed a CMS dashboard for eDeskshaam, enhancing UI/UX and improving user interaction",
-      "Designed and implemented responsive 'Important Links' and 'Events' pages using React.js",
-    ],
-    skills: ["React", "JavaScript", "UI/UX", "Responsive Design"],
-  },
-  {
-    title: "Web Developer",
-    company: "Ministry of Electronics and Information Technology",
-    period: "Mar 2023 – Dec 2023",
-    responsibilities: [
-      "Created four interactive educational games (Identify Fruits, Animals, Vehicles, Body Parts)",
-      "Developed user-friendly homepage for educational games and collaborated with UX designers",
-      "Worked closely with back-end developers to ensure seamless integration and cohesive user experience",
-    ],
-    skills: ["React", "JavaScript", "UI/UX", "Responsive Design"],
-  },
+    skills: ["Next.js", "React", "Framer Motion", "UI/UX Design", "Travel Website Development"],
+  }
 ]
 
 export default function Experience() {
