@@ -46,7 +46,7 @@ const projects = [
     image: "/friendcircle.png",
     tags: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Framer Motion"],
     demoUrl: "https://zuhaib-dev.github.io/Friend-circle/index.html",
-    githubUrl: "https://zuhaib-dev.github.io/Friend-circle/index.html",
+    githubUrl: "https://zuhaib-dev.github.io/Friend-circle",
     features: [
       "Custom-built animated layout with scroll effects",
       "Friend profiles with pictures and activity highlights",
@@ -61,7 +61,7 @@ const projects = [
       "An immersive portfolio site featuring scroll animations, 3D models, parallax effects and minimal UX — honored by Awwwards.",
     image: "/petzone.png",
     tags: ["Three.js", "GSAP", "Framer Motion", "React", "Tailwind CSS"],
-    demoUrl: "https://portfoliox.site/",
+    demoUrl: "https://award-winning-website-xi.vercel.app/",
     githubUrl: "",
     features: [
       "3D model sections with camera transitions",
