@@ -42,7 +42,7 @@ export default function Hero() {
 
           <div className="flex flex-wrap gap-2 sm:gap-3">
             <Link
-              href="/MerajResumeFR.pdf"
+              href="/ZuhaibResume.pdf"
               target="_blank"
               download
             >
