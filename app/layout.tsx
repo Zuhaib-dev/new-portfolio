@@ -16,11 +16,11 @@ export const metadata: Metadata = {
   description: "Portfolio website of Zuhaib Rashid, a Web Developer",
   icons: {
     icon: [
-      { url: '/haquedot.svg', sizes: 'any', type: 'image/x-icon' },
-      { url: '/haquedot.svg', sizes: '16x16', type: 'image/png' },
-      { url: '/haquedot.svg', sizes: '32x32', type: 'image/png' },
+      { url: '/android-chrome-512x512.png', sizes: 'any', type: 'image/x-icon' },
+      { url: '/android-chrome-192x192.png', sizes: '16x16', type: 'image/png' },
+      { url: '/android-chrome-192x192.png', sizes: '32x32', type: 'image/png' },
     ],
-    apple: '/haquedot.svg',
+    apple: '/apple-touch-icon.png',
   },
 }
 
