@@ -12,81 +12,68 @@ const projects = [
     logo: "/humanitycarefoundationLogo.svg",
     title: "CarePulse",
     description:
-      "A smart healthcare dashboard to monitor patient vitals in real-time using API integration and automated alerts.",
+      "A real-time healthcare dashboard for hospitals, tracking patient vitals via API integrations and providing automated, actionable alerts to healthcare professionals. Built for fast monitoring, data visualization, and robust user management.",
     image: "/carepulse.png",
-    tags: ["React.js", "Tailwind CSS", "Firebase", "Chart.js"],
+    tags: ["React.js","Nextjs", "Tailwind CSS", "Typescript", "Appwrite", "Twilio"],
     demoUrl: "https://hms-seven-green.vercel.app/",
     githubUrl: "https://github.com/Zuhaib-dev/HMS",
     features: [
-      "Live vitals tracking from connected devices",
-      "Real-time alerts via Firebase Cloud Messaging",
-      "Interactive charts for doctors and patients",
-      "User authentication and dashboard system",
-    ],
+      "Live monitoring of patient vitals from IoT medical devices",
+      "Automated critical alerts using Firebase Cloud Messaging",
+      "Advanced data charts and dashboards for clinicians",
+      "User authentication, access control, and secure data flows"
+    ]
   },
   {
     logo: "/resumind.png",
     title: "Resumind",
     description:
-      "An AI-powered resume builder that tailors content to specific job roles, improving job match rates significantly.",
+      "A full-stack AI resume builder leveraging GPT-3.5 to generate optimized, role-specific content with instant editing and export features. Prioritizes privacy, user experience, and seamless integration of AI-driven suggestions.",
     image: "/resumind.png",
-    tags: ["Next.js", "Tailwind CSS", "OpenAI API", "Supabase"],
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Puterjs",  "React"],
     demoUrl: "https://resumind-ebon.vercel.app/",
     githubUrl: "https://github.com/Zuhaib-dev/Resumind",
     features: [
-      "AI-generated bullet points and summaries",
-      "Editable live preview and export to PDF",
-      "Role-based resume optimization",
-    ],
+      "AI-powered generation of tailored resume content",
+      "Live editing, preview, and PDF export",
+      "Secure Supabase backend for user data",
+      "Modern UI/UX built with Next.js and TypeScript"
+    ]
+  },
+  {
+    logo: "/kilamate.svg",
+    title: "Kilamate",
+    description:
+      "A modern weather forecasting app displaying real-time weather data with interactive charts, a sleek UI, and responsive design.",
+    image: "/SEO.png",
+    tags: ["Next.js", "React", "TypeScript", "shadcn/ui", "Tailwind CSS", "Recharts","Tanstack Query"],
+    demoUrl: "https://kilamate.netlify.app/",
+    githubUrl: "https://github.com/Zuhaib-dev/Kilamate",
+    features: [
+      "Real-time weather updates for any location",
+      "Beautiful, responsive user interface",
+      "Interactive charts powered by Recharts",
+      "High performance and scalability with modern tech stack"
+    ]
   },
   {
     logo: "/friendcirlce.png",
+    title: "Friend Circle",
     description:
       "A dynamic website showcasing my adventurous friend circle with profiles, testimonials, and stunning visuals of our trips and hobbies.",
     image: "/friendcircle.png",
-    tags: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Framer Motion"],
+    tags: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Framer Motion", "Formspree"],
     demoUrl: "https://zuhaib-dev.github.io/Friend-circle/index.html",
     githubUrl: "https://zuhaib-dev.github.io/Friend-circle",
     features: [
       "Custom-built animated layout with scroll effects",
       "Friend profiles with pictures and activity highlights",
       "Responsive, clean design optimized for mobile",
-      "Testimonials, event calendar, and Instagram integration",
-    ],
-  },
-  {
-    logo: "/petzone.png",
-    title: "Portfolio X (Awwwards Winner)",
-    description:
-      "An immersive portfolio site featuring scroll animations, 3D models, parallax effects and minimal UX — honored by Awwwards.",
-    image: "/petzone.png",
-    tags: ["Three.js", "GSAP", "Framer Motion", "React", "Tailwind CSS"],
-    demoUrl: "https://award-winning-website-xi.vercel.app/",
-    githubUrl: "",
-    features: [
-      "3D model sections with camera transitions",
-      "Smooth parallax and scroll-triggered animations",
-      "Mobile-optimized animations and minimal layout",
-      "Featured in Awwwards for creative frontend design",
-    ],
-  },
-  {
-    logo: "/portfolio.png",
-    title: "PetZone",
-    description:
-      "A beautiful pet store website with product listings, cart integration, pet care blogs, and a fully responsive layout.",
-    image: "/portfolio.png",
-    tags: ["HTML", "CSS", "JavaScript", "Swiper.js", "Bootstrap"],
-    demoUrl: "https://petzone.vercel.app/",
-    githubUrl: "",
-    features: [
-      "Interactive product slider using Swiper.js",
-      "Responsive pet product grid and cart UI",
-      "Blog section for pet care tips",
-      "Animations on scroll with clean UX design",
-    ],
-  },
-]
+      "Testimonials, event calendar, and Instagram integration"
+    ]
+  }
+];
+
 
 export default function Projects() {
   return (
