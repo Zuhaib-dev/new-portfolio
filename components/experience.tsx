@@ -5,16 +5,30 @@ import { Badge } from "@/components/ui/badge"
 
 const experiences = [
   {
-    title: "Freelance Web Developer",
-    company: "travelwithtehseen",
-    period: "Jan 2025 – Jun 2025 ",
+    title: "Frontend Developer (Freelance, Remote)",
+    company: "Perfect Health Care",
+    period: "Aug 2024 – Sep 2024",
     responsibilities: [
-      "Built and maintained a dynamic website for a travel and tours business, showcasing destinations, tours, and client testimonials.",
-      "Implemented smooth animations with Framer Motion to enhance user experience and engagement.",
-      "Integrated itinerary and booking forms to streamline customer inquiries and trip planning."
+      "Developed a healthcare portal supporting 200+ bookings, user authentication, and real-time doctor scheduling (React.js, TypeScript, Zustand).",
+      "Engineered reusable UI components, dynamic form validation, and API integrations with Appwrite and Twilio for secure notifications.",
+      "Deployed at live demo; increased patient digital adoption by 25%.",
+      "Led automated testing (Jest, Cypress) and CI/CD configuration for reliable and maintainable delivery."
     ],
-    skills: ["Next.js", "React", "Framer Motion", "UI/UX Design", "Travel Website Development"],
-  }
+    skills: ["React.js", "TypeScript", "Zustand", "Appwrite", "Twilio", "Jest", "Cypress", "CI/CD"]
+  },
+  {
+    title: "Frontend Developer (Freelance, Remote)",
+    company: "TravelwithTehseen",
+    period: "Jan 2024 – Apr 2024",
+    responsibilities: [
+      "Built and maintained a responsive travel booking platform (React.js, Zustand, Tailwind CSS), serving 50+ daily visitor sessions.",
+      "Implemented modular component architecture and complex state management for booking workflows.",
+      "Enhanced user experience with animated SVG interfaces, which boosted booking conversions by 20%.",
+      "Coordinated remote user testing and agile releases; led code reviews and Git-based collaboration to ensure consistency and quality."
+    ],
+    skills: ["React.js", "Zustand", "Tailwind CSS", "SVG Animation", "Git", "Agile"]
+  },
+  
 ]
 
 export default function Experience() {

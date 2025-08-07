@@ -59,7 +59,7 @@ export default function Hero() {
               </Button>
             </Link>
             <Link
-              href="mailto:xuvaxuva006@gmail.com"
+              href="mailto:zuhaibrashid01@gmail.com"
               target="_blank"
             >
               <Button variant="outline" size="sm" className="text-xs sm:text-sm">
