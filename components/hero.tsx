@@ -26,7 +26,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 text-sm text-muted-foreground">
             <div className="flex items-center gap-1">
               <Mail className="h-4 w-4" />
-              <a href="mailto:xuvaxuva006@gmail.com">xuvaxuva006@gmail.com</a>
+              <a href="mailto:zuhaibrashid01@gmail.com">zuhaibrashid01@gmail.com</a>
             </div>
             <div className="flex items-center gap-1">
               <MapPin className="h-4 w-4" />
