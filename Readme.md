@@ -5,6 +5,12 @@
 🚀 **A modern, fully responsive personal portfolio** built with **Next.js, TypeScript, and Tailwind CSS** to showcase my journey, skills, and projects in the most elegant way possible.
 
 ---
+<p align="center">
+  <a href="https://zuhaib-portfolio-tau.vercel.app/">
+    <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3aHJjaDh5MXZnNTM3eG9rdGkxMmc2Z3FxeG42NjZranplcHVyb3IweCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/j7QgmxatnXo0YbchVK/giphy.gif" alt="Portfolio GIF">
+  </a>
+</p>
+
 
 ## 🔗 Live Demo
 🌍 **Visit here:** [https://zuhaib-portfolio-tau.vercel.app/](https://zuhaib-portfolio-tau.vercel.app/)
@@ -87,4 +93,7 @@ Designed & Developed by Zuhaib Rashid
 
 ---
 
-If you want, I can also **add an animated GIF preview of your portfolio** so your README instantly grabs attention when someone visits your repo. That would make it even more “never-seen-before” level.
+
+---
+
+
