@@ -7,9 +7,10 @@
 ---
 <p align="center">
   <a href="https://zuhaib-portfolio-tau.vercel.app/">
-    <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3aHJjaDh5MXZnNTM3eG9rdGkxMmc2Z3FxeG42NjZranplcHVyb3IweCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/j7QgmxatnXo0YbchVK/giphy.gif" alt="Portfolio GIF">
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2p3YTZwbTk0MjF1cXNoZDN0cmlrM2x3c2hndnM4OXU1Zm9tOHp4dSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/S9d8XB557e8phGLBVS/giphy.gif" alt="Portfolio GIF">
   </a>
 </p>
+
 
 
 ## 🔗 Live Demo
