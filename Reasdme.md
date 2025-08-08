@@ -61,7 +61,7 @@ portfolio/
 🚀 Getting Started
 Run this project locally:
 # Clone the repository
-git clone https://github.com/Zuhaib-dev/portfolio.git
+git clone https://github.com/Zuhaib-dev/new-portfolio.git
 
 # Navigate into the folder
 cd portfolio
@@ -71,8 +71,15 @@ npm install
 
 # Start development server
 npm run dev
+
+
 🌐 Connect With Me
 [LinkedIn](https://www.linkedin.com/in/zuhaib-rashid-661345318/) | [x.com] (https://x.com/xuhaib_x9)
+
+
+
+
+
 🏆 Credits
 Designed & Developed by Zuhaib Rashid
 © 2025 All Rights Reserved.
