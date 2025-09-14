@@ -1,24 +1,23 @@
 # 🌟 Zuhaib Rashid – Personal Portfolio
 
-[![Portfolio Preview](https://zuhaib-portfolio-tau.vercel.app/SC.png)](https://zuhaib-portfolio-tau.vercel.app/)
+[![Portfolio Preview](https://zuhaibrashid.com/screenShot.png)](https://zuhaibrashid.com/)
 
 🚀 **A modern, fully responsive personal portfolio** built with **Next.js, TypeScript, and Tailwind CSS** to showcase my journey, skills, and projects in the most elegant way possible.
 
 ---
+
 <p align="center">
-  <a href="https://zuhaib-portfolio-tau.vercel.app/">
+  <a href="https://zuhaibrashid.com/">
     <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2p3YTZwbTk0MjF1cXNoZDN0cmlrM2x3c2hndnM4OXU1Zm9tOHp4dSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/S9d8XB557e8phGLBVS/giphy.gif" alt="Portfolio GIF">
   </a>
 </p>
 
-
-
-## 🔗 Live Demo
-🌍 **Visit here:** [https://zuhaib-portfolio-tau.vercel.app/](https://zuhaib-portfolio-tau.vercel.app/)
+## 🔗 Live Demo  
+🌍 **Visit here:** [https://zuhaibrashid.com/](https://zuhaibrashid.com/)
 
 ---
 
-## 👨‍💻 About Me
+## 👨‍💻 About Me  
 
 I’m **Zuhaib Rashid**, a **Class 12 Medical student** from Srinagar, Jammu & Kashmir, with **no formal programming background** but a deep passion for web development.  
 I’ve self-learned **frontend technologies** and now build beautiful, fast, and responsive websites.  
@@ -31,29 +30,29 @@ I love to:
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack  
 
-- **Framework:** Next.js 14
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **Animations:** Framer Motion
-- **Icons:** React Icons
-- **Deployment:** Vercel
+- **Framework:** Next.js 14  
+- **Language:** TypeScript  
+- **Styling:** Tailwind CSS  
+- **Animations:** Framer Motion  
+- **Icons:** React Icons  
+- **Deployment:** Vercel  
 
 ---
 
-## 💼 Featured Projects
+## 💼 Featured Projects  
 
-| Project | Description | Live | Code |
-|---------|-------------|------|------|
+| Project        | Description                                                                 | Live                                                                                     | Code                                              |
+|----------------|-----------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|--------------------------------------------------|
 | **Friend Circle** | A stylish website celebrating my friends’ adventures, showcasing photos, stories, and events. | [Live](https://zuhaib-dev.github.io/Friend-circle/index.html) | [Code](https://github.com/Zuhaib-dev/Friend-circle) |
-| **CarePulse** | A healthcare web app for patient monitoring, appointment booking, and wellness tracking. | [Live](https://hms-seven-green.vercel.app/) | [Code](https://github.com/Zuhaib-dev/HMS) |
-| **ResuMind** | An AI-powered resume builder that helps create professional resumes in minutes. | [Live](https://resumind-ebon.vercel.app/) | [Code](https://github.com/Zuhaib-dev/resuming) |
-| **Klimate** | A climate and weather tracker providing real-time data and forecasts. | [Live](https://kilamate.netlify.app/) | [Code](http://github.com/zuhaib-dev/Kilamate) |
+| **CarePulse**     | A healthcare web app for patient monitoring, appointment booking, and wellness tracking. | [Live](https://hms-seven-green.vercel.app/) | [Code](https://github.com/Zuhaib-dev/HMS) |
+| **ResuMind**      | An AI-powered resume builder that helps create professional resumes in minutes. | [Live](https://resumind-ebon.vercel.app/) | [Code](https://github.com/Zuhaib-dev/resuming) |
+| **Klimate**       | A climate and weather tracker providing real-time data and forecasts. | [Live](https://kilamate.netlify.app/) | [Code](http://github.com/zuhaib-dev/Kilamate) |
 
 ---
 
-## 📂 Folder Structure
+## 📂 Folder Structure  
 
 ```plaintext
 portfolio/
