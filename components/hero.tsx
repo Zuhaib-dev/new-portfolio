@@ -41,15 +41,16 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-wrap gap-2 sm:gap-3">
-            <Link
+            <a
               href="/frontEndResume.pdf"
               target="_blank"
               download
+              rel="noopener noreferrer"
             >
               <Button size="sm" className="text-xs sm:text-sm">
                 <Download className="mr-2 h-3 w-3 sm:h-4 sm:w-4" /> Resume
               </Button>
-            </Link>
+            </a>
             <Link
               href="https://github.com/Zuhaib-dev"
               target="_blank"
