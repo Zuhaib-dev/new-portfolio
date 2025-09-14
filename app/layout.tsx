@@ -13,23 +13,29 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Zuhaib Rashid - Web Developer",
-  description: "Portfolio website of Zuhaib Rashid, a Web Developer specializing in modern frontend technologies.",
-  
+  description:
+    "Portfolio website of Zuhaib Rashid, a Web Developer specializing in modern frontend technologies.",
+
   // ✅ General Icons and Apple Touch Icon
   icons: {
     icon: [
-      { url: '/android-chrome-512x512.png', sizes: 'any', type: 'image/x-icon' },
-      { url: '/android-chrome-192x192.png', sizes: '16x16', type: 'image/png' },
-      { url: '/android-chrome-192x192.png', sizes: '32x32', type: 'image/png' },
+      {
+        url: "/android-chrome-512x512.png",
+        sizes: "any",
+        type: "image/x-icon",
+      },
+      { url: "/android-chrome-192x192.png", sizes: "16x16", type: "image/png" },
+      { url: "/android-chrome-192x192.png", sizes: "32x32", type: "image/png" },
     ],
-    apple: '/apple-touch-icon.png',
+    apple: "/apple-touch-icon.png",
   },
 
   // ✅ Open Graph metadata for social previews
   openGraph: {
     title: "Zuhaib Rashid - Web Developer Portfolio",
-    description: "Explore Zuhaib Rashid's portfolio featuring AI projects, web development, and UI/UX mastery.",
-    
+    description:
+      "Explore Zuhaib Rashid's portfolio featuring AI projects, web development, and UI/UX mastery.",
+
     // 🔗 Host this image publicly, dimensions: 1200x630px
     images: [
       {
@@ -49,7 +55,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Zuhaib Rashid - Web Developer",
-    description: "Showcasing projects including AI resume tools, clones, and frontend innovations.",
+    description:
+      "Showcasing projects including AI resume tools, clones, and frontend innovations.",
     creator: "https://x.com/xuhaib_x9", // <-- Optional: Replace with your Twitter/X handle
     images: [
       "/SC.png", // Same as OG image
@@ -65,7 +72,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <AdHeader
             title="🚀 Resumind"
             description="Optimize Your Resume with AI"
@@ -77,7 +89,9 @@ export default function RootLayout({
           <Suspense fallback={<Loading />}>
             <Analytics />
             <Header />
-            <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">{children}</main>
+            <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+              {children}
+            </main>
             <footer className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-sm text-muted-foreground">
               © {new Date().getFullYear()} Zuhaib. All rights reserved.
             </footer>
@@ -87,4 +101,4 @@ export default function RootLayout({
     </html>
   );
 }
-// done with the implement of contact functionailty 
+// done with the implement of contact functionailty
