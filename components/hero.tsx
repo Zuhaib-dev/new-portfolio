@@ -53,77 +53,81 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-wrap gap-2 sm:gap-3">
-            <a
-              href="/frontEndResume.pdf"
-              target="_blank"
-              download
-              rel="noopener noreferrer"
-              aria-label="Download Resume"
-            >
-              <Button size="sm" className="text-xs sm:text-sm">
-                <Download className="mr-2 h-3 w-3 sm:h-4 sm:w-4" /> Resume
+            {/* Resume Button */}
+            <Link href="/frontEndResume.pdf" target="_blank" download>
+              <Button
+                size="sm"
+                className="text-xs sm:text-sm"
+                aria-label="Download Resume"
+              >
+                <Download
+                  className="mr-2 h-3 w-3 sm:h-4 sm:w-4"
+                  aria-hidden="true"
+                />
+                Resume
               </Button>
-            </a>
+            </Link>
 
-            <a
-              href="https://github.com/Zuhaib-dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit GitHub profile"
-            >
+            {/* GitHub Button */}
+            <Link href="https://github.com/Zuhaib-dev" target="_blank">
               <Button
                 variant="outline"
                 size="sm"
                 className="text-xs sm:text-sm"
+                aria-label="Visit GitHub Profile"
               >
-                <Github className="h-3 w-3 sm:h-4 sm:w-4" />
+                <Github className="h-3 w-3 sm:h-4 sm:w-4" aria-hidden="true" />
+                <span className="sr-only">GitHub</span>
               </Button>
-            </a>
+            </Link>
 
-            <a
-              href="mailto:zuhaibrashid01@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Send email to Zuhaib Rashid"
-            >
+            {/* Email Button */}
+            <Link href="mailto:zuhaibrashid01@gmail.com" target="_blank">
               <Button
                 variant="outline"
                 size="sm"
                 className="text-xs sm:text-sm"
+                aria-label="Send Email"
               >
-                <Mail className="h-3 w-3 sm:h-4 sm:w-4" />
+                <Mail className="h-3 w-3 sm:h-4 sm:w-4" aria-hidden="true" />
+                <span className="sr-only">Email</span>
               </Button>
-            </a>
+            </Link>
 
-            <a
-              href="https://x.com/xuhaib_x9"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit X (Twitter) profile"
-            >
+            {/* Twitter / X Button */}
+            <Link href="https://x.com/xuhaib_x9" target="_blank">
               <Button
                 variant="outline"
                 size="sm"
                 className="text-xs sm:text-sm"
+                aria-label="Follow on Twitter (X)"
               >
-                <RiTwitterXLine className="h-3 w-3 sm:h-4 sm:w-4" />
+                <RiTwitterXLine
+                  className="h-3 w-3 sm:h-4 sm:w-4"
+                  aria-hidden="true"
+                />
+                <span className="sr-only">Twitter / X</span>
               </Button>
-            </a>
+            </Link>
 
-            <a
+            {/* LinkedIn Button */}
+            <Link
               href="https://www.linkedin.com/in/zuhaib-rashid-661345318/"
               target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit LinkedIn profile"
             >
               <Button
                 variant="outline"
                 size="sm"
                 className="text-xs sm:text-sm"
+                aria-label="Connect on LinkedIn"
               >
-                <Linkedin className="h-3 w-3 sm:h-4 sm:w-4" />
+                <Linkedin
+                  className="h-3 w-3 sm:h-4 sm:w-4"
+                  aria-hidden="true"
+                />
+                <span className="sr-only">LinkedIn</span>
               </Button>
-            </a>
+            </Link>
           </div>
         </motion.div>
 
