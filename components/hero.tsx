@@ -54,7 +54,12 @@ export default function Hero() {
 
           <div className="flex flex-wrap gap-2 sm:gap-3">
             {/* Resume Button */}
-            <Link href="/frontEndResume.pdf" target="_blank" download>
+            <a
+              href="/frontEndResume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+            >
               <Button
                 size="sm"
                 className="text-xs sm:text-sm"
@@ -66,7 +71,7 @@ export default function Hero() {
                 />
                 Resume
               </Button>
-            </Link>
+            </a>
 
             {/* GitHub Button */}
             <Link href="https://github.com/Zuhaib-dev" target="_blank">
