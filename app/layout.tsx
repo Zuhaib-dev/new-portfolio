@@ -1,5 +1,5 @@
 import type React from "react";
-import type { Metadata } from "next/types";
+import type { Metadata, Viewport } from "next/types";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -11,35 +11,28 @@ import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
+/* -------------------- ✅ Metadata -------------------- */
 export const metadata: Metadata = {
-  title: "Zuhaib Rashid - Web Developer",
+  title: "Zuhaib Rashid - Frontend Developer in Srinagar, Kashmir",
   description:
-    "Portfolio website of Zuhaib Rashid, a Web Developer specializing in modern frontend technologies.",
+    "Official portfolio of Zuhaib Rashid, a Frontend Developer from Srinagar, Kashmir. Specializing in React.js, Next.js, TypeScript, and modern web technologies with projects in AI and healthcare.",
 
-  // ✅ General Icons and Apple Touch Icon
   icons: {
     icon: [
-      {
-        url: "/android-chrome-512x512.png",
-        sizes: "any",
-        type: "image/x-icon",
-      },
+      { url: "/android-chrome-512x512.png", sizes: "any", type: "image/x-icon" },
       { url: "/android-chrome-192x192.png", sizes: "16x16", type: "image/png" },
       { url: "/android-chrome-192x192.png", sizes: "32x32", type: "image/png" },
     ],
     apple: "/apple-touch-icon.png",
   },
 
-  // ✅ Open Graph metadata for social previews
   openGraph: {
-    title: "Zuhaib Rashid - Web Developer Portfolio",
+    title: "Zuhaib Rashid - Frontend Developer Portfolio",
     description:
-      "Explore Zuhaib Rashid's portfolio featuring AI projects, web development, and UI/UX mastery.",
-
-    // 🔗 Host this image publicly, dimensions: 1200x630px
+      "Explore the portfolio of Zuhaib Rashid, a React.js and Next.js developer from Srinagar, Kashmir. Featuring AI-powered apps, healthcare web solutions, and modern frontend design.",
     images: [
       {
-        url: "/screenShot.png", // <-- Replace this
+        url: "/screenShot.png",
         width: 1200,
         height: 630,
         alt: "Zuhaib Rashid Portfolio Preview Image",
@@ -47,23 +40,35 @@ export const metadata: Metadata = {
     ],
     type: "website",
     locale: "en_US",
-    url: "https://zuhaib-portfolio-tau.vercel.app/", // <-- Replace with your actual domain
+    url: "https://zuhaibrashid.com",
     siteName: "Zuhaib Rashid Portfolio",
   },
 
-  // ✅ Twitter Card Metadata
   twitter: {
     card: "summary_large_image",
-    title: "Zuhaib Rashid - Web Developer",
+    title: "Zuhaib Rashid - Frontend Developer in Srinagar",
     description:
-      "Showcasing projects including AI resume tools, clones, and frontend innovations.",
-    creator: "https://x.com/xuhaib_x9", // <-- Optional: Replace with your Twitter/X handle
-    images: [
-      "/screenShot.png", // Same as OG image
-    ],
+      "Portfolio showcasing React.js, Next.js, and AI-powered projects by Zuhaib Rashid from Srinagar, Kashmir.",
+    creator: "https://x.com/xuhaibx9",
+    images: ["/screenShot.png"],
+  },
+
+  alternates: {
+    canonical: "https://zuhaibrashid.com",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
+/* -------------------- ✅ Viewport -------------------- */
+export const viewport: Viewport = {
+  themeColor: "#000000",
+};
+
+/* -------------------- ✅ Layout Component -------------------- */
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -71,6 +76,56 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* ✅ JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Zuhaib Rashid",
+              url: "https://zuhaibrashid.com",
+              sameAs: [
+                "https://x.com/xuhaibx9",
+                "https://github.com/Zuhaib-dev",
+                "https://www.linkedin.com/in/zuhaib-rashid-661345318/",
+              ],
+              jobTitle: "Frontend Developer",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Srinagar",
+                addressRegion: "Jammu and Kashmir",
+                addressCountry: "India",
+              },
+              worksFor: {
+                "@type": "Organization",
+                name: "Freelance",
+              },
+              keywords: [
+                "Frontend Developer in Srinagar",
+                "React.js Developer Kashmir",
+                "Next.js Developer India",
+                "TypeScript Developer",
+                "Web Developer in Jammu and Kashmir",
+                "UI/UX Engineer",
+                "AI Web Developer",
+              ],
+              knowsAbout: [
+                "React.js",
+                "Next.js",
+                "TypeScript",
+                "Frontend Architecture",
+                "Web Accessibility",
+                "Healthcare Web Apps",
+                "AI-powered applications",
+              ],
+              description:
+                "Zuhaib Rashid is a Frontend Developer based in Srinagar, Kashmir. Expert in React.js, Next.js, and TypeScript, with a focus on building modern, accessible, and high-performance web apps.",
+            }),
+          }}
+        />
+      </head>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
@@ -101,4 +156,3 @@ export default function RootLayout({
     </html>
   );
 }
-// done with the implement of contact functionailty
