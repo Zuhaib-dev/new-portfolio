@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     // 🔗 Host this image publicly, dimensions: 1200x630px
     images: [
       {
-        url: "/SC.png", // <-- Replace this
+        url: "/screenShot.png", // <-- Replace this
         width: 1200,
         height: 630,
         alt: "Zuhaib Rashid Portfolio Preview Image",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
       "Showcasing projects including AI resume tools, clones, and frontend innovations.",
     creator: "https://x.com/xuhaib_x9", // <-- Optional: Replace with your Twitter/X handle
     images: [
-      "/SC.png", // Same as OG image
+      "/screenShot.png", // Same as OG image
     ],
   },
 };
