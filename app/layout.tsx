@@ -8,8 +8,6 @@ import AdHeader from "@/components/ad-header";
 import { Suspense } from "react";
 import Loading from "@/components/loading";
 import { Analytics } from "@vercel/analytics/next";
-// Goggle analytics tag
-<meta name="google-site-verification" content="KNk6HMTy4DzUcER3Dpsd2o3Xy2YgFKapFkN50AirDjs" />
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -62,6 +60,11 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+
+  /* ✅ Google Search Console Verification */
+  verification: {
+    google: "KNk6HMTy4DzUcER3Dpsd2o3Xy2YgFKapFkN50AirDjs",
   },
 };
 
