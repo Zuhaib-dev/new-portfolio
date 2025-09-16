@@ -18,14 +18,14 @@ export const metadata: Metadata = {
     "Official portfolio of Zuhaib Rashid, a Frontend Developer from Srinagar, Kashmir. Specializing in React.js, Next.js, TypeScript, and modern web technologies with projects in AI and healthcare.",
 
   icons: {
-    icon: [
-      { url: "/favicon.ico", type: "image/x-icon" },
-      { url: "/android-chrome-512x512.png", sizes: "any", type: "image/x-icon" },
-      { url: "/android-chrome-192x192.png", sizes: "16x16", type: "image/png" },
-      { url: "/android-chrome-192x192.png", sizes: "32x32", type: "image/png" },
-    ],
-    apple: "/apple-touch-icon.png",
-  },
+  icon: [
+    { url: "/favicon.ico?v=2", type: "image/x-icon" },
+    { url: "/android-chrome-192x192.png?v=2", sizes: "192x192", type: "image/png" },
+    { url: "/android-chrome-512x512.png?v=2", sizes: "512x512", type: "image/png" },
+  ],
+  apple: "/apple-touch-icon.png?v=2",
+},
+
 
   openGraph: {
     title: "Zuhaib Rashid - Frontend Developer Portfolio",
