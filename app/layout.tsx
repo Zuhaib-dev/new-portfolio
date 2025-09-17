@@ -18,16 +18,16 @@ export const metadata: Metadata = {
     "Official portfolio of Zuhaib Rashid, a Frontend Developer from Srinagar, Kashmir. Specializing in React.js, Next.js, TypeScript, and modern web technologies with projects in AI and healthcare.",
 
   icons: {
-    icon: [
-      { url: "/favicon.ico?v=2", type: "image/x-icon" },
-      { url: "/favicon-16x16.png?v=2", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png?v=2", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-96x96.png?v=2", sizes: "96x96", type: "image/png" },
-      { url: "/android-chrome-192x192.png?v=2", sizes: "192x192", type: "image/png" },
-      { url: "/android-chrome-512x512.png?v=2", sizes: "512x512", type: "image/png" },
-    ],
-    apple: "/apple-touch-icon.png?v=2",
-  },
+  icon: [
+    { url: "/favicon.ico?v=2", type: "image/x-icon" },
+    { url: "/favicon.svg?v=2", type: "image/svg+xml" }, // ✅ SVG added
+    { url: "/android-chrome-192x192.png?v=2", sizes: "192x192", type: "image/png" },
+    { url: "/android-chrome-512x512.png?v=2", sizes: "512x512", type: "image/png" },
+    { url: "/favicon-96x96.png?v=2", sizes: "96x96", type: "image/png" }, // ✅ newly added
+  ],
+  apple: "/apple-touch-icon.png?v=2",
+},
+
 
   openGraph: {
     title: "Zuhaib Rashid - Frontend Developer Portfolio",
