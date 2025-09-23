@@ -1,8 +1,18 @@
-/** @type {import('next-sitemap').IConfig} */
+// next-sitemap.config.js
 module.exports = {
-  siteUrl: "https://zuhaibrashid.com", // ✅ Replace with your domain (no trailing slash)
-  generateRobotsTxt: true,             // ✅ Generates robots.txt as well
-  sitemapSize: 5000,                   // Split if you ever get >5000 pages
-  changefreq: "weekly",                // Tell Google how often to check
-  priority: 0.7,                       // Default priority for pages
+  siteUrl: 'https://zuhaibrashid.com',
+  generateRobotsTxt: true,
+  robotsTxtOptions: {
+    policies: [
+      {
+        userAgent: '*',
+        allow: '/',
+      },
+      // Optional: Block resume PDF from appearing separately
+      {
+        userAgent: '*',
+        disallow: '/Zuhaib%20Rashid.pdf',
+      },
+    ],
+  },
 };
