@@ -14,7 +14,7 @@ const education = [
     institution: "Government Higher Secondary School Zoohama",
     degree: "Higher Secondary (Medical Stream)",
     period: "Apr 2023 - Jun 2025",
-    gpa: "Percentage: 80.4%",
+    gpa: "Percentage: 88.1%",
     icon: "🏫",
   },
 ]
