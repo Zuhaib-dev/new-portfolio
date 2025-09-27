@@ -1,77 +1,80 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Linkedin, CheckCircle } from "lucide-react"
-import Link from "next/link"
-import { useState } from "react"
-import { useToast } from "@/components/ui/use-toast"
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Mail, Phone, MapPin, Linkedin, CheckCircle } from "lucide-react";
+import Link from "next/link";
+import { useState } from "react";
+import { useToast } from "@/components/ui/use-toast";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSuccess, setIsSuccess] = useState(false)
-  const { toast } = useToast()
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const { toast } = useToast();
 
   const handleChange = (e: { target: { id: any; value: any } }) => {
-    const { id, value } = e.target
-    setFormData(prev => ({
+    const { id, value } = e.target;
+    setFormData((prev) => ({
       ...prev,
-      [id]: value
-    }))
-  }
+      [id]: value,
+    }));
+  };
 
   const handleSubmit = async (e: { preventDefault: () => void }) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setIsSuccess(false)
+    e.preventDefault();
+    setIsSubmitting(true);
+    setIsSuccess(false);
 
     try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
+      const response = await fetch("/api/send-email", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
-      })
+      });
 
-      const data = await response.json()
+      const data = await response.json();
 
       if (response.ok) {
-        setIsSuccess(true)
+        setIsSuccess(true);
         toast({
           title: "Success!",
           description: (
             <div className="flex items-center gap-2">
               <CheckCircle className="h-5 w-5 text-green-500" />
-              {"Your message has been sent successfully. I'll get back to you soon!"}
+              {
+                "Your message has been sent successfully. I'll get back to you soon!"
+              }
             </div>
           ),
-        })
+        });
         setFormData({
-          name: '',
-          email: '',
-          message: ''
-        })
+          name: "",
+          email: "",
+          message: "",
+        });
       } else {
-        throw new Error(data.message || 'Failed to send message')
+        throw new Error(data.message || "Failed to send message");
       }
     } catch (error) {
       toast({
         title: "Error",
-        description: error instanceof Error ? error.message : "Failed to send message",
+        description:
+          error instanceof Error ? error.message : "Failed to send message",
         variant: "destructive",
-      })
+      });
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   return (
     <section id="contact" className="py-10">
@@ -134,13 +137,14 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">LinkedIn</p>
-                  <Link
-                    href="www.linkedin.com/in/zuhaib-rashid-661345318/"
+                  <a
+                    href="https://www.linkedin.com/in/zuhaib-rashid-661345318/"
                     target="_blank"
+                    rel="noopener noreferrer"
                     className="font-medium hover:underline"
                   >
-                    linkedin.com/in/zuhaib
-                  </Link>
+                    linkedin.com/in/Zuhaib
+                  </a>
                 </div>
               </div>
             </div>
@@ -155,9 +159,12 @@ export default function Contact() {
               >
                 <div className="flex flex-col items-center text-center gap-4">
                   <CheckCircle className="h-12 w-12 text-green-500" />
-                  <h3 className="text-xl font-semibold">Message Sent Successfully!</h3>
+                  <h3 className="text-xl font-semibold">
+                    Message Sent Successfully!
+                  </h3>
                   <p className="text-muted-foreground">
-                    Thank you for reaching out. I'll get back to you as soon as possible.
+                    Thank you for reaching out. I'll get back to you as soon as
+                    possible.
                   </p>
                   <Button
                     variant="outline"
@@ -170,16 +177,18 @@ export default function Contact() {
               </motion.div>
             ) : (
               <>
-                <h3 className="text-xl font-semibold mb-6">Send Me a Message</h3>
+                <h3 className="text-xl font-semibold mb-6">
+                  Send Me a Message
+                </h3>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <label htmlFor="name" className="text-sm">
                         Name
                       </label>
-                      <Input 
-                        id="name" 
-                        placeholder="Your name" 
+                      <Input
+                        id="name"
+                        placeholder="Your name"
                         value={formData.name}
                         onChange={handleChange}
                         required
@@ -189,10 +198,10 @@ export default function Contact() {
                       <label htmlFor="email" className="text-sm">
                         Email
                       </label>
-                      <Input 
-                        id="email" 
-                        type="email" 
-                        placeholder="Your email" 
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="Your email"
                         value={formData.email}
                         onChange={handleChange}
                         required
@@ -204,31 +213,45 @@ export default function Contact() {
                     <label htmlFor="message" className="text-sm">
                       Message
                     </label>
-                    <Textarea 
-                      id="message" 
-                      placeholder="Your message" 
-                      rows={5} 
+                    <Textarea
+                      id="message"
+                      placeholder="Your message"
+                      rows={5}
                       value={formData.message}
                       onChange={handleChange}
                       required
                     />
                   </div>
 
-                  <Button 
-                    type="submit" 
-                    className="w-full" 
+                  <Button
+                    type="submit"
+                    className="w-full"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
                       <span className="flex items-center gap-2">
-                        <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        <svg
+                          className="animate-spin h-4 w-4"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          ></circle>
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          ></path>
                         </svg>
                         Sending...
                       </span>
                     ) : (
-                      'Submit Message'
+                      "Submit Message"
                     )}
                   </Button>
                 </form>
@@ -238,5 +261,5 @@ export default function Contact() {
         </div>
       </motion.div>
     </section>
-  )
+  );
 }
