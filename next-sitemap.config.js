@@ -1,18 +1,8 @@
-// next-sitemap.config.js
-module.exports = {
-  siteUrl: 'https://zuhaibrashid.com',
-  generateRobotsTxt: true,
-  robotsTxtOptions: {
-    policies: [
-      {
-        userAgent: '*',
-        allow: '/',
-      },
-      // Optional: Block resume PDF from appearing separately
-      {
-        userAgent: '*',
-        disallow: '/Zuhaib%20Rashid.pdf',
-      },
-    ],
-  },
-};
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://zuhaibrashid.com/</loc>
+    <lastmod>2025-09-28</lastmod>
+    <priority>1.0</priority>
+  </url>
+</urlset>
