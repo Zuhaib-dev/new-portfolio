@@ -63,7 +63,7 @@ const projects = [
       "A dynamic website showcasing my adventurous friend circle with profiles, testimonials, and stunning visuals of our trips and hobbies.",
     image: "/friendcircle.png",
     tags: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Framer Motion", "Formspree"],
-    demoUrl: "https://zuhaib-dev.github.io/Friend-circle/index.html",
+    demoUrl: "https://friendcirclee.netlify.app/",
     githubUrl: "https://zuhaib-dev.github.io/Friend-circle",
     features: [
       "Custom-built animated layout with scroll effects",
