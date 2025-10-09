@@ -19,11 +19,11 @@ export const metadata: Metadata = {
 
   icons: {
   icon: [
-    { url: "/favicon.ico?v=2", type: "image/x-icon" },
-    { url: "/favicon.svg?v=2", type: "image/svg+xml" }, // ✅ SVG added
-    { url: "/android-chrome-192x192.png?v=2", sizes: "192x192", type: "image/png" },
-    { url: "/android-chrome-512x512.png?v=2", sizes: "512x512", type: "image/png" },
-    { url: "/favicon-96x96.png?v=2", sizes: "96x96", type: "image/png" }, // ✅ newly added
+    { url: "/favicon.ico", type: "image/x-icon" },
+    { url: "/favicon.svg", type: "image/svg+xml" }, // ✅ SVG added
+    { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+    { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
+    { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" }, // ✅ newly added
   ],
   apple: "/apple-touch-icon.png?v=2",
 },
