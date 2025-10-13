@@ -8,27 +8,24 @@ import AdHeader from "@/components/ad-header";
 import { Suspense } from "react";
 import Loading from "@/components/loading";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script"; // ✅ Added import
 
 const inter = Inter({ subsets: ["latin"] });
 
-/* -------------------- ✅ Metadata -------------------- */
 export const metadata: Metadata = {
   title: "Zuhaib Rashid - Frontend Developer in Srinagar, Kashmir",
   description:
     "Official portfolio of Zuhaib Rashid, a Frontend Developer from Srinagar, Kashmir. Specializing in React.js, Next.js, TypeScript, and modern web technologies with projects in AI and healthcare.",
-
   icons: {
-  icon: [
-    { url: "/favicon.ico", type: "image/x-icon" },
-    { url: "/favicon.svg", type: "image/svg+xml" }, // ✅ SVG added
-    { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
-    { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
-    { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" }, // ✅ newly added
-  ],
-  apple: "/apple-touch-icon.png?v=2",
-},
-
-
+    icon: [
+      { url: "/favicon.ico", type: "image/x-icon" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png?v=2",
+  },
   openGraph: {
     title: "Zuhaib Rashid - Frontend Developer Portfolio",
     description:
@@ -46,7 +43,6 @@ export const metadata: Metadata = {
     url: "https://zuhaibrashid.com",
     siteName: "Zuhaib Rashid Portfolio",
   },
-
   twitter: {
     card: "summary_large_image",
     title: "Zuhaib Rashid - Frontend Developer in Srinagar",
@@ -55,43 +51,31 @@ export const metadata: Metadata = {
     creator: "https://x.com/xuhaibx9",
     images: ["/screenShot.png"],
   },
-
   alternates: {
     canonical: "https://zuhaibrashid.com",
   },
-
   robots: {
     index: true,
     follow: true,
   },
-
-  /* ✅ Google Search Console Verification */
   verification: {
-    google: "KNk6HMTy4DzUcER3Dpsd2o3Xy2YgFKapFkN50AirDjs", 
+    google: "KNk6HMTy4DzUcER3Dpsd2o3Xy2YgFKapFkN50AirDjs",
   },
 };
 
-/* -------------------- ✅ Viewport -------------------- */
 export const viewport: Viewport = {
   themeColor: "#000000",
 };
 
-/* -------------------- ✅ Layout Component -------------------- */
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* ✅ Web App Manifest */}
         <link rel="manifest" href="/site.webmanifest" />
-
-        {/* ✅ Apple Mobile Web App Title */}
         <meta name="apple-mobile-web-app-title" content="Zuhaib Rashid" />
 
-        {/* ✅ JSON-LD Structured Data */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -112,10 +96,7 @@ export default function RootLayout({
                 addressRegion: "Jammu and Kashmir",
                 addressCountry: "India",
               },
-              worksFor: {
-                "@type": "Organization",
-                name: "Freelance",
-              },
+              worksFor: { "@type": "Organization", name: "Freelance" },
               keywords: [
                 "Frontend Developer in Srinagar",
                 "React.js Developer Kashmir",
@@ -140,13 +121,9 @@ export default function RootLayout({
           }}
         />
       </head>
+
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <AdHeader
             title="🚀 Resumind"
             description="Optimize Your Resume with AI"
@@ -166,6 +143,19 @@ export default function RootLayout({
             </footer>
           </Suspense>
         </ThemeProvider>
+
+        {/* ✅ Microsoft Clarity */}
+        <Script
+          id="microsoft-clarity"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "tpjufkrsmw");`,
+          }}
+        />
       </body>
     </html>
   );
