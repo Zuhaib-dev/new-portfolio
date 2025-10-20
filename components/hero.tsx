@@ -17,7 +17,6 @@ export default function Hero() {
   return (
     <section className="py-6 md:py-10">
       <div className="grid md:grid-cols-3 gap-10 items-center max-w-6xl mx-auto">
-        {/* Hero Content (Text Section) */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -100,7 +99,7 @@ export default function Hero() {
               </Button>
             </Link>
 
-            {/* Twitter Button */}
+            {/* Twitter / X Button */}
             <Link href="https://x.com/xuhaib_x9" target="_blank">
               <Button
                 variant="outline"
@@ -112,7 +111,7 @@ export default function Hero() {
                   className="h-3 w-3 sm:h-4 sm:w-4"
                   aria-hidden="true"
                 />
-                <span className="sr-only">Twitter</span>
+                <span className="sr-only">Twitter / X</span>
               </Button>
             </Link>
 
@@ -137,7 +136,6 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Hero Image/Animation Section */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -159,18 +157,28 @@ export default function Hero() {
               }}
             />
 
-            {/* Tech Stacks Grid */}
+            {/* Grid with floating tech stacks */}
             <div className="absolute inset-0 grid grid-cols-2 gap-2 sm:gap-4 p-2 sm:p-4">
-              {/* Tech Icons (React, Next.js, MongoDB, Tailwind CSS) */}
-              {/** Reduce animations here for quicker LCP */}
+              {/* Top Left - React Logo */}
               <motion.div
                 className="bg-muted rounded-lg p-2 sm:p-4 flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                <RiReactjsFill className="text-4xl text-[#087ea4]" />
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{
+                    duration: 10,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                  className="text-4xl text-[#087ea4]"
+                >
+                  <RiReactjsFill />
+                </motion.div>
               </motion.div>
 
+              {/* Top Right - Node.js */}
               <motion.div
                 className="bg-muted rounded-lg p-2 sm:p-4 flex items-center justify-center"
                 initial={{ y: -20 }}
@@ -182,16 +190,30 @@ export default function Hero() {
                   ease: "easeInOut",
                 }}
               >
-                <RiNextjsFill className="text-4xl" />
+                <div className="text-4xl">
+                  <RiNextjsFill />
+                </div>
               </motion.div>
 
+              {/* Bottom Left - Database */}
               <motion.div
                 className="bg-muted rounded-lg p-2 sm:p-4 flex items-center justify-center"
                 whileHover={{ scale: 1.05 }}
               >
-                <SiMongodb className="text-4xl text-green-600" />
+                <motion.div
+                  animate={{ y: [0, -5, 0] }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="text-4xl text-green-600"
+                >
+                  <SiMongodb />
+                </motion.div>
               </motion.div>
 
+              {/* Bottom Right - TypeScript */}
               <motion.div
                 className="bg-muted rounded-lg p-2 sm:p-4 flex items-center justify-center"
                 animate={{
@@ -206,9 +228,75 @@ export default function Hero() {
                   repeat: Infinity,
                 }}
               >
-                <RiTailwindCssFill className="text-4xl text-sky-500" />
+                <div className="text-4xl text-sky-500">
+                  <RiTailwindCssFill />
+                </div>
               </motion.div>
             </div>
+
+            {/* Floating tech badges around the grid */}
+            <motion.div
+              className="absolute -top-3 sm:-top-5 -left-3 sm:-left-5 bg-background px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm shadow-md border"
+              animate={{
+                y: [0, -5, 0],
+                rotate: [0, 5, -5, 0],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              ReactJs
+            </motion.div>
+
+            <motion.div
+              className="absolute -bottom-3 sm:-bottom-5 -right-3 sm:-right-5 bg-background px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm shadow-md border"
+              animate={{
+                y: [0, 5, 0],
+                rotate: [0, -5, 5, 0],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1,
+              }}
+            >
+              Tailwind CSS
+            </motion.div>
+
+            <motion.div
+              className="absolute -top-3 sm:-top-5 -right-3 sm:-right-5 bg-background px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm shadow-md border"
+              animate={{
+                x: [0, 5, 0],
+                rotate: [0, 5, -5, 0],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 0.5,
+              }}
+            >
+              Next.js
+            </motion.div>
+
+            <motion.div
+              className="absolute -bottom-3 sm:-bottom-5 -left-3 sm:-left-5 bg-background px-2 py-0.5 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm shadow-md border"
+              animate={{
+                x: [0, -5, 0],
+                rotate: [0, -5, 5, 0],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1.5,
+              }}
+            >
+              MongoDB
+            </motion.div>
           </div>
         </motion.div>
       </div>
