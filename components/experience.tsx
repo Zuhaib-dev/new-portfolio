@@ -28,17 +28,21 @@ const experiences = [
     ],
     skills: ["React.js", "Zustand", "Tailwind CSS", "SVG Animation", "Git", "Agile"]
   },
-  
 ]
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-10">
+    <section
+      id="experience"
+      className="py-10 relative overflow-hidden"
+      style={{ minHeight: "60vh" }} // prevents layout jumps when loading
+    >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+        viewport={{ once: true, amount: 0.2 }} // triggers slightly later to avoid reflow
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className="max-w-3xl mx-auto px-4"
       >
         <h2 className="text-3xl font-bold mb-10">Experience</h2>
 
@@ -46,23 +50,26 @@ export default function Experience() {
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.4, delay: index * 0.1, ease: "easeOut" }}
               className="space-y-4"
+              style={{ willChange: "transform" }} // prevents minor layout flickers
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between">
                 <div>
                   <h3 className="text-xl font-semibold">{exp.title}</h3>
                   <p className="text-muted-foreground">{exp.company}</p>
                 </div>
-                <p className="text-sm text-muted-foreground">{exp.period}</p>
+                <p className="text-sm text-muted-foreground flex-shrink-0">
+                  {exp.period}
+                </p>
               </div>
 
               <ul className="list-disc pl-5 space-y-2">
                 {exp.responsibilities.map((resp, idx) => (
-                  <li key={idx} className="text-sm">
+                  <li key={idx} className="text-sm leading-relaxed">
                     {resp}
                   </li>
                 ))}
