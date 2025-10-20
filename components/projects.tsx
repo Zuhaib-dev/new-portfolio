@@ -13,7 +13,7 @@ const projects = [
     title: "CarePulse",
     description:
       "A real-time healthcare dashboard for hospitals, tracking patient vitals via API integrations and providing automated, actionable alerts to healthcare professionals. Built for fast monitoring, data visualization, and robust user management.",
-    image: "/carepulse.png",
+    image: "/carepulse.webp",
     tags: ["React.js","Nextjs", "Tailwind CSS", "Typescript", "Appwrite", "Twilio"],
     demoUrl: "https://hms-seven-green.vercel.app/",
     githubUrl: "https://github.com/Zuhaib-dev/HMS",
@@ -25,7 +25,7 @@ const projects = [
     ]
   },
   {
-    logo: "/resumind.png",
+    logo: "/resumind.webp",
     title: "Resumind",
     description:
       "A full-stack AI resume builder leveraging GPT-3.5 to generate optimized, role-specific content with instant editing and export features. Prioritizes privacy, user experience, and seamless integration of AI-driven suggestions.",
@@ -45,7 +45,7 @@ const projects = [
     title: "Kilamate",
     description:
       "A modern weather forecasting app displaying real-time weather data with interactive charts, a sleek UI, and responsive design.",
-    image: "/SEO.png",
+    image: "/kilamate.webp",
     tags: ["Next.js", "React", "TypeScript", "shadcn/ui", "Tailwind CSS", "Recharts","Tanstack Query"],
     demoUrl: "https://kilamate.netlify.app/",
     githubUrl: "https://github.com/Zuhaib-dev/Kilamate",
@@ -61,7 +61,7 @@ const projects = [
     title: "Friend Circle",
     description:
       "A dynamic website showcasing my adventurous friend circle with profiles, testimonials, and stunning visuals of our trips and hobbies.",
-    image: "/friendcircle.png",
+    image: "/friendcircle.webp",
     tags: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Framer Motion", "Formspree"],
     demoUrl: "https://friendcirclee.netlify.app/",
     githubUrl: "https://zuhaib-dev.github.io/Friend-circle",
