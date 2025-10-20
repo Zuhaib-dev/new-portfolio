@@ -6,7 +6,7 @@ const education = [
   {
     institution: "Sheryians Coding School",
     degree: "Full Stack Web Development Bootcamp",
-    period: "Apr 2025 - Ongoing",
+    period: "Mar 2025 - Sep 2025",
     // gpa: "Completed with Merit",
     icon: "💻",
   },
