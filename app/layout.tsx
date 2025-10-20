@@ -32,7 +32,7 @@ export const metadata: Metadata = {
       "Explore the portfolio of Zuhaib Rashid, a React.js and Next.js developer from Srinagar, Kashmir. Featuring AI-powered apps, healthcare web solutions, and modern frontend design.",
     images: [
       {
-        url: "/screenShot.png",
+        url: "/screenShot.webp",
         width: 1200,
         height: 630,
         alt: "Zuhaib Rashid Portfolio Preview Image",
