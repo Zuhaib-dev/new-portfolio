@@ -29,7 +29,7 @@ const projects = [
     title: "Resumind",
     description:
       "A full-stack AI resume builder leveraging GPT-3.5 to generate optimized, role-specific content with instant editing and export features. Prioritizes privacy, user experience, and seamless integration of AI-driven suggestions.",
-    image: "/resumind.png",
+    image: "/resumind.webp",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Puterjs",  "React"],
     demoUrl: "https://resumind-ebon.vercel.app/",
     githubUrl: "https://github.com/Zuhaib-dev/Resumind",
@@ -41,7 +41,7 @@ const projects = [
     ]
   },
   {
-    logo: "/kilamate.svg",
+    logo: "/kilamate.webp",
     title: "Kilamate",
     description:
       "A modern weather forecasting app displaying real-time weather data with interactive charts, a sleek UI, and responsive design.",
