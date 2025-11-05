@@ -14,15 +14,15 @@ const projects = [
     description:
       "A real-time healthcare dashboard for hospitals, tracking patient vitals via API integrations and providing automated, actionable alerts to healthcare professionals. Built for fast monitoring, data visualization, and robust user management.",
     image: "/carepulse.webp",
-    tags: ["React.js","Nextjs", "Tailwind CSS", "Typescript", "Appwrite", "Twilio"],
+    tags: ["React.js", "Nextjs", "Tailwind CSS", "Typescript", "Appwrite", "Twilio"],
     demoUrl: "https://hms-seven-green.vercel.app/",
     githubUrl: "https://github.com/Zuhaib-dev/HMS",
     features: [
       "Live monitoring of patient vitals from IoT medical devices",
       "Automated critical alerts using Firebase Cloud Messaging",
       "Advanced data charts and dashboards for clinicians",
-      "User authentication, access control, and secure data flows"
-    ]
+      "User authentication, access control, and secure data flows",
+    ],
   },
   {
     logo: "/resumind.webp",
@@ -30,15 +30,32 @@ const projects = [
     description:
       "A full-stack AI resume builder leveraging GPT-3.5 to generate optimized, role-specific content with instant editing and export features. Prioritizes privacy, user experience, and seamless integration of AI-driven suggestions.",
     image: "/resumind.webp",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Puterjs",  "React"],
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Puterjs", "React"],
     demoUrl: "https://resumind-ebon.vercel.app/",
     githubUrl: "https://github.com/Zuhaib-dev/Resumind",
     features: [
       "AI-powered generation of tailored resume content",
       "Live editing, preview, and PDF export",
       "Secure Supabase backend for user data",
-      "Modern UI/UX built with Next.js and TypeScript"
-    ]
+      "Modern UI/UX built with Next.js and TypeScript",
+    ],
+  },
+  {
+    logo: "/lenscapes.webp",
+    title: "Lenscapes",
+    description:
+      "A visually stunning photography portfolio showcasing creative works, breathtaking landscapes, and timeless portraits — built to highlight artistry, storytelling, and seamless design.",
+    image: "/lenscapes.webp",
+    tags: ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "Framer Motion", "PWA"],
+    demoUrl: "https://lenscapes.netlify.app/",
+    githubUrl: "https://github.com/Zuhaib-dev/photography",
+    features: [
+      "Immersive, modern UI for photographers and artists",
+      "Framer Motion animations for smooth transitions",
+      "Optimized metadata and SEO-ready architecture",
+      "Progressive Web App support with offline access",
+      "Responsive design with light/dark-friendly visuals",
+    ],
   },
   {
     logo: "/kilamate.webp",
@@ -46,15 +63,23 @@ const projects = [
     description:
       "A modern weather forecasting app displaying real-time weather data with interactive charts, a sleek UI, and responsive design.",
     image: "/kilamate.webp",
-    tags: ["Next.js", "React", "TypeScript", "shadcn/ui", "Tailwind CSS", "Recharts","Tanstack Query"],
+    tags: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "shadcn/ui",
+      "Tailwind CSS",
+      "Recharts",
+      "Tanstack Query",
+    ],
     demoUrl: "https://kilamate.netlify.app/",
     githubUrl: "https://github.com/Zuhaib-dev/Kilamate",
     features: [
       "Real-time weather updates for any location",
       "Beautiful, responsive user interface",
       "Interactive charts powered by Recharts",
-      "High performance and scalability with modern tech stack"
-    ]
+      "High performance and scalability with modern tech stack",
+    ],
   },
   {
     logo: "/friendcirlce.png",
@@ -69,10 +94,12 @@ const projects = [
       "Custom-built animated layout with scroll effects",
       "Friend profiles with pictures and activity highlights",
       "Responsive, clean design optimized for mobile",
-      "Testimonials, event calendar, and Instagram integration"
-    ]
-  }
+      "Testimonials, event calendar, and Instagram integration",
+    ],
+  },
+  
 ];
+
 
 
 export default function Projects() {
