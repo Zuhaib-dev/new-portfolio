@@ -1,6 +1,6 @@
 # 🌟 Zuhaib Rashid – Personal Portfolio
 
-[![Portfolio Preview](https://zuhaibrashid.com/screenShot.png)](https://zuhaibrashid.com/)
+[![Portfolio Preview](https://zuhaibrashid.com/screenShot.webp)](https://zuhaibrashid.com/)
 
 🚀 **A modern, fully responsive personal portfolio** built with **Next.js, TypeScript, and Tailwind CSS** to showcase my journey, skills, and projects in the most elegant way possible.
 
