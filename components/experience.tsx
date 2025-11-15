@@ -6,7 +6,7 @@ import { title } from "process";
 
 const experiences = [
   {
-    title: "Frontend Developer (Intership Remote)",
+    title: "Frontend Developer (Intership, Remote)",
     company: "Internpe",
     period: "Nov 2025 - Present",
     responsibilities: [
