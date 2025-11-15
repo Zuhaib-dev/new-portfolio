@@ -1,9 +1,31 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Badge } from "@/components/ui/badge"
+import { motion } from "framer-motion";
+import { Badge } from "@/components/ui/badge";
+import { title } from "process";
 
 const experiences = [
+  {
+    title: "Frontend Developer (Intership Remote)",
+    company: "Internpe",
+    period: "Nov 2025 - Dec 2025",
+    responsibilities: [
+      "Developed a healthcare portal supporting 200+ bookings, user authentication, and real-time doctor scheduling (React.js, TypeScript, Zustand).",
+      "Engineered reusable UI components, dynamic form validation, and API integrations with Appwrite and Twilio for secure notifications.",
+      "Deployed at live demo; increased patient digital adoption by 25%.",
+      "Led automated testing (Jest, Cypress) and CI/CD configuration for reliable and maintainable delivery.",
+    ],
+    skills: [
+      "React.js",
+      "TypeScript",
+      "Zustand",
+      "Appwrite",
+      "Twilio",
+      "Jest",
+      "Cypress",
+      "CI/CD",
+    ],
+  },
   {
     title: "Frontend Developer (Freelance, Remote)",
     company: "Perfect Health Care",
@@ -12,9 +34,18 @@ const experiences = [
       "Developed a healthcare portal supporting 200+ bookings, user authentication, and real-time doctor scheduling (React.js, TypeScript, Zustand).",
       "Engineered reusable UI components, dynamic form validation, and API integrations with Appwrite and Twilio for secure notifications.",
       "Deployed at live demo; increased patient digital adoption by 25%.",
-      "Led automated testing (Jest, Cypress) and CI/CD configuration for reliable and maintainable delivery."
+      "Led automated testing (Jest, Cypress) and CI/CD configuration for reliable and maintainable delivery.",
     ],
-    skills: ["React.js", "TypeScript", "Zustand", "Appwrite", "Twilio", "Jest", "Cypress", "CI/CD"]
+    skills: [
+      "React.js",
+      "TypeScript",
+      "Zustand",
+      "Appwrite",
+      "Twilio",
+      "Jest",
+      "Cypress",
+      "CI/CD",
+    ],
   },
   {
     title: "Frontend Developer (Freelance, Remote)",
@@ -24,12 +55,18 @@ const experiences = [
       "Built and maintained a responsive travel booking platform (React.js, Zustand, Tailwind CSS), serving 50+ daily visitor sessions.",
       "Implemented modular component architecture and complex state management for booking workflows.",
       "Enhanced user experience with animated SVG interfaces, which boosted booking conversions by 20%.",
-      "Coordinated remote user testing and agile releases; led code reviews and Git-based collaboration to ensure consistency and quality."
+      "Coordinated remote user testing and agile releases; led code reviews and Git-based collaboration to ensure consistency and quality.",
     ],
-    skills: ["React.js", "Zustand", "Tailwind CSS", "SVG Animation", "Git", "Agile"]
+    skills: [
+      "React.js",
+      "Zustand",
+      "Tailwind CSS",
+      "SVG Animation",
+      "Git",
+      "Agile",
+    ],
   },
-  
-]
+];
 
 export default function Experience() {
   return (
@@ -80,5 +117,5 @@ export default function Experience() {
         </div>
       </motion.div>
     </section>
-  )
+  );
 }
