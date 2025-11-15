@@ -8,7 +8,7 @@ const experiences = [
   {
     title: "Frontend Developer (Intership Remote)",
     company: "Internpe",
-    period: "Nov 2025 - Dec 2025",
+    period: "Nov 2025 - Present",
     responsibilities: [
       "Developed a healthcare portal supporting 200+ bookings, user authentication, and real-time doctor scheduling (React.js, TypeScript, Zustand).",
       "Engineered reusable UI components, dynamic form validation, and API integrations with Appwrite and Twilio for secure notifications.",
