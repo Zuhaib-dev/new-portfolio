@@ -10,10 +10,9 @@ const experiences = [
     company: "Internpe",
     period: "Nov 2025 - Present",
     responsibilities: [
-      "Developed a healthcare portal supporting 200+ bookings, user authentication, and real-time doctor scheduling (React.js, TypeScript, Zustand).",
-      "Engineered reusable UI components, dynamic form validation, and API integrations with Appwrite and Twilio for secure notifications.",
-      "Deployed at live demo; increased patient digital adoption by 25%.",
-      "Led automated testing (Jest, Cypress) and CI/CD configuration for reliable and maintainable delivery.",
+      "Completed a 4-week Web Development Internship focused on building production-ready frontend components and improving real-world development workflow .",
+      "Strengthened practical skills in React, component architecture, responsive UI, and API handling under industry guidance.",
+      "Worked in a structured environment emphasizing code quality, Agile tasks, and practical project execution .",
     ],
     skills: [
       "React.js",
@@ -21,9 +20,6 @@ const experiences = [
       "Zustand",
       "Appwrite",
       "Twilio",
-      "Jest",
-      "Cypress",
-      "CI/CD",
     ],
   },
   {
