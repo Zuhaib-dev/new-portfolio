@@ -7,7 +7,7 @@ module.exports = {
   sitemapSize: 5000,
   additionalPaths: async (config) => {
     const paths = [];
-    paths.push(await config.transform(config, '/Zuhaib%20Rashid.pdf', 'monthly', 0.8));
+    paths.push(await config.transform(config, '/Zuhaib.pdf', 'monthly', 0.8));
     return paths;
   },
   robotsTxtOptions: {
