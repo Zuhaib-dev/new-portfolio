@@ -65,7 +65,7 @@ export default function Hero() {
           <div className="flex flex-wrap gap-2 sm:gap-3">
             {/* Resume Button */}
             <a
-              href="/Zuhaib Rashid.pdf"
+              href="/Zuhaib.pdf"
               target="_blank"
               rel="noopener noreferrer"
               download
