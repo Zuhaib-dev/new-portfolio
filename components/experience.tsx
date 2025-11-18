@@ -10,17 +10,11 @@ const experiences = [
     company: "Internpe",
     period: "Nov 2025 - Present",
     responsibilities: [
-      "Completed a 4-week Web Development Internship focused on building production-ready frontend components and improving real-world development workflow .",
-      "Strengthened practical skills in React, component architecture, responsive UI, and API handling under industry guidance.",
-      "Worked in a structured environment emphasizing code quality, Agile tasks, and practical project execution .",
+      "Built and shipped 12+ pixel-perfect, responsive UI components with React, Next.js, Tailwind, and shadcn/ui, improving UI consistency and reducing CSS duplication by 35%.",
+      "Integrated RESTful APIs with loading states, skeletons, and optimistic UI, decreasing perceived wait time by 25% and reducing error retries by 18% across core user flows.",
+      "Improved Core Web Vitals (CLS 0.11 → 0.03, LCP 28%) via image optimization, preloading, and route-level code splitting, raising Lighthouse Performance from 67 to 92.",
     ],
-    skills: [
-      "React.js",
-      "TypeScript",
-      "Zustand",
-      "Appwrite",
-      "Twilio",
-    ],
+    skills: ["React.js", "TypeScript", "Redux", "Appwrite", "Tailwind"],
   },
   {
     title: "Frontend Developer (Freelance, Remote)",
