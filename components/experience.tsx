@@ -19,7 +19,7 @@ const experiences = [
   {
     title: "Frontend Developer (Freelance, Remote)",
     company: "Perfect Health Care",
-    period: "Aug 2024 – Sep 2024",
+    period: "Jun 2024 – Oct 2024",
     responsibilities: [
       "Developed a healthcare portal supporting 200+ bookings, user authentication, and real-time doctor scheduling (React.js, TypeScript, Zustand).",
       "Engineered reusable UI components, dynamic form validation, and API integrations with Appwrite and Twilio for secure notifications.",
@@ -40,7 +40,7 @@ const experiences = [
   {
     title: "Frontend Developer (Freelance, Remote)",
     company: "TravelwithTehseen",
-    period: "Jan 2024 – Apr 2024",
+    period: "Apr 2024 – Sep 2024",
     responsibilities: [
       "Built and maintained a responsive travel booking platform (React.js, Zustand, Tailwind CSS), serving 50+ daily visitor sessions.",
       "Implemented modular component architecture and complex state management for booking workflows.",
