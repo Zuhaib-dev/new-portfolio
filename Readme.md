@@ -32,7 +32,8 @@ I love to:
 
 ## 🛠️ Tech Stack  
 
-- **Framework:** Next.js 14  
+- **Framework:** Next.js 
+- **Libary:** React.js  
 - **Language:** TypeScript  
 - **Styling:** Tailwind CSS  
 - **Animations:** Framer Motion  
