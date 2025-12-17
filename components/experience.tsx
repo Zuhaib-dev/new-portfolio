@@ -8,7 +8,7 @@ const experiences = [
   {
     title: "Frontend Developer (Intership, Remote)",
     company: "Internpe",
-    period: "Nov 2025 - Present",
+    period: "Nov 2025 - Dec 2025",
     responsibilities: [
       "Built and shipped 12+ pixel-perfect, responsive UI components with React, Next.js, Tailwind, and shadcn/ui, improving UI consistency and reducing CSS duplication by 35%.",
       "Integrated RESTful APIs with loading states, skeletons, and optimistic UI, decreasing perceived wait time by 25% and reducing error retries by 18% across core user flows.",
