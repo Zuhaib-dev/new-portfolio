@@ -100,4 +100,4 @@ Designed & Developed by Zuhaib Rashid
 
 For quries fell free to Contact me @ zuhaibrashid01@gmail.com 
 🙌 👍  
-last index
+last index on google was on 14 jan
