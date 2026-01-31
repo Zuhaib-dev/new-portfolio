@@ -1,6 +1,4 @@
 # File Tree: new-portfolio
-
-**Generated:** 1
 ```
 ├── 📁 app
 │   ├── 📁 api
