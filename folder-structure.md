@@ -1,7 +1,7 @@
 # File Tree: new-portfolio
 
 **Generated:** 1/31/2026, 11:43:44 AM
-**Root Path:** `c:\Users\Lenovo-PC\OneDrive\Documents\Mern stack\Porto
+
 ```
 ├── 📁 app
 │   ├── 📁 api
