@@ -1,7 +1,6 @@
 # File Tree: new-portfolio
 
-**Generated:** 1/31/2026, 11:43:44 AM
-
+**Generated:** 1
 ```
 ├── 📁 app
 │   ├── 📁 api
