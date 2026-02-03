@@ -1,13 +1,27 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  images: {
-    unoptimized: true,
+  // Removed eslint.ignoreDuringBuilds - let's catch errors early
+  // Removed typescript.ignoreBuildErrors - type safety is important
+  // Removed images.unoptimized - enable Next.js image optimization for better performance
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: `
+              default-src 'self';
+              script-src 'self' 'unsafe-eval' 'unsafe-inline' https://vercel.live https://va.vercel-scripts.com https://www.clarity.ms https://c.bing.com;
+              style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+              img-src 'self' blob: data: https://*.clarity.ms https://c.bing.com;
+              font-src 'self' https://fonts.gstatic.com;
+              connect-src 'self' https://sentry.io https://*.clarity.ms https://c.bing.com;
+            `.replace(/\s{2,}/g, ' ').trim()
+          },
+        ],
+      },
+    ];
   },
 };
 

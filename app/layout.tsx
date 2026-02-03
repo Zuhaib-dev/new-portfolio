@@ -9,6 +9,8 @@ import Loading from "@/components/loading";
 import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import SmoothScroll from "@/components/smooth-scroll";
+import ScrollToTop from "@/components/scroll-to-top";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +28,10 @@ export const metadata: Metadata = {
     "Zuhaib Rashid",
     "Portfolio",
   ],
+  authors: [{ name: "Zuhaib Rashid", url: "https://zuhaibrashid.com" }],
+  creator: "Zuhaib Rashid",
+  publisher: "Zuhaib Rashid",
+  category: "Technology",
   icons: {
     icon: [
       { url: "/favicon.ico", type: "image/x-icon" },
@@ -42,7 +48,7 @@ export const metadata: Metadata = {
       "Explore the portfolio of Zuhaib Rashid, a React.js and Next.js developer from Srinagar, Kashmir. Featuring AI-powered apps, healthcare web solutions, and modern frontend design.",
     images: [
       {
-        url: "/screenShot.webp",
+        url: "/og",
         width: 1200,
         height: 630,
         alt: "Zuhaib Rashid Portfolio Preview Image",
@@ -90,6 +96,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="apple-mobile-web-app-title" content="Zuhaib Rashid" />
 
@@ -137,6 +145,23 @@ export default function RootLayout({
             }),
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "Home",
+                  item: "https://zuhaibrashid.com",
+                },
+              ],
+            }),
+          }}
+        />
       </head>
 
       <body className={inter.className}>
@@ -151,14 +176,21 @@ export default function RootLayout({
           />
           <Suspense fallback={<Loading />}>
             <SmoothScroll>
+              <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md"
+              >
+                Skip to main content
+              </a>
               <Analytics />
               <Header />
-              <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+              <main id="main-content" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 {children}
               </main>
               <footer className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-sm text-muted-foreground">
                 © {new Date().getFullYear()} Zuhaib Rashid. All rights reserved.
               </footer>
+              <ScrollToTop />
             </SmoothScroll>
           </Suspense>
         </ThemeProvider>

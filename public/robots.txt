@@ -1,9 +1,5 @@
-# *
 User-agent: *
 Allow: /
+Disallow: /api/
 
-# Host
-Host: https://www.zuhaibrashid.com
-
-# Sitemaps
-Sitemap: https://www.zuhaibrashid.com/sitemap.xml
+Sitemap: https://zuhaibrashid.com/sitemap.xml
