@@ -23,7 +23,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="py-6 md:py-10">
+    <section className="relative py-6 md:py-10">
       <div className="grid md:grid-cols-3 gap-10 items-center max-w-6xl mx-auto">
         {/* ===== LEFT: Hero Text ===== */}
         <motion.div
@@ -224,12 +224,12 @@ export default function Hero() {
                   animate={
                     !isMobile
                       ? {
-                          boxShadow: [
-                            "0 0 0 0px rgba(49,130,206,0.1)",
-                            "0 0 0 10px rgba(49,130,206,0.1)",
-                            "0 0 0 0px rgba(49,130,206,0.1)",
-                          ],
-                        }
+                        boxShadow: [
+                          "0 0 0 0px rgba(49,130,206,0.1)",
+                          "0 0 0 10px rgba(49,130,206,0.1)",
+                          "0 0 0 0px rgba(49,130,206,0.1)",
+                        ],
+                      }
                       : {}
                   }
                   transition={{ duration: 4, repeat: Infinity }}

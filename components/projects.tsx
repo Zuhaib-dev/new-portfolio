@@ -123,8 +123,8 @@ export default function Projects() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="grid md:grid-cols-2 gap-6 border rounded-xl overflow-hidden group"
             >
-              <div className="overflow-hidden relative h-[300px] md:h-full border-b md:border-b-0 md:border-r">
-                <div className="absolute inset-0 overflow-y-auto scrollbar-hide">
+              <div className="overflow-hidden relative h-[300px] md:h-full border-b md:border-b-0 md:border-r scrollbar-hide">
+                <div className="absolute inset-0 overflow-auto scrollbar-hide">
                   <Image
                     src={project.image || "/placeholder.svg"}
                     alt={project.title ?? "Project image"}

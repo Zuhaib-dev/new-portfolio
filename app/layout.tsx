@@ -1,4 +1,3 @@
-import type React from "react";
 import type { Metadata, Viewport } from "next/types";
 import { Inter } from "next/font/google";
 import "../styles/globals.css";
@@ -8,7 +7,8 @@ import AdHeader from "@/components/ad-header";
 import { Suspense } from "react";
 import Loading from "@/components/loading";
 import { Analytics } from "@vercel/analytics/next";
-import Script from "next/script"; // ✅ Added import
+import Script from "next/script";
+import SmoothScroll from "@/components/smooth-scroll";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -150,14 +150,16 @@ export default function RootLayout({
             dismissible={true}
           />
           <Suspense fallback={<Loading />}>
-            <Analytics />
-            <Header />
-            <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-              {children}
-            </main>
-            <footer className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Zuhaib Rashid. All rights reserved.
-            </footer>
+            <SmoothScroll>
+              <Analytics />
+              <Header />
+              <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                {children}
+              </main>
+              <footer className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-sm text-muted-foreground">
+                © {new Date().getFullYear()} Zuhaib Rashid. All rights reserved.
+              </footer>
+            </SmoothScroll>
           </Suspense>
         </ThemeProvider>
 
