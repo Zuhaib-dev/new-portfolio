@@ -1,7 +1,7 @@
 import type React from "react";
 import type { Metadata, Viewport } from "next/types";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../styles/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
 import AdHeader from "@/components/ad-header";
@@ -13,9 +13,19 @@ import Script from "next/script"; // ✅ Added import
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://zuhaibrashid.com"),
   title: "Zuhaib Rashid - Frontend Developer in Srinagar, Kashmir",
   description:
     "Official portfolio of Zuhaib Rashid, a Frontend Developer from Srinagar, Kashmir. Specializing in React.js, Next.js, TypeScript, and modern web technologies with projects in AI and healthcare.",
+  keywords: [
+    "Frontend Developer",
+    "React.js Developer",
+    "Next.js Developer",
+    "Web Developer Kashmir",
+    "Srinagar",
+    "Zuhaib Rashid",
+    "Portfolio",
+  ],
   icons: {
     icon: [
       { url: "/favicon.ico", type: "image/x-icon" },
@@ -57,6 +67,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   verification: {
     google: "KNk6HMTy4DzUcER3Dpsd2o3Xy2YgFKapFkN50AirDjs",

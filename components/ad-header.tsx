@@ -47,9 +47,9 @@ export default function AdHeader({
               <div className="flex items-center space-x-4 flex-1 min-w-0">
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
-                    <h3 className="font-semibold text-sm sm:text-base truncate">
+                    <span className="font-semibold text-sm sm:text-base truncate">
                       {title}
-                    </h3>
+                    </span>
                     {description && (
                       <p className="text-xs sm:text-sm text-white/90 truncate">
                         {description}
@@ -57,7 +57,7 @@ export default function AdHeader({
                     )}
                   </div>
                 </div>
-                
+
                 <Button
                   asChild
                   size="sm"

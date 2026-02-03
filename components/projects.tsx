@@ -97,7 +97,7 @@ const projects = [
       "Testimonials, event calendar, and Instagram integration",
     ],
   },
-  
+
 ];
 
 
@@ -130,6 +130,7 @@ export default function Projects() {
                     alt={project.title ?? "Project image"}
                     width={800}
                     height={1200}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="w-full object-contain transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
