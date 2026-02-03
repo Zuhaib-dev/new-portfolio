@@ -54,35 +54,12 @@ export default function GithubStats() {
                 </div>
 
                 <div className="space-y-6">
-                    {/* GitHub Streak Stats - Full Width */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.1 }}
-                        className="relative overflow-hidden rounded-xl border bg-card p-6"
-                    >
-                        <h3 className="text-lg font-semibold mb-4">Contribution Streak</h3>
-                        {mounted ? (
-                            <Image
-                                src={`https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=${streakTheme}&hide_border=true&background=${isDark ? "0D1117" : "FFFFFF"}&ring=${isDark ? "58A6FF" : "0969DA"}&fire=${isDark ? "58A6FF" : "0969DA"}&currStreakLabel=${isDark ? "C9D1D9" : "24292F"}`}
-                                alt="GitHub Streak Stats"
-                                width={800}
-                                height={200}
-                                className="w-full h-auto"
-                                unoptimized
-                            />
-                        ) : (
-                            <div className="w-full h-[200px] animate-pulse bg-muted rounded-lg" />
-                        )}
-                    </motion.div>
-
                     {/* Contribution Graph - Full Width */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
+                        transition={{ duration: 0.5, delay: 0.1 }}
                         className="relative overflow-hidden rounded-xl border bg-card p-6"
                     >
                         <h3 className="text-lg font-semibold mb-4">Contribution Graph</h3>
@@ -105,7 +82,7 @@ export default function GithubStats() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.3 }}
+                        transition={{ duration: 0.5, delay: 0.2 }}
                         className="relative overflow-hidden rounded-xl border bg-card p-8 text-center"
                     >
                         <div className="flex flex-col items-center gap-4">
