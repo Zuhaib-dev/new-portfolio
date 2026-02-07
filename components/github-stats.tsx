@@ -11,10 +11,12 @@ import { Button } from "@/components/ui/button"
 export default function GithubStats() {
     const { theme, systemTheme } = useTheme()
     const [mounted, setMounted] = useState(false)
+    const [timestamp, setTimestamp] = useState<number>(0)
 
     // Prevent hydration mismatch
     useEffect(() => {
         setMounted(true)
+        setTimestamp(Date.now())
     }, [])
 
     // Determine the current theme
@@ -63,15 +65,16 @@ export default function GithubStats() {
                         className="relative overflow-hidden rounded-xl border bg-card p-6"
                     >
                         <h3 className="text-lg font-semibold mb-4">Contribution Graph</h3>
-                        {mounted ? (
+                        {/* Force remount on theme change and prevent browser caching of broken images */}
+                        {mounted && currentTheme ? (
                             <img
-                                key={currentTheme}
-                                src={`https://github-readme-activity-graph.vercel.app/graph?username=${username}&${themeParams}&hide_border=true&area=true&custom_title=Contribution%20Graph`}
+                                key={`${currentTheme}-${mounted}`}
+                                src={`https://github-readme-activity-graph.vercel.app/graph?username=${username}&${themeParams}&hide_border=true&area=true&custom_title=Contribution%20Graph&t=${timestamp}`}
                                 alt="GitHub Contribution Graph"
                                 width={1000}
                                 height={300}
                                 className="w-full h-auto"
-                                loading="lazy"
+                                loading="eager"
                             />
                         ) : (
                             <div className="w-full h-[300px] animate-pulse bg-muted rounded-lg" />
