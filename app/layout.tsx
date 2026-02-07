@@ -48,7 +48,7 @@ export const metadata: Metadata = {
       "Frontend Developer from Srinagar specializing in React, Next.js, and AI. Building modern, accessible web apps for healthcare & more.",
     images: [
       {
-        url: "/og",
+        url: "/screenShot.webp",
         width: 1200,
         height: 630,
         alt: "Zuhaib Rashid Portfolio Preview Image",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     description:
       "Portfolio showcasing React.js, Next.js, and AI-powered projects by Zuhaib Rashid from Srinagar, Kashmir.",
     creator: "https://x.com/xuhaibx9",
-    images: ["/screenShot.png"],
+    images: ["/screenShot.webp"],
   },
   alternates: {
     canonical: "https://zuhaibrashid.com",
