@@ -16,9 +16,9 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://zuhaibrashid.com"),
-  title: "Zuhaib Rashid - Frontend Developer in Srinagar, Kashmir",
+  title: "Zuhaib Rashid - Frontend Developer & AI Engineer | Portfolio",
   description:
-    "Official portfolio of Zuhaib Rashid, a Frontend Developer from Srinagar, Kashmir. Specializing in React.js, Next.js, TypeScript, and modern web technologies with projects in AI and healthcare.",
+    "Frontend Developer from Srinagar specializing in React, Next.js, and AI. Building modern, accessible web apps for healthcare & more.",
   keywords: [
     "Frontend Developer",
     "React.js Developer",
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png?v=2",
   },
   openGraph: {
-    title: "Zuhaib Rashid - Frontend Developer Portfolio",
+    title: "Zuhaib Rashid - Frontend Developer & AI Engineer | Portfolio",
     description:
-      "Explore the portfolio of Zuhaib Rashid, a React.js and Next.js developer from Srinagar, Kashmir. Featuring AI-powered apps, healthcare web solutions, and modern frontend design.",
+      "Frontend Developer from Srinagar specializing in React, Next.js, and AI. Building modern, accessible web apps for healthcare & more.",
     images: [
       {
         url: "/og",

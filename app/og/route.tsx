@@ -57,25 +57,65 @@ export async function GET() {
                             zIndex: 10,
                         }}
                     >
+                        {/* Portfolio Badge */}
                         <div
                             style={{
-                                fontSize: 60,
-                                fontWeight: 800,
+                                display: 'flex',
+                                padding: '8px 20px',
+                                borderRadius: '50px',
+                                backgroundColor: 'rgba(56, 189, 248, 0.15)',
+                                border: '1px solid rgba(56, 189, 248, 0.3)',
+                                color: '#38bdf8',
+                                fontSize: 16,
+                                fontWeight: 700,
                                 marginBottom: 20,
+                                letterSpacing: '0.1em',
+                                textTransform: 'uppercase',
+                            }}
+                        >
+                            Portfolio
+                        </div>
+
+                        <div
+                            style={{
+                                fontSize: 70,
+                                fontWeight: 800,
+                                marginBottom: 15,
                                 // Color is handled by gradient but transparent is needed for background-clip
+                                background: 'linear-gradient(to right, #ffffff, #94a3b8)',
+                                backgroundClip: 'text',
                                 color: 'transparent',
+                                letterSpacing: '-0.03em',
                             }}
                         >
                             Zuhaib Rashid
                         </div>
                         <div
                             style={{
-                                fontSize: 30,
+                                fontSize: 32,
                                 color: '#94a3b8',
                                 letterSpacing: '-0.02em',
+                                marginBottom: 40,
                             }}
                         >
                             Frontend & Fullstack Developer
+                        </div>
+
+                        {/* Call to Action */}
+                        <div
+                            style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: 10,
+                                fontSize: 20,
+                                color: '#e2e8f0',
+                                backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                                padding: '12px 24px',
+                                borderRadius: '12px',
+                                border: '1px solid rgba(255, 255, 255, 0.1)',
+                            }}
+                        >
+                            zuhaibrashid.com
                         </div>
                     </div>
                 </div>
