@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Image from "next/image"
+
 import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
 import { Github } from "lucide-react"
@@ -64,13 +64,14 @@ export default function GithubStats() {
                     >
                         <h3 className="text-lg font-semibold mb-4">Contribution Graph</h3>
                         {mounted ? (
-                            <Image
+                            <img
+                                key={currentTheme}
                                 src={`https://github-readme-activity-graph.vercel.app/graph?username=${username}&${themeParams}&hide_border=true&area=true&custom_title=Contribution%20Graph`}
                                 alt="GitHub Contribution Graph"
                                 width={1000}
                                 height={300}
                                 className="w-full h-auto"
-                                unoptimized
+                                loading="lazy"
                             />
                         ) : (
                             <div className="w-full h-[300px] animate-pulse bg-muted rounded-lg" />
