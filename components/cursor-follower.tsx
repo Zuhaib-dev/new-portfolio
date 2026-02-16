@@ -8,6 +8,9 @@ import {
   useVelocity,
 } from "framer-motion";
 import { useEffect, useState } from "react";
+import Image from "next/image";
+
+type CatState = "walking" | "resting" | "sleeping";
 
 export function CursorFollower() {
   const cursorX = useMotionValue(-100);
@@ -19,12 +22,14 @@ export function CursorFollower() {
   const cursorYSpring = useSpring(cursorY, springConfig);
 
   const velocityX = useVelocity(cursorXSpring);
+  const velocityY = useVelocity(cursorYSpring);
   const rotate = useTransform(velocityX, [-1000, 1000], [-15, 15]); // Tilt based on speed
 
   const [isClicking, setIsClicking] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const [hasEntered, setHasEntered] = useState(false);
+  const [catState, setCatState] = useState<CatState>("walking");
+  const [lastMoveTime, setLastMoveTime] = useState(Date.now());
 
   useEffect(() => {
     // Check if device is mobile/touch
@@ -33,12 +38,47 @@ export function CursorFollower() {
     }
   }, []);
 
+  // Monitor velocity to determine cat state
+  useEffect(() => {
+    const unsubscribeX = velocityX.on("change", (vx) => {
+      const vy = velocityY.get();
+      const speed = Math.sqrt(vx * vx + vy * vy);
+
+      // Update last move time if there's significant movement
+      if (speed > 10) {
+        setLastMoveTime(Date.now());
+      }
+
+      // Determine cat state based on speed
+      if (speed > 100) {
+        setCatState("walking");
+      } else if (speed > 10) {
+        setCatState("resting");
+      }
+    });
+
+    return () => {
+      unsubscribeX();
+    };
+  }, [velocityX, velocityY]);
+
+  // Check for sleeping state (no movement for 3 seconds)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const timeSinceLastMove = Date.now() - lastMoveTime;
+      if (timeSinceLastMove > 3000) {
+        setCatState("sleeping");
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [lastMoveTime]);
+
   useEffect(() => {
     if (isMobile) return;
 
     // Initial entrance animation from top-left
     const timer = setTimeout(() => {
-      setHasEntered(true);
       setIsVisible(true);
     }, 500); // Small delay before entrance
 
@@ -47,6 +87,7 @@ export function CursorFollower() {
       cursorX.set(e.clientX + 20);
       cursorY.set(e.clientY - 20);
       if (!isVisible) setIsVisible(true);
+      setLastMoveTime(Date.now());
     };
 
     const handleMouseDown = () => setIsClicking(true);
@@ -75,10 +116,24 @@ export function CursorFollower() {
   // Don't render on server or on mobile to avoid bad UX
   if (isMobile) return null;
 
+  // Determine which cat image to show
+  const getCatImage = () => {
+    switch (catState) {
+      case "walking":
+        return "/cat_walking.gif";
+      case "resting":
+        return "/cat_rest.gif";
+      case "sleeping":
+        return "/cat_sleeping.gif";
+      default:
+        return "/cat_walking.gif";
+    }
+  };
+
   return (
     <>
       <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-[9999] flex h-10 w-10 items-center justify-center text-4xl select-none"
+        className="pointer-events-none fixed left-0 top-0 z-[9999] flex h-24 w-24 items-center justify-center select-none"
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{
           opacity: isVisible ? 1 : 0,
@@ -94,8 +149,16 @@ export function CursorFollower() {
           rotate: rotate,
         }}
       >
-        <div className="relative flex items-center justify-center">
-          <span className="drop-shadow-lg">👻</span>
+        <div className="relative flex items-center justify-center w-full h-full">
+          <Image
+            src={getCatImage()}
+            alt="Cat cursor follower"
+            width={96}
+            height={96}
+            className="drop-shadow-lg object-contain"
+            unoptimized // Required for GIFs to animate
+            priority
+          />
           {/* Subtle glow effect */}
           <div className="absolute inset-0 blur-xl bg-orange-400/20 rounded-full -z-10 scale-150" />
         </div>
