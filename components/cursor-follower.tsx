@@ -30,6 +30,7 @@ export function CursorFollower() {
   const [isMobile, setIsMobile] = useState(false);
   const [catState, setCatState] = useState<CatState>("walking");
   const [lastMoveTime, setLastMoveTime] = useState(Date.now());
+  const [facingLeft, setFacingLeft] = useState(false); // Track if cat should face left
 
   useEffect(() => {
     // Check if device is mobile/touch
@@ -38,7 +39,7 @@ export function CursorFollower() {
     }
   }, []);
 
-  // Monitor velocity to determine cat state
+  // Monitor velocity to determine cat state and direction
   useEffect(() => {
     const unsubscribeX = velocityX.on("change", (vx) => {
       const vy = velocityY.get();
@@ -47,6 +48,11 @@ export function CursorFollower() {
       // Update last move time if there's significant movement
       if (speed > 10) {
         setLastMoveTime(Date.now());
+      }
+
+      // Determine facing direction based on horizontal velocity
+      if (Math.abs(vx) > 10) {
+        setFacingLeft(vx < 0); // Face left if moving left (negative velocity)
       }
 
       // Determine cat state based on speed
@@ -156,6 +162,10 @@ export function CursorFollower() {
             width={96}
             height={96}
             className="drop-shadow-lg object-contain"
+            style={{
+              transform: facingLeft ? "scaleX(-1)" : "scaleX(1)",
+              transition: "transform 0.2s ease-out",
+            }}
             unoptimized // Required for GIFs to animate
             priority
           />
