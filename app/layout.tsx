@@ -10,7 +10,7 @@ import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import SmoothScroll from "@/components/smooth-scroll";
 import ScrollToTop from "@/components/scroll-to-top";
-
+import { CursorFollower } from "@/components/cursor-follower";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,8 +36,16 @@ export const metadata: Metadata = {
     icon: [
       { url: "/favicon.ico", type: "image/x-icon" },
       { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
+      {
+        url: "/android-chrome-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        url: "/android-chrome-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
+      },
       { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
     ],
     apple: "/apple-touch-icon.png?v=2",
@@ -76,9 +84,9 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   verification: {
@@ -97,7 +105,11 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="apple-mobile-web-app-title" content="Zuhaib Rashid" />
 
@@ -165,7 +177,12 @@ export default function RootLayout({
       </head>
 
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           <AdHeader
             title="🚀 Resumind"
             description="Optimize Your Resume with AI"
@@ -184,13 +201,17 @@ export default function RootLayout({
               </a>
               <Analytics />
               <Header />
-              <main id="main-content" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+              <main
+                id="main-content"
+                className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
+              >
                 {children}
               </main>
               <footer className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-sm text-muted-foreground">
                 © {new Date().getFullYear()} Zuhaib Rashid. All rights reserved.
               </footer>
               <ScrollToTop />
+              <CursorFollower />
             </SmoothScroll>
           </Suspense>
         </ThemeProvider>
