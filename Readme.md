@@ -99,5 +99,4 @@ Designed & Developed by Zuhaib Rashid
 
 
 For quries fell free to Contact me @ zuhaibrashid01@gmail.com 
-🙌 👍  
-last index on google was on 14 jan and the domain will expire in September 2026, before that i need to get a placement anywhere somehow, and also this is last year i can give to this Software development. This year i will work harder to get some placements overall starting is very good im getting by hands on javascript so will get on others Hopefully and with the grace of Almighty Allah will get some placements . Trying my best to get placed.trying Very Hard to be a Dev. 
+🙌 👍 
