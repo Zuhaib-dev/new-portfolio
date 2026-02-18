@@ -23,7 +23,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative py-6 md:py-10">
+    <section id="about" className="relative py-6 md:py-10">
       <div className="grid md:grid-cols-3 gap-10 items-center max-w-6xl mx-auto">
         {/* ===== LEFT: Hero Text ===== */}
         <motion.div
@@ -188,7 +188,9 @@ export default function Hero() {
                       <RiReactjsFill />
                     </motion.div>
                   )}
-                  {isMobile && <RiReactjsFill className="text-4xl text-[#087ea4]" />}
+                  {isMobile && (
+                    <RiReactjsFill className="text-4xl text-[#087ea4]" />
+                  )}
                 </motion.div>
 
                 {/* Next.js */}
@@ -224,12 +226,12 @@ export default function Hero() {
                   animate={
                     !isMobile
                       ? {
-                        boxShadow: [
-                          "0 0 0 0px rgba(49,130,206,0.1)",
-                          "0 0 0 10px rgba(49,130,206,0.1)",
-                          "0 0 0 0px rgba(49,130,206,0.1)",
-                        ],
-                      }
+                          boxShadow: [
+                            "0 0 0 0px rgba(49,130,206,0.1)",
+                            "0 0 0 10px rgba(49,130,206,0.1)",
+                            "0 0 0 0px rgba(49,130,206,0.1)",
+                          ],
+                        }
                       : {}
                   }
                   transition={{ duration: 4, repeat: Infinity }}
@@ -244,7 +246,11 @@ export default function Hero() {
                   <motion.div
                     className="absolute -top-5 -left-5 bg-background px-3 py-1 rounded-full text-sm shadow-md border"
                     animate={{ y: [0, -5, 0], rotate: [0, 5, -5, 0] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                    transition={{
+                      duration: 6,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
                   >
                     ReactJs
                   </motion.div>

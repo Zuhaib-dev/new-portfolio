@@ -1,43 +1,45 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { useTheme } from "next-themes"
-import { Moon, Sun, Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { motion, AnimatePresence } from "framer-motion"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { useTheme } from "next-themes";
+import { Moon, Sun, Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
-  { name: "About", href: "#" },
-  { name: "Experience", href: "#experience" },
-  { name: "Education", href: "#education" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
-]
+  { name: "About", href: "/#about" },
+  { name: "Experience", href: "/#experience" },
+  { name: "Education", href: "/#education" },
+  { name: "Skills", href: "/#skills" },
+  { name: "Projects", href: "/projects" },
+  { name: "Contact", href: "/#contact" },
+];
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const { resolvedTheme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   // This useEffect ensures we don't render theme-specific elements until after hydration
   useEffect(() => {
-    setMounted(true)
+    setMounted(true);
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Prevent hydration mismatch by not rendering theme-specific elements until mounted
   if (!mounted) {
     return (
       <header
         className={`sticky top-0 z-50 w-full transition-all duration-200 ${
-          isScrolled ? "bg-background/80 backdrop-blur-md shadow-sm" : "bg-transparent"
+          isScrolled
+            ? "bg-background/80 backdrop-blur-md shadow-sm"
+            : "bg-transparent"
         }`}
       >
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,17 +49,20 @@ export default function Header() {
                 Zuhaib.
               </Link>
             </div>
-            <div className="w-10 h-10"></div> {/* Placeholder for theme toggle */}
+            <div className="w-10 h-10"></div>{" "}
+            {/* Placeholder for theme toggle */}
           </div>
         </div>
       </header>
-    )
+    );
   }
 
   return (
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-200 ${
-        isScrolled ? "bg-background/80 backdrop-blur-md shadow-sm" : "bg-transparent"
+        isScrolled
+          ? "bg-background/80 backdrop-blur-md shadow-sm"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,10 +87,16 @@ export default function Header() {
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+              onClick={() =>
+                setTheme(resolvedTheme === "dark" ? "light" : "dark")
+              }
               aria-label="Toggle theme"
             >
-              {resolvedTheme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {resolvedTheme === "dark" ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
             </Button>
           </nav>
 
@@ -94,11 +105,17 @@ export default function Header() {
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+              onClick={() =>
+                setTheme(resolvedTheme === "dark" ? "light" : "dark")
+              }
               aria-label="Toggle theme"
               className="mr-2"
             >
-              {resolvedTheme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {resolvedTheme === "dark" ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
             </Button>
             <Button
               variant="ghost"
@@ -106,7 +123,11 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {mobileMenuOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
             </Button>
           </div>
         </div>
@@ -138,5 +159,5 @@ export default function Header() {
         )}
       </AnimatePresence>
     </header>
-  )
+  );
 }
