@@ -184,9 +184,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <AdHeader
+            announcementId="resumind-v1"
             title="🚀 Resumind"
             description="Optimize Your Resume with AI"
-            buttonText="View"
+            buttonText="Try it free"
             href="https://resumind-ebon.vercel.app/"
             isExternal={true}
             dismissible={true}
