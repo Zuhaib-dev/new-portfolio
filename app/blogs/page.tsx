@@ -15,7 +15,7 @@ export default function BlogsPage() {
     <main className="mx-auto max-w-5xl px-4 py-12">
       {/* Back */}
       <Link
-        href="/"
+        href="/#blogs"
         className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-10"
       >
         <ArrowLeft className="h-4 w-4" />
