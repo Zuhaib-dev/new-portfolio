@@ -55,6 +55,25 @@ export const projects = [
     demoUrl: "https://friendcirclee.netlify.app/",
     githubUrl: "https://zuhaib-dev.github.io/Friend-circle",
   },
+  {
+    title: "DealDrop",
+    description:
+      "A full-stack price tracker with lightning-fast scraping via Firecrawl, interactive price history charts, instant email alerts via Resend, smart anti-bot proxies, and Google OAuth via Supabase.",
+    image: "/kilamate.webp", // 👉 replace with /dealdrop.webp once you add the screenshot
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Firecrawl", "Resend", "Recharts"],
+    demoUrl: "https://dealdropp.netlify.app/",
+    githubUrl: "https://github.com/Zuhaib-dev/DealDrop",
+  },
+  {
+    title: "Repoviz",
+    description:
+      "A modern web app to visualize GitHub repository README files and folder structures instantly — with syntax highlighting, interactive tree views, repo stats, export options, and a premium glassmorphism UI.",
+    image: "/lenscapes.webp", // 👉 replace with /repoviz.webp once you add the screenshot
+    tags: ["React", "Vite", "TypeScript", "Tailwind CSS", "Axios", "Lenis"],
+    demoUrl: "https://repoviz.netlify.app/",
+    githubUrl: "https://github.com/Zuhaib-dev/Repoviz",
+  },
 ];
+
 
 export type Project = (typeof projects)[0];

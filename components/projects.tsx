@@ -17,6 +17,9 @@ import {
   SiJavascript,
   SiNodedotjs,
   SiVite,
+  SiSupabase,
+  SiResend,
+  SiAxios,
 } from "react-icons/si";
 import { TbBrandFramerMotion, TbChartBar, TbBrain } from "react-icons/tb";
 
@@ -48,6 +51,10 @@ const techIconMap: Record<
   Puter: { icon: TbBrain, color: "#F97316", label: "Puter" },
   Claude: { icon: TbBrain, color: "#D97706", label: "Claude AI" },
   Gemini: { icon: TbBrain, color: "#4285F4", label: "Gemini AI" },
+  Supabase: { icon: SiSupabase, color: "#3ECF8E", label: "Supabase" },
+  Resend: { icon: SiResend, color: "#000000", label: "Resend" },
+  Axios: { icon: SiAxios, color: "#5A29E4", label: "Axios" },
+  Lenis: { icon: SiFramer, color: "#9333EA", label: "Lenis" },
 };
 
 export function ProjectCard({
