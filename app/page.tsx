@@ -18,8 +18,8 @@ export default function Home() {
       <Projects />
       <GithubStats />
       <DailyQuote />
-      <Contact />
       <VisitorCounter />
+      <Contact />
     </div>
   );
 }
