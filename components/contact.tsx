@@ -1,33 +1,91 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, Linkedin, CheckCircle } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Linkedin,
+  CheckCircle,
+  Send,
+  Github,
+  Twitter,
+} from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
+
+const contactInfo = [
+  {
+    icon: Mail,
+    label: "Email",
+    value: "zuhaibrashid01@gmail.com",
+    href: "mailto:zuhaibrashid01@gmail.com",
+    color: "text-blue-500 bg-blue-500/10",
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: "+91 6006414088",
+    href: "tel:+916006414088",
+    color: "text-green-500 bg-green-500/10",
+  },
+  {
+    icon: MapPin,
+    label: "Location",
+    value: "Srinagar, India",
+    href: null,
+    color: "text-orange-500 bg-orange-500/10",
+  },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    value: "linkedin.com/in/Zuhaib",
+    href: "https://www.linkedin.com/in/zuhaib-rashid-661345318/",
+    color: "text-sky-500 bg-sky-500/10",
+  },
+];
+
+const socialLinks = [
+  {
+    icon: Github,
+    label: "GitHub",
+    href: "https://github.com/Zuhaib-dev",
+  },
+  {
+    icon: Twitter,
+    label: "Twitter / X",
+    href: "https://x.com/xuhaibx9",
+  },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/zuhaib-rashid-661345318/",
+  },
+];
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    subject: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const { toast } = useToast();
 
-  const handleChange = (e: { target: { id: any; value: any } }) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { id, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [id]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [id]: value }));
   };
 
-  const handleSubmit = async (e: { preventDefault: () => void }) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setIsSuccess(false);
@@ -35,32 +93,14 @@ export default function Contact() {
     try {
       const response = await fetch("/api/send-email", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
       const data = await response.json();
 
       if (response.ok) {
         setIsSuccess(true);
-        toast({
-          title: "Success!",
-          description: (
-            <div className="flex items-center gap-2">
-              <CheckCircle className="h-5 w-5 text-green-500" />
-              {
-                "Your message has been sent successfully. I'll get back to you soon!"
-              }
-            </div>
-          ),
-        });
-        setFormData({
-          name: "",
-          email: "",
-          message: "",
-        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
         throw new Error(data.message || "Failed to send message");
       }
@@ -84,106 +124,150 @@ export default function Contact() {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        <h2 className="text-3xl font-bold mb-10">Contact Me</h2>
+        {/* Header */}
+        <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1">
+          Let's Talk
+        </p>
+        <h2 className="text-3xl font-bold mb-2">Contact Me</h2>
+        <p className="text-muted-foreground text-sm mb-10">
+          Have a project in mind or just want to say hi? My inbox is always
+          open.
+        </p>
 
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* ── Left: Info ── */}
           <div className="space-y-6">
-            <h3 className="text-xl font-semibold">Get In Touch</h3>
-
-            <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
-                  <Mail className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Email</p>
-                  <Link
-                    href="mailto:zuhaibrashid01@gmail.com"
-                    className="font-medium hover:underline"
+            {/* Contact cards */}
+            <div className="space-y-3">
+              {contactInfo.map((item, i) => {
+                const Icon = item.icon;
+                const content = (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -16 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.08 }}
+                    className="flex items-center gap-4 rounded-xl border border-border/50 bg-muted/20 px-4 py-3 hover:bg-muted/40 transition-colors"
                   >
-                    zuhaibrashid01@gmail.com
-                  </Link>
-                </div>
-              </div>
+                    <div
+                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${item.color}`}
+                    >
+                      <Icon className="h-4 w-4" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-xs text-muted-foreground">
+                        {item.label}
+                      </p>
+                      <p className="text-sm font-medium truncate">
+                        {item.value}
+                      </p>
+                    </div>
+                  </motion.div>
+                );
 
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
-                  <Phone className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Phone</p>
+                return item.href ? (
                   <Link
-                    href="tel:+916006414088"
-                    className="font-medium hover:underline"
-                  >
-                    +91 6006414088
-                  </Link>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
-                  <MapPin className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">Location</p>
-                  <p className="font-medium">Srinager, India</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center">
-                  <Linkedin className="h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground">LinkedIn</p>
-                  <a
-                    href="https://www.linkedin.com/in/zuhaib-rashid-661345318/"
-                    target="_blank"
+                    key={i}
+                    href={item.href}
+                    target={item.href.startsWith("http") ? "_blank" : undefined}
                     rel="noopener noreferrer"
-                    className="font-medium hover:underline"
                   >
-                    linkedin.com/in/Zuhaib
-                  </a>
-                </div>
+                    {content}
+                  </Link>
+                ) : (
+                  <div key={i}>{content}</div>
+                );
+              })}
+            </div>
+
+            {/* Social links */}
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-3">
+                Find me on
+              </p>
+              <div className="flex gap-3">
+                {socialLinks.map((s, i) => {
+                  const Icon = s.icon;
+                  return (
+                    <motion.a
+                      key={i}
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={s.label}
+                      whileHover={{ y: -3, scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex h-10 w-10 items-center justify-center rounded-xl border border-border/50 bg-muted/30 hover:bg-muted/60 transition-colors"
+                    >
+                      <Icon className="h-4 w-4" />
+                    </motion.a>
+                  );
+                })}
               </div>
+            </div>
+
+            {/* Availability note */}
+            <div className="rounded-xl border border-green-500/20 bg-green-500/5 px-4 py-3">
+              <div className="flex items-center gap-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+                </span>
+                <p className="text-sm font-medium text-green-600 dark:text-green-400">
+                  Available for new projects
+                </p>
+              </div>
+              <p className="text-xs text-muted-foreground mt-1 ml-4">
+                Typical response time: within 24 hours
+              </p>
             </div>
           </div>
 
-          <div>
-            {isSuccess ? (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-200 dark:border-green-800"
-              >
-                <div className="flex flex-col items-center text-center gap-4">
-                  <CheckCircle className="h-12 w-12 text-green-500" />
-                  <h3 className="text-xl font-semibold">
-                    Message Sent Successfully!
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Thank you for reaching out. I'll get back to you as soon as
-                    possible.
-                  </p>
+          {/* ── Right: Form ── */}
+          <div className="rounded-2xl border border-border/50 bg-muted/20 p-6">
+            <AnimatePresence mode="wait">
+              {isSuccess ? (
+                <motion.div
+                  key="success"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="flex flex-col items-center justify-center text-center h-full gap-4 py-10"
+                >
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-500/10 border border-green-500/20">
+                    <CheckCircle className="h-8 w-8 text-green-500" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold">Message Sent!</h3>
+                    <p className="text-sm text-muted-foreground mt-1">
+                      Thanks for reaching out. I'll get back to you within 24
+                      hours.
+                    </p>
+                  </div>
                   <Button
                     variant="outline"
+                    size="sm"
                     onClick={() => setIsSuccess(false)}
-                    className="mt-4"
                   >
-                    Send Another Message
+                    Send Another
                   </Button>
-                </div>
-              </motion.div>
-            ) : (
-              <>
-                <h3 className="text-xl font-semibold mb-6">
-                  Send Me a Message
-                </h3>
-                <form onSubmit={handleSubmit} className="space-y-4">
+                </motion.div>
+              ) : (
+                <motion.form
+                  key="form"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  onSubmit={handleSubmit}
+                  className="space-y-4"
+                >
                   <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm">
+                    <div className="space-y-1.5">
+                      <label
+                        htmlFor="name"
+                        className="text-xs font-medium text-muted-foreground uppercase tracking-wide"
+                      >
                         Name
                       </label>
                       <Input
@@ -194,14 +278,17 @@ export default function Contact() {
                         required
                       />
                     </div>
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm">
+                    <div className="space-y-1.5">
+                      <label
+                        htmlFor="email"
+                        className="text-xs font-medium text-muted-foreground uppercase tracking-wide"
+                      >
                         Email
                       </label>
                       <Input
                         id="email"
                         type="email"
-                        placeholder="Your email"
+                        placeholder="your@email.com"
                         value={formData.email}
                         onChange={handleChange}
                         required
@@ -209,14 +296,38 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <label htmlFor="message" className="text-sm">
-                      Message
+                  <div className="space-y-1.5">
+                    <label
+                      htmlFor="subject"
+                      className="text-xs font-medium text-muted-foreground uppercase tracking-wide"
+                    >
+                      Subject
                     </label>
+                    <Input
+                      id="subject"
+                      placeholder="What's this about?"
+                      value={formData.subject}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <div className="flex items-center justify-between">
+                      <label
+                        htmlFor="message"
+                        className="text-xs font-medium text-muted-foreground uppercase tracking-wide"
+                      >
+                        Message
+                      </label>
+                      <span className="text-xs text-muted-foreground">
+                        {formData.message.length}/500
+                      </span>
+                    </div>
                     <Textarea
                       id="message"
-                      placeholder="Your message"
+                      placeholder="Tell me about your project or idea..."
                       rows={5}
+                      maxLength={500}
                       value={formData.message}
                       onChange={handleChange}
                       required
@@ -225,14 +336,15 @@ export default function Contact() {
 
                   <Button
                     type="submit"
-                    className="w-full"
+                    className="w-full gap-2"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
-                      <span className="flex items-center gap-2">
+                      <>
                         <svg
                           className="animate-spin h-4 w-4"
                           viewBox="0 0 24 24"
+                          fill="none"
                         >
                           <circle
                             className="opacity-25"
@@ -241,22 +353,25 @@ export default function Contact() {
                             r="10"
                             stroke="currentColor"
                             strokeWidth="4"
-                          ></circle>
+                          />
                           <path
                             className="opacity-75"
                             fill="currentColor"
                             d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                          ></path>
+                          />
                         </svg>
                         Sending...
-                      </span>
+                      </>
                     ) : (
-                      "Submit Message"
+                      <>
+                        <Send className="h-4 w-4" />
+                        Send Message
+                      </>
                     )}
                   </Button>
-                </form>
-              </>
-            )}
+                </motion.form>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </motion.div>
