@@ -16,8 +16,8 @@ export function CursorFollower() {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  // Even slower spring for a "chasing" effect (slower chase)
-  const springConfig = { damping: 30, stiffness: 50 };
+  // Very lazy spring — cat trails far behind the cursor
+  const springConfig = { damping: 22, stiffness: 18, mass: 1.2 };
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
 
@@ -139,15 +139,15 @@ export function CursorFollower() {
   return (
     <>
       <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-[9999] flex h-24 w-24 items-center justify-center select-none"
+        className="pointer-events-none fixed left-0 top-0 z-[9999] flex h-28 w-28 items-center justify-center select-none"
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{
           opacity: isVisible ? 1 : 0,
-          scale: isClicking ? 0.85 : 1,
+          scale: isClicking ? 0.8 : 1,
         }}
         transition={{
           opacity: { duration: 0.3 },
-          scale: { duration: 0.2 },
+          scale: { type: "spring", stiffness: 300, damping: 20 },
         }}
         style={{
           x: cursorXSpring,
@@ -156,17 +156,27 @@ export function CursorFollower() {
         }}
       >
         <div className="relative flex items-center justify-center w-full h-full">
+          {/* Subtle glow ring behind the cat */}
+          <div
+            className="absolute inset-0 rounded-full opacity-20 blur-xl"
+            style={{
+              background:
+                "radial-gradient(circle, rgba(139,92,246,0.6) 0%, transparent 70%)",
+            }}
+          />
           <Image
             src={getCatImage()}
             alt="Cat cursor follower"
-            width={96}
-            height={96}
-            className="drop-shadow-lg object-contain"
+            width={112}
+            height={112}
+            className="object-contain relative z-10"
             style={{
+              filter:
+                "drop-shadow(0 4px 12px rgba(0,0,0,0.4)) drop-shadow(0 0 6px rgba(139,92,246,0.3))",
               transform: facingLeft ? "scaleX(-1)" : "scaleX(1)",
               transition: "transform 0.2s ease-out",
             }}
-            unoptimized // Required for GIFs to animate
+            unoptimized
             priority
           />
         </div>
