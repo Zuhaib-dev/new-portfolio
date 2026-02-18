@@ -4,6 +4,7 @@ import Education from "@/components/education";
 import Skills from "@/components/skills";
 import Projects from "@/components/projects";
 import GithubStats from "@/components/github-stats";
+import FeaturedBlogs from "@/components/featured-blogs";
 import DailyQuote from "@/components/daily-quote";
 import Contact from "@/components/contact";
 import VisitorCounter from "@/components/visitor-counter";
@@ -18,6 +19,7 @@ export default function Home() {
       <Skills />
       <Projects />
       <GithubStats />
+      <FeaturedBlogs />
       <PersonalLife />
       <DailyQuote />
       <VisitorCounter />
