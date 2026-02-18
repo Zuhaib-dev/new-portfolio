@@ -15,20 +15,28 @@ import { CursorFollower } from "@/components/cursor-follower";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://zuhaibrashid.com"),
-  title: "Zuhaib Rashid - Frontend Developer & AI Engineer | Portfolio",
+  metadataBase: new URL("https://www.zuhaibrashid.com"),
+  title: "Zuhaib Rashid — Full Stack Developer & Next.js Engineer | Portfolio",
   description:
-    "Frontend Developer from Srinagar specializing in React, Next.js, and AI. Building modern, accessible web apps for healthcare & more.",
+    "Full Stack Developer from Srinagar specializing in React, Next.js, TypeScript & Node.js. Building modern, fast, accessible web apps. Open to freelance & full-time roles.",
   keywords: [
+    "Zuhaib Rashid",
+    "Full Stack Developer",
     "Frontend Developer",
     "React.js Developer",
     "Next.js Developer",
+    "TypeScript Developer",
+    "Node.js Developer",
     "Web Developer Kashmir",
-    "Srinagar",
-    "Zuhaib Rashid",
+    "Web Developer Srinagar",
+    "Web Developer India",
     "Portfolio",
+    "Freelance Developer India",
+    "UI/UX Developer",
+    "Open Source Developer",
+    "JavaScript Engineer",
   ],
-  authors: [{ name: "Zuhaib Rashid", url: "https://zuhaibrashid.com" }],
+  authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
   creator: "Zuhaib Rashid",
   publisher: "Zuhaib Rashid",
   category: "Technology",
@@ -51,32 +59,32 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png?v=2",
   },
   openGraph: {
-    title: "Zuhaib Rashid - Frontend Developer & AI Engineer | Portfolio",
+    title: "Zuhaib Rashid — Full Stack Developer & Next.js Engineer",
     description:
-      "Frontend Developer from Srinagar specializing in React, Next.js, and AI. Building modern, accessible web apps for healthcare & more.",
+      "Full Stack Developer from Srinagar specializing in React, Next.js, TypeScript & Node.js. Building modern, fast, accessible web apps.",
     images: [
       {
         url: "/screenShot.webp",
         width: 1200,
         height: 630,
-        alt: "Zuhaib Rashid Portfolio Preview Image",
+        alt: "Zuhaib Rashid Portfolio Preview",
       },
     ],
     type: "website",
     locale: "en_US",
-    url: "https://zuhaibrashid.com",
+    url: "https://www.zuhaibrashid.com",
     siteName: "Zuhaib Rashid Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zuhaib Rashid - Frontend Developer in Srinagar",
+    title: "Zuhaib Rashid — Full Stack Developer",
     description:
-      "Portfolio showcasing React.js, Next.js, and AI-powered projects by Zuhaib Rashid from Srinagar, Kashmir.",
-    creator: "https://x.com/xuhaibx9",
+      "Portfolio showcasing React.js, Next.js, TypeScript and Node.js projects by Zuhaib Rashid from Srinagar, Kashmir.",
+    creator: "@xuhaibx9",
     images: ["/screenShot.webp"],
   },
   alternates: {
-    canonical: "https://zuhaibrashid.com",
+    canonical: "https://www.zuhaibrashid.com",
   },
   robots: {
     index: true,
@@ -113,6 +121,7 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="apple-mobile-web-app-title" content="Zuhaib Rashid" />
 
+        {/* Person schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -120,43 +129,54 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               name: "Zuhaib Rashid",
-              url: "https://zuhaibrashid.com",
+              url: "https://www.zuhaibrashid.com",
+              image: "https://www.zuhaibrashid.com/screenShot.webp",
               sameAs: [
                 "https://x.com/xuhaibx9",
                 "https://github.com/Zuhaib-dev",
                 "https://www.linkedin.com/in/zuhaib-rashid-661345318/",
               ],
-              jobTitle: "Frontend Developer",
+              jobTitle: "Full Stack Developer",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Srinagar",
                 addressRegion: "Jammu and Kashmir",
-                addressCountry: "India",
+                addressCountry: "IN",
               },
               worksFor: { "@type": "Organization", name: "Freelance" },
-              keywords: [
-                "Frontend Developer in Srinagar",
-                "React.js Developer Kashmir",
-                "Next.js Developer India",
-                "TypeScript Developer",
-                "Web Developer in Jammu and Kashmir",
-                "UI/UX Engineer",
-                "AI Web Developer",
-              ],
               knowsAbout: [
                 "React.js",
                 "Next.js",
                 "TypeScript",
+                "Node.js",
                 "Frontend Architecture",
                 "Web Accessibility",
-                "Healthcare Web Apps",
-                "AI-powered applications",
+                "Full Stack Development",
               ],
               description:
-                "Zuhaib Rashid is a Frontend Developer based in Srinagar, Kashmir. Expert in React.js, Next.js, and TypeScript, with a focus on building modern, accessible, and high-performance web apps.",
+                "Zuhaib Rashid is a Full Stack Developer based in Srinagar, Kashmir. Expert in React.js, Next.js, TypeScript and Node.js, building modern, accessible, high-performance web apps.",
             }),
           }}
         />
+        {/* WebSite schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "Zuhaib Rashid Portfolio",
+              url: "https://www.zuhaibrashid.com",
+              description:
+                "Portfolio of Zuhaib Rashid — Full Stack Developer specializing in React, Next.js, TypeScript and Node.js.",
+              author: {
+                "@type": "Person",
+                name: "Zuhaib Rashid",
+              },
+            }),
+          }}
+        />
+        {/* BreadcrumbList schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -168,7 +188,19 @@ export default function RootLayout({
                   "@type": "ListItem",
                   position: 1,
                   name: "Home",
-                  item: "https://zuhaibrashid.com",
+                  item: "https://www.zuhaibrashid.com",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 2,
+                  name: "Blogs",
+                  item: "https://www.zuhaibrashid.com/blogs",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 3,
+                  name: "Books",
+                  item: "https://www.zuhaibrashid.com/books",
                 },
               ],
             }),

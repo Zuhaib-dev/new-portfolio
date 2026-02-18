@@ -21,7 +21,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${blog.title} — Zuhaib Rashid`,
     description: blog.description,
+    keywords: blog.tags,
+    authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
+    alternates: {
+      canonical: `https://www.zuhaibrashid.com/blogs/${slug}`,
+    },
     openGraph: {
+      title: blog.title,
+      description: blog.description,
+      type: "article",
+      url: `https://www.zuhaibrashid.com/blogs/${slug}`,
+      images: [
+        { url: blog.coverImage, width: 1200, height: 630, alt: blog.title },
+      ],
+      publishedTime: new Date(blog.date).toISOString(),
+      authors: ["Zuhaib Rashid"],
+      tags: blog.tags,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: blog.title,
+      description: blog.description,
+      creator: "@xuhaibx9",
       images: [blog.coverImage],
     },
   };
@@ -32,10 +53,41 @@ export default async function BlogPostPage({ params }: Props) {
   const blog = getBlogBySlug(slug);
   if (!blog) notFound();
 
-  const highlightedContent = await highlightBlogContent(blog.content);
+  const highlightedContent = await highlightBlogContent(blog!.content);
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: blog!.title,
+    description: blog!.description,
+    image: `https://www.zuhaibrashid.com${blog!.coverImage}`,
+    datePublished: new Date(blog!.date).toISOString(),
+    dateModified: new Date(blog!.date).toISOString(),
+    author: {
+      "@type": "Person",
+      name: "Zuhaib Rashid",
+      url: "https://www.zuhaibrashid.com",
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Zuhaib Rashid",
+      url: "https://www.zuhaibrashid.com",
+    },
+    url: `https://www.zuhaibrashid.com/blogs/${slug}`,
+    keywords: blog!.tags.join(", "),
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://www.zuhaibrashid.com/blogs/${slug}`,
+    },
+  };
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-12">
+      {/* Article JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       {/* Back */}
       <Link
         href="/blogs"

@@ -5,7 +5,24 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Books — Zuhaib Rashid",
   description:
-    "Books that have shaped my thinking, influenced my work, and fueled my curiosity.",
+    "Books that have shaped my thinking, influenced my work, and fueled my curiosity as a developer.",
+  keywords: [
+    "Books",
+    "Reading List",
+    "Developer Books",
+    "Self Improvement",
+    "Programming Books",
+  ],
+  alternates: {
+    canonical: "https://www.zuhaibrashid.com/books",
+  },
+  openGraph: {
+    title: "Books — Zuhaib Rashid",
+    description:
+      "Books that have shaped my thinking, influenced my work, and fueled my curiosity as a developer.",
+    url: "https://www.zuhaibrashid.com/books",
+    type: "website",
+  },
 };
 
 const books = [
