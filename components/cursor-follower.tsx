@@ -169,8 +169,6 @@ export function CursorFollower() {
             unoptimized // Required for GIFs to animate
             priority
           />
-          {/* Subtle glow effect */}
-          <div className="absolute inset-0 blur-xl bg-orange-400/20 rounded-full -z-10 scale-150" />
         </div>
       </motion.div>
     </>
