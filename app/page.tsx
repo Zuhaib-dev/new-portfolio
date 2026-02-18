@@ -7,6 +7,7 @@ import GithubStats from "@/components/github-stats";
 import DailyQuote from "@/components/daily-quote";
 import Contact from "@/components/contact";
 import VisitorCounter from "@/components/visitor-counter";
+import PersonalLife from "@/components/personal-life";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <DailyQuote />
       <VisitorCounter />
       <Contact />
+      <PersonalLife />
     </div>
   );
 }
