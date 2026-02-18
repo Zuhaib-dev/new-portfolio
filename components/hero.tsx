@@ -2,310 +2,240 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Download, Mail, MapPin } from "lucide-react";
-import {
-  RiNextjsFill,
-  RiReactjsFill,
-  RiTailwindCssFill,
-  RiTwitterXLine,
-} from "react-icons/ri";
-import { SiMongodb } from "react-icons/si";
+import { Download, Mail, MapPin, ArrowRight } from "lucide-react";
+import { FaGithub, FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
+import { RiNextjsFill, RiReactjsFill, RiTailwindCssFill } from "react-icons/ri";
+import { SiTypescript, SiNodedotjs } from "react-icons/si";
 import Link from "next/link";
 
-export default function Hero() {
-  const [isClient, setIsClient] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+const roles = [
+  "Full Stack Developer",
+  "React & Next.js Dev",
+  "UI/UX Enthusiast",
+  "Open Source Builder",
+];
 
+const techGrid = [
+  { icon: RiReactjsFill, color: "#087ea4", label: "React", spin: true },
+  { icon: RiNextjsFill, color: "currentColor", label: "Next.js", float: true },
+  { icon: SiTypescript, color: "#3178c6", label: "TypeScript" },
+  { icon: RiTailwindCssFill, color: "#38bdf8", label: "Tailwind" },
+  { icon: SiNodedotjs, color: "#68a063", label: "Node.js", float: true },
+  { icon: FaGithub, color: "currentColor", label: "GitHub" },
+];
+
+const socialLinks = [
+  { icon: FaGithub, href: "https://github.com/Zuhaib-dev", label: "GitHub" },
+  { icon: FaXTwitter, href: "https://x.com/xuhaibx9", label: "X / Twitter" },
+  {
+    icon: FaLinkedinIn,
+    href: "https://www.linkedin.com/in/zuhaib-rashid-661345318/",
+    label: "LinkedIn",
+  },
+];
+
+export default function Hero() {
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [displayed, setDisplayed] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  // Typewriter effect
   useEffect(() => {
-    setIsClient(true);
-    setIsMobile(window.innerWidth < 768);
-  }, []);
+    const current = roles[roleIndex];
+    let timeout: ReturnType<typeof setTimeout>;
+
+    if (!isDeleting && displayed.length < current.length) {
+      timeout = setTimeout(
+        () => setDisplayed(current.slice(0, displayed.length + 1)),
+        80,
+      );
+    } else if (!isDeleting && displayed.length === current.length) {
+      timeout = setTimeout(() => setIsDeleting(true), 2000);
+    } else if (isDeleting && displayed.length > 0) {
+      timeout = setTimeout(
+        () => setDisplayed(current.slice(0, displayed.length - 1)),
+        40,
+      );
+    } else if (isDeleting && displayed.length === 0) {
+      setIsDeleting(false);
+      setRoleIndex((i) => (i + 1) % roles.length);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayed, isDeleting, roleIndex]);
 
   return (
-    <section id="about" className="relative py-6 md:py-10">
-      <div className="grid md:grid-cols-3 gap-10 items-center max-w-6xl mx-auto">
+    <section id="about" className="relative py-6 md:py-12">
+      <div className="grid md:grid-cols-3 gap-10 items-center">
         {/* ===== LEFT: Hero Text ===== */}
         <motion.div
-          // no initial opacity/y to avoid render delay
-          initial={false}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.5 }}
           className="space-y-6 md:col-span-2"
         >
-          <div className="space-y-2">
-            {/* Availability badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1 mb-2">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
-              </span>
-              <span className="text-xs font-medium text-green-600 dark:text-green-400">
-                Available for work
-              </span>
-            </div>
+          {/* Availability badge */}
+          <div className="inline-flex items-center gap-2 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500" />
+            </span>
+            <span className="text-xs font-medium text-green-600 dark:text-green-400">
+              Available for work
+            </span>
+          </div>
 
-            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">
+          {/* Name + role */}
+          <div className="space-y-1">
+            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
               Zuhaib Rashid
             </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground">
-              Web Developer
+            {/* Typewriter role */}
+            <p className="text-lg sm:text-xl font-medium text-violet-500 dark:text-violet-400 min-h-[1.75rem]">
+              {displayed}
+              <span className="inline-block w-0.5 h-5 bg-violet-500 ml-0.5 animate-pulse align-middle" />
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 text-sm text-muted-foreground">
-            <div className="flex items-center gap-1">
-              <Mail className="h-4 w-4" />
-              <a href="mailto:zuhaibrashid01@gmail.com">
-                zuhaibrashid01@gmail.com
-              </a>
-            </div>
-            <div className="flex items-center gap-1">
-              <MapPin className="h-4 w-4" />
-              <span>Srinagar, India</span>
-            </div>
+          {/* Meta info */}
+          <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm text-muted-foreground">
+            <a
+              href="mailto:zuhaibrashid01@gmail.com"
+              className="flex items-center gap-1.5 hover:text-foreground transition-colors"
+            >
+              <Mail className="h-3.5 w-3.5" />
+              zuhaibrashid01@gmail.com
+            </a>
+            <span className="flex items-center gap-1.5">
+              <MapPin className="h-3.5 w-3.5" />
+              Srinagar, India
+            </span>
           </div>
 
-          <p className="text-muted-foreground text-sm sm:text-base">
-            A goal-oriented software developer with experience in building web
-            applications using modern technologies like React, Next.js, and
-            more. Seeking to leverage my technical skills to deliver exceptional
-            user experiences.
+          {/* Bio */}
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-lg">
+            Passionate full-stack developer crafting fast, accessible, and
+            visually polished web experiences. I love turning ideas into
+            products — from clean UIs to scalable backends.
           </p>
 
-          <div className="flex flex-wrap gap-2 sm:gap-3">
-            {/* Resume Button */}
+          {/* CTA buttons */}
+          <div className="flex flex-wrap items-center gap-3">
             <a
               href="/Zuhaib.pdf"
               target="_blank"
               rel="noopener noreferrer"
               download
             >
-              <Button
-                size="sm"
-                className="text-xs sm:text-sm"
-                aria-label="Download Resume"
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm hover:opacity-90 transition-opacity"
               >
-                <Download
-                  className="mr-2 h-3 w-3 sm:h-4 sm:w-4"
-                  aria-hidden="true"
-                />
-                Resume
-              </Button>
+                <Download className="h-4 w-4" />
+                Download CV
+              </motion.button>
             </a>
 
-            {/* GitHub */}
-            <Link href="https://github.com/Zuhaib-dev" target="_blank">
-              <Button
-                variant="outline"
-                size="sm"
-                className="text-xs sm:text-sm"
-                aria-label="Visit GitHub Profile"
+            <Link href="#contact">
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-2 rounded-xl border border-border/60 bg-muted/30 px-4 py-2 text-sm font-semibold hover:bg-muted/60 transition-colors"
               >
-                <Github className="h-3 w-3 sm:h-4 sm:w-4" aria-hidden="true" />
-              </Button>
+                Hire Me
+                <ArrowRight className="h-4 w-4" />
+              </motion.button>
             </Link>
 
-            {/* Email */}
-            <Link href="mailto:zuhaibrashid01@gmail.com" target="_blank">
-              <Button
-                variant="outline"
-                size="sm"
-                className="text-xs sm:text-sm"
-                aria-label="Send Email"
-              >
-                <Mail className="h-3 w-3 sm:h-4 sm:w-4" aria-hidden="true" />
-              </Button>
-            </Link>
-
-            {/* X / Twitter */}
-            <Link href="https://x.com/xuhaib_x9" target="_blank">
-              <Button
-                variant="outline"
-                size="sm"
-                className="text-xs sm:text-sm"
-                aria-label="Follow on Twitter (X)"
-              >
-                <RiTwitterXLine
-                  className="h-3 w-3 sm:h-4 sm:w-4"
-                  aria-hidden="true"
-                />
-              </Button>
-            </Link>
-
-            {/* LinkedIn */}
-            <Link
-              href="https://www.linkedin.com/in/zuhaib-rashid-661345318/"
-              target="_blank"
-            >
-              <Button
-                variant="outline"
-                size="sm"
-                className="text-xs sm:text-sm"
-                aria-label="Connect on LinkedIn"
-              >
-                <Linkedin
-                  className="h-3 w-3 sm:h-4 sm:w-4"
-                  aria-hidden="true"
-                />
-              </Button>
-            </Link>
+            {/* Social icons */}
+            <div className="flex items-center gap-2 ml-1">
+              {socialLinks.map((s) => {
+                const Icon = s.icon;
+                return (
+                  <motion.a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={s.label}
+                    whileHover={{ y: -2, scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex h-9 w-9 items-center justify-center rounded-xl border border-border/50 bg-muted/30 hover:bg-muted/60 transition-colors"
+                  >
+                    <Icon className="h-4 w-4" />
+                  </motion.a>
+                );
+              })}
+            </div>
           </div>
         </motion.div>
 
-        {/* ===== RIGHT: Animated Grid ===== */}
-        {isClient && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="flex justify-center h-48 md:h-auto"
-          >
-            <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md aspect-square">
-              {/* Rotate animation disabled on mobile */}
-              {!isMobile && (
-                <motion.div
-                  className="absolute inset-0 rounded-lg"
-                  animate={{
-                    rotate: [0, 5, -5, 0],
-                    scale: [1, 1.02, 1.02, 1],
-                  }}
-                  transition={{
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-              )}
+        {/* ===== RIGHT: Tech Grid ===== */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="hidden md:flex justify-center"
+        >
+          <div className="relative w-64 h-64">
+            {/* Glow background */}
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-violet-500/10 to-blue-500/10 blur-2xl" />
 
-              {/* Grid */}
-              <div className="absolute inset-0 grid grid-cols-2 gap-2 sm:gap-4 p-2 sm:p-4">
-                {/* React */}
-                <motion.div
-                  className="bg-muted rounded-lg p-2 sm:p-4 flex items-center justify-center"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  {!isMobile && (
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{
-                        duration: 10,
-                        repeat: Infinity,
-                        ease: "linear",
-                      }}
-                      className="text-4xl text-[#087ea4]"
-                    >
-                      <RiReactjsFill />
-                    </motion.div>
-                  )}
-                  {isMobile && (
-                    <RiReactjsFill className="text-4xl text-[#087ea4]" />
-                  )}
-                </motion.div>
-
-                {/* Next.js */}
-                <motion.div
-                  className="bg-muted rounded-lg p-2 sm:p-4 flex items-center justify-center"
-                  animate={!isMobile ? { y: [0, -10, 0] } : {}}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    repeatType: "reverse",
-                    ease: "easeInOut",
-                  }}
-                >
-                  <RiNextjsFill className="text-4xl" />
-                </motion.div>
-
-                {/* MongoDB */}
-                <motion.div
-                  className="bg-muted rounded-lg p-2 sm:p-4 flex items-center justify-center"
-                  animate={!isMobile ? { y: [0, -5, 0] } : {}}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                >
-                  <SiMongodb className="text-4xl text-green-600" />
-                </motion.div>
-
-                {/* Tailwind */}
-                <motion.div
-                  className="bg-muted rounded-lg p-2 sm:p-4 flex items-center justify-center"
-                  animate={
-                    !isMobile
-                      ? {
-                          boxShadow: [
-                            "0 0 0 0px rgba(49,130,206,0.1)",
-                            "0 0 0 10px rgba(49,130,206,0.1)",
-                            "0 0 0 0px rgba(49,130,206,0.1)",
-                          ],
-                        }
-                      : {}
-                  }
-                  transition={{ duration: 4, repeat: Infinity }}
-                >
-                  <RiTailwindCssFill className="text-4xl text-sky-500" />
-                </motion.div>
-              </div>
-
-              {/* Floating badges - visible only on desktop */}
-              {!isMobile && (
-                <>
+            {/* 3×2 tech icon grid */}
+            <div className="relative grid grid-cols-3 gap-3 p-4">
+              {techGrid.map((tech, i) => {
+                const Icon = tech.icon;
+                return (
                   <motion.div
-                    className="absolute -top-5 -left-5 bg-background px-3 py-1 rounded-full text-sm shadow-md border"
-                    animate={{ y: [0, -5, 0], rotate: [0, 5, -5, 0] }}
-                    transition={{
-                      duration: 6,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
+                    key={tech.label}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 + i * 0.07 }}
+                    whileHover={{ scale: 1.12, y: -3 }}
+                    className="flex flex-col items-center justify-center gap-1.5 rounded-2xl border border-border/50 bg-muted/40 p-3 backdrop-blur-sm cursor-default"
                   >
-                    ReactJs
+                    {tech.spin ? (
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{
+                          duration: 10,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
+                      >
+                        <Icon
+                          className="h-7 w-7"
+                          style={{ color: tech.color }}
+                        />
+                      </motion.div>
+                    ) : tech.float ? (
+                      <motion.div
+                        animate={{ y: [0, -4, 0] }}
+                        transition={{
+                          duration: 2.5,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          delay: i * 0.3,
+                        }}
+                      >
+                        <Icon
+                          className="h-7 w-7"
+                          style={{ color: tech.color }}
+                        />
+                      </motion.div>
+                    ) : (
+                      <Icon className="h-7 w-7" style={{ color: tech.color }} />
+                    )}
+                    <span className="text-[10px] font-medium text-muted-foreground">
+                      {tech.label}
+                    </span>
                   </motion.div>
-                  <motion.div
-                    className="absolute -bottom-5 -right-5 bg-background px-3 py-1 rounded-full text-sm shadow-md border"
-                    animate={{ y: [0, 5, 0], rotate: [0, -5, 5, 0] }}
-                    transition={{
-                      duration: 6,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: 1,
-                    }}
-                  >
-                    Tailwind CSS
-                  </motion.div>
-                  <motion.div
-                    className="absolute -top-5 -right-5 bg-background px-3 py-1 rounded-full text-sm shadow-md border"
-                    animate={{ x: [0, 5, 0], rotate: [0, 5, -5, 0] }}
-                    transition={{
-                      duration: 5,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: 0.5,
-                    }}
-                  >
-                    Next.js
-                  </motion.div>
-                  <motion.div
-                    className="absolute -bottom-5 -left-5 bg-background px-3 py-1 rounded-full text-sm shadow-md border"
-                    animate={{ x: [0, -5, 0], rotate: [0, -5, 5, 0] }}
-                    transition={{
-                      duration: 5,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: 1.5,
-                    }}
-                  >
-                    MongoDB
-                  </motion.div>
-                </>
-              )}
+                );
+              })}
             </div>
-          </motion.div>
-        )}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
