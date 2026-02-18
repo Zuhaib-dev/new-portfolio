@@ -1,108 +1,188 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import Image from "next/image"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Github, ExternalLink } from "lucide-react"
-import Link from "next/link"
+import { motion } from "framer-motion";
+import { Github, ExternalLink, ArrowRight } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
+import { projects, type Project } from "@/lib/projects-data";
+import {
+  SiNextdotjs,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+  SiAppwrite,
+  SiFramer,
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiNodedotjs,
+  SiVite,
+} from "react-icons/si";
+import { TbBrandFramerMotion, TbChartBar, TbBrain } from "react-icons/tb";
 
-const projects = [
-  {
-    logo: "/humanitycarefoundationLogo.svg",
-    title: "CarePulse",
-    description:
-      "A real-time healthcare dashboard for hospitals, tracking patient vitals via API integrations and providing automated, actionable alerts to healthcare professionals. Built for fast monitoring, data visualization, and robust user management.",
-    image: "/carepulse.webp",
-    tags: ["React.js", "Nextjs", "Tailwind CSS", "Typescript", "Appwrite", "Twilio"],
-    demoUrl: "https://hms-seven-green.vercel.app/",
-    githubUrl: "https://github.com/Zuhaib-dev/HMS",
-    features: [
-      "Live monitoring of patient vitals from IoT medical devices",
-      "Automated critical alerts using Firebase Cloud Messaging",
-      "Advanced data charts and dashboards for clinicians",
-      "User authentication, access control, and secure data flows",
-    ],
+// Map tag names to react-icons components + colors
+const techIconMap: Record<
+  string,
+  { icon: React.ElementType; color: string; label: string }
+> = {
+  "React.js": { icon: SiReact, color: "#61DAFB", label: "React" },
+  React: { icon: SiReact, color: "#61DAFB", label: "React" },
+  "Next.js": { icon: SiNextdotjs, color: "#ffffff", label: "Next.js" },
+  Nextjs: { icon: SiNextdotjs, color: "#ffffff", label: "Next.js" },
+  "Tailwind CSS": { icon: SiTailwindcss, color: "#38BDF8", label: "Tailwind" },
+  TypeScript: { icon: SiTypescript, color: "#3178C6", label: "TypeScript" },
+  Typescript: { icon: SiTypescript, color: "#3178C6", label: "TypeScript" },
+  Appwrite: { icon: SiAppwrite, color: "#FD366E", label: "Appwrite" },
+  "Framer Motion": {
+    icon: TbBrandFramerMotion,
+    color: "#BB4FFF",
+    label: "Framer Motion",
   },
-  {
-    logo: "/resumind.webp",
-    title: "Resumind",
-    description:
-      "A full-stack AI resume builder leveraging GPT-3.5 to generate optimized, role-specific content with instant editing and export features. Prioritizes privacy, user experience, and seamless integration of AI-driven suggestions.",
-    image: "/resumind.webp",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Puterjs", "React"],
-    demoUrl: "https://resumind-ebon.vercel.app/",
-    githubUrl: "https://github.com/Zuhaib-dev/Resumind",
-    features: [
-      "AI-powered generation of tailored resume content",
-      "Live editing, preview, and PDF export",
-      "Secure Supabase backend for user data",
-      "Modern UI/UX built with Next.js and TypeScript",
-    ],
-  },
-  {
-    logo: "/lenscapes.webp",
-    title: "Lenscapes",
-    description:
-      "A visually stunning photography portfolio showcasing creative works, breathtaking landscapes, and timeless portraits — built to highlight artistry, storytelling, and seamless design.",
-    image: "/lenscapes.webp",
-    tags: ["Next.js", "React.js", "TypeScript", "Tailwind CSS", "Framer Motion", "PWA"],
-    demoUrl: "https://lenscapes.netlify.app/",
-    githubUrl: "https://github.com/Zuhaib-dev/photography",
-    features: [
-      "Immersive, modern UI for photographers and artists",
-      "Framer Motion animations for smooth transitions",
-      "Optimized metadata and SEO-ready architecture",
-      "Progressive Web App support with offline access",
-      "Responsive design with light/dark-friendly visuals",
-    ],
-  },
-  {
-    logo: "/kilamate.webp",
-    title: "Kilamate",
-    description:
-      "A modern weather forecasting app displaying real-time weather data with interactive charts, a sleek UI, and responsive design.",
-    image: "/kilamate.webp",
-    tags: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "shadcn/ui",
-      "Tailwind CSS",
-      "Recharts",
-      "Tanstack Query",
-    ],
-    demoUrl: "https://kilamate.netlify.app/",
-    githubUrl: "https://github.com/Zuhaib-dev/Kilamate",
-    features: [
-      "Real-time weather updates for any location",
-      "Beautiful, responsive user interface",
-      "Interactive charts powered by Recharts",
-      "High performance and scalability with modern tech stack",
-    ],
-  },
-  {
-    logo: "/friendcirlce.png",
-    title: "Friend Circle",
-    description:
-      "A dynamic website showcasing my adventurous friend circle with profiles, testimonials, and stunning visuals of our trips and hobbies.",
-    image: "/friendcircle.webp",
-    tags: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Framer Motion", "Formspree"],
-    demoUrl: "https://friendcirclee.netlify.app/",
-    githubUrl: "https://zuhaib-dev.github.io/Friend-circle",
-    features: [
-      "Custom-built animated layout with scroll effects",
-      "Friend profiles with pictures and activity highlights",
-      "Responsive, clean design optimized for mobile",
-      "Testimonials, event calendar, and Instagram integration",
-    ],
-  },
+  HTML: { icon: SiHtml5, color: "#E34F26", label: "HTML" },
+  CSS: { icon: SiCss3, color: "#1572B6", label: "CSS" },
+  JavaScript: { icon: SiJavascript, color: "#F7DF1E", label: "JavaScript" },
+  Recharts: { icon: TbChartBar, color: "#22C55E", label: "Recharts" },
+  "Node.js": { icon: SiNodedotjs, color: "#339933", label: "Node.js" },
+  PWA: { icon: SiFramer, color: "#9333EA", label: "PWA" },
+  Vite: { icon: SiVite, color: "#646CFF", label: "Vite" },
+  Puter: { icon: TbBrain, color: "#F97316", label: "Puter" },
+  Claude: { icon: TbBrain, color: "#D97706", label: "Claude AI" },
+  Gemini: { icon: TbBrain, color: "#4285F4", label: "Gemini AI" },
+};
 
-];
+export function ProjectCard({
+  project,
+  index,
+}: {
+  project: Project;
+  index: number;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.08 }}
+      className="group relative flex flex-col rounded-2xl border border-border/60 bg-card overflow-hidden hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
+    >
+      {/* Project Screenshot */}
+      <div className="relative w-full h-52 bg-muted/40 overflow-hidden border-b border-border/40">
+        {/* Browser chrome bar */}
+        <div className="absolute top-0 left-0 right-0 z-10 flex items-center gap-1.5 px-3 py-2 bg-background/80 backdrop-blur-sm border-b border-border/30">
+          <span className="w-2.5 h-2.5 rounded-full bg-red-500/70" />
+          <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/70" />
+          <span className="w-2.5 h-2.5 rounded-full bg-green-500/70" />
+          <span className="ml-2 flex-1 text-[10px] text-muted-foreground/60 truncate font-mono">
+            {project.demoUrl}
+          </span>
+        </div>
 
+        {/* Static screenshot */}
+        <div className="absolute inset-0 top-8">
+          <Image
+            src={project.image}
+            alt={`${project.title} screenshot`}
+            fill
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width: 640px) 100vw, 50vw"
+          />
+        </div>
 
+        {/* Hover overlay — click to open */}
+        <Link
+          href={project.demoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute inset-0 top-8 z-20 flex items-center justify-center bg-black/0 group-hover:bg-black/40 transition-all duration-300 opacity-0 group-hover:opacity-100"
+        >
+          <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-background/90 text-sm font-medium shadow-lg border border-border/60 backdrop-blur-sm">
+            <ExternalLink className="w-4 h-4" />
+            Open Live Site
+          </span>
+        </Link>
+      </div>
+
+      {/* Card Body */}
+      <div className="flex flex-col flex-1 p-5 gap-3">
+        {/* Title */}
+        <h3 className="text-lg font-bold tracking-tight">{project.title}</h3>
+
+        {/* Description */}
+        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+          {project.description}
+        </p>
+
+        {/* Tech Stack Icons */}
+        <div className="flex flex-wrap items-center gap-2 pt-1">
+          <span className="text-xs text-muted-foreground/60 font-medium uppercase tracking-wider">
+            Stack
+          </span>
+          <div className="flex flex-wrap gap-2">
+            {project.tags.map((tag) => {
+              const tech = techIconMap[tag];
+              if (!tech)
+                return (
+                  <span
+                    key={tag}
+                    className="text-[10px] px-2 py-0.5 rounded-full border border-border/50 text-muted-foreground bg-muted/30"
+                  >
+                    {tag}
+                  </span>
+                );
+              const Icon = tech.icon;
+              return (
+                <div
+                  key={tag}
+                  title={tech.label}
+                  className="flex items-center gap-1 px-2 py-1 rounded-lg bg-muted/40 border border-border/30 hover:border-border/70 transition-colors"
+                >
+                  <Icon
+                    style={{ color: tech.color }}
+                    className="w-3.5 h-3.5 shrink-0"
+                  />
+                  <span className="text-[10px] text-muted-foreground font-medium">
+                    {tech.label}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Spacer */}
+        <div className="flex-1" />
+
+        {/* Action Buttons */}
+        <div className="flex items-center gap-2 pt-2 border-t border-border/30">
+          <Link
+            href={project.demoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
+          >
+            <ExternalLink className="w-3.5 h-3.5" />
+            Live Demo
+          </Link>
+          {project.githubUrl && (
+            <Link
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg border border-border/60 text-sm font-medium hover:bg-muted/60 transition-colors"
+            >
+              <Github className="w-3.5 h-3.5" />
+              Code
+            </Link>
+          )}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function Projects() {
+  const topProjects = projects.slice(0, 4);
+
   return (
     <section id="projects" className="py-10">
       <motion.div
@@ -113,79 +193,29 @@ export default function Projects() {
       >
         <h2 className="text-3xl font-bold mb-10">Projects</h2>
 
-        <div className="grid gap-10">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="grid md:grid-cols-2 gap-6 border rounded-xl overflow-hidden group"
-            >
-              <div className="overflow-hidden relative h-[300px] md:h-full border-b md:border-b-0 md:border-r scrollbar-hide">
-                <div className="absolute inset-0 overflow-auto scrollbar-hide">
-                  <Image
-                    src={project.image || "/placeholder.svg"}
-                    alt={project.title ?? "Project image"}
-                    width={800}
-                    height={1200}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-              </div>
-
-              <div className="p-6 space-y-4">
-                <h3 className="text-xl font-bold">{project.title}</h3>
-                <p className="text-muted-foreground">{project.description}</p>
-
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag, idx) => (
-                    <Badge key={idx} variant="secondary">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-
-                <div className="space-y-2">
-                  <h4 className="font-semibold">Key Features:</h4>
-                  <ul className="list-disc pl-5 space-y-1">
-                    {project.features.map((feature, idx) => (
-                      <li key={idx} className="text-sm">
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="flex gap-3 pt-2">
-                  <Button size="sm">
-                    <Link
-                      href={project.demoUrl}
-                      className="flex items-center"
-                      target="_blank"
-                    >
-                      <ExternalLink className="mr-2 h-4 w-4" /> Live
-                    </Link>
-                  </Button>
-                  {project.githubUrl && (
-                    <Button size="sm" variant="outline">
-                      <Link
-                        href={project.githubUrl}
-                        className="flex items-center"
-                        target="_blank"
-                      >
-                        <Github className="mr-2 h-4 w-4" /> Code
-                      </Link>
-                    </Button>
-                  )}
-                </div>
-              </div>
-            </motion.div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {topProjects.map((project, index) => (
+            <ProjectCard key={project.title} project={project} index={index} />
           ))}
         </div>
+
+        {/* See All Projects button */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.4 }}
+          className="flex justify-center mt-10"
+        >
+          <Link
+            href="/projects"
+            className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border border-border/60 bg-card text-sm font-medium hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
+          >
+            See All Projects
+            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
+        </motion.div>
       </motion.div>
     </section>
-  )
+  );
 }
