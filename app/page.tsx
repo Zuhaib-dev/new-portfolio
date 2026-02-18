@@ -1,10 +1,11 @@
-import Hero from "@/components/hero"
-import Experience from "@/components/experience"
-import Education from "@/components/education"
-import Skills from "@/components/skills"
-import Projects from "@/components/projects"
-import GithubStats from "@/components/github-stats"
-import Contact from "@/components/contact"
+import Hero from "@/components/hero";
+import Experience from "@/components/experience";
+import Education from "@/components/education";
+import Skills from "@/components/skills";
+import Projects from "@/components/projects";
+import GithubStats from "@/components/github-stats";
+import DailyQuote from "@/components/daily-quote";
+import Contact from "@/components/contact";
 
 export default function Home() {
   return (
@@ -15,7 +16,8 @@ export default function Home() {
       <Skills />
       <Projects />
       <GithubStats />
+      <DailyQuote />
       <Contact />
     </div>
-  )
+  );
 }
