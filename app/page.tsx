@@ -18,10 +18,10 @@ export default function Home() {
       <Skills />
       <Projects />
       <GithubStats />
+      <PersonalLife />
       <DailyQuote />
       <VisitorCounter />
       <Contact />
-      <PersonalLife />
     </div>
   );
 }
