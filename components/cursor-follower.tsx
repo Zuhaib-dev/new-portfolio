@@ -51,8 +51,9 @@ export function CursorFollower() {
       }
 
       // Determine facing direction based on horizontal velocity
+      // The cat trails behind the cursor, so it chases in the direction of positive velocity
       if (Math.abs(vx) > 10) {
-        setFacingLeft(vx < 0); // Face left if moving left (negative velocity)
+        setFacingLeft(vx > 0); // vx > 0 means cursor moved right, cat is to the left chasing right — but GIF faces left by default, so flip when going right
       }
 
       // Determine cat state based on speed
