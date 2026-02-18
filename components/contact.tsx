@@ -4,16 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Linkedin,
-  CheckCircle,
-  Send,
-  Github,
-  Twitter,
-} from "lucide-react";
+import { Mail, Phone, MapPin, CheckCircle, Send } from "lucide-react";
+import { FaGithub, FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
 import Link from "next/link";
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
@@ -41,7 +33,7 @@ const contactInfo = [
     color: "text-orange-500 bg-orange-500/10",
   },
   {
-    icon: Linkedin,
+    icon: FaLinkedinIn,
     label: "LinkedIn",
     value: "linkedin.com/in/Zuhaib",
     href: "https://www.linkedin.com/in/zuhaib-rashid-661345318/",
@@ -51,17 +43,17 @@ const contactInfo = [
 
 const socialLinks = [
   {
-    icon: Github,
+    icon: FaGithub,
     label: "GitHub",
     href: "https://github.com/Zuhaib-dev",
   },
   {
-    icon: Twitter,
+    icon: FaXTwitter,
     label: "Twitter / X",
     href: "https://x.com/xuhaibx9",
   },
   {
-    icon: Linkedin,
+    icon: FaLinkedinIn,
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/zuhaib-rashid-661345318/",
   },
@@ -225,7 +217,7 @@ export default function Contact() {
           </div>
 
           {/* ── Right: Form ── */}
-          <div className="rounded-2xl border border-border/50 bg-muted/20 p-6">
+          <div className="rounded-2xl border border-border/50 bg-muted/20 p-6 pt-5">
             <AnimatePresence mode="wait">
               {isSuccess ? (
                 <motion.div
