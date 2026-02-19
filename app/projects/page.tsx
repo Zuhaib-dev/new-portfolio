@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import { projects } from "@/lib/projects-data";
 import { ProjectCard } from "@/components/projects";
 
@@ -11,6 +13,15 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <main className="min-h-screen px-4 py-16 max-w-5xl mx-auto">
+      {/* Back button */}
+      <Link
+        href="/"
+        className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-10 group"
+      >
+        <ArrowLeft className="h-4 w-4 group-hover:-translate-x-0.5 transition-transform" />
+        Back to Portfolio
+      </Link>
+
       <div className="mb-12">
         <h1 className="text-4xl font-bold mb-3">All Projects</h1>
         <p className="text-muted-foreground text-base max-w-xl">
