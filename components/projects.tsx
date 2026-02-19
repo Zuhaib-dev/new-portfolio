@@ -91,7 +91,9 @@ export function ProjectCard({
             alt={`${project.title} screenshot`}
             fill
             className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-            sizes="(max-width: 640px) 100vw, 50vw"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 480px"
+            priority={index < 2}
+            loading={index < 2 ? "eager" : "lazy"}
           />
         </div>
 

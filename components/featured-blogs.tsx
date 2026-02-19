@@ -32,6 +32,8 @@ export default function FeaturedBlogs() {
                   alt={blog.title}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                  priority
                   unoptimized={blog.coverImage.endsWith(".gif")}
                 />
               </div>

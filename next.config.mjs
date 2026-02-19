@@ -1,10 +1,23 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Removed eslint.ignoreDuringBuilds - let's catch errors early
-  // Removed typescript.ignoreBuildErrors - type safety is important
-  // Removed images.unoptimized - enable Next.js image optimization for better performance
+  images: {
+    // Serve AVIF first, then WebP — 40-70% smaller than PNG
+    formats: ["image/avif", "image/webp"],
+    // Cache optimized images for 30 days on the CDN
+    minimumCacheTTL: 60 * 60 * 24 * 30,
+  },
   async headers() {
     return [
+      {
+        // Long-lived cache for all static public assets (images, fonts, pdf, icons)
+        source: "/:file+.:ext(png|jpg|jpeg|gif|webp|avif|svg|ico|pdf|woff2|woff|ttf)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
       {
         source: '/(.*)',
         headers: [

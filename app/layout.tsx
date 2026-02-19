@@ -9,10 +9,10 @@ import Loading from "@/components/loading";
 import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import SmoothScroll from "@/components/smooth-scroll";
-import ScrollToTop from "@/components/scroll-to-top";
-import { CursorFollower } from "@/components/cursor-follower";
+import DeferredUI from "@/components/deferred-ui";
 
-const inter = Inter({ subsets: ["latin"] });
+// display:swap ensures text is always visible while the font loads (eliminates FOIT)
+const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.zuhaibrashid.com"),
@@ -243,8 +243,7 @@ export default function RootLayout({
               <footer className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-sm text-muted-foreground">
                 © {new Date().getFullYear()} Zuhaib Rashid. All rights reserved.
               </footer>
-              <ScrollToTop />
-              <CursorFollower />
+              <DeferredUI />
             </SmoothScroll>
           </Suspense>
         </ThemeProvider>

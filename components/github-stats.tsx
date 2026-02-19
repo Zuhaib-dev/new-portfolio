@@ -101,7 +101,7 @@ export default function GithubStats() {
                   src={graphUrl}
                   alt="GitHub Contribution Graph"
                   className="w-full h-auto rounded-xl"
-                  loading="eager"
+                  loading="lazy"
                   onError={() => setImgError(true)}
                 />
               )}
