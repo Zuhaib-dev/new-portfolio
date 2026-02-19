@@ -15,7 +15,7 @@ export default function ProjectsPage() {
     <main className="min-h-screen px-4 py-16 max-w-5xl mx-auto">
       {/* Back button */}
       <Link
-        href="/"
+        href="/#projects"
         className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-10 group"
       >
         <ArrowLeft className="h-4 w-4 group-hover:-translate-x-0.5 transition-transform" />
