@@ -98,5 +98,5 @@ Designed & Developed by Zuhaib Rashid
 ---
 
 
-For quries fell free to Contact me @ zuhaibrashid01@gmail.com 
+For quries fell free to Contact me @ zuhaibrashid01@gmail.com   
 🙌 👍  
