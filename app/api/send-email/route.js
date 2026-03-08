@@ -208,7 +208,7 @@ export async function POST(request) {
                     <p style="margin:0 0 14px 0;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:#6b7280;">Find me on</p>
                     <a href="https://github.com/Zuhaib-dev" style="display:inline-block;margin:0 6px;background:#1a1a2e;border:1px solid #2a2a3e;color:#a78bfa;text-decoration:none;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:500;">GitHub</a>
                     <a href="https://www.linkedin.com/in/zuhaib-rashid-661345318/" style="display:inline-block;margin:0 6px;background:#1a1a2e;border:1px solid #2a2a3e;color:#a78bfa;text-decoration:none;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:500;">LinkedIn</a>
-                    <a href="https://x.com/xuhaibx9" style="display:inline-block;margin:0 6px;background:#1a1a2e;border:1px solid #2a2a3e;color:#a78bfa;text-decoration:none;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:500;">X / Twitter</a>
+                    <a href="https://x.com/xuhaib_x9" style="display:inline-block;margin:0 6px;background:#1a1a2e;border:1px solid #2a2a3e;color:#a78bfa;text-decoration:none;padding:8px 18px;border-radius:8px;font-size:13px;font-weight:500;">X / Twitter</a>
                   </td>
                 </tr>
               </table>

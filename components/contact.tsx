@@ -50,7 +50,7 @@ const socialLinks = [
   {
     icon: FaXTwitter,
     label: "Twitter / X",
-    href: "https://x.com/xuhaibx9",
+    href: "https://x.com/xuhaib_x9",
   },
   {
     icon: FaLinkedinIn,
