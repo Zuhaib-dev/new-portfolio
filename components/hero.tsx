@@ -26,7 +26,7 @@ const techGrid = [
 
 const socialLinks = [
   { icon: FaGithub, href: "https://github.com/Zuhaib-dev", label: "GitHub" },
-  { icon: FaXTwitter, href: "https://x.com/xuhaibx9", label: "X / Twitter" },
+  { icon: FaXTwitter, href: "https://x.com/xuhaib_x9", label: "X / Twitter" },
   {
     icon: FaLinkedinIn,
     href: "https://www.linkedin.com/in/zuhaib-rashid-661345318/",

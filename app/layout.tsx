@@ -132,7 +132,7 @@ export default function RootLayout({
               url: "https://www.zuhaibrashid.com",
               image: "https://www.zuhaibrashid.com/screenShot.webp",
               sameAs: [
-                "https://x.com/xuhaibx9",
+                "https://x.com/xuhaib_x9",
                 "https://github.com/Zuhaib-dev",
                 "https://www.linkedin.com/in/zuhaib-rashid-661345318/",
               ],
