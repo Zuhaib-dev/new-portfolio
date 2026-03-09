@@ -16,8 +16,8 @@ const items = [
     icon: Clapperboard,
     title: "Movies",
     description: "Movies and shows that have inspired and entertained me.",
-    href: null,
-    available: false,
+    href: "/movies",
+    available: true,
   },
 ];
 
