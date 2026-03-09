@@ -79,7 +79,7 @@ export default function PersonalLife() {
             );
 
             return item.available ? (
-              <Link key={item.title} href={item.href!}>
+              <Link key={item.title} href={item.href!} className="block">
                 {inner}
               </Link>
             ) : (
