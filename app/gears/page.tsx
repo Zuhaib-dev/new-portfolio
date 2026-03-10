@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, MonitorSmartphone, Laptop, Smartphone, Puzzle, Monitor, Link as LinkIcon, Settings } from "lucide-react";
 import type { Metadata } from "next";
+import DailyQuote from "@/components/daily-quote";
 
 export const metadata: Metadata = {
   title: "Gears — Zuhaib Rashid",
@@ -28,6 +29,15 @@ const extensions = [
   { name: "Grammarly", link: "#" },
   { name: "Wappalyzer", link: "#" },
   { name: "ColorZilla", link: "#" },
+];
+
+const software = [
+  { name: "Dia", link: "#" },
+  { name: "Notion", link: "#" },
+  { name: "TickTick", link: "#" },
+  { name: "OBS Studio", link: "#" },
+  { name: "VLC", link: "#" },
+  { name: "Ghostty", link: "#" },
 ];
 
 export default function GearsPage() {
@@ -118,7 +128,29 @@ export default function GearsPage() {
             </div>
             <h2 className="text-2xl font-bold">Software</h2>
           </div>
+          <div className="space-y-3 mt-6">
+            {software.map((sw, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-4 group"
+              >
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded border border-border/50 bg-muted/20 text-xs text-muted-foreground font-medium">
+                  {i + 1}
+                </div>
+                <div className="flex-1 flex items-center gap-2 min-w-0 py-2 border-b border-border/50 group-last:border-0 hover:bg-muted/10 px-2 rounded-lg transition-colors cursor-pointer">
+                  <p className="font-medium text-sm text-foreground/80 group-hover:text-foreground transition-colors">{sw.name}</p>
+                  <a href={sw.link} target="_blank" rel="noreferrer" className="text-muted-foreground/50 hover:text-foreground transition-colors">
+                    <LinkIcon className="h-3.5 w-3.5" />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
+      </div>
+
+      <div className="mt-20">
+        <DailyQuote />
       </div>
     </main>
   );
