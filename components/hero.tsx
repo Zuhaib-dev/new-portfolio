@@ -14,11 +14,15 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const socialLinks = [
-  { icon: FaXTwitter, href: "https://x.com/", label: "X / Twitter" },
-  { icon: FaLinkedinIn, href: "https://linkedin.com/", label: "LinkedIn" },
-  { icon: FaGithub, href: "https://github.com/", label: "GitHub" },
-  { icon: FaInstagram, href: "https://instagram.com/", label: "Instagram" },
-  { icon: FaPinterest, href: "https://pinterest.com/", label: "Pinterest" },
+  { icon: FaXTwitter, href: "https://x.com/xuhaib_x9", label: "X / Twitter" },
+  {
+    icon: FaLinkedinIn,
+    href: "https://www.linkedin.com/in/zuhaib-rashid-661345318/",
+    label: "LinkedIn",
+  },
+  { icon: FaGithub, href: "https://github.com/zuhaib-dev", label: "GitHub" },
+  { icon: FaInstagram, href: "https://www.instagram.com/zoh.aib__/", label: "Instagram" },
+  { icon: FaPinterest, href: "https://in.pinterest.com/xuhaibx9/", label: "Pinterest" },
   { icon: Mail, href: "mailto:zuhaibrashid01@gmail.con", label: "Email" },
 ];
 
@@ -61,11 +65,12 @@ export default function Hero() {
         {/* Avatar Placeholder */}
         <div className="relative shrink-0 w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-border bg-muted/50 flex items-center justify-center">
           <Image
-            src="https://avatars.githubusercontent.com/u/101889410" // Using a placeholder avatar since none was explicitly provided
-            alt="Ramkrishna Swarnkar"
+            src="/profilePic.png"
+            alt="Zuhaib Rashid"
             width={128}
             height={128}
             className="object-cover w-full h-full"
+            priority
           />
         </div>
 
