@@ -23,9 +23,9 @@ export default function Home() {
       <FeaturedBlogs />
       <Development />
       <PersonalLife />
-      <DailyQuote />
       <VisitorCounter />
       <Contact />
+      <DailyQuote />
     </div>
   );
 }

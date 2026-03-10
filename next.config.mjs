@@ -5,6 +5,14 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"],
     // Cache optimized images for 30 days on the CDN
     minimumCacheTTL: 60 * 60 * 24 * 30,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
   },
   async headers() {
     return [
