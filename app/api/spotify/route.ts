@@ -8,14 +8,14 @@ export async function GET() {
     const response = await getNowPlaying();
 
     if (!response || response.status === 204 || response.status > 400) {
-      return NextResponse.json({ isPlaying: false });
+      return NextResponse.json({ hasTrack: false });
     }
 
     const data = await response.json();
     const tracks = data?.recenttracks?.track;
 
     if (!tracks || tracks.length === 0) {
-      return NextResponse.json({ isPlaying: false });
+      return NextResponse.json({ hasTrack: false });
     }
 
     const track = tracks[0];
@@ -37,10 +37,12 @@ export async function GET() {
       albumImageUrl,
       artist,
       isPlaying,
+      hasTrack: true,
       songUrl,
       title,
     });
   } catch (error) {
-    return NextResponse.json({ isPlaying: false });
+    return NextResponse.json({ hasTrack: false });
   }
 }
+

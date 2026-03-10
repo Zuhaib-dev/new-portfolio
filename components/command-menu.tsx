@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import { useRouter } from "next/navigation";
+import { useTheme } from "next-themes";
 import {
   Home,
   Briefcase,
@@ -11,6 +12,10 @@ import {
   Book,
   Film,
   Mail,
+  Moon,
+  Sun,
+  Github,
+  Twitter,
 } from "lucide-react";
 
 import {
@@ -20,11 +25,13 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
+  CommandSeparator,
 } from "@/components/ui/command";
 
 export function CommandMenu() {
   const [open, setOpen] = React.useState(false);
   const router = useRouter();
+  const { setTheme, resolvedTheme } = useTheme();
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -55,12 +62,12 @@ export function CommandMenu() {
             router.push("/blogs");
             break;
           case "r":
-            router.push("/Zuhaib.pdf");
+            window.open("/Zuhaib.pdf", "_blank");
             break;
           case "g":
             router.push("/gears");
             break;
-          case "k": // Note: this might conflict with CMD+K if the user presses just K, but we specified the modifiers above
+          case "k":
             router.push("/books");
             break;
           case "m":
@@ -69,13 +76,16 @@ export function CommandMenu() {
           case "c":
             router.push("/#contact");
             break;
+          case "t":
+            setTheme(resolvedTheme === "dark" ? "light" : "dark");
+            break;
         }
       }
     };
 
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
-  }, [open, router]);
+  }, [open, router, resolvedTheme, setTheme]);
 
   const runCommand = React.useCallback((command: () => unknown) => {
     setOpen(false);
@@ -138,7 +148,7 @@ export function CommandMenu() {
               }}
             >
               <File className="mr-2 h-4 w-4" />
-              <span>Go to Resume</span>
+              <span>Check Resume</span>
               <kbd className="ml-auto pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
                 <span className="text-xs">R</span>
               </kbd>
@@ -186,6 +196,51 @@ export function CommandMenu() {
               <kbd className="ml-auto pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
                 <span className="text-xs">C</span>
               </kbd>
+            </CommandItem>
+          </CommandGroup>
+
+          <CommandSeparator />
+          <CommandGroup heading="Actions">
+            <CommandItem
+              onSelect={() => {
+                runCommand(() =>
+                  setTheme(resolvedTheme === "dark" ? "light" : "dark"),
+                );
+              }}
+            >
+              {resolvedTheme === "dark" ? (
+                <Sun className="mr-2 h-4 w-4" />
+              ) : (
+                <Moon className="mr-2 h-4 w-4" />
+              )}
+              <span>Toggle Theme</span>
+              <kbd className="ml-auto pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
+                <span className="text-xs">T</span>
+              </kbd>
+            </CommandItem>
+          </CommandGroup>
+
+          <CommandSeparator />
+          <CommandGroup heading="Socials">
+            <CommandItem
+              onSelect={() => {
+                runCommand(() =>
+                  window.open("https://github.com/zuhaib-dev", "_blank"),
+                );
+              }}
+            >
+              <Github className="mr-2 h-4 w-4" />
+              <span>Go to GitHub</span>
+            </CommandItem>
+            <CommandItem
+              onSelect={() => {
+                runCommand(() =>
+                  window.open("https://x.com/xuhaib_x9", "_blank"),
+                );
+              }}
+            >
+              <Twitter className="mr-2 h-4 w-4" />
+              <span>Go to Twitter</span>
             </CommandItem>
           </CommandGroup>
         </CommandList>

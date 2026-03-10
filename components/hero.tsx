@@ -21,8 +21,16 @@ const socialLinks = [
     label: "LinkedIn",
   },
   { icon: FaGithub, href: "https://github.com/zuhaib-dev", label: "GitHub" },
-  { icon: FaInstagram, href: "https://www.instagram.com/zoh.aib__/", label: "Instagram" },
-  { icon: FaPinterest, href: "https://in.pinterest.com/xuhaibx9/", label: "Pinterest" },
+  {
+    icon: FaInstagram,
+    href: "https://www.instagram.com/zoh.aib__/",
+    label: "Instagram",
+  },
+  {
+    icon: FaPinterest,
+    href: "https://in.pinterest.com/xuhaibx9/",
+    label: "Pinterest",
+  },
   { icon: Mail, href: "mailto:zuhaibrashid01@gmail.con", label: "Email" },
 ];
 
@@ -106,7 +114,7 @@ export default function Hero() {
 
           {/* Spotify Currently Playing */}
           {spotifyData ? (
-            spotifyData.isPlaying ? (
+            spotifyData.hasTrack ? (
               <a
                 href={spotifyData.songUrl}
                 target="_blank"
@@ -115,10 +123,12 @@ export default function Hero() {
               >
                 <div className="relative flex items-center justify-center w-4 h-4">
                   <FaSpotify className="absolute h-4 w-4 text-[#1DB954] z-10" />
-                  <span className="absolute h-full w-full rounded-full bg-[#1DB954] opacity-50 animate-ping"></span>
+                  {spotifyData.isPlaying && (
+                    <span className="absolute h-full w-full rounded-full bg-[#1DB954] opacity-50 animate-ping"></span>
+                  )}
                 </div>
                 <span className="text-xs truncate max-w-[200px] sm:max-w-[300px]">
-                  Listening to{" "}
+                  {spotifyData.isPlaying ? "Listening to" : "Recently Played"}{" "}
                   <span className="text-foreground font-semibold">
                     {spotifyData.title}
                   </span>{" "}
