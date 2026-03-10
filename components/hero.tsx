@@ -6,14 +6,12 @@ import {
   FaXTwitter,
   FaLinkedinIn,
   FaGithub,
-
   FaInstagram,
   FaPinterest,
-
   FaSpotify,
 } from "react-icons/fa6";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const socialLinks = [
   { icon: FaXTwitter, href: "https://x.com/", label: "X / Twitter" },
@@ -26,6 +24,25 @@ const socialLinks = [
 
 export default function Hero() {
   const [copied, setCopied] = useState(false);
+  const [spotifyData, setSpotifyData] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchSpotify = async () => {
+      try {
+        const res = await fetch("/api/spotify");
+        if (res.ok) {
+          const data = await res.json();
+          setSpotifyData(data);
+        }
+      } catch (e) {
+        console.error("Error fetching Spotify data", e);
+      }
+    };
+
+    fetchSpotify();
+    const interval = setInterval(fetchSpotify, 10000); // Poll every 10 seconds
+    return () => clearInterval(interval);
+  }, []);
 
   const copyEmail = () => {
     navigator.clipboard.writeText("zuhaibrashid01@gmail.com");
@@ -83,12 +100,38 @@ export default function Hero() {
           </p>
 
           {/* Spotify Currently Playing */}
-          <div className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground bg-muted/20 px-3 py-1.5 rounded-full border border-border/50">
-            <FaSpotify className="h-4 w-4 text-[#1DB954]" />
-            <span className="text-xs">
-              Last played &mdash; Cheques &middot; Shubh
-            </span>
-          </div>
+          {spotifyData ? (
+            spotifyData.isPlaying ? (
+              <a
+                href={spotifyData.songUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground bg-muted/10 px-3 py-1.5 rounded-full border border-[#1DB954]/30 hover:bg-[#1DB954]/10 transition-colors group relative overflow-hidden shadow-[0_0_15px_-5px_#1DB954]"
+              >
+                <div className="relative flex items-center justify-center w-4 h-4">
+                  <FaSpotify className="absolute h-4 w-4 text-[#1DB954] z-10" />
+                  <span className="absolute h-full w-full rounded-full bg-[#1DB954] opacity-50 animate-ping"></span>
+                </div>
+                <span className="text-xs truncate max-w-[200px] sm:max-w-[300px]">
+                  Listening to{" "}
+                  <span className="text-foreground font-semibold">
+                    {spotifyData.title}
+                  </span>{" "}
+                  &middot; {spotifyData.artist}
+                </span>
+              </a>
+            ) : (
+              <div className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground bg-muted/20 px-3 py-1.5 rounded-full border border-border/50">
+                <FaSpotify className="h-4 w-4" />
+                <span className="text-xs">Not listening to anything</span>
+              </div>
+            )
+          ) : (
+            <div className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground bg-muted/20 px-3 py-1.5 rounded-full border border-border/50">
+              <FaSpotify className="h-4 w-4 text-muted-foreground/50 animate-pulse" />
+              <span className="text-xs">Loading Spotify...</span>
+            </div>
+          )}
 
           {/* Social Icons */}
           <div className="flex items-center gap-3 pt-2 flex-wrap">
