@@ -45,6 +45,9 @@ export function CommandMenu() {
       // Handle custom single-key navigation when the command menu is CLOSED
       if (
         !open &&
+        !e.metaKey &&
+        !e.ctrlKey &&
+        !e.altKey &&
         e.target instanceof HTMLElement &&
         e.target.tagName !== "INPUT" &&
         e.target.tagName !== "TEXTAREA"
