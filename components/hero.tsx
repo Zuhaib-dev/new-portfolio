@@ -6,10 +6,10 @@ import {
   FaXTwitter,
   FaLinkedinIn,
   FaGithub,
-  FaYoutube,
+
   FaInstagram,
   FaPinterest,
-  FaMedium,
+
   FaSpotify,
 } from "react-icons/fa6";
 import Image from "next/image";
@@ -19,18 +19,16 @@ const socialLinks = [
   { icon: FaXTwitter, href: "https://x.com/", label: "X / Twitter" },
   { icon: FaLinkedinIn, href: "https://linkedin.com/", label: "LinkedIn" },
   { icon: FaGithub, href: "https://github.com/", label: "GitHub" },
-  { icon: FaYoutube, href: "https://youtube.com/", label: "YouTube" },
   { icon: FaInstagram, href: "https://instagram.com/", label: "Instagram" },
   { icon: FaPinterest, href: "https://pinterest.com/", label: "Pinterest" },
-  { icon: FaMedium, href: "https://medium.com/", label: "Medium" },
-  { icon: Mail, href: "mailto:hi@ramx.in", label: "Email" },
+  { icon: Mail, href: "mailto:zuhaibrashid01@gmail.con", label: "Email" },
 ];
 
 export default function Hero() {
   const [copied, setCopied] = useState(false);
 
   const copyEmail = () => {
-    navigator.clipboard.writeText("hi@ramx.in");
+    navigator.clipboard.writeText("zuhaibrashid01@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -58,34 +56,38 @@ export default function Hero() {
           {/* Name & Subtitle */}
           <div>
             <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-2">
-              Ramkrishna Swarnkar
+              Zuhaib Rashid
             </h1>
             <div className="flex items-center flex-wrap gap-2 text-sm text-muted-foreground font-medium">
               <span>Engineer</span>
               <span>&bull;</span>
-              <span>Polymath</span>
+              <span>Developer</span>
               <span>&bull;</span>
               <button
                 onClick={copyEmail}
                 className="inline-flex items-center gap-1.5 hover:text-foreground transition-colors cursor-pointer group"
                 title="Copy Email"
               >
-                hi@ramx.in
+                hi@zuhaibrashid
                 <Copy className="h-3 w-3 opacity-50 group-hover:opacity-100 transition-opacity" />
-                {copied && <span className="text-[10px] text-green-500">Copied!</span>}
+                {copied && (
+                  <span className="text-[10px] text-green-500">Copied!</span>
+                )}
               </button>
             </div>
           </div>
 
           {/* Description */}
           <p className="text-muted-foreground text-sm sm:text-base max-w-lg leading-relaxed">
-            Love to build cool stuff, content creator & polymath.
+            Love to build cool stuff, adventure & explore new technologies.
           </p>
 
           {/* Spotify Currently Playing */}
           <div className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground bg-muted/20 px-3 py-1.5 rounded-full border border-border/50">
             <FaSpotify className="h-4 w-4 text-[#1DB954]" />
-            <span className="text-xs">Last played &mdash; Cheques &middot; Shubh</span>
+            <span className="text-xs">
+              Last played &mdash; Cheques &middot; Shubh
+            </span>
           </div>
 
           {/* Social Icons */}
