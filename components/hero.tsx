@@ -31,7 +31,7 @@ const socialLinks = [
     href: "https://in.pinterest.com/xuhaibx9/",
     label: "Pinterest",
   },
-  { icon: Mail, href: "mailto:zuhaibrashid01@gmail.con", label: "Email" },
+  { icon: Mail, href: "mailto:zuhaibrashid01@gmail.com", label: "Email" },
 ];
 
 export default function Hero() {
@@ -98,7 +98,7 @@ export default function Hero() {
                 className="inline-flex items-center gap-1.5 hover:text-foreground transition-colors cursor-pointer group"
                 title="Copy Email"
               >
-                hi@zuhaibrashid
+                hi@zuhaib
                 <Copy className="h-3 w-3 opacity-50 group-hover:opacity-100 transition-opacity" />
                 {copied && (
                   <span className="text-[10px] text-green-500">Copied!</span>
