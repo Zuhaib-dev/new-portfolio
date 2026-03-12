@@ -10,9 +10,10 @@ const education = [
     period: "Mar 2025 – Sep 2025",
     location: "Online",
     status: "Completed",
-    statusColor: "text-blue-400 bg-blue-400/10 border-blue-400/20",
     initials: "SC",
-    initialsColor: "from-violet-500 to-purple-600",
+    gradient: "from-violet-500 to-purple-600",
+    glowColor: "rgba(139,92,246,0.15)",
+    statusColor: "text-violet-400 bg-violet-400/10 border-violet-400/20",
     highlights: [
       "Intensive full-stack bootcamp covering React, Next.js, Node.js, and modern web tooling.",
       "Built and shipped multiple real-world projects with a focus on performance and clean architecture.",
@@ -25,9 +26,10 @@ const education = [
     period: "Apr 2023 – Jun 2025",
     location: "Zoohama, J&K",
     status: "Completed",
-    statusColor: "text-blue-400 bg-blue-400/10 border-blue-400/20",
     initials: "HS",
-    initialsColor: "from-emerald-500 to-teal-600",
+    gradient: "from-emerald-500 to-teal-600",
+    glowColor: "rgba(16,185,129,0.15)",
+    statusColor: "text-emerald-400 bg-emerald-400/10 border-emerald-400/20",
     gpa: "88.1%",
     highlights: [
       "Graduated with 88.1% — among the top performers in the batch.",
@@ -36,6 +38,15 @@ const education = [
     ],
   },
 ];
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 32 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] },
+  }),
+};
 
 export default function Education() {
   return (
@@ -52,78 +63,121 @@ export default function Education() {
         </p>
         <h2 className="text-3xl font-bold mb-10">Education</h2>
 
-        <div className="space-y-6">
-          {education.map((edu, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="rounded-2xl border border-border/50 bg-muted/20 p-6 hover:bg-muted/30 transition-colors"
-            >
-              {/* Top row */}
-              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-5">
-                <div className="flex items-center gap-4">
-                  {/* Initials avatar */}
-                  <div
-                    className={`flex-shrink-0 h-12 w-12 rounded-xl bg-gradient-to-br ${edu.initialsColor} flex items-center justify-center text-white font-bold text-sm shadow-md`}
-                  >
+        {/* Timeline container */}
+        <div className="relative">
+          {/* Vertical connector line */}
+          <div className="absolute left-5 top-0 bottom-0 w-px bg-gradient-to-b from-border/80 via-border/40 to-transparent hidden sm:block" />
+
+          <div className="space-y-6">
+            {education.map((edu, index) => (
+              <motion.div
+                key={index}
+                custom={index}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="relative sm:pl-16 group"
+              >
+                {/* Timeline dot badge */}
+                <div
+                  className={`absolute left-0 top-6 hidden sm:flex items-center justify-center h-10 w-10 rounded-xl bg-gradient-to-br ${edu.gradient} shadow-lg z-10`}
+                  style={{
+                    boxShadow: `0 0 18px 2px ${edu.glowColor}`,
+                  }}
+                >
+                  <span className="text-white font-bold text-xs select-none">
                     {edu.initials}
-                  </div>
+                  </span>
+                </div>
 
-                  <div>
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="font-semibold text-base">
-                        {edu.institution}
-                      </span>
-                      {/* Status badge */}
-                      <span
-                        className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-medium ${edu.statusColor}`}
+                {/* Card */}
+                <motion.div
+                  whileHover={{ y: -2 }}
+                  transition={{ duration: 0.2 }}
+                  className="rounded-2xl border border-border/40 bg-muted/10 backdrop-blur-sm p-5 sm:p-6 relative overflow-hidden"
+                  style={{
+                    boxShadow: `0 0 0 1px rgba(255,255,255,0.03) inset`,
+                  }}
+                >
+                  {/* Hover glow */}
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl"
+                    style={{
+                      background: `radial-gradient(ellipse at top left, ${edu.glowColor}, transparent 70%)`,
+                    }}
+                  />
+
+                  {/* Top gradient stripe */}
+                  <div
+                    className={`absolute top-0 left-0 right-0 h-px bg-gradient-to-r ${edu.gradient} opacity-60`}
+                  />
+
+                  {/* Top row */}
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-5 relative">
+                    <div className="flex items-center gap-3">
+                      {/* Mobile avatar */}
+                      <div
+                        className={`sm:hidden flex-shrink-0 h-10 w-10 rounded-xl bg-gradient-to-br ${edu.gradient} flex items-center justify-center text-white font-bold text-xs shadow-md`}
                       >
-                        <span className="h-1.5 w-1.5 rounded-full bg-current" />
-                        {edu.status}
-                      </span>
-                    </div>
-                    <p className="text-sm text-muted-foreground mt-0.5">
-                      {edu.degree}
-                    </p>
-                  </div>
-                </div>
+                        {edu.initials}
+                      </div>
 
-                {/* Date + location */}
-                <div className="text-right shrink-0">
-                  <div className="flex items-center justify-end gap-1.5 text-sm font-medium">
-                    <Calendar className="h-3.5 w-3.5 text-muted-foreground" />
-                    {edu.period}
-                  </div>
-                  <div className="flex items-center justify-end gap-1.5 text-xs text-muted-foreground mt-1">
-                    <MapPin className="h-3 w-3" />
-                    {edu.location}
-                  </div>
-                  {edu.gpa && (
-                    <div className="flex items-center justify-end gap-1.5 text-xs font-semibold text-emerald-500 mt-1">
-                      <Award className="h-3 w-3" />
-                      {edu.gpa}
+                      <div>
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="font-semibold text-base tracking-tight">
+                            {edu.institution}
+                          </span>
+                          <span
+                            className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[11px] font-medium ${edu.statusColor}`}
+                          >
+                            <span className="h-1.5 w-1.5 rounded-full bg-current animate-pulse" />
+                            {edu.status}
+                          </span>
+                        </div>
+                        <p className="text-sm text-muted-foreground mt-0.5">
+                          {edu.degree}
+                        </p>
+                      </div>
                     </div>
-                  )}
-                </div>
-              </div>
 
-              {/* Highlights */}
-              <ul className="space-y-2">
-                {edu.highlights.map((point, idx) => (
-                  <li
-                    key={idx}
-                    className="flex gap-2 text-sm text-muted-foreground"
-                  >
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-                    {point}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+                    {/* Date + location + GPA */}
+                    <div className="text-right shrink-0 space-y-1">
+                      <div className="flex items-center justify-end gap-1.5 text-xs font-medium text-muted-foreground">
+                        <Calendar className="h-3 w-3" />
+                        <span>{edu.period}</span>
+                      </div>
+                      <div className="flex items-center justify-end gap-1.5 text-xs text-muted-foreground/70">
+                        <MapPin className="h-3 w-3" />
+                        <span>{edu.location}</span>
+                      </div>
+                      {edu.gpa && (
+                        <div className="flex items-center justify-end gap-1.5 text-xs font-semibold text-emerald-400 mt-0.5">
+                          <Award className="h-3 w-3" />
+                          <span>{edu.gpa}</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Highlights */}
+                  <ul className="space-y-2.5 relative">
+                    {edu.highlights.map((point, idx) => (
+                      <li
+                        key={idx}
+                        className="flex gap-2.5 text-sm text-muted-foreground leading-relaxed"
+                      >
+                        <span
+                          className={`mt-2 h-1.5 w-1.5 rounded-full bg-gradient-to-br ${edu.gradient} shrink-0 opacity-80`}
+                        />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </motion.div>
     </section>
