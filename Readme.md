@@ -31,7 +31,7 @@ I love to:
 ---
 
 ## 🛠️ Tech Stack  
-
+ 
 - **Framework:** Next.js 
 - **Libary:** React.js  
 - **Language:** TypeScript  
