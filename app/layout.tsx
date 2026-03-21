@@ -64,7 +64,7 @@ export const metadata: Metadata = {
       "Full Stack Developer from Srinagar specializing in React, Next.js, TypeScript & Node.js. Building modern, fast, accessible web apps.",
     images: [
       {
-        url: "/screenShot.webp",
+        url: "/og.webp",
         width: 1200,
         height: 630,
         alt: "Zuhaib Rashid Portfolio Preview",
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     description:
       "Portfolio showcasing React.js, Next.js, TypeScript and Node.js projects by Zuhaib Rashid from Srinagar, Kashmir.",
     creator: "@xuhaibx9",
-    images: ["/screenShot.webp"],
+    images: ["/og.webp"],
   },
   alternates: {
     canonical: "https://www.zuhaibrashid.com",
