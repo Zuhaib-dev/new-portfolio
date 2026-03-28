@@ -123,8 +123,15 @@ export function ProjectCard({
 
       {/* Card Body */}
       <div className="relative z-10 flex flex-col flex-1 p-5 gap-3">
-        {/* Title */}
-        <h3 className="text-base font-bold tracking-tight">{project.title}</h3>
+        {/* Title & Label */}
+        <div className="flex flex-col gap-1.5">
+          {project.label && (
+            <div className="w-fit px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-400/10 border border-emerald-400/20 rounded-full -mt-1">
+              {project.label}
+            </div>
+          )}
+          <h3 className="text-base font-bold tracking-tight">{project.title}</h3>
+        </div>
 
         {/* Description */}
         <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">

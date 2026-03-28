@@ -1,5 +1,24 @@
-export const projects = [
+export interface Project {
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  demoUrl: string;
+  githubUrl?: string;
+  label?: string;
+}
+
+export const projects: Project[] = [
   // ── Top 4 shown on homepage ──────────────────────────────────────────────
+  {
+    title: "Rydexx",
+    description:
+      "Rydex lets you book bikes, cars, and trucks instantly. Fast, affordable, and reliable vehicle booking at your fingertips.",
+    image: "https://rydexx.netlify.app/ogimage.webp",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Auth.js", "NextAuth", "Framer Motion", "Axios", "ZegoCloud", "MongoDB", "Cloudinary"],
+    demoUrl: "https://rydexx.netlify.app/",
+    label: "Building 🚀",
+  },
   {
     title: "Resumind",
     description:
@@ -19,15 +38,6 @@ export const projects = [
     githubUrl: "https://github.com/Zuhaib-dev/Roomify",
   },
   {
-    title: "Kilamate",
-    description:
-      "A modern weather forecasting app displaying real-time weather data with interactive charts, a sleek UI, and responsive design.",
-    image: "/Kilamate.png",
-    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Recharts"],
-    demoUrl: "https://kilamate.netlify.app/",
-    githubUrl: "https://github.com/Zuhaib-dev/Kilamate",
-  },
-  {
     title: "CarePulse",
     description:
       "A real-time healthcare dashboard for hospitals, tracking patient vitals via API integrations and providing automated, actionable alerts to healthcare professionals.",
@@ -37,6 +47,15 @@ export const projects = [
     githubUrl: "https://github.com/Zuhaib-dev/HMS",
   },
   // ── Extra projects shown on /projects page ───────────────────────────────
+  {
+    title: "Kilamate",
+    description:
+      "A modern weather forecasting app displaying real-time weather data with interactive charts, a sleek UI, and responsive design.",
+    image: "/Kilamate.png",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Recharts"],
+    demoUrl: "https://kilamate.netlify.app/",
+    githubUrl: "https://github.com/Zuhaib-dev/Kilamate",
+  },
   {
     title: "Lenscapes",
     description:
@@ -74,5 +93,3 @@ export const projects = [
     githubUrl: "https://github.com/Zuhaib-dev/Repoviz",
   },
 ];
-
-export type Project = (typeof projects)[0];
