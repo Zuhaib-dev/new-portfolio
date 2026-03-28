@@ -20,8 +20,10 @@ import {
   SiSupabase,
   SiResend,
   SiAxios,
+  SiMongodb,
+  SiCloudinary,
 } from "react-icons/si";
-import { TbBrandFramerMotion, TbChartBar, TbBrain } from "react-icons/tb";
+import { TbBrandFramerMotion, TbChartBar, TbBrain, TbShieldLock, TbVideo } from "react-icons/tb";
 
 // Map tag names to react-icons components + colors
 const techIconMap: Record<
@@ -55,6 +57,11 @@ const techIconMap: Record<
   Resend: { icon: SiResend, color: "#000000", label: "Resend" },
   Axios: { icon: SiAxios, color: "#5A29E4", label: "Axios" },
   Lenis: { icon: SiFramer, color: "#9333EA", label: "Lenis" },
+  "Auth.js": { icon: TbShieldLock, color: "#8B5CF6", label: "Auth.js" },
+  NextAuth: { icon: TbShieldLock, color: "#8B5CF6", label: "NextAuth" },
+  ZegoCloud: { icon: TbVideo, color: "#1D9FFD", label: "ZegoCloud" },
+  MongoDB: { icon: SiMongodb, color: "#47A248", label: "MongoDB" },
+  Cloudinary: { icon: SiCloudinary, color: "#3448C5", label: "Cloudinary" },
 };
 
 export function ProjectCard({
