@@ -98,7 +98,7 @@ export default function Hero() {
                 className="inline-flex items-center gap-1.5 hover:text-foreground transition-colors cursor-pointer group"
                 title="Copy Email"
               >
-                hi@zuhaib
+                Email
                 <Copy className="h-3 w-3 opacity-50 group-hover:opacity-100 transition-opacity" />
                 {copied && (
                   <span className="text-[10px] text-green-500">Copied!</span>
