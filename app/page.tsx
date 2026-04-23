@@ -21,9 +21,9 @@ export default function Home() {
       <Projects />
       <GithubStats />
       <FeaturedBlogs />
+      <VisitorCounter />
       <Development />
       <PersonalLife />
-      <VisitorCounter />
       <Contact />
       <DailyQuote />
     </div>

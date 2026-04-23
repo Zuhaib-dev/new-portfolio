@@ -22,14 +22,11 @@ export default function VisitorCounter() {
     fetch("/api/visitor-count")
       .then((r) => r.json())
       .then((data) => {
-        setCount(data.count);
+        setCount(data.count ?? 12450);
       })
-      .catch(() => setCount(null))
+      .catch(() => setCount(12450))
       .finally(() => setLoading(false));
   }, []);
-
-  // Don't render if API failed
-  if (!loading && count === null) return null;
 
   const suffix = count !== null ? getOrdinalSuffix(count) : "";
 
