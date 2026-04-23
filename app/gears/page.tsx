@@ -3,6 +3,7 @@ import { ArrowLeft, MonitorSmartphone, Laptop, Smartphone, Puzzle, Monitor, Link
 import type { Metadata } from "next";
 import DailyQuote from "@/components/daily-quote";
 import Stats from "@/components/stats";
+import VisitorCounter from "@/components/visitor-counter";
 
 export const metadata: Metadata = {
   title: "Gears — Zuhaib Rashid",
@@ -171,6 +172,10 @@ export default function GearsPage() {
       </div>
 
       <div className="mt-20">
+        <VisitorCounter />
+      </div>
+
+      <div className="mt-10">
         <DailyQuote />
       </div>
     </main>
