@@ -11,6 +11,74 @@ export interface Blog {
 
 export const blogs: Blog[] = [
   {
+    slug: "nextjs-security-issues-and-prevention",
+    title: "Next.js Security: Recent Vulnerabilities and How to Prevent Them",
+    description:
+      "A deep dive into recent Next.js security issues like SSRF in Server Actions and RSC vulnerabilities, with practical steps to secure your app.",
+    date: "April 23, 2026",
+    tags: ["Next.js", "Security", "Web Development", "DevOps"],
+    coverImage: "/nextjs-security-issues.png",
+    readTime: "8 min read",
+    content: `
+<h2>The Shift in Next.js Security</h2>
+<p>As Next.js evolves from a simple SSR framework to a full-stack powerhouse with Server Components and Server Actions, the attack surface has shifted. Recent vulnerabilities have highlighted that with great power comes great responsibility — especially when it comes to how we handle server-side logic and data flow.</p>
+
+<div class="my-8 rounded-xl overflow-hidden border border-white/10">
+  <img src="/nextjs-security-issues.png" alt="Next.js Security" class="w-full h-auto" />
+</div>
+
+<h2>1. CVE-2024-34351: SSRF in Server Actions</h2>
+<p>One of the most talked-about vulnerabilities recently was a Server-Side Request Forgery (SSRF) flaw in Next.js Server Actions. If you were using a version earlier than 14.1.1 and self-hosting your app, an attacker could potentially make unauthorized requests from your server.</p>
+<p><strong>The Trigger:</strong> This happened when a Server Action performed a redirect to a relative path starting with a forward slash (<code>/</code>). Attackers could manipulate the <code>Host</code> header to trick the server into requesting internal metadata services (like AWS's 169.254.169.254).</p>
+
+<h3>How to Prevent It:</h3>
+<ul>
+  <li><strong>Upgrade:</strong> The absolute first step is upgrading to Next.js 14.1.1 or higher.</li>
+  <li><strong>Host Header Validation:</strong> If you are self-hosting on a custom server (like Express or Nginx), ensure you are validating the <code>Host</code> header.</li>
+  <li><strong>Network Isolation:</strong> Block outbound requests to internal IP ranges from your application server.</li>
+</ul>
+
+<h2>2. React2Shell (CVE-2025-66478)</h2>
+<p>Late in 2025, a critical vulnerability dubbed "React2Shell" sent shockwaves through the community. It targeted the React Server Components (RSC) protocol, potentially allowing Remote Code Execution (RCE) in certain configurations.</p>
+<p>This vulnerability exploited the way the RSC payload was parsed on the server, allowing malicious payloads to be executed with the privileges of the application process.</p>
+
+<h3>How to Prevent It:</h3>
+<ul>
+  <li><strong>Stay Updated:</strong> This is a recurring theme. Security patches for RSC and Next.js are released frequently.</li>
+  <li><strong>Rotate Secrets:</strong> If you suspect your app was vulnerable during the peak of this incident, rotate all environment variables and API keys immediately.</li>
+</ul>
+
+<h2>3. Server Actions & Data Exposure</h2>
+<p>Beyond specific CVEs, a common issue is the improper use of Server Actions. Since Server Actions are essentially POST endpoints, they are public by default. Developers often forget to implement proper authorization checks inside the action itself.</p>
+
+<pre><code class="language-tsx">// ❌ VULNERABLE: No authorization check
+export async function deletePost(postId: string) {
+  await db.post.delete({ where: { id: postId } });
+}
+
+// ✅ SECURE: Authorization check included
+export async function deletePost(postId: string) {
+  const session = await auth();
+  if (!session || session.user.role !== 'admin') {
+    throw new Error("Unauthorized");
+  }
+  await db.post.delete({ where: { id: postId } });
+}</code></pre>
+
+<h2>General Security Best Practices</h2>
+<p>To keep your Next.js application secure in 2026, follow these core principles:</p>
+<ul>
+  <li><strong>Use Taint APIs:</strong> React now provides <code>experimental_taintUniqueValue</code> and <code>experimental_taintObjectReference</code> to prevent sensitive data from being accidentally passed to the client.</li>
+  <li><strong>Validate All Input:</strong> Use libraries like <strong>Zod</strong> to validate every piece of data coming into a Server Action or Route Handler.</li>
+  <li><strong>Content Security Policy (CSP):</strong> Implement a strict CSP to mitigate XSS and data injection attacks. Next.js makes this easier with nonces.</li>
+  <li><strong>Principle of Least Privilege:</strong> Your database user should only have the permissions necessary for the app to function. Don't use a 'root' or 'admin' user for your app's connection.</li>
+</ul>
+
+<h2>Conclusion</h2>
+<p>Security is not a feature; it's a foundation. As Next.js continues to bridge the gap between client and server, understanding these vulnerabilities is crucial for any modern web developer. Keep your dependencies updated, validate everything, and never trust the client.</p>
+    `.trim(),
+  },
+  {
     slug: "how-to-optimize-a-nextjs-app",
     title: "How to Optimize a Next.js App",
     description:
@@ -130,74 +198,6 @@ ANALYZE=true npm run build</code></pre>
 
 <h2>The Gap</h2>
 <p>Ira Glass said it best: when you start, your taste exceeds your ability. That gap is frustrating — but it means you can recognize good work before you can produce it. That recognition is taste. Keep building until your output catches up.</p>
-    `.trim(),
-  },
-  {
-    slug: "nextjs-security-issues-and-prevention",
-    title: "Next.js Security: Recent Vulnerabilities and How to Prevent Them",
-    description:
-      "A deep dive into recent Next.js security issues like SSRF in Server Actions and RSC vulnerabilities, with practical steps to secure your app.",
-    date: "April 23, 2026",
-    tags: ["Next.js", "Security", "Web Development", "DevOps"],
-    coverImage: "/nextjs-security-issues.png",
-    readTime: "8 min read",
-    content: `
-<h2>The Shift in Next.js Security</h2>
-<p>As Next.js evolves from a simple SSR framework to a full-stack powerhouse with Server Components and Server Actions, the attack surface has shifted. Recent vulnerabilities have highlighted that with great power comes great responsibility — especially when it comes to how we handle server-side logic and data flow.</p>
-
-<div class="my-8 rounded-xl overflow-hidden border border-white/10">
-  <img src="/nextjs-security-issues.png" alt="Next.js Security" class="w-full h-auto" />
-</div>
-
-<h2>1. CVE-2024-34351: SSRF in Server Actions</h2>
-<p>One of the most talked-about vulnerabilities recently was a Server-Side Request Forgery (SSRF) flaw in Next.js Server Actions. If you were using a version earlier than 14.1.1 and self-hosting your app, an attacker could potentially make unauthorized requests from your server.</p>
-<p><strong>The Trigger:</strong> This happened when a Server Action performed a redirect to a relative path starting with a forward slash (<code>/</code>). Attackers could manipulate the <code>Host</code> header to trick the server into requesting internal metadata services (like AWS's 169.254.169.254).</p>
-
-<h3>How to Prevent It:</h3>
-<ul>
-  <li><strong>Upgrade:</strong> The absolute first step is upgrading to Next.js 14.1.1 or higher.</li>
-  <li><strong>Host Header Validation:</strong> If you are self-hosting on a custom server (like Express or Nginx), ensure you are validating the <code>Host</code> header.</li>
-  <li><strong>Network Isolation:</strong> Block outbound requests to internal IP ranges from your application server.</li>
-</ul>
-
-<h2>2. React2Shell (CVE-2025-66478)</h2>
-<p>Late in 2025, a critical vulnerability dubbed "React2Shell" sent shockwaves through the community. It targeted the React Server Components (RSC) protocol, potentially allowing Remote Code Execution (RCE) in certain configurations.</p>
-<p>This vulnerability exploited the way the RSC payload was parsed on the server, allowing malicious payloads to be executed with the privileges of the application process.</p>
-
-<h3>How to Prevent It:</h3>
-<ul>
-  <li><strong>Stay Updated:</strong> This is a recurring theme. Security patches for RSC and Next.js are released frequently.</li>
-  <li><strong>Rotate Secrets:</strong> If you suspect your app was vulnerable during the peak of this incident, rotate all environment variables and API keys immediately.</li>
-</ul>
-
-<h2>3. Server Actions & Data Exposure</h2>
-<p>Beyond specific CVEs, a common issue is the improper use of Server Actions. Since Server Actions are essentially POST endpoints, they are public by default. Developers often forget to implement proper authorization checks inside the action itself.</p>
-
-<pre><code class="language-tsx">// ❌ VULNERABLE: No authorization check
-export async function deletePost(postId: string) {
-  await db.post.delete({ where: { id: postId } });
-}
-
-// ✅ SECURE: Authorization check included
-export async function deletePost(postId: string) {
-  const session = await auth();
-  if (!session || session.user.role !== 'admin') {
-    throw new Error("Unauthorized");
-  }
-  await db.post.delete({ where: { id: postId } });
-}</code></pre>
-
-<h2>General Security Best Practices</h2>
-<p>To keep your Next.js application secure in 2026, follow these core principles:</p>
-<ul>
-  <li><strong>Use Taint APIs:</strong> React now provides <code>experimental_taintUniqueValue</code> and <code>experimental_taintObjectReference</code> to prevent sensitive data from being accidentally passed to the client.</li>
-  <li><strong>Validate All Input:</strong> Use libraries like <strong>Zod</strong> to validate every piece of data coming into a Server Action or Route Handler.</li>
-  <li><strong>Content Security Policy (CSP):</strong> Implement a strict CSP to mitigate XSS and data injection attacks. Next.js makes this easier with nonces.</li>
-  <li><strong>Principle of Least Privilege:</strong> Your database user should only have the permissions necessary for the app to function. Don't use a 'root' or 'admin' user for your app's connection.</li>
-</ul>
-
-<h2>Conclusion</h2>
-<p>Security is not a feature; it's a foundation. As Next.js continues to bridge the gap between client and server, understanding these vulnerabilities is crucial for any modern web developer. Keep your dependencies updated, validate everything, and never trust the client.</p>
     `.trim(),
   },
 ];
