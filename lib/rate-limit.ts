@@ -5,7 +5,7 @@
  * This script prevents users from "spamming" your API endpoints. 
  * 1. It tracks requests coming from the same IP address.
  * 2. It counts how many requests they made in a specific time window (e.g., 1 minute).
- * 3. If they exceed the limit (e.g., 5 requests per minute for the visitor counter),
+ * 3. If they exceed the limit (e.g., 15 requests per minute for the visitor counter),
  *    it blocks them and tells them how long to wait before trying again.
  * 
  * WHY WE USE IT:

@@ -8,7 +8,7 @@ const KEY = "visitors";
 
 export async function GET(request: Request) {
   const ip = getClientIp(request);
-  const { limited, retryAfterMs } = rateLimit(ip, 'visitor', 5, 60_000);
+  const { limited, retryAfterMs } = rateLimit(ip, 'visitor', 15, 60_000);
 
   if (limited) {
     return NextResponse.json(
