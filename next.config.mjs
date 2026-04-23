@@ -44,6 +44,9 @@ const nextConfig = {
               img-src 'self' blob: data: https://*.clarity.ms https://c.bing.com https://github-readme-stats.vercel.app https://github-readme-streak-stats.herokuapp.com https://github-readme-activity-graph.vercel.app https://github-profile-trophy.vercel.app https://rydexx.netlify.app;
               font-src 'self' https://fonts.gstatic.com;
               connect-src 'self' https://sentry.io https://*.clarity.ms https://c.bing.com https://github-readme-activity-graph.vercel.app;
+              object-src 'none';
+              base-uri 'self';
+              frame-ancestors 'none';
             `.replace(/\s{2,}/g, ' ').trim()
           },
         ],
