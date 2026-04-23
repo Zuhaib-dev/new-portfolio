@@ -18,7 +18,8 @@ interface Props {
 }
 
 export default async function Image({ params }: Props) {
-  const blog = getBlogBySlug(params.slug);
+  const { slug } = await params;
+  const blog = getBlogBySlug(slug);
 
   if (!blog) {
     return new ImageResponse(
