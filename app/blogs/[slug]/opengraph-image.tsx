@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og';
 import { getBlogBySlug } from '@/lib/blogs';
 
-export const runtime = 'edge';
+// export const runtime = 'edge';
 
 export const alt = 'Zuhaib Rashid Blog';
 export const size = {
