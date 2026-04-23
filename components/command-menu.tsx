@@ -16,7 +16,12 @@ import {
   Sun,
   Github,
   Twitter,
+  Laptop,
+  Code,
 } from "lucide-react";
+import { blogs } from "@/lib/blogs";
+import { projects } from "@/lib/projects-data";
+
 
 import {
   CommandDialog,
@@ -224,7 +229,38 @@ export function CommandMenu() {
           </CommandGroup>
 
           <CommandSeparator />
+          <CommandGroup heading="Projects">
+            {projects.map((project) => (
+              <CommandItem
+                key={project.title}
+                onSelect={() => {
+                  runCommand(() => window.open(project.demoUrl, "_blank"));
+                }}
+              >
+                <Laptop className="mr-2 h-4 w-4" />
+                <span>{project.title}</span>
+              </CommandItem>
+            ))}
+          </CommandGroup>
+
+          <CommandSeparator />
+          <CommandGroup heading="Blogs">
+            {blogs.map((blog) => (
+              <CommandItem
+                key={blog.slug}
+                onSelect={() => {
+                  runCommand(() => router.push(`/blogs/${blog.slug}`));
+                }}
+              >
+                <FileText className="mr-2 h-4 w-4" />
+                <span>{blog.title}</span>
+              </CommandItem>
+            ))}
+          </CommandGroup>
+
+          <CommandSeparator />
           <CommandGroup heading="Socials">
+
             <CommandItem
               onSelect={() => {
                 runCommand(() =>
