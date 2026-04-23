@@ -208,7 +208,11 @@ export default function RootLayout({
         />
       </head>
 
-      <body className={inter.className}>
+      <body className={`${inter.className} min-h-screen relative overflow-x-hidden`}>
+        {/* Global Background Effects */}
+        <div className="fixed inset-0 bg-noise z-[-1]" />
+        <div className="fixed inset-0 bg-glow z-[-1]" />
+
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
