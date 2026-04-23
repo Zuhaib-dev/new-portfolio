@@ -65,6 +65,7 @@ export default function Contact() {
     email: "",
     subject: "",
     message: "",
+    website: "", // Honeypot field
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -79,8 +80,19 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Honeypot check: If the 'website' field is filled, it's likely a bot
+    if (formData.website) {
+      console.warn("Honeypot filled. Bot detected.");
+      // Pretend it succeeded to not alert the bot
+      setIsSuccess(true);
+      setFormData({ name: "", email: "", subject: "", message: "", website: "" });
+      return;
+    }
+
     setIsSubmitting(true);
     setIsSuccess(false);
+
 
     try {
       const response = await fetch("/api/send-email", {
@@ -92,7 +104,7 @@ export default function Contact() {
 
       if (response.ok) {
         setIsSuccess(true);
-        setFormData({ name: "", email: "", subject: "", message: "" });
+        setFormData({ name: "", email: "", subject: "", message: "", website: "" });
       } else {
         throw new Error(data.message || "Failed to send message");
       }
@@ -255,7 +267,19 @@ export default function Contact() {
                   className="space-y-4"
                 >
                   <div className="grid sm:grid-cols-2 gap-4">
+                    {/* Honeypot field (hidden from users but visible to bots) */}
+                    <div style={{ position: 'absolute', left: '-9999px', top: '-9999px' }} aria-hidden="true">
+                      <Input
+                        id="website"
+                        type="text"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={formData.website}
+                        onChange={handleChange}
+                      />
+                    </div>
                     <div className="space-y-1.5">
+
                       <label
                         htmlFor="name"
                         className="text-xs font-medium text-muted-foreground uppercase tracking-wide"
