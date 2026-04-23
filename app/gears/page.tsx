@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowLeft, MonitorSmartphone, Laptop, Smartphone, Puzzle, Monitor, Link as LinkIcon, Settings } from "lucide-react";
 import type { Metadata } from "next";
 import DailyQuote from "@/components/daily-quote";
+import Stats from "@/components/stats";
 
 export const metadata: Metadata = {
   title: "Gears — Zuhaib Rashid",
@@ -75,6 +76,10 @@ export default function GearsPage() {
         <p className="text-muted-foreground text-base max-w-xl leading-relaxed">
           The tools, hardware, and software I rely on to build high-performance web applications and maintain my daily workflow.
         </p>
+      </div>
+
+      <div className="mb-20">
+        <Stats />
       </div>
 
 
