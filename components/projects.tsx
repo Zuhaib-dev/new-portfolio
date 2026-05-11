@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, ExternalLink, ArrowRight } from "lucide-react";
+import { Github, ExternalLink, ArrowRight, Layers } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { projects, type Project } from "@/lib/projects-data";
@@ -116,14 +116,12 @@ export function ProjectCard({
 
         {/* Hover overlay */}
         <Link
-          href={project.demoUrl}
-          target="_blank"
-          rel="noopener noreferrer"
+          href={`/projects/${project.slug}`}
           className="absolute inset-0 top-8 z-20 flex items-center justify-center bg-black/0 group-hover:bg-black/50 transition-all duration-300 opacity-0 group-hover:opacity-100"
         >
           <span className="flex items-center gap-2 px-4 py-2 rounded-full bg-background/90 text-sm font-medium shadow-lg border border-border/50 backdrop-blur-sm">
-            <ExternalLink className="w-3.5 h-3.5" />
-            Open Live Site
+            <Layers className="w-3.5 h-3.5" />
+            View Case Study
           </span>
         </Link>
       </div>
