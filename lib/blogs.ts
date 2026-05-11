@@ -11,6 +11,49 @@ export interface Blog {
 
 export const blogs: Blog[] = [
   {
+    slug: "escaping-tutorial-hell-as-a-developer",
+    title: "Stop Tutorial Hell: How I Actually Got Good at Full Stack",
+    description:
+      "My journey from watching endless 10-hour bootcamp videos to actually shipping real production applications.",
+    date: "May 11, 2026",
+    tags: ["Career", "Web Development", "Learning"],
+    coverImage: "/tutorial-hell-v2.png",
+    readTime: "7 min read",
+    content: `
+<h2>The Endless Loop of Learning</h2>
+<p>We've all been there. You find a shiny new 10-hour "Complete Web Dev Bootcamp" on YouTube. You follow along, type out exactly what the instructor types, and by the end, you have a working Twitter clone. You feel invincible. You're a developer now.</p>
+<p>But then, you open a blank VS Code window to build your own idea. And suddenly... nothing. Your mind goes blank. You don't know where to start. So what do you do? You look for another tutorial.</p>
+<p>Welcome to <strong>Tutorial Hell</strong>.</p>
+
+<div class="my-8 rounded-xl overflow-hidden border border-white/10">
+  <img src="/tutorial-hell-v2.png" alt="Escaping Tutorial Hell" class="w-full h-auto" />
+</div>
+
+<h2>Why Tutorials Fail Us</h2>
+<p>Tutorials are optimized for completion, not comprehension. Instructors edit out the 4 hours they spent debugging a CORS issue. They skip the part where they couldn't figure out why their flexbox layout was breaking. They give you the happy path.</p>
+<p>But software engineering isn't about walking the happy path. It's about hacking your way through the jungle with a machete when the path disappears. When you only follow tutorials, you rob yourself of the most important skill a developer can have: <strong>problem-solving through struggle</strong>.</p>
+
+<h2>How I Escaped (And How You Can Too)</h2>
+
+<h3>1. The "Plus One" Rule</h3>
+<p>If you <em>must</em> do a tutorial, never build exactly what the instructor builds. If they build a Todo app, build a Habit Tracker. If they build a blog, build a recipe directory. Force yourself to adapt their logic to your own domain. This breaks the copy-paste cycle.</p>
+
+<h3>2. Embrace the Blank Canvas</h3>
+<p>The anxiety of the blank VS Code window is exactly what you need to overcome. Start small. Instead of "I'm going to build a full-stack SaaS", start with "I'm going to build a button that fetches a random joke from an API and displays it."</p>
+
+<h3>3. Read the Docs (Seriously)</h3>
+<p>I used to avoid documentation because it felt too dense. But docs are the source of truth. Next time you want to learn a library like Framer Motion or a framework like Next.js, try reading the "Getting Started" page in their official docs instead of searching for a video.</p>
+
+<h3>4. Ship Broken Things</h3>
+<p>Perfectionism keeps you in tutorial hell. Your first independent project will have messy code. The CSS will be a disaster. The database schema will be inefficient. <strong>Ship it anyway.</strong></p>
+<p>I learned more from deploying a buggy version of <em>Rydexx</em> and fixing things as they broke than I did from 100 hours of video courses.</p>
+
+<h2>The Tipping Point</h2>
+<p>You know you've escaped when you encounter a bug, paste the error into Google or ask an AI, and actually <em>understand</em> why the solution works before pasting it into your code.</p>
+<p>Stop watching. Start building. The struggle is the learning.</p>
+    `.trim(),
+  },
+  {
     slug: "nextjs-security-issues-and-prevention",
     title: "Next.js Security: Recent Vulnerabilities and How to Prevent Them",
     description:
@@ -198,49 +241,6 @@ ANALYZE=true npm run build</code></pre>
 
 <h2>The Gap</h2>
 <p>Ira Glass said it best: when you start, your taste exceeds your ability. That gap is frustrating — but it means you can recognize good work before you can produce it. That recognition is taste. Keep building until your output catches up.</p>
-    `.trim(),
-  },
-  {
-    slug: "escaping-tutorial-hell-as-a-developer",
-    title: "Stop Tutorial Hell: How I Actually Got Good at Full Stack",
-    description:
-      "My journey from watching endless 10-hour bootcamp videos to actually shipping real production applications.",
-    date: "May 11, 2026",
-    tags: ["Career", "Web Development", "Learning"],
-    coverImage: "/tutorial-hell-v2.png",
-    readTime: "7 min read",
-    content: `
-<h2>The Endless Loop of Learning</h2>
-<p>We've all been there. You find a shiny new 10-hour "Complete Web Dev Bootcamp" on YouTube. You follow along, type out exactly what the instructor types, and by the end, you have a working Twitter clone. You feel invincible. You're a developer now.</p>
-<p>But then, you open a blank VS Code window to build your own idea. And suddenly... nothing. Your mind goes blank. You don't know where to start. So what do you do? You look for another tutorial.</p>
-<p>Welcome to <strong>Tutorial Hell</strong>.</p>
-
-<div class="my-8 rounded-xl overflow-hidden border border-white/10">
-  <img src="/tutorial-hell-v2.png" alt="Escaping Tutorial Hell" class="w-full h-auto" />
-</div>
-
-<h2>Why Tutorials Fail Us</h2>
-<p>Tutorials are optimized for completion, not comprehension. Instructors edit out the 4 hours they spent debugging a CORS issue. They skip the part where they couldn't figure out why their flexbox layout was breaking. They give you the happy path.</p>
-<p>But software engineering isn't about walking the happy path. It's about hacking your way through the jungle with a machete when the path disappears. When you only follow tutorials, you rob yourself of the most important skill a developer can have: <strong>problem-solving through struggle</strong>.</p>
-
-<h2>How I Escaped (And How You Can Too)</h2>
-
-<h3>1. The "Plus One" Rule</h3>
-<p>If you <em>must</em> do a tutorial, never build exactly what the instructor builds. If they build a Todo app, build a Habit Tracker. If they build a blog, build a recipe directory. Force yourself to adapt their logic to your own domain. This breaks the copy-paste cycle.</p>
-
-<h3>2. Embrace the Blank Canvas</h3>
-<p>The anxiety of the blank VS Code window is exactly what you need to overcome. Start small. Instead of "I'm going to build a full-stack SaaS", start with "I'm going to build a button that fetches a random joke from an API and displays it."</p>
-
-<h3>3. Read the Docs (Seriously)</h3>
-<p>I used to avoid documentation because it felt too dense. But docs are the source of truth. Next time you want to learn a library like Framer Motion or a framework like Next.js, try reading the "Getting Started" page in their official docs instead of searching for a video.</p>
-
-<h3>4. Ship Broken Things</h3>
-<p>Perfectionism keeps you in tutorial hell. Your first independent project will have messy code. The CSS will be a disaster. The database schema will be inefficient. <strong>Ship it anyway.</strong></p>
-<p>I learned more from deploying a buggy version of <em>Rydexx</em> and fixing things as they broke than I did from 100 hours of video courses.</p>
-
-<h2>The Tipping Point</h2>
-<p>You know you've escaped when you encounter a bug, paste the error into Google or ask an AI, and actually <em>understand</em> why the solution works before pasting it into your code.</p>
-<p>Stop watching. Start building. The struggle is the learning.</p>
     `.trim(),
   },
 ];
