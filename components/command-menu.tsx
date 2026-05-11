@@ -18,6 +18,8 @@ import {
   Twitter,
   Laptop,
   Code,
+  Monitor,
+  Terminal,
 } from "lucide-react";
 import { blogs } from "@/lib/blogs";
 import { projects } from "@/lib/projects-data";
@@ -40,7 +42,8 @@ export function CommandMenu() {
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      // Toggle Command Palette on CMD+K or CTRL+K
+      // Toggle Command Palette on CMD+K (Mac) or Win+K / CTRL+K (Windows)
+      // Note: e.metaKey captures both CMD on Mac and the Windows Key on Windows.
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
         setOpen((open) => !open);
@@ -117,7 +120,7 @@ export function CommandMenu() {
         aria-hidden="true"
       />
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Type a command or search..." />
+        <CommandInput placeholder="Type a command or search... (CMD+K / Win+K)" />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup heading="Navigation">
@@ -189,6 +192,22 @@ export function CommandMenu() {
             </CommandItem>
             <CommandItem
               onSelect={() => {
+                runCommand(() => router.push("/setup"));
+              }}
+            >
+              <Monitor className="mr-2 h-4 w-4" />
+              <span>Go to Setup</span>
+            </CommandItem>
+            <CommandItem
+              onSelect={() => {
+                runCommand(() => router.push("/terminal"));
+              }}
+            >
+              <Terminal className="mr-2 h-4 w-4" />
+              <span>Go to Terminal</span>
+            </CommandItem>
+            <CommandItem
+              onSelect={() => {
                 runCommand(() => router.push("/books"));
               }}
             >
@@ -247,13 +266,13 @@ export function CommandMenu() {
           <CommandGroup heading="Projects">
             {projects.map((project) => (
               <CommandItem
-                key={project.title}
+                key={project.slug}
                 onSelect={() => {
-                  runCommand(() => window.open(project.demoUrl, "_blank"));
+                  runCommand(() => router.push(`/projects/${project.slug}`));
                 }}
               >
                 <Laptop className="mr-2 h-4 w-4" />
-                <span>{project.title}</span>
+                <span>{project.title} Case Study</span>
               </CommandItem>
             ))}
           </CommandGroup>
