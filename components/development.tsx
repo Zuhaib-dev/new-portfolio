@@ -17,7 +17,7 @@ const items = [
     title: "Setup",
     description: "VSCode / Cursor configuration and extensions guide.",
     href: "/setup",
-    available: false,
+    available: true,
   },
   {
     icon: Terminal,
