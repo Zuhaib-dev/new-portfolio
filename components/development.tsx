@@ -24,7 +24,7 @@ const items = [
     title: "Terminal",
     description: "Zsh, Starship, Fastfetch, and shell configuration.",
     href: "/terminal",
-    available: false,
+    available: true,
   },
 ];
 
