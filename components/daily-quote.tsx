@@ -3,6 +3,12 @@
 import { motion } from "framer-motion";
 
 const quotes = [
+  { text: "First, solve the problem. Then, write the code.", author: "John Johnson" },
+  { text: "Talk is cheap. Show me the code.", author: "Linus Torvalds" },
+  { text: "Make it work, make it right, make it fast.", author: "Kent Beck" },
+  { text: "Simplicity is the soul of efficiency.", author: "Austin Freeman" },
+  { text: "Experience is the name everyone gives to their mistakes.", author: "Oscar Wilde" },
+  { text: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
   { text: "Richness is not having many possessions, but richness is being content with oneself.", author: "Prophet Muhammad ﷺ" },
   { text: "Do not belittle any good deed, even meeting your brother with a cheerful face.", author: "Prophet Muhammad ﷺ" },
   { text: "The greatest jihad is to battle your own soul, to fight the evil within yourself.", author: "Prophet Muhammad ﷺ" },
@@ -69,9 +75,9 @@ function getDailyQuote() {
   const now = new Date();
   const start = new Date(now.getFullYear(), 0, 0);
   const diff = now.getTime() - start.getTime();
-  // Divide time by 12 hours so the quote changes twice a day
-  const halfDays = Math.floor(diff / (1000 * 60 * 60 * 12));
-  return quotes[halfDays % quotes.length];
+  // Divide time by 8 hours so the quote changes 3 times a day
+  const periods = Math.floor(diff / (1000 * 60 * 60 * 8));
+  return quotes[periods % quotes.length];
 }
 
 export default function DailyQuote() {
