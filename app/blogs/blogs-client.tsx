@@ -4,10 +4,11 @@ import { useState, useMemo } from "react";
 import { blogs } from "@/lib/blogs";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight, Calendar } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, Search, X } from "lucide-react";
 
 export default function BlogsClient() {
   const [activeTag, setActiveTag] = useState<string | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   // Build tag counts from all blogs
   const tagCounts = useMemo(() => {
@@ -20,10 +21,25 @@ export default function BlogsClient() {
     return Object.entries(map).sort((a, b) => a[0].localeCompare(b[0]));
   }, []);
 
-  const filtered = useMemo(
-    () => (activeTag ? blogs.filter((b) => b.tags.includes(activeTag)) : blogs),
-    [activeTag],
-  );
+  const filtered = useMemo(() => {
+    let result = blogs;
+
+    if (activeTag) {
+      result = result.filter((b) => b.tags.includes(activeTag));
+    }
+
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase();
+      result = result.filter(
+        (b) =>
+          b.title.toLowerCase().includes(q) ||
+          b.description.toLowerCase().includes(q) ||
+          b.tags.some((t) => t.toLowerCase().includes(q))
+      );
+    }
+
+    return result;
+  }, [activeTag, searchQuery]);
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-12">
@@ -44,7 +60,30 @@ export default function BlogsClient() {
         </p>
       </div>
 
-      <hr className="border-border/40 mb-8" />
+      {/* Search Input */}
+      <div className="relative mb-10 max-w-2xl mx-auto">
+        <div className="relative group">
+          <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+            <Search className="h-4 w-4 text-muted-foreground group-focus-within:text-violet-500 transition-colors" />
+          </div>
+          <input
+            type="text"
+            className="block w-full pl-11 pr-10 py-3.5 border border-border/60 rounded-2xl bg-muted/20 focus:bg-muted/40 text-sm focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500/50 outline-none transition-all placeholder:text-muted-foreground/60 shadow-sm"
+            placeholder="Search articles, topics, or tags..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery("")}
+              className="absolute inset-y-0 right-0 pr-4 flex items-center text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="Clear search"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          )}
+        </div>
+      </div>
 
       {/* Popular Tags */}
       <div className="mb-8">
@@ -139,9 +178,20 @@ export default function BlogsClient() {
       </div>
 
       {filtered.length === 0 && (
-        <p className="text-center text-muted-foreground py-16 text-sm">
-          No posts found for <strong>#{activeTag}</strong>.
-        </p>
+        <div className="text-center py-20 bg-muted/10 rounded-2xl border border-border/50 border-dashed mt-8">
+          <p className="text-muted-foreground text-sm">
+            No posts found for <strong>{searchQuery ? `"${searchQuery}"` : `#${activeTag}`}</strong>.
+          </p>
+          <button 
+            onClick={() => {
+              setSearchQuery("");
+              setActiveTag(null);
+            }}
+            className="mt-4 text-xs font-medium text-violet-500 hover:text-violet-400 transition-colors"
+          >
+            Clear all filters
+          </button>
+        </div>
       )}
     </main>
   );
