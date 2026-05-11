@@ -13,10 +13,29 @@ export default function GithubStats() {
   const [mounted, setMounted] = useState(false);
   const [imgError, setImgError] = useState(false);
   const [timestamp, setTimestamp] = useState(0);
+  const [stats, setStats] = useState({ stars: 0, forks: 0, loaded: false });
 
   useEffect(() => {
     setMounted(true);
     setTimestamp(Date.now());
+
+    // Fetch real GitHub stats via our own API route to avoid CORS/AdBlockers
+    const fetchStats = async () => {
+      try {
+        const res = await fetch(`/api/github`);
+        if (!res.ok) {
+          setStats({ stars: 0, forks: 0, loaded: true });
+          return;
+        }
+        const data = await res.json();
+        setStats({ stars: data.stars || 0, forks: data.forks || 0, loaded: true });
+      } catch (error) {
+        console.error("Error fetching GitHub stats:", error);
+        setStats({ stars: 0, forks: 0, loaded: true }); // Ensure loading stops on error
+      }
+    };
+
+    fetchStats();
   }, []);
 
   const currentTheme = mounted
@@ -132,13 +151,25 @@ export default function GithubStats() {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <div className="hidden sm:flex items-center gap-3 text-xs text-muted-foreground">
-                <span className="flex items-center gap-1">
-                  <Star className="h-3.5 w-3.5" /> Stars
-                </span>
-                <span className="flex items-center gap-1">
-                  <GitFork className="h-3.5 w-3.5" /> Forks
-                </span>
+              <div className="hidden sm:flex items-center gap-4 text-xs text-muted-foreground mr-2">
+                <div className="flex items-center gap-1.5 font-medium">
+                  <Star className="h-4 w-4 text-amber-400" />
+                  {stats.loaded ? (
+                    <span className="text-foreground">{stats.stars}</span>
+                  ) : (
+                    <span className="w-4 h-4 rounded-full border-2 border-border border-t-amber-400 animate-spin" />
+                  )}
+                  Stars
+                </div>
+                <div className="flex items-center gap-1.5 font-medium">
+                  <GitFork className="h-4 w-4 text-blue-400" />
+                  {stats.loaded ? (
+                    <span className="text-foreground">{stats.forks}</span>
+                  ) : (
+                    <span className="w-4 h-4 rounded-full border-2 border-border border-t-blue-400 animate-spin" />
+                  )}
+                  Forks
+                </div>
               </div>
               <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
             </div>
