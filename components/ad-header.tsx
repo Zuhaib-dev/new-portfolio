@@ -29,7 +29,7 @@ export default function AdHeader({
 }: AdHeaderProps) {
   const [isVisible, setIsVisible] = useState(false);
 
-  // On mount, check localStorage to see if user dismissed within the last 24h
+  // On mount, check localStorage to see if user dismissed within the last 7 days
   useEffect(() => {
     try {
       const stored = localStorage.getItem(`${DISMISS_KEY}-${announcementId}`);
@@ -49,7 +49,7 @@ export default function AdHeader({
   const handleClose = () => {
     setIsVisible(false);
     try {
-      const dismissedUntil = Date.now() + 24 * 60 * 60 * 1000; // 24 hours from now
+      const dismissedUntil = Date.now() + 7 * 24 * 60 * 60 * 1000; // 7 days from now
       localStorage.setItem(
         `${DISMISS_KEY}-${announcementId}`,
         String(dismissedUntil),
