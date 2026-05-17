@@ -29,7 +29,7 @@ I love to:
 - 🛠️ Work on creative web projects  
 
 ---
-
+ 
 ## 🛠️ Tech Stack  
  
 - **Framework:** Next.js 
