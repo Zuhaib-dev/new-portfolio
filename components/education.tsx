@@ -5,6 +5,22 @@ import { Calendar, MapPin, Award } from "lucide-react";
 
 const education = [
   {
+    institution: "Amar Singh College, Srinagar",
+    degree: "Bachelor of Computer Applications (BCA)",
+    period: "2026 – Present",
+    location: "Srinagar, J&K",
+    status: "1st Semester",
+    initials: "AS",
+    gradient: "from-blue-500 to-cyan-600",
+    glowColor: "rgba(59,130,246,0.15)",
+    statusColor: "text-blue-400 bg-blue-400/10 border-blue-400/20",
+    highlights: [
+      "Currently in my 1st semester, building a strong academic foundation in computer science.",
+      "Learning core computer science concepts, algorithms, and software engineering principles.",
+      "Actively applying theoretical knowledge to real-world full-stack web development projects.",
+    ],
+  },
+  {
     institution: "Sheryians Coding School",
     degree: "Full Stack Web Development Bootcamp",
     period: "Mar 2025 – Sep 2025",
