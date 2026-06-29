@@ -121,6 +121,16 @@ export const projects: Project[] = [
   },
   // ── Extra projects shown on /projects page ───────────────────────────────
   {
+    slug: "friend-circle",
+    title: "Friend Circle",
+    description:
+      "A dynamic website showcasing my adventurous friend circle with profiles, testimonials, and stunning visuals of our trips and hobbies.",
+    image: "/FriendCirclee.png",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "MongoDB", "NextAuth", "Zod", "Radix UI"],
+    demoUrl: "https://friendcirclee.netlify.app/",
+    githubUrl: "https://zuhaib-dev.github.io/Friend-circle",
+  },
+  {
     slug: "kilamate",
     title: "Kilamate",
     description:
@@ -140,16 +150,7 @@ export const projects: Project[] = [
     demoUrl: "https://lenscapes.netlify.app/",
     githubUrl: "https://github.com/Zuhaib-dev/photography",
   },
-  {
-    slug: "friend-circle",
-    title: "Friend Circle",
-    description:
-      "A dynamic website showcasing my adventurous friend circle with profiles, testimonials, and stunning visuals of our trips and hobbies.",
-    image: "/FriendCirclee.png",
-    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "MongoDB", "NextAuth", "Zod", "Radix UI"],
-    demoUrl: "https://friendcirclee.netlify.app/",
-    githubUrl: "https://zuhaib-dev.github.io/Friend-circle",
-  },
+  
   {
     slug: "dealdrop",
     title: "DealDrop",
