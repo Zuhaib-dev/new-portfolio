@@ -146,7 +146,7 @@ export const projects: Project[] = [
     description:
       "A dynamic website showcasing my adventurous friend circle with profiles, testimonials, and stunning visuals of our trips and hobbies.",
     image: "/FriendCirclee.png",
-    tags: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Framer Motion"],
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "MongoDB", "NextAuth", "Zod", "Radix UI"],
     demoUrl: "https://friendcirclee.netlify.app/",
     githubUrl: "https://zuhaib-dev.github.io/Friend-circle",
   },
