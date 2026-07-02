@@ -23,6 +23,8 @@ import {
 } from "lucide-react";
 import { blogs } from "@/lib/blogs";
 import { projects } from "@/lib/projects-data";
+import { useFollower } from "@/hooks/use-follower";
+import { Cat, MousePointer2, MousePointerClick } from "lucide-react";
 
 
 import {
@@ -39,6 +41,7 @@ export function CommandMenu() {
   const [open, setOpen] = React.useState(false);
   const router = useRouter();
   const { setTheme, resolvedTheme } = useTheme();
+  const { followerType, setFollowerType } = useFollower();
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -259,6 +262,39 @@ export function CommandMenu() {
               <kbd className="ml-auto pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium text-muted-foreground opacity-100">
                 <span className="text-xs">T</span>
               </kbd>
+            </CommandItem>
+            <CommandItem
+              onSelect={() => {
+                runCommand(() => setFollowerType("oneko"));
+              }}
+            >
+              <Cat className="mr-2 h-4 w-4" />
+              <span>Use Pixel Cat Follower (Oneko)</span>
+              {followerType === "oneko" && (
+                <span className="ml-auto text-xs text-green-500">Active</span>
+              )}
+            </CommandItem>
+            <CommandItem
+              onSelect={() => {
+                runCommand(() => setFollowerType("custom"));
+              }}
+            >
+              <MousePointer2 className="mr-2 h-4 w-4" />
+              <span>Use Modern Cat Follower</span>
+              {followerType === "custom" && (
+                <span className="ml-auto text-xs text-green-500">Active</span>
+              )}
+            </CommandItem>
+            <CommandItem
+              onSelect={() => {
+                runCommand(() => setFollowerType("off"));
+              }}
+            >
+              <MousePointerClick className="mr-2 h-4 w-4" />
+              <span>Disable Cursor Follower</span>
+              {followerType === "off" && (
+                <span className="ml-auto text-xs text-green-500">Active</span>
+              )}
             </CommandItem>
           </CommandGroup>
 
