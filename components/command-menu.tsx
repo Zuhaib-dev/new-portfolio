@@ -24,7 +24,7 @@ import {
 import { blogs } from "@/lib/blogs";
 import { projects } from "@/lib/projects-data";
 import { useFollower } from "@/hooks/use-follower";
-import { Cat, MousePointer2, MousePointerClick } from "lucide-react";
+import { Cat, MousePointer2, MousePointerClick, Users } from "lucide-react";
 
 
 import {
@@ -269,8 +269,30 @@ export function CommandMenu() {
               }}
             >
               <Cat className="mr-2 h-4 w-4" />
-              <span>Use Pixel Cat Follower (Oneko)</span>
+              <span>Use Pixel Cat (Original)</span>
               {followerType === "oneko" && (
+                <span className="ml-auto text-xs text-green-500">Active</span>
+              )}
+            </CommandItem>
+            <CommandItem
+              onSelect={() => {
+                runCommand(() => setFollowerType("oneko-white"));
+              }}
+            >
+              <Cat className="mr-2 h-4 w-4" />
+              <span>Use Pixel Cat (White)</span>
+              {followerType === "oneko-white" && (
+                <span className="ml-auto text-xs text-green-500">Active</span>
+              )}
+            </CommandItem>
+            <CommandItem
+              onSelect={() => {
+                runCommand(() => setFollowerType("oneko-multiple"));
+              }}
+            >
+              <Users className="mr-2 h-4 w-4" />
+              <span>Use a Pack of Cats (Multiple)</span>
+              {followerType === "oneko-multiple" && (
                 <span className="ml-auto text-xs text-green-500">Active</span>
               )}
             </CommandItem>

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-export type FollowerType = "oneko" | "custom" | "off";
+export type FollowerType = "oneko" | "oneko-white" | "oneko-multiple" | "custom" | "off";
 
 export function useFollower() {
   const [followerType, setFollowerType] = useState<FollowerType>("oneko");
