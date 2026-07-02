@@ -16,25 +16,39 @@ export default function SoundProvider() {
           audioCtx.resume();
         }
 
-        const oscillator = audioCtx.createOscillator();
+        // Exact reproduction of the web-haptics "playClick" sound from ramx.in
+        // It's a filtered white noise burst — NOT an oscillator tone.
+
+        // 1. Create a bandpass filter (crisp click character)
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = "bandpass";
+        filter.frequency.value = 4000;
+        filter.Q.value = 8;
+
+        // 2. Create gain node for volume
         const gainNode = audioCtx.createGain();
+        gainNode.gain.value = 0.25; // 0.5 * intensity(0.5)
 
-        // A soft "pop" or "bubble" sound
-        oscillator.type = "sine";
-        
-        // Start at a mid-low frequency and drop rapidly for the "pop" effect
-        oscillator.frequency.setValueAtTime(300, audioCtx.currentTime);
-        oscillator.frequency.exponentialRampToValueAtTime(50, audioCtx.currentTime + 0.06);
-
-        // Gentle volume fade out over a very short duration
-        gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime); 
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.06); 
-
-        oscillator.connect(gainNode);
+        // 3. Connect: buffer -> filter -> gain -> speakers
+        filter.connect(gainNode);
         gainNode.connect(audioCtx.destination);
 
-        oscillator.start();
-        oscillator.stop(audioCtx.currentTime + 0.06);
+        // 4. Create a very short noise buffer (4ms of audio)
+        const bufferSize = Math.floor(0.004 * audioCtx.sampleRate);
+        const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const channelData = noiseBuffer.getChannelData(0);
+
+        // 5. Fill with exponentially decaying white noise (the secret sauce!)
+        for (let i = 0; i < bufferSize; i++) {
+          channelData[i] = (2 * Math.random() - 1) * Math.exp(-i / 25);
+        }
+
+        // 6. Play it
+        const source = audioCtx.createBufferSource();
+        source.buffer = noiseBuffer;
+        source.connect(filter);
+        source.onended = () => source.disconnect();
+        source.start();
       } catch (e) {
         console.error("Audio playback failed", e);
       }
