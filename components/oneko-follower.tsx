@@ -2,7 +2,15 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export function OnekoFollower() {
+export function OnekoFollower({
+  image = "/oneko.gif",
+  offsetX = 0,
+  offsetY = 0,
+}: {
+  image?: string;
+  offsetX?: number;
+  offsetY?: number;
+}) {
   const nekoRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -172,8 +180,10 @@ export function OnekoFollower() {
 
     function frame() {
       frameCount += 1;
-      const diffX = nekoPosX - mousePosX;
-      const diffY = nekoPosY - mousePosY;
+      const targetX = mousePosX + offsetX;
+      const targetY = mousePosY + offsetY;
+      const diffX = nekoPosX - targetX;
+      const diffY = nekoPosY - targetY;
       const distance = Math.sqrt(diffX ** 2 + diffY ** 2);
 
       if (distance < nekoSpeed || distance < 48) {
@@ -251,7 +261,7 @@ export function OnekoFollower() {
         pointerEvents: "none",
         imageRendering: "pixelated",
         zIndex: 2147483647,
-        backgroundImage: "url('/oneko.gif')",
+        backgroundImage: `url('${image}')`,
       }}
     />
   );
