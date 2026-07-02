@@ -10,6 +10,7 @@ import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import SmoothScroll from "@/components/smooth-scroll";
 import DeferredUI from "@/components/deferred-ui";
+import SoundProvider from "@/components/sound-provider";
 
 // display:swap ensures text is always visible while the font loads (eliminates FOIT)
 const inter = Inter({ subsets: ["latin"], display: "swap" });
@@ -219,6 +220,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <SoundProvider />
           <AdHeader
             announcementId="resumind-v1"
             title="🚀 Resumind"
