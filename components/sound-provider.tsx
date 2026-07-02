@@ -19,19 +19,22 @@ export default function SoundProvider() {
         const oscillator = audioCtx.createOscillator();
         const gainNode = audioCtx.createGain();
 
-        // A pleasant, soft high-pitched beep
+        // A soft "pop" or "bubble" sound
         oscillator.type = "sine";
-        oscillator.frequency.setValueAtTime(800, audioCtx.currentTime); // Start pitch
         
-        // Gentle volume fade out to make it sound pleasant
-        gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime); 
-        gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1); 
+        // Start at a mid-low frequency and drop rapidly for the "pop" effect
+        oscillator.frequency.setValueAtTime(300, audioCtx.currentTime);
+        oscillator.frequency.exponentialRampToValueAtTime(50, audioCtx.currentTime + 0.06);
+
+        // Gentle volume fade out over a very short duration
+        gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime); 
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.06); 
 
         oscillator.connect(gainNode);
         gainNode.connect(audioCtx.destination);
 
         oscillator.start();
-        oscillator.stop(audioCtx.currentTime + 0.1);
+        oscillator.stop(audioCtx.currentTime + 0.06);
       } catch (e) {
         console.error("Audio playback failed", e);
       }
