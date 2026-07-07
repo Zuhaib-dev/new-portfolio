@@ -20,6 +20,24 @@
 
 ---
 
+## 👨‍💻 About Me
+
+Hey, I'm **Zuhaib Rashid** — a self-taught **Full Stack Developer** from **Srinagar, Kashmir** 🏔️
+
+I picked up coding with zero formal CS background and taught myself everything from HTML to full-stack Next.js apps. What started as curiosity turned into a genuine obsession with building things for the web — fast, beautiful, and accessible.
+
+**What I work with:** React, Next.js, TypeScript, Node.js, Tailwind CSS, MongoDB, and whatever else gets the job done.
+
+When I'm not writing code, you'll find me:
+- 🥾 Trekking through the mountains of Kashmir
+- 🏐 Playing volleyball
+- 📚 Reading about tech & design
+- 🎵 Listening to music (check the Spotify widget on my site)
+
+I'm currently open to **freelance projects** and **full-time opportunities** — feel free to [reach out](mailto:zuhaibrashid01@gmail.com)!
+
+---
+
 ## ⚡ Highlights
 
 | Feature | Description |
