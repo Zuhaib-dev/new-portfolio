@@ -14,7 +14,7 @@ export function useFollower() {
       setFollowerType(saved);
     }
 
-    // Listen for cross-component updates
+    // Listen for cross-component updates 
     const handleStorageChange = () => {
       const updated = localStorage.getItem("follower-type") as FollowerType;
       if (updated) {
