@@ -37,4 +37,3 @@ export function useFollower() {
 
   return { followerType, setFollowerType: changeFollowerType };
 }
- 
