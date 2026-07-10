@@ -222,11 +222,11 @@ export default function RootLayout({
         >
           <SoundProvider />
           <AdHeader
-            announcementId="resumind-v1"
-            title="🚀 Resumind"
-            description="Optimize Your Resume with AI"
-            buttonText="Try it free"
-            href="https://resumind-ebon.vercel.app/"
+            announcementId="rydexx-v1"
+            title="🚗 Rydexx"
+            description="Book bikes, cars & trucks instantly — fast, affordable, reliable."
+            buttonText="Check it out"
+            href="https://rydexx.netlify.app/"
             isExternal={true}
             dismissible={true}
           />
