@@ -187,4 +187,4 @@ export default function AdHeader({
       )}
     </AnimatePresence>
   );
-}
+} 
