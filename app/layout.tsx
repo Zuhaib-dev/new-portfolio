@@ -200,6 +200,12 @@ export default function RootLayout({
                 {
                   "@type": "ListItem",
                   position: 3,
+                  name: "Resume",
+                  item: "https://www.zuhaibrashid.com/resume",
+                },
+                {
+                  "@type": "ListItem",
+                  position: 4,
                   name: "Books",
                   item: "https://www.zuhaibrashid.com/books",
                 },

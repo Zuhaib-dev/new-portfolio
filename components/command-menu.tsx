@@ -76,7 +76,7 @@ export function CommandMenu() {
             router.push("/blogs");
             break;
           case "r":
-            window.open("/July_2026.pdf", "_blank");
+            router.push("/resume");
             break;
           case "g":
             router.push("/gears");
@@ -173,7 +173,7 @@ export function CommandMenu() {
             </CommandItem>
             <CommandItem
               onSelect={() => {
-                runCommand(() => window.open("/July_2026.pdf", "_blank"));
+                runCommand(() => router.push("/resume"));
               }}
             >
               <File className="mr-2 h-4 w-4" />
