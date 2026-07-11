@@ -74,7 +74,11 @@ export default function ResumePage() {
       </div>
 
       {/* Embedded PDF */}
-      <div className="rounded-2xl border border-border/50 bg-muted/10 overflow-hidden shadow-sm">
+      {/* data-lenis-prevent stops the smooth scroll library from hijacking scroll inside the PDF */}
+      <div
+        className="rounded-2xl border border-border/50 bg-muted/10 overflow-hidden shadow-sm"
+        data-lenis-prevent
+      >
         <iframe
           src="/July_2026.pdf"
           className="w-full min-h-[80vh] md:min-h-[90vh]"
