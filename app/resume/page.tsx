@@ -63,7 +63,7 @@ export default function ResumePage() {
           Download PDF
         </a>
         <a
-          href="/July_2026.pdf"
+          href="https://drive.google.com/file/d/1RXiGS81ctoWhbmNqlvWfWHm86BFbytYR/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-xl border border-border/50 bg-muted/20 px-4 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/40 transition-all hover:scale-[1.02] active:scale-[0.98]"
@@ -73,17 +73,19 @@ export default function ResumePage() {
         </a>
       </div>
 
-      {/* Embedded PDF */}
+      {/* Embedded PDF via Google Drive */}
       {/* data-lenis-prevent stops the smooth scroll library from hijacking scroll inside the PDF */}
       <div
         className="rounded-2xl border border-border/50 bg-muted/10 overflow-hidden shadow-sm"
         data-lenis-prevent
       >
         <iframe
-          src="/July_2026.pdf"
+          src="https://drive.google.com/file/d/1RXiGS81ctoWhbmNqlvWfWHm86BFbytYR/preview"
           className="w-full min-h-[80vh] md:min-h-[90vh]"
           title="Zuhaib Rashid — Resume"
           style={{ border: "none" }}
+          allow="autoplay"
+          sandbox="allow-scripts allow-same-origin allow-popups"
         />
       </div>
 

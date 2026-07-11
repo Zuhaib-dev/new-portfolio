@@ -45,7 +45,7 @@ const nextConfig = {
               font-src 'self' https://fonts.gstatic.com;
               connect-src 'self' https://sentry.io https://*.clarity.ms https://c.bing.com https://github-readme-activity-graph.vercel.app;
               object-src 'self';
-              frame-src 'self';
+              frame-src 'self' https://drive.google.com;
               base-uri 'self';
               frame-ancestors 'self';
             `.replace(/\s{2,}/g, ' ').trim()
