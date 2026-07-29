@@ -17,7 +17,7 @@ export const blogs: Blog[] = [
       "My journey from watching endless 10-hour bootcamp videos to actually shipping real production applications.",
     date: "May 11, 2026",
     tags: ["Career", "Web Development", "Learning"],
-    coverImage: "/tutorial-hell-v2.png",
+    coverImage: "/tutorial-hell-v2.webp",
     readTime: "7 min read",
     content: `
 <h2>The Endless Loop of Learning</h2>
@@ -26,7 +26,7 @@ export const blogs: Blog[] = [
 <p>Welcome to <strong>Tutorial Hell</strong>.</p>
 
 <div class="my-8 rounded-xl overflow-hidden border border-white/10">
-  <img src="/tutorial-hell-v2.png" alt="Escaping Tutorial Hell" class="w-full h-auto" />
+  <img src="/tutorial-hell-v2.webp" alt="Escaping Tutorial Hell" class="w-full h-auto" />
 </div>
 
 <h2>Why Tutorials Fail Us</h2>
@@ -60,14 +60,14 @@ export const blogs: Blog[] = [
       "A deep dive into recent Next.js security issues like SSRF in Server Actions and RSC vulnerabilities, with practical steps to secure your app.",
     date: "April 23, 2026",
     tags: ["Next.js", "Security", "Web Development", "DevOps"],
-    coverImage: "/nextjs-security-issues.png",
+    coverImage: "/nextjs-security-issues.webp",
     readTime: "8 min read",
     content: `
 <h2>The Shift in Next.js Security</h2>
 <p>As Next.js evolves from a simple SSR framework to a full-stack powerhouse with Server Components and Server Actions, the attack surface has shifted. Recent vulnerabilities have highlighted that with great power comes great responsibility — especially when it comes to how we handle server-side logic and data flow.</p>
 
 <div class="my-8 rounded-xl overflow-hidden border border-white/10">
-  <img src="/nextjs-security-issues.png" alt="Next.js Security" class="w-full h-auto" />
+  <img src="/nextjs-security-issues.webp" alt="Next.js Security" class="w-full h-auto" />
 </div>
 
 <h2>1. CVE-2024-34351: SSRF in Server Actions</h2>
@@ -128,7 +128,7 @@ export async function deletePost(postId: string) {
       "Optimize your Next.js web app to make it lightning fast — from image optimization to code splitting and caching strategies.",
     date: "January 31, 2026",
     tags: ["Frontend", "Next.js", "JavaScript", "Performance"],
-    coverImage: "/how_to_optimize_nextjs_app.png",
+    coverImage: "/how_to_optimize_nextjs_app.webp",
     readTime: "6 min read",
     content: `
 <h2>Why Performance Matters</h2>

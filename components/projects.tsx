@@ -107,8 +107,6 @@ export function ProjectCard({
             fill
             className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 480px"
-            priority={index < 2}
-            loading={index < 2 ? "eager" : "lazy"}
           />
           {/* Gradient fade at bottom of image */}
           <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background/60 to-transparent" />

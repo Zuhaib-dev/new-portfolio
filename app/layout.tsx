@@ -1,11 +1,9 @@
 import type { Metadata, Viewport } from "next/types";
 import { Inter } from "next/font/google";
-import "../styles/globals.css";
+import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
 import AdHeader from "@/components/ad-header";
-import { Suspense } from "react";
-import Loading from "@/components/loading";
 import { Analytics } from "@vercel/analytics/next";
 import Script from "next/script";
 import SmoothScroll from "@/components/smooth-scroll";
@@ -240,28 +238,26 @@ export default function RootLayout({
             isExternal={true}
             dismissible={true}
           />
-          <Suspense fallback={<Loading />}>
-            <SmoothScroll>
-              <a
-                href="#main-content"
-                className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md"
-              >
-                Skip to main content
-              </a>
-              <Analytics />
-              <Header />
-              <main
-                id="main-content"
-                className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
-              >
-                {children}
-              </main>
-              <footer className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-sm text-muted-foreground">
-                © {new Date().getFullYear()} Zuhaib Rashid. All rights reserved.
-              </footer>
-              <DeferredUI />
-            </SmoothScroll>
-          </Suspense>
+          <SmoothScroll>
+            <a
+              href="#main-content"
+              className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md"
+            >
+              Skip to main content
+            </a>
+            <Analytics />
+            <Header />
+            <main
+              id="main-content"
+              className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
+            >
+              {children}
+            </main>
+            <footer className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-sm text-muted-foreground">
+              © {new Date().getFullYear()} Zuhaib Rashid. All rights reserved.
+            </footer>
+            <DeferredUI />
+          </SmoothScroll>
         </ThemeProvider>
 
         {/* ✅ Google Tag Manager */}

@@ -39,6 +39,7 @@ export default function Hero() {
   const [spotifyData, setSpotifyData] = useState<any>(null);
 
   useEffect(() => {
+    let interval: NodeJS.Timeout;
     const fetchSpotify = async () => {
       try {
         const res = await fetch("/api/spotify");
@@ -51,9 +52,16 @@ export default function Hero() {
       }
     };
 
-    fetchSpotify();
-    const interval = setInterval(fetchSpotify, 10000); // Poll every 10 seconds
-    return () => clearInterval(interval);
+    // Defer initial fetch by 1.5 seconds to prioritize main content paint
+    const timer = setTimeout(() => {
+      fetchSpotify();
+      interval = setInterval(fetchSpotify, 15000); // Poll every 15 seconds
+    }, 1500);
+
+    return () => {
+      clearTimeout(timer);
+      if (interval) clearInterval(interval);
+    };
   }, []);
 
   const copyEmail = () => {
@@ -73,7 +81,7 @@ export default function Hero() {
         {/* Avatar Placeholder */}
         <div className="relative shrink-0 w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-border bg-muted/50 flex items-center justify-center">
           <Image
-            src="/profilePic.png"
+            src="/profilePic.webp"
             alt="Zuhaib Rashid"
             width={128}
             height={128}
