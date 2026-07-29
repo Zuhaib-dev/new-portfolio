@@ -47,8 +47,8 @@ export default function GithubStats() {
 
   // Theme params tuned to match the site's card style
   const graphUrl = isDark
-    ? `https://github-readme-activity-graph.vercel.app/graph?username=${username}&bg_color=0a0a0a&color=a78bfa&line=7c3aed&point=c4b5fd&area=true&area_color=7c3aed&hide_border=true&custom_title=Contribution+Activity&t=${timestamp}`
-    : `https://github-readme-activity-graph.vercel.app/graph?username=${username}&bg_color=ffffff&color=6d28d9&line=7c3aed&point=7c3aed&area=true&area_color=7c3aed&hide_border=true&custom_title=Contribution+Activity&t=${timestamp}`;
+    ? `https://github-readme-activity-graph.vercel.app/graph?username=${username}&bg_color=0a0a0a&color=a78bfa&line=7c3aed&point=c4b5fd&area=true&area_color=7c3aed&hide_border=true&custom_title=Contribution+Activity`
+    : `https://github-readme-activity-graph.vercel.app/graph?username=${username}&bg_color=ffffff&color=6d28d9&line=7c3aed&point=7c3aed&area=true&area_color=7c3aed&hide_border=true&custom_title=Contribution+Activity`;
 
   // Fallback: GitHub's own contribution calendar embed
   const fallbackUrl = `https://ghchart.rshah.org/${isDark ? "7c3aed" : "7c3aed"}/${username}`;
