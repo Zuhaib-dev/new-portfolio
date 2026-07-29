@@ -229,6 +229,7 @@ export default function Experience() {
                           >
                             {Icon && (
                               <Icon
+                                aria-hidden="true"
                                 style={{ color: tech.color }}
                                 className="h-3.5 w-3.5 shrink-0"
                               />
