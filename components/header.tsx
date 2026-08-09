@@ -24,7 +24,7 @@ export default function Header() {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  // This useEffect ensures we don't render theme-specific elements until after hydration
+
   useEffect(() => {
     setMounted(true);
     const handleScroll = () => {
