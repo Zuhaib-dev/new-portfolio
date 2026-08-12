@@ -39,13 +39,13 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: `
               default-src 'self';
-              script-src 'self' 'unsafe-eval' 'unsafe-inline' https://vercel.live https://va.vercel-scripts.com https://www.clarity.ms https://scripts.clarity.ms https://c.bing.com;
+              script-src 'self' 'unsafe-eval' 'unsafe-inline' https://vercel.live https://va.vercel-scripts.com https://www.clarity.ms https://scripts.clarity.ms https://c.bing.com https://www.googletagmanager.com;
               style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-              img-src 'self' blob: data: https://*.clarity.ms https://c.bing.com https://github-readme-stats.vercel.app https://github-readme-streak-stats.herokuapp.com https://github-readme-activity-graph.vercel.app https://github-profile-trophy.vercel.app https://rydexx.netlify.app;
+              img-src 'self' blob: data: https://*.clarity.ms https://c.bing.com https://github-readme-stats.vercel.app https://github-readme-streak-stats.herokuapp.com https://github-readme-activity-graph.vercel.app https://github-profile-trophy.vercel.app https://rydexx.netlify.app https://www.googletagmanager.com https://www.google-analytics.com;
               font-src 'self' https://fonts.gstatic.com;
-              connect-src 'self' https://sentry.io https://*.clarity.ms https://c.bing.com https://github-readme-activity-graph.vercel.app;
+              connect-src 'self' https://sentry.io https://*.clarity.ms https://c.bing.com https://github-readme-activity-graph.vercel.app https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net;
               object-src 'self';
-              frame-src 'self' https://drive.google.com;
+              frame-src 'self' https://drive.google.com https://www.googletagmanager.com;
               base-uri 'self';
               frame-ancestors 'self';
             `.replace(/\s{2,}/g, ' ').trim()
