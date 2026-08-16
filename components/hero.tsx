@@ -72,11 +72,8 @@ export default function Hero() {
 
   return (
     <section id="about" className="relative py-12 md:py-20">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="flex flex-col md:flex-row gap-8 items-start md:items-center relative"
+      <div
+        className="flex flex-col md:flex-row gap-8 items-start md:items-center relative animate-in fade-in slide-in-from-bottom-5 duration-500"
       >
         {/* Avatar Placeholder */}
         <div className="relative shrink-0 w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-border bg-muted/50 flex items-center justify-center">
@@ -177,7 +174,7 @@ export default function Hero() {
             })}
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

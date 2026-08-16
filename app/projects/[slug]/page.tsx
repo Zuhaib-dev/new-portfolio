@@ -1,5 +1,11 @@
-import { getProjectBySlug } from "@/lib/projects-data";
+import { getProjectBySlug, projects } from "@/lib/projects-data";
 import { notFound } from "next/navigation";
+
+export function generateStaticParams() {
+  return projects.map((project) => ({
+    slug: project.slug,
+  }));
+}
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, Github, Calendar, Layers } from "lucide-react";
