@@ -123,7 +123,7 @@ export default async function ProjectCaseStudy({ params }: Props) {
       </header>
 
       {/* Case Study Content */}
-      <article className="prose prose-invert prose-violet max-w-none">
+      <article className="prose dark:prose-invert prose-violet max-w-none">
         {project.content ? (
           <div dangerouslySetInnerHTML={{ __html: project.content }} />
         ) : (
