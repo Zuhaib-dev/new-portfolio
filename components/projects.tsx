@@ -22,8 +22,11 @@ import {
   SiAxios,
   SiMongodb,
   SiCloudinary,
+  SiExpress,
+  SiSocketdotio,
+  SiReactquery,
 } from "react-icons/si";
-import { TbBrandFramerMotion, TbChartBar, TbBrain, TbShieldLock, TbVideo } from "react-icons/tb";
+import { TbBrandFramerMotion, TbChartBar, TbBrain, TbShieldLock, TbVideo, TbDatabase } from "react-icons/tb";
 
 // Map tag names to react-icons components + colors
 const techIconMap: Record<
@@ -32,9 +35,12 @@ const techIconMap: Record<
 > = {
   "React.js": { icon: SiReact, color: "#61DAFB", label: "React" },
   React: { icon: SiReact, color: "#61DAFB", label: "React" },
+  "React 19": { icon: SiReact, color: "#61DAFB", label: "React 19" },
   "Next.js": { icon: SiNextdotjs, color: "#ffffff", label: "Next.js" },
   Nextjs: { icon: SiNextdotjs, color: "#ffffff", label: "Next.js" },
-  "Tailwind CSS": { icon: SiTailwindcss, color: "#38BDF8", label: "Tailwind" },
+  "Next.js 15": { icon: SiNextdotjs, color: "#ffffff", label: "Next.js 15" },
+  "Tailwind CSS": { icon: SiTailwindcss, color: "#38BDF8", label: "Tailwind CSS" },
+  Tailwind: { icon: SiTailwindcss, color: "#38BDF8", label: "Tailwind" },
   TypeScript: { icon: SiTypescript, color: "#3178C6", label: "TypeScript" },
   Typescript: { icon: SiTypescript, color: "#3178C6", label: "TypeScript" },
   Appwrite: { icon: SiAppwrite, color: "#FD366E", label: "Appwrite" },
@@ -62,6 +68,10 @@ const techIconMap: Record<
   ZegoCloud: { icon: TbVideo, color: "#1D9FFD", label: "ZegoCloud" },
   MongoDB: { icon: SiMongodb, color: "#47A248", label: "MongoDB" },
   Cloudinary: { icon: SiCloudinary, color: "#3448C5", label: "Cloudinary" },
+  Zustand: { icon: TbDatabase, color: "#a8a29e", label: "Zustand" },
+  "React Query": { icon: SiReactquery, color: "#FF4154", label: "React Query" },
+  "Express.js": { icon: SiExpress, color: "#ffffff", label: "Express.js" },
+  "Socket.io": { icon: SiSocketdotio, color: "#010101", label: "Socket.io" },
 };
 
 export function ProjectCard({

@@ -18,9 +18,9 @@ export const projects: Project[] = [
     description:
       "A comprehensive, centralized platform designed to streamline healthcare operations with a sleek, intuitive, and highly responsive interface.",
     image: "/healos.webp",
-    tags: ["Next.js 15", "React 19", "Tailwind CSS", "Framer Motion", "Zustand", "React Query", "Node.js", "Express.js", "MongoDB", "Socket.io"],
+    tags: ["Next.js 15", "React 19", "Tailwind", "Framer Motion", "Zustand", "React Query", "Node.js", "Express.js", "MongoDB", "Socket.io"],
     demoUrl: "https://healos-theta.vercel.app/",
-    label: "New ✨",
+    label: "Building 🚀",
     content: `
 <h2>Streamlining Healthcare Operations</h2>
 <p>HealOS is a comprehensive, centralized platform designed to streamline healthcare operations. Whether it's managing patient records, scheduling appointments, or handling staff rosters and billing, HealOS provides a sleek, intuitive, and highly responsive interface to make hospital administration effortless.</p>
@@ -49,7 +49,6 @@ export const projects: Project[] = [
     image: "/rydexx.webp",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Auth.js", "NextAuth", "Framer Motion", "Axios", "ZegoCloud", "MongoDB", "Cloudinary"],
     demoUrl: "https://rydexx.netlify.app/",
-    label: "Building 🚀",
     content: `
 <h2>The Vision</h2>
 <p>Finding a reliable, fast, and affordable vehicle rental shouldn't require jumping through hoops. I built <strong>Rydexx</strong> to act as the ultimate middleman between vehicle owners and renters, bringing the "Uber" experience to standard long-term and short-term rentals.</p>
