@@ -20,6 +20,7 @@ export const projects: Project[] = [
     image: "/healos.webp",
     tags: ["Next.js 15", "React 19", "Tailwind", "Framer Motion", "Zustand", "React Query", "Node.js", "Express.js", "MongoDB", "Socket.io"],
     demoUrl: "https://healos-theta.vercel.app/",
+    githubUrl: "https://github.com/zuhaib-dev/HealOS",
     label: "Building 🚀",
     content: `
 <h2>Streamlining Healthcare Operations</h2>
@@ -49,6 +50,7 @@ export const projects: Project[] = [
     image: "/rydexx.webp",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Auth.js", "NextAuth", "Framer Motion", "Axios", "ZegoCloud", "MongoDB", "Cloudinary"],
     demoUrl: "https://rydexx.netlify.app/",
+    githubUrl: "https://github.com/zuhaib-dev/rydex",
     content: `
 <h2>The Vision</h2>
 <p>Finding a reliable, fast, and affordable vehicle rental shouldn't require jumping through hoops. I built <strong>Rydexx</strong> to act as the ultimate middleman between vehicle owners and renters, bringing the "Uber" experience to standard long-term and short-term rentals.</p>
