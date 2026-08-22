@@ -17,7 +17,7 @@ export const projects: Project[] = [
     title: "HealOS",
     description:
       "A comprehensive, centralized platform designed to streamline healthcare operations with a sleek, intuitive, and highly responsive interface.",
-    image: "/healos.webp",
+    image: "/HealOs.webp",
     tags: ["Next.js 15", "React 19", "Tailwind", "Framer Motion", "Zustand", "React Query", "Node.js", "Express.js", "MongoDB", "Socket.io"],
     demoUrl: "https://healos-theta.vercel.app/",
     githubUrl: "https://github.com/zuhaib-dev/HealOS",
