@@ -13,6 +13,35 @@ export interface Project {
 export const projects: Project[] = [
   // ── Top 4 shown on homepage ──────────────────────────────────────────────
   {
+    slug: "healos",
+    title: "HealOS",
+    description:
+      "A comprehensive, centralized platform designed to streamline healthcare operations with a sleek, intuitive, and highly responsive interface.",
+    image: "/healos.webp",
+    tags: ["Next.js 15", "React 19", "Tailwind CSS", "Framer Motion", "Zustand", "React Query", "Node.js", "Express.js", "MongoDB", "Socket.io"],
+    demoUrl: "https://healos-theta.vercel.app/",
+    label: "New ✨",
+    content: `
+<h2>Streamlining Healthcare Operations</h2>
+<p>HealOS is a comprehensive, centralized platform designed to streamline healthcare operations. Whether it's managing patient records, scheduling appointments, or handling staff rosters and billing, HealOS provides a sleek, intuitive, and highly responsive interface to make hospital administration effortless.</p>
+
+<h2>Frontend Architecture</h2>
+<ul>
+  <li><strong>Core:</strong> Next.js 15 (App Router) & React 19 with strict client/server component separation.</li>
+  <li><strong>Styling & UI:</strong> Tailwind CSS v4 using modern logical properties, custom Emerald Prestige Design System, and Framer Motion.</li>
+  <li><strong>State & Data:</strong> Zustand for global state and TanStack React Query for server state caching.</li>
+</ul>
+
+<h2>Backend Infrastructure</h2>
+<ul>
+  <li><strong>API & Runtime:</strong> Node.js & Express.js written in strictly typed TypeScript.</li>
+  <li><strong>Database:</strong> MongoDB & Mongoose for NoSQL data modeling.</li>
+  <li><strong>Real-time:</strong> Socket.io for immediate clinical updates via Pub/Sub.</li>
+  <li><strong>Integrations:</strong> JWT for Role-Based Access Control (RBAC) and Razorpay API for online billing.</li>
+</ul>
+    `.trim(),
+  },
+  {
     slug: "rydexx",
     title: "Rydexx",
     description:
