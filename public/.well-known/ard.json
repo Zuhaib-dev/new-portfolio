@@ -1,0 +1,16 @@
+{
+  "resources": {
+    "llms": {
+      "url": "/llms.txt"
+    },
+    "openapi": {
+      "url": "/openapi.json"
+    },
+    "agents": {
+      "url": "/agents.md"
+    }
+  },
+  "contact": {
+    "email": "zuhaibrashid01@gmail.com"
+  }
+}

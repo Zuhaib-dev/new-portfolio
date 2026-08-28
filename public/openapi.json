@@ -1,0 +1,66 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Zuhaib Rashid Portfolio API",
+    "description": "API for fetching GitHub stats and other integrations for the portfolio.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://www.zuhaibrashid.com",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/api/github": {
+      "get": {
+        "operationId": "getGithubStats",
+        "summary": "Get GitHub Repository Statistics",
+        "description": "Fetches aggregated star and fork counts for Zuhaib-dev repositories from GitHub.",
+        "responses": {
+          "200": {
+            "description": "Successful response with aggregated stats",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "stars": {
+                      "type": "integer",
+                      "description": "Total stars across all repositories"
+                    },
+                    "forks": {
+                      "type": "integer",
+                      "description": "Total forks across all repositories"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error fetching stats",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "stars": {
+                      "type": "integer"
+                    },
+                    "forks": {
+                      "type": "integer"
+                    },
+                    "error": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

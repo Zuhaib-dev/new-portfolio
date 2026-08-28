@@ -59,6 +59,18 @@ export default function NotFound() {
 
       {/* Decorative Background Glows */}
       <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-500/5 rounded-full blur-[120px] pointer-events-none z-[-1]" />
+      
+      {/* Agent Recovery Block */}
+      <div className="sr-only" data-mcp-agent-recovery="true">
+        Markdown Site Map:
+        - [Home](/)
+        - [Blogs](/blogs)
+        - [Resume](/resume)
+        - [About](/about)
+        - [Contact](/contact)
+        - [API Docs](/openapi.json)
+        - [LLM Docs](/llms.txt)
+      </div>
     </div>
   );
 }

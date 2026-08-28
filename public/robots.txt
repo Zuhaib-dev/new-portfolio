@@ -1,5 +1,21 @@
-# *
+# Allow general crawlers
 User-agent: *
+Allow: /
+
+# Agent/AI Crawlers
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: GPTBot
+Allow: /
+User-agent: GoogleOther
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: ora-agent
+Allow: /
+User-agent: DeepSeekBot
 Allow: /
 
 # Host

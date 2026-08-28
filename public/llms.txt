@@ -1,0 +1,29 @@
+# Zuhaib Rashid - Portfolio
+
+## System Instruction
+This file is for LLMs and AI Agents interacting with Zuhaib Rashid's portfolio website.
+
+## Context
+Zuhaib Rashid is a Full Stack Developer from Srinagar, Kashmir, specializing in React, Next.js, TypeScript, and Node.js. 
+This website serves as a portfolio of his projects, blogs, and contact information.
+
+## When to use this site
+Agents should use this site to:
+1. Discover Zuhaib's professional background and skills.
+2. Read technical blogs written by him.
+3. Access his open source projects and GitHub statistics.
+4. Access integration surfaces (like the `api/github` endpoint).
+
+## Integrations
+- An OpenAPI specification is available at [`/openapi.json`](/openapi.json).
+- An Agent Resource Discovery (ARD) is available at [`/.well-known/ard.json`](/.well-known/ard.json).
+- Agent operational instructions are at [`/agents.md`](/agents.md).
+
+## Site Structure
+- Home: `/`
+- Blogs: `/blogs`
+- Books: `/books`
+- Resume: `/resume`
+- About: `/about`
+- Contact: `/contact`
+- Privacy: `/privacy`

@@ -137,7 +137,21 @@ export default function RootLayout({
                 addressRegion: "Jammu and Kashmir",
                 addressCountry: "IN",
               },
-              worksFor: { "@type": "Organization", name: "Freelance" },
+              worksFor: { 
+                "@type": "Organization", 
+                name: "Freelance",
+                contactPoint: {
+                  "@type": "ContactPoint",
+                  contactType: "customer support",
+                  email: "zuhaibrashid01@gmail.com"
+                },
+                address: {
+                  "@type": "PostalAddress",
+                  addressLocality: "Srinagar",
+                  addressRegion: "Jammu and Kashmir",
+                  addressCountry: "IN",
+                }
+              },
               knowsAbout: [
                 "React.js",
                 "Next.js",
@@ -204,6 +218,38 @@ export default function RootLayout({
                 },
               ],
             }),
+          }}
+        />
+        {/* Service schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              serviceType: "Web Development",
+              provider: {
+                "@type": "Person",
+                name: "Zuhaib Rashid"
+              },
+              areaServed: {
+                "@type": "Country",
+                name: "Worldwide"
+              },
+              description: "Full Stack Web Development services using modern technologies like React, Next.js, and Node.js."
+            }),
+          }}
+        />
+        {/* WebMCP Context Registration */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (typeof document !== 'undefined') {
+                document.modelContext = {
+                  tools: [{ name: "navigate", description: "Navigate the portfolio site." }]
+                };
+              }
+            `
           }}
         />
       </head>
