@@ -296,8 +296,31 @@ export default function RootLayout({
             >
               {children}
             </main>
-            <footer className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Zuhaib Rashid. All rights reserved.
+            <footer className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 border-t border-border/40 mt-16 text-center text-sm text-muted-foreground space-y-4">
+              <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-xs">
+                <a href="/openapi.json" target="_blank" className="hover:text-foreground transition-colors">
+                  OpenAPI Spec
+                </a>
+                <span className="text-border">•</span>
+                <a href="/llms.txt" target="_blank" className="hover:text-foreground transition-colors">
+                  llms.txt
+                </a>
+                <span className="text-border">•</span>
+                <a href="/agents.md" target="_blank" className="hover:text-foreground transition-colors">
+                  Agent Guide
+                </a>
+                <span className="text-border">•</span>
+                <a href="/.well-known/ard.json" target="_blank" className="hover:text-foreground transition-colors">
+                  ARD Manifest
+                </a>
+                <span className="text-border">•</span>
+                <a href="/privacy" className="hover:text-foreground transition-colors">
+                  Privacy Policy
+                </a>
+              </div>
+              <p className="text-xs">
+                © {new Date().getFullYear()} Zuhaib Rashid. Crafted with precision for humans & AI agents.
+              </p>
             </footer>
             <DeferredUI />
           </SmoothScroll>

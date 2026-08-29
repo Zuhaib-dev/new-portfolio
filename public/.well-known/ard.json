@@ -4,21 +4,29 @@
   "description": "Developer portfolio, APIs, and AI Agent resources for Zuhaib Rashid",
   "entries": [
     {
+      "identifier": "llms-txt",
+      "displayName": "LLMs Plaintext Manifest",
       "type": "llms-txt",
       "url": "https://www.zuhaibrashid.com/llms.txt",
       "description": "Machine-readable site manifest and documentation in Markdown"
     },
     {
+      "identifier": "openapi-spec",
+      "displayName": "OpenAPI Specification",
       "type": "openapi",
       "url": "https://www.zuhaibrashid.com/openapi.json",
       "description": "OpenAPI 3.1.0 specification for portfolio endpoints"
     },
     {
+      "identifier": "agents-md",
+      "displayName": "Agent Operating Guidelines",
       "type": "agents-md",
       "url": "https://www.zuhaibrashid.com/agents.md",
       "description": "Operational instructions and rules for autonomous AI agents"
     },
     {
+      "identifier": "github-stats-api",
+      "displayName": "GitHub Stats API",
       "type": "api",
       "url": "https://www.zuhaibrashid.com/api/github",
       "description": "Public GitHub aggregated statistics endpoint"
