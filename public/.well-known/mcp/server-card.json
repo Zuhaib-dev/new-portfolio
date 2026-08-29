@@ -2,7 +2,9 @@
   "name": "zuhaibrashid-portfolio",
   "description": "Model Context Protocol (MCP) server providing live GitHub statistics and developer tools for Zuhaib Rashid's portfolio.",
   "version": "1.0.0",
-  "serverUrl": "https://www.zuhaibrashid.com/api/v1/github",
+  "serverUrl": "https://www.zuhaibrashid.com/api/mcp",
+  "mcpUrl": "https://www.zuhaibrashid.com/api/mcp",
+  "url": "https://www.zuhaibrashid.com/api/mcp",
   "tools": [
     {
       "name": "get_github_stats",

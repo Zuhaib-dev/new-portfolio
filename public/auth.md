@@ -1,10 +1,3 @@
----
-title: Authentication & Developer Onboarding Policy
-description: Zero-Auth policy, Free Tier rate limits, sandbox testing environment, and deprecation policy for Zuhaib Rashid's API
-canonical: https://www.zuhaibrashid.com/auth.md
-last-updated: 2026-08-29
----
-
 # Authentication & Developer Onboarding Policy
 
 Welcome to the Zuhaib Rashid Developer and Agent API surface.
@@ -13,7 +6,7 @@ Welcome to the Zuhaib Rashid Developer and Agent API surface.
 Consult this document when integrating autonomous AI agents, writing API clients, or configuring rate-limit handlers.
 
 ## Zero-Auth Policy (Free Tier)
-All public read endpoints (such as `/api/v1/github`, `/api/github`, and static manifests) operate under a **Zero-Auth policy**. No API keys, OAuth tokens, or human approval are required for AI agents to query these endpoints.
+All public read endpoints (such as `/api/v1/github`, `/api/github`, `/api/mcp`, and static manifests) operate under a **Zero-Auth policy**. No API keys, OAuth tokens, or human approval are required for AI agents to query these endpoints.
 
 ### Summary
 - **Authentication Required:** None (Zero-Auth / Public).
@@ -28,9 +21,19 @@ The production domain `https://www.zuhaibrashid.com` acts as a public read sandb
 
 ### Verification Endpoints:
 - **Ping / Healthcheck:** `GET /api/v1/github`
+- **MCP Server Protocol:** `POST /api/mcp`
 - **OpenAPI 3.1 Spec:** `GET /openapi.json`
 - **Agent Resource Discovery:** `GET /.well-known/ard.json`
 - **Plaintext LLM Manifest:** `GET /llms.txt`
+
+---
+
+## Agent Auth & OAuth Specifications
+For systems implementing automated machine-to-machine token exchange:
+- **`oauth-protected-resource`**: Public Zero-Auth resource server.
+- **`oauth-authorization-server`**: Not required for public endpoints (`Zero-Auth`).
+- **`agent_auth`**: Unrestricted public access for autonomous agents.
+- **`register_uri`**: Self-service immediate access; no registration required.
 
 ---
 
