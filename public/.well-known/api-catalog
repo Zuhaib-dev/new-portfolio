@@ -1,0 +1,26 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://www.zuhaibrashid.com/api/v1",
+      "service-desc": [
+        {
+          "href": "https://www.zuhaibrashid.com/openapi.json",
+          "type": "application/json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://www.zuhaibrashid.com/developers",
+          "type": "text/html"
+        }
+      ],
+      "item": [
+        {
+          "href": "https://www.zuhaibrashid.com/api/v1/github",
+          "title": "GitHub Statistics API",
+          "type": "application/json"
+        }
+      ]
+    }
+  ]
+}

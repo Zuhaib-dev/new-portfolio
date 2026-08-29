@@ -1,0 +1,26 @@
+{
+  "name": "zuhaibrashid-portfolio",
+  "description": "Model Context Protocol (MCP) server providing live GitHub statistics and developer tools for Zuhaib Rashid's portfolio.",
+  "version": "1.0.0",
+  "serverUrl": "https://www.zuhaibrashid.com/api/v1/github",
+  "tools": [
+    {
+      "name": "get_github_stats",
+      "description": "Fetch real-time aggregated GitHub stars and forks for Zuhaib Rashid",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "cursor": {
+            "type": "string",
+            "description": "Pagination cursor token"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Number of repositories to process",
+            "default": 100
+          }
+        }
+      }
+    }
+  ]
+}

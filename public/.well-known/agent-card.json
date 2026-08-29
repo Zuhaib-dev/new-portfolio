@@ -1,0 +1,27 @@
+{
+  "$schema": "https://a2a-standard.org/schema/agent-card.json",
+  "name": "Zuhaib Rashid Agent Card",
+  "description": "Agent capability card and machine integration surface for Zuhaib Rashid",
+  "version": "1.0.0",
+  "provider": {
+    "name": "Zuhaib Rashid",
+    "url": "https://www.zuhaibrashid.com",
+    "contact": "zuhaibrashid01@gmail.com"
+  },
+  "capabilities": {
+    "tools": [
+      {
+        "name": "get_github_stats",
+        "description": "Query aggregated live repository star counts and fork statistics",
+        "endpoint": "https://www.zuhaibrashid.com/api/v1/github",
+        "method": "GET"
+      }
+    ],
+    "manifests": {
+      "llms": "https://www.zuhaibrashid.com/llms.txt",
+      "openapi": "https://www.zuhaibrashid.com/openapi.json",
+      "ard": "https://www.zuhaibrashid.com/.well-known/ard.json",
+      "mcp": "https://www.zuhaibrashid.com/.well-known/mcp.json"
+    }
+  }
+}
