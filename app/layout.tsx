@@ -113,6 +113,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="manifest" href="/site.webmanifest" />
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-friendly content" />
         <meta name="apple-mobile-web-app-title" content="Zuhaib Rashid" />
 
         {/* Person schema */}
