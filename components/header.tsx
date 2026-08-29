@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CommandMenu } from "@/components/command-menu";
 
 const navItems = [
-  { name: "About", href: "/#about" },
+  { name: "About", href: "/about" },
   { name: "Experience", href: "/#experience" },
   { name: "Education", href: "/#education" },
   { name: "Skills", href: "/#skills" },
