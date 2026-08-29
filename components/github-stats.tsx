@@ -5,6 +5,12 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Github, ExternalLink, GitCommit, Star, GitFork } from "lucide-react";
 import { GitHubCalendar } from "react-github-calendar";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const username = "Zuhaib-dev";
 
@@ -90,22 +96,34 @@ export default function GithubStats() {
               {!mounted ? (
                 <div className="w-full h-[180px] animate-pulse bg-muted rounded-xl" />
               ) : (
-                <div className="w-full overflow-x-auto pb-4 custom-scrollbar">
+                <div className="w-full overflow-x-auto pb-4">
                   <div className="min-w-[750px] p-4 sm:p-6 rounded-xl border border-border/50 bg-background/50 flex justify-center">
-                    <GitHubCalendar
-                      username={username}
-                      colorScheme={isDark ? "dark" : "light"}
-                      theme={{
-                        light: ["#ebedf0", "#c4b5fd", "#a78bfa", "#8b5cf6", "#7c3aed"],
-                        dark: ["#161b22", "#c4b5fd", "#a78bfa", "#8b5cf6", "#7c3aed"],
-                      }}
-                      fontSize={12}
-                      blockSize={12}
-                      blockMargin={4}
-                      style={{
-                        width: '100%',
-                      }}
-                    />
+                    <TooltipProvider delayDuration={50}>
+                      <GitHubCalendar
+                        username={username}
+                        colorScheme={isDark ? "dark" : "light"}
+                        theme={{
+                          light: ["#ebedf0", "#c4b5fd", "#a78bfa", "#8b5cf6", "#7c3aed"],
+                          dark: ["#161b22", "#c4b5fd", "#a78bfa", "#8b5cf6", "#7c3aed"],
+                        }}
+                        fontSize={12}
+                        blockSize={12}
+                        blockMargin={4}
+                        style={{
+                          width: '100%',
+                        }}
+                        renderBlock={(block, activity) => (
+                          <Tooltip key={activity.date}>
+                            <TooltipTrigger asChild>
+                              {block}
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              {activity.count} contributions on {activity.date}
+                            </TooltipContent>
+                          </Tooltip>
+                        )}
+                      />
+                    </TooltipProvider>
                   </div>
                 </div>
               )}
