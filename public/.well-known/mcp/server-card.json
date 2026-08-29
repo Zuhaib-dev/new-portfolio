@@ -1,15 +1,19 @@
 {
   "name": "zuhaibrashid-portfolio",
-  "description": "Model Context Protocol (MCP) server providing live GitHub statistics and developer tools for Zuhaib Rashid's portfolio.",
+  "displayName": "Zuhaib Rashid Portfolio & Developer Tools",
+  "description": "Model Context Protocol (MCP) server providing live GitHub statistics, project architectures, and engineering articles for Zuhaib Rashid's portfolio.",
+  "icon": "https://www.zuhaibrashid.com/favicon.svg",
+  "iconUrl": "https://www.zuhaibrashid.com/favicon.svg",
   "version": "1.0.0",
   "serverUrl": "https://www.zuhaibrashid.com/api/mcp",
   "mcpUrl": "https://www.zuhaibrashid.com/api/mcp",
   "url": "https://www.zuhaibrashid.com/api/mcp",
+  "instructions": "This MCP server provides tools to query portfolio metrics, live GitHub statistics, project architectures, and engineering articles for Zuhaib Rashid.",
   "tools": [
     {
       "name": "get_github_stats",
       "description": "Fetch real-time aggregated GitHub stars and forks for Zuhaib Rashid",
-      "parameters": {
+      "inputSchema": {
         "type": "object",
         "properties": {
           "cursor": {
@@ -20,6 +24,33 @@
             "type": "integer",
             "description": "Number of repositories to process",
             "default": 100
+          }
+        }
+      }
+    },
+    {
+      "name": "get_projects",
+      "description": "Fetch portfolio showcase projects including HealOS, Rydexx, DealDrop, Repoviz, and Resumind with architecture tech stacks",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "Optional project filter"
+          }
+        }
+      }
+    },
+    {
+      "name": "get_blog_posts",
+      "description": "Retrieve list of published technical articles on Next.js security, AI agent web development, and performance optimization",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "description": "Max articles to return",
+            "default": 10
           }
         }
       }

@@ -1,11 +1,15 @@
 {
   "name": "zuhaibrashid-portfolio",
+  "displayName": "Zuhaib Rashid Portfolio & Developer Tools",
   "description": "Official Model Context Protocol (MCP) server manifest for Zuhaib Rashid's portfolio and developer tools",
+  "icon": "https://www.zuhaibrashid.com/favicon.svg",
+  "iconUrl": "https://www.zuhaibrashid.com/favicon.svg",
   "version": "1.0.0",
   "protocolVersion": "2024-11-05",
   "serverUrl": "https://www.zuhaibrashid.com/api/mcp",
   "mcpUrl": "https://www.zuhaibrashid.com/api/mcp",
   "url": "https://www.zuhaibrashid.com/api/mcp",
+  "instructions": "This MCP server provides tools to query portfolio metrics, live GitHub statistics, project architectures, and engineering articles for Zuhaib Rashid.",
   "capabilities": {
     "tools": {
       "listChanged": false
@@ -35,6 +39,35 @@
         }
       },
       "url": "https://www.zuhaibrashid.com/api/mcp"
+    },
+    {
+      "name": "get_projects",
+      "description": "Fetch portfolio showcase projects including HealOS, Rydexx, DealDrop, Repoviz, and Resumind with architecture tech stacks",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "description": "Optional project filter"
+          }
+        }
+      },
+      "url": "https://www.zuhaibrashid.com/api/mcp"
+    },
+    {
+      "name": "get_blog_posts",
+      "description": "Retrieve list of published technical articles on Next.js security, AI agent web development, and performance optimization",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "description": "Max articles to return",
+            "default": 10
+          }
+        }
+      },
+      "url": "https://www.zuhaibrashid.com/api/mcp"
     }
   ],
   "resources": [
@@ -49,6 +82,12 @@
       "name": "OpenAPI Spec",
       "mimeType": "application/json",
       "description": "Complete REST API specification"
+    },
+    {
+      "uri": "https://www.zuhaibrashid.com/agents.md",
+      "name": "Agent Guide",
+      "mimeType": "text/markdown",
+      "description": "Operational instructions for AI agents"
     }
   ]
 }
