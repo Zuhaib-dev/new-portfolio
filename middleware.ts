@@ -26,6 +26,33 @@ export function middleware(request: NextRequest) {
       return NextResponse.rewrite(new URL("/index.md", request.url));
     }
 
+    // If requesting /openapi.json.md
+    if (pathname === "/openapi.json.md") {
+      const markdown = `---
+title: OpenAPI 3.1.0 Specification Summary
+description: Machine-readable REST API definitions for Zuhaib Rashid's portfolio
+canonical: https://www.zuhaibrashid.com/openapi.json.md
+last-updated: 2026-08-29
+---
+
+# OpenAPI Specification Summary
+
+Full JSON specification is available at: https://www.zuhaibrashid.com/openapi.json
+
+## Available Endpoints
+- **GET /api/v1/github**: Real-time aggregated GitHub stars and forks.
+- **GET /api/github**: Direct legacy alias.
+- **GET /api**: Root API index.
+`;
+      return new Response(markdown, {
+        headers: {
+          "Content-Type": "text/markdown; charset=utf-8",
+          "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
+          "Vary": "Accept",
+        },
+      });
+    }
+
     // If requesting /developers.md
     if (pathname === "/developers.md" || pathname === "/developers") {
       const markdown = `---

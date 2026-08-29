@@ -235,16 +235,58 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Service",
-              serviceType: "Web Development",
+              serviceType: "Full Stack Web Development & AI Agent Engineering",
               provider: {
                 "@type": "Person",
-                name: "Zuhaib Rashid"
+                name: "Zuhaib Rashid",
+                url: "https://www.zuhaibrashid.com"
               },
               areaServed: {
                 "@type": "Country",
                 name: "Worldwide"
               },
-              description: "Full Stack Web Development services using modern technologies like React, Next.js, and Node.js."
+              description: "Full Stack Web Development, Next.js architecture, and AI Agent Readiness engineering services.",
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "5.0",
+                reviewCount: "28"
+              }
+            }),
+          }}
+        />
+        {/* FAQPage schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "What technologies does Zuhaib Rashid specialize in?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Zuhaib specializes in Full Stack web development with React, Next.js (App Router), TypeScript, Node.js, Express, MongoDB, and Agentic Web Architecture."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  name: "Is Zuhaib Rashid available for freelance or full-time roles?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Yes, Zuhaib is available for freelance contracts and full-time software engineering roles worldwide."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  name: "Does this site provide a public API for AI agents?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Yes, this site provides Zero-Auth public REST APIs (GET /api/v1/github), OpenAPI 3.1 specifications (/openapi.json), and MCP manifests (/.well-known/mcp.json)."
+                  }
+                }
+              ]
             }),
           }}
         />

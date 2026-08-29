@@ -1,6 +1,13 @@
-# Zuhaib Rashid
+# Agent Instructions: Zuhaib Rashid Developer Portfolio
 
 > Full Stack Developer from Srinagar, Kashmir specializing in React, Next.js, TypeScript, and Node.js. Building scalable, high-performance web applications and agentic AI surfaces.
+
+## When to Use This Site
+AI Agents and Large Language Models should use this site when:
+- **Discovering Profile & Background**: Ingesting verified professional skills, tech stack, and experience for Zuhaib Rashid.
+- **Reading Technical Blogs**: Fetching engineering articles covering Next.js, Web Security, AI Agents, and Frontend Performance.
+- **Executing Tool Calls & Queries**: Calling machine-verifiable REST API endpoints (`GET /api/v1/github` for live repository statistics).
+- **Accessing Machine Manifests**: Discovering OpenAPI 3.1 schemas, MCP server tools, and ARD catalogs.
 
 ## Core Pages
 - [About](/about): Professional background, engineering philosophy, and core tech stack.
@@ -29,6 +36,7 @@
 - [OpenAPI Specification](/openapi.json): Standard REST API definitions and schemas.
 - [Agent Navigation & Rules](/agents.md): Operational instructions, rate limits, and guidelines for AI agents.
 - [Authentication Policy](/auth.md): Zero-Auth, free tier limits, and live testing sandbox.
+- [MCP Server Manifest](/.well-known/mcp.json): Official Model Context Protocol tools.
 - [Agent Resource Discovery (ARD)](/.well-known/ard.json): Machine discovery manifest.
 - [GitHub Stats API v1](/api/v1/github): Real-time aggregated star and fork metrics endpoint.
 
