@@ -43,7 +43,7 @@ const nextConfig = {
               style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://tagassistant.google.com;
               img-src 'self' blob: data: https://*.clarity.ms https://c.bing.com https://github-readme-stats.vercel.app https://github-readme-streak-stats.herokuapp.com https://github-readme-activity-graph.vercel.app https://github-profile-trophy.vercel.app https://rydexx.netlify.app https://www.googletagmanager.com https://www.google-analytics.com;
               font-src 'self' https://fonts.gstatic.com;
-              connect-src 'self' https://sentry.io https://*.clarity.ms https://c.bing.com https://github-readme-activity-graph.vercel.app https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net;
+              connect-src 'self' https://sentry.io https://*.clarity.ms https://c.bing.com https://github-readme-activity-graph.vercel.app https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://github-contributions-api.jogruber.de;
               object-src 'self';
               frame-src 'self' https://drive.google.com https://www.googletagmanager.com https://tagassistant.google.com;
               base-uri 'self';

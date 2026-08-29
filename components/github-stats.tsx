@@ -4,20 +4,17 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Github, ExternalLink, GitCommit, Star, GitFork } from "lucide-react";
-import Link from "next/link";
+import { GitHubCalendar } from "react-github-calendar";
 
 const username = "Zuhaib-dev";
 
 export default function GithubStats() {
   const { theme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const [imgError, setImgError] = useState(false);
-  const [timestamp, setTimestamp] = useState(0);
   const [stats, setStats] = useState({ stars: 0, forks: 0, loaded: false });
 
   useEffect(() => {
     setMounted(true);
-    setTimestamp(Date.now());
 
     // Fetch real GitHub stats via our own API route to avoid CORS/AdBlockers
     const fetchStats = async () => {
@@ -44,14 +41,6 @@ export default function GithubStats() {
       : theme
     : "light";
   const isDark = currentTheme === "dark";
-
-  // Theme params tuned to match the site's card style
-  const graphUrl = isDark
-    ? `https://github-readme-activity-graph.vercel.app/graph?username=${username}&bg_color=0a0a0a&color=a78bfa&line=7c3aed&point=c4b5fd&area=true&area_color=7c3aed&hide_border=true&custom_title=Contribution+Activity`
-    : `https://github-readme-activity-graph.vercel.app/graph?username=${username}&bg_color=ffffff&color=6d28d9&line=7c3aed&point=7c3aed&area=true&area_color=7c3aed&hide_border=true&custom_title=Contribution+Activity`;
-
-  // Fallback: GitHub's own contribution calendar embed
-  const fallbackUrl = `https://ghchart.rshah.org/${isDark ? "7c3aed" : "7c3aed"}/${username}`;
 
   return (
     <section id="github-stats" className="py-10">
@@ -97,32 +86,28 @@ export default function GithubStats() {
             </div>
 
             {/* Graph */}
-            <div className="p-5">
+            <div className="p-4 sm:p-6 w-full overflow-hidden">
               {!mounted ? (
-                <div className="w-full h-[220px] animate-pulse bg-muted rounded-xl" />
-              ) : imgError ? (
-                /* Fallback to ghchart */
-                <div className="w-full overflow-hidden rounded-xl">
-                  <img
-                    src={fallbackUrl}
-                    alt="GitHub Contribution Graph"
-                    className="w-full h-auto"
-                    style={{
-                      filter: isDark
-                        ? "invert(1) hue-rotate(180deg) saturate(0.8)"
-                        : "none",
-                    }}
-                  />
-                </div>
+                <div className="w-full h-[180px] animate-pulse bg-muted rounded-xl" />
               ) : (
-                <img
-                  key={`${currentTheme}-${timestamp}`}
-                  src={graphUrl}
-                  alt="GitHub Contribution Graph"
-                  className="w-full h-auto rounded-xl"
-                  loading="lazy"
-                  onError={() => setImgError(true)}
-                />
+                <div className="w-full overflow-x-auto pb-4 custom-scrollbar">
+                  <div className="min-w-[750px] p-4 sm:p-6 rounded-xl border border-border/50 bg-background/50 flex justify-center">
+                    <GitHubCalendar
+                      username={username}
+                      colorScheme={isDark ? "dark" : "light"}
+                      theme={{
+                        light: ["#ebedf0", "#c4b5fd", "#a78bfa", "#8b5cf6", "#7c3aed"],
+                        dark: ["#161b22", "#c4b5fd", "#a78bfa", "#8b5cf6", "#7c3aed"],
+                      }}
+                      fontSize={12}
+                      blockSize={12}
+                      blockMargin={4}
+                      style={{
+                        width: '100%',
+                      }}
+                    />
+                  </div>
+                </div>
               )}
             </div>
           </motion.div>
