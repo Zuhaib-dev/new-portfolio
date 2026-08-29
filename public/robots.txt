@@ -1,8 +1,8 @@
-# Allow general crawlers
+# Allow general search crawlers
 User-agent: *
 Allow: /
 
-# Agent/AI Crawlers
+# Allowed AI Search & Autonomous Agents
 User-agent: ChatGPT-User
 Allow: /
 User-agent: ClaudeBot
@@ -27,6 +27,24 @@ User-agent: anthropic-ai
 Allow: /
 User-agent: meta-externalagent
 Allow: /
+
+# Block Training-Only & Aggressive Web Scrapers
+User-agent: CCBot
+Disallow: /
+User-agent: ByteSpider
+Disallow: /
+User-agent: Bytespider
+Disallow: /
+User-agent: Diffbot
+Disallow: /
+User-agent: ImagesiftBot
+Disallow: /
+User-agent: FacebookBot
+Disallow: /
+User-agent: Omgilibot
+Disallow: /
+User-agent: TurnitinBot
+Disallow: /
 
 # Host
 Host: https://www.zuhaibrashid.com

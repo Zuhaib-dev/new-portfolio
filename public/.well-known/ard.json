@@ -1,16 +1,31 @@
 {
-  "resources": {
-    "llms": {
-      "url": "/llms.txt"
+  "specVersion": "1.0",
+  "name": "Zuhaib Rashid Portfolio",
+  "description": "Developer portfolio, APIs, and AI Agent resources for Zuhaib Rashid",
+  "entries": [
+    {
+      "type": "llms-txt",
+      "url": "https://www.zuhaibrashid.com/llms.txt",
+      "description": "Machine-readable site manifest and documentation in Markdown"
     },
-    "openapi": {
-      "url": "/openapi.json"
+    {
+      "type": "openapi",
+      "url": "https://www.zuhaibrashid.com/openapi.json",
+      "description": "OpenAPI 3.1.0 specification for portfolio endpoints"
     },
-    "agents": {
-      "url": "/agents.md"
+    {
+      "type": "agents-md",
+      "url": "https://www.zuhaibrashid.com/agents.md",
+      "description": "Operational instructions and rules for autonomous AI agents"
+    },
+    {
+      "type": "api",
+      "url": "https://www.zuhaibrashid.com/api/github",
+      "description": "Public GitHub aggregated statistics endpoint"
     }
-  },
+  ],
   "contact": {
-    "email": "zuhaibrashid01@gmail.com"
+    "email": "zuhaibrashid01@gmail.com",
+    "url": "https://www.zuhaibrashid.com/contact"
   }
 }
