@@ -169,7 +169,13 @@ Read the full interactive article at: https://www.zuhaibrashid.com/blogs/${clean
     }
   }
 
-  return NextResponse.next();
+  const response = NextResponse.next();
+  response.headers.set(
+    "Link",
+    '<https://www.zuhaibrashid.com/sitemap.xml>; rel="sitemap", <https://www.zuhaibrashid.com/llms.txt>; rel="describedby", <https://www.zuhaibrashid.com/index.md>; rel="alternate"; type="text/markdown", <https://www.zuhaibrashid.com/openapi.json>; rel="service-desc", <https://www.zuhaibrashid.com/.well-known/api-catalog>; rel="api-catalog"'
+  );
+  response.headers.set("Vary", "Accept, User-Agent");
+  return response;
 }
 
 export const config = {

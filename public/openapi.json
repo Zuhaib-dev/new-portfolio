@@ -25,8 +25,17 @@
       "get": {
         "operationId": "getGithubStatsV1",
         "summary": "Get Aggregated GitHub Statistics (v1)",
-        "description": "Fetches real-time aggregated star and fork metrics across all public repositories for Zuhaib-dev with built-in pagination, caching, and rate limiting.",
+        "description": "Fetches real-time aggregated star and fork metrics across all public repositories for Zuhaib-dev with built-in cursor pagination, caching, and rate limiting.",
         "parameters": [
+          {
+            "name": "cursor",
+            "in": "query",
+            "required": false,
+            "description": "Cursor pagination token for navigating to subsequent pages",
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "name": "page",
             "in": "query",
@@ -54,7 +63,7 @@
             "name": "Idempotency-Key",
             "in": "header",
             "required": false,
-            "description": "Optional client-generated unique idempotency token for deterministic retries",
+            "description": "Unique idempotency token for safe, deterministic retries",
             "schema": {
               "type": "string"
             }
@@ -64,6 +73,18 @@
           "200": {
             "description": "Successful response with aggregated stats and pagination metadata",
             "headers": {
+              "RateLimit-Limit": {
+                "description": "IETF standard max requests allowed",
+                "schema": { "type": "integer", "example": 60 }
+              },
+              "RateLimit-Remaining": {
+                "description": "IETF standard remaining requests",
+                "schema": { "type": "integer", "example": 59 }
+              },
+              "RateLimit-Reset": {
+                "description": "IETF standard window reset in seconds",
+                "schema": { "type": "integer", "example": 3600 }
+              },
               "X-RateLimit-Limit": {
                 "description": "Maximum allowed requests per minute",
                 "schema": { "type": "integer", "example": 60 }
@@ -127,6 +148,17 @@
         "operationId": "getGithubStats",
         "summary": "Get Aggregated GitHub Statistics (Legacy / Alias)",
         "description": "Direct alias to v1 endpoint. Returns stars and forks count.",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "description": "Unique idempotency token for safe, deterministic retries",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful response",

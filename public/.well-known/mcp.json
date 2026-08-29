@@ -3,6 +3,10 @@
   "description": "Official Model Context Protocol (MCP) server manifest for Zuhaib Rashid's portfolio and developer tools",
   "version": "1.0.0",
   "protocolVersion": "2024-11-05",
+  "server": {
+    "url": "https://www.zuhaibrashid.com/api/v1/github",
+    "type": "http"
+  },
   "capabilities": {
     "tools": {
       "listChanged": false
@@ -31,7 +35,7 @@
           }
         }
       },
-      "endpoint": "https://www.zuhaibrashid.com/api/v1/github"
+      "url": "https://www.zuhaibrashid.com/api/v1/github"
     }
   ],
   "resources": [
