@@ -40,7 +40,7 @@ export default function NotFound() {
           Don't worry, you can find your way back home below.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
           <Button asChild variant="default" size="lg" className="rounded-full px-8 gap-2 group">
             <Link href="/">
               <Home className="h-4 w-4" />
@@ -55,22 +55,25 @@ export default function NotFound() {
             </Link>
           </Button>
         </div>
+
+        {/* Structured Site Recovery Map for Agents & Humans */}
+        <div className="mt-8 pt-6 border-t border-border/40 text-left max-w-md mx-auto">
+          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3 text-center">
+            Site Navigation & Agent Recovery Map
+          </p>
+          <div className="grid grid-cols-2 gap-2 text-xs text-muted-foreground text-center">
+            <Link href="/about" className="hover:text-foreground hover:underline p-1">About Me</Link>
+            <Link href="/projects" className="hover:text-foreground hover:underline p-1">Projects</Link>
+            <Link href="/blogs" className="hover:text-foreground hover:underline p-1">Articles & Blogs</Link>
+            <Link href="/resume" className="hover:text-foreground hover:underline p-1">Interactive CV</Link>
+            <Link href="/developers" className="hover:text-foreground hover:underline p-1">Developer Portal</Link>
+            <Link href="/llms.txt" className="hover:text-foreground hover:underline p-1">llms.txt Manifest</Link>
+          </div>
+        </div>
       </motion.div>
 
       {/* Decorative Background Glows */}
       <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-500/5 rounded-full blur-[120px] pointer-events-none z-[-1]" />
-      
-      {/* Agent Recovery Block */}
-      <div className="sr-only" data-mcp-agent-recovery="true">
-        Markdown Site Map:
-        - [Home](/)
-        - [Blogs](/blogs)
-        - [Resume](/resume)
-        - [About](/about)
-        - [Contact](/contact)
-        - [API Docs](/openapi.json)
-        - [LLM Docs](/llms.txt)
-      </div>
     </div>
   );
 }

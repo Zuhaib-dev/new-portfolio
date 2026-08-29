@@ -120,6 +120,7 @@ export default function RootLayout({
       <head>
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-friendly content" />
+        <link rel="alternate" type="text/markdown" href="/index.md" title="Markdown representation" />
         <meta name="apple-mobile-web-app-title" content="Zuhaib Rashid" />
 
         {/* Person schema */}

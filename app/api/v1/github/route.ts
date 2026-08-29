@@ -4,20 +4,30 @@ export const dynamic = 'force-dynamic';
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
-  const page = parseInt(searchParams.get("page") || "1", 10);
+  const pageParam = searchParams.get("page");
+  const cursorParam = searchParams.get("cursor");
+  const page = cursorParam ? parseInt(Buffer.from(cursorParam, "base64").toString("ascii"), 10) || 1 : parseInt(pageParam || "1", 10);
   const limit = Math.min(parseInt(searchParams.get("limit") || "100", 10), 100);
   const username = "Zuhaib-dev";
   const idempotencyKey = req.headers.get("idempotency-key") || req.headers.get("x-idempotency-key");
   
   const headers: Record<string, string> = {
     "Content-Type": "application/json",
-    "X-RateLimit-Limit": "60",
-    "X-RateLimit-Remaining": "59",
-    "X-RateLimit-Reset": String(Math.floor(Date.now() / 1000) + 3600),
+    // IETF RateLimit-* Standards
     "RateLimit-Limit": "60",
     "RateLimit-Remaining": "59",
     "RateLimit-Reset": "3600",
+    "RateLimit-Policy": "60;w=60",
+    "RateLimit": "limit=60, remaining=59, reset=3600",
+    // Legacy RateLimit Headers
+    "X-RateLimit-Limit": "60",
+    "X-RateLimit-Remaining": "59",
+    "X-RateLimit-Reset": String(Math.floor(Date.now() / 1000) + 3600),
+    // Versioning & Deprecation Policy
     "X-API-Version": "v1",
+    "Deprecation": "false",
+    "Sunset": "Sun, 31 Dec 2028 23:59:59 GMT",
+    // Pagination Headers
     "X-Pagination-Page": String(page),
     "X-Pagination-Limit": String(limit),
   };
@@ -44,7 +54,7 @@ export async function GET(req: Request) {
           },
           stars: 0,
           forks: 0,
-          pagination: { page, limit, hasNextPage: false },
+          pagination: { page, limit, hasNextPage: false, cursor: null, nextCursor: null },
         },
         { status: res.status, headers }
       );
@@ -59,6 +69,9 @@ export async function GET(req: Request) {
       forksCount += repo.forks_count || 0;
     });
 
+    const hasNext = repos.length === limit;
+    const nextCursor = hasNext ? Buffer.from(String(page + 1)).toString("base64") : null;
+
     return NextResponse.json(
       {
         stars: starsCount,
@@ -69,7 +82,9 @@ export async function GET(req: Request) {
           page,
           limit,
           totalFetched: repos.length,
-          hasNextPage: repos.length === limit,
+          hasNextPage: hasNext,
+          cursor: cursorParam || Buffer.from(String(page)).toString("base64"),
+          nextCursor: nextCursor,
         },
       },
       { headers }
@@ -85,7 +100,7 @@ export async function GET(req: Request) {
         },
         stars: 0,
         forks: 0,
-        pagination: { page, limit, hasNextPage: false },
+        pagination: { page, limit, hasNextPage: false, cursor: null, nextCursor: null },
       },
       { status: 500, headers }
     );

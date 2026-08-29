@@ -25,9 +25,15 @@ function createJsonErrorResponse(req: Request) {
       status: 404,
       headers: {
         "Content-Type": "application/json",
+        "RateLimit-Limit": "60",
+        "RateLimit-Remaining": "59",
+        "RateLimit-Reset": "3600",
+        "RateLimit-Policy": "60;w=60",
+        "RateLimit": "limit=60, remaining=59, reset=3600",
         "X-RateLimit-Limit": "60",
         "X-RateLimit-Remaining": "59",
         "X-RateLimit-Reset": "3600",
+        "Deprecation": "false",
       },
     }
   );

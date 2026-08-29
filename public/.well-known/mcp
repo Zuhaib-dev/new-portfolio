@@ -1,0 +1,51 @@
+{
+  "name": "zuhaibrashid-portfolio",
+  "description": "Official Model Context Protocol (MCP) server manifest for Zuhaib Rashid's portfolio and developer tools",
+  "version": "1.0.0",
+  "protocolVersion": "2024-11-05",
+  "capabilities": {
+    "tools": {
+      "listChanged": false
+    },
+    "resources": {
+      "subscribe": false,
+      "listChanged": false
+    }
+  },
+  "tools": [
+    {
+      "name": "get_github_stats",
+      "description": "Fetch real-time aggregated GitHub statistics (stars, forks, repositories count) for Zuhaib Rashid",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "cursor": {
+            "type": "string",
+            "description": "Pagination cursor token"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Number of repositories to process",
+            "default": 100,
+            "maximum": 100
+          }
+        }
+      },
+      "endpoint": "https://www.zuhaibrashid.com/api/v1/github"
+    }
+  ],
+  "resources": [
+    {
+      "uri": "https://www.zuhaibrashid.com/llms.txt",
+      "name": "Site Manifest",
+      "mimeType": "text/markdown",
+      "description": "Structured Markdown overview of the portfolio"
+    },
+    {
+      "uri": "https://www.zuhaibrashid.com/openapi.json",
+      "name": "OpenAPI Spec",
+      "mimeType": "application/json",
+      "description": "Complete REST API specification"
+    }
+  ]
+}
