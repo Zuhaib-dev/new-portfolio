@@ -4,6 +4,13 @@
   "description": "Developer portfolio, APIs, and AI Agent resources for Zuhaib Rashid",
   "entries": [
     {
+      "identifier": "developer-portal",
+      "displayName": "Developer Portal & API Console",
+      "type": "documentation",
+      "url": "https://www.zuhaibrashid.com/developers",
+      "description": "Interactive developer documentation and live API console"
+    },
+    {
       "identifier": "llms-txt",
       "displayName": "LLMs Plaintext Manifest",
       "type": "llms-txt",
@@ -25,11 +32,18 @@
       "description": "Operational instructions and rules for autonomous AI agents"
     },
     {
-      "identifier": "github-stats-api",
-      "displayName": "GitHub Stats API",
+      "identifier": "auth-md",
+      "displayName": "Authentication Policy",
+      "type": "documentation",
+      "url": "https://www.zuhaibrashid.com/auth.md",
+      "description": "Zero-auth, free tier limits, and live testing sandbox rules"
+    },
+    {
+      "identifier": "github-stats-api-v1",
+      "displayName": "GitHub Stats API (v1)",
       "type": "api",
-      "url": "https://www.zuhaibrashid.com/api/github",
-      "description": "Public GitHub aggregated statistics endpoint"
+      "url": "https://www.zuhaibrashid.com/api/v1/github",
+      "description": "Public GitHub aggregated statistics endpoint with pagination"
     }
   ],
   "contact": {

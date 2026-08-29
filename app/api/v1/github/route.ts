@@ -3,6 +3,9 @@ import { NextResponse } from "next/server";
 export const dynamic = 'force-dynamic';
 
 export async function GET(req: Request) {
+  const { searchParams } = new URL(req.url);
+  const page = parseInt(searchParams.get("page") || "1", 10);
+  const limit = Math.min(parseInt(searchParams.get("limit") || "100", 10), 100);
   const username = "Zuhaib-dev";
   const idempotencyKey = req.headers.get("idempotency-key") || req.headers.get("x-idempotency-key");
   
@@ -15,6 +18,8 @@ export async function GET(req: Request) {
     "RateLimit-Remaining": "59",
     "RateLimit-Reset": "3600",
     "X-API-Version": "v1",
+    "X-Pagination-Page": String(page),
+    "X-Pagination-Limit": String(limit),
   };
 
   if (idempotencyKey) {
@@ -22,7 +27,7 @@ export async function GET(req: Request) {
   }
 
   try {
-    const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`, {
+    const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=${limit}&page=${page}`, {
       next: { revalidate: 3600 },
       headers: {
         Accept: "application/vnd.github.v3+json",
@@ -39,6 +44,7 @@ export async function GET(req: Request) {
           },
           stars: 0,
           forks: 0,
+          pagination: { page, limit, hasNextPage: false },
         },
         { status: res.status, headers }
       );
@@ -59,6 +65,12 @@ export async function GET(req: Request) {
         forks: forksCount,
         reposCount: repos.length,
         version: "v1",
+        pagination: {
+          page,
+          limit,
+          totalFetched: repos.length,
+          hasNextPage: repos.length === limit,
+        },
       },
       { headers }
     );
@@ -73,6 +85,7 @@ export async function GET(req: Request) {
         },
         stars: 0,
         forks: 0,
+        pagination: { page, limit, hasNextPage: false },
       },
       { status: 500, headers }
     );

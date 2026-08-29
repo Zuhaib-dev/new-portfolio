@@ -4,6 +4,7 @@
 
 ## Core Pages
 - [About](/about): Professional background, engineering philosophy, and core tech stack.
+- [Developers](/developers): Official Developer Portal, API documentation, and live sandbox.
 - [Projects](/projects): Showcase of production full-stack web applications and open-source software.
 - [Blogs](/blogs): Technical articles covering Next.js, Web Security, AI Agents, and Frontend Performance.
 - [Resume](/resume): Interactive CV with work experience, education, and credentials.
@@ -24,10 +25,12 @@
 - [What is Taste and How Can You Develop It?](/blogs/what-is-taste-and-how-to-develop-it): Developing aesthetic intuition and craftsmanship in frontend engineering.
 
 ## Machine & Agent Interfaces
+- [Developer Portal](/developers): Interactive API documentation and sandbox testing console.
 - [OpenAPI Specification](/openapi.json): Standard REST API definitions and schemas.
 - [Agent Navigation & Rules](/agents.md): Operational instructions, rate limits, and guidelines for AI agents.
+- [Authentication Policy](/auth.md): Zero-Auth, free tier limits, and live testing sandbox.
 - [Agent Resource Discovery (ARD)](/.well-known/ard.json): Machine discovery manifest.
-- [GitHub Stats API](/api/github): Real-time aggregated star and fork metrics endpoint.
+- [GitHub Stats API v1](/api/v1/github): Real-time aggregated star and fork metrics endpoint.
 
 ## Optional & Additional Resources
 - [Books](/books): Reading list and book reviews on software engineering and design.

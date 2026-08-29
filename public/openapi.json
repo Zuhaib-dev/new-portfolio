@@ -1,63 +1,246 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Zuhaib Rashid Portfolio API",
-    "description": "API for fetching GitHub stats and other integrations for the portfolio.",
-    "version": "1.0.0"
+    "title": "Zuhaib Rashid Portfolio & Developer API",
+    "description": "Production-ready, agent-friendly REST API for interacting with Zuhaib Rashid's developer portfolio, live GitHub statistics, and developer services.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Zuhaib Rashid",
+      "email": "zuhaibrashid01@gmail.com",
+      "url": "https://www.zuhaibrashid.com/contact"
+    }
   },
   "servers": [
     {
       "url": "https://www.zuhaibrashid.com",
-      "description": "Production server"
+      "description": "Production Live Server"
+    },
+    {
+      "url": "http://localhost:3000",
+      "description": "Local Development Server"
     }
   ],
   "paths": {
-    "/api/github": {
+    "/api/v1/github": {
       "get": {
-        "operationId": "getGithubStats",
-        "summary": "Get GitHub Repository Statistics",
-        "description": "Fetches aggregated star and fork counts for Zuhaib-dev repositories from GitHub.",
+        "operationId": "getGithubStatsV1",
+        "summary": "Get Aggregated GitHub Statistics (v1)",
+        "description": "Fetches real-time aggregated star and fork metrics across all public repositories for Zuhaib-dev with built-in pagination, caching, and rate limiting.",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Page number for paginating through repositories",
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Number of items per page (maximum 100)",
+            "schema": {
+              "type": "integer",
+              "default": 100,
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "description": "Optional client-generated unique idempotency token for deterministic retries",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Successful response with aggregated stats",
+            "description": "Successful response with aggregated stats and pagination metadata",
+            "headers": {
+              "X-RateLimit-Limit": {
+                "description": "Maximum allowed requests per minute",
+                "schema": { "type": "integer", "example": 60 }
+              },
+              "X-RateLimit-Remaining": {
+                "description": "Remaining requests in current window",
+                "schema": { "type": "integer", "example": 59 }
+              },
+              "X-RateLimit-Reset": {
+                "description": "Unix timestamp when the rate limit window resets",
+                "schema": { "type": "integer", "example": 1700000000 }
+              },
+              "X-API-Version": {
+                "description": "API Version",
+                "schema": { "type": "string", "example": "v1" }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "stars": {
-                      "type": "integer",
-                      "description": "Total stars across all repositories"
-                    },
-                    "forks": {
-                      "type": "integer",
-                      "description": "Total forks across all repositories"
-                    }
-                  }
+                  "$ref": "#/components/schemas/GitHubStatsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
           },
           "500": {
-            "description": "Internal server error fetching stats",
+            "description": "Internal server error",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "stars": {
-                      "type": "integer"
-                    },
-                    "forks": {
-                      "type": "integer"
-                    },
-                    "error": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/github": {
+      "get": {
+        "operationId": "getGithubStats",
+        "summary": "Get Aggregated GitHub Statistics (Legacy / Alias)",
+        "description": "Direct alias to v1 endpoint. Returns stars and forks count.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GitHubStatsResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PaginationMetadata": {
+        "type": "object",
+        "required": ["page", "limit", "hasNextPage"],
+        "properties": {
+          "page": {
+            "type": "integer",
+            "description": "Current page number",
+            "example": 1
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Items per page",
+            "example": 100
+          },
+          "totalFetched": {
+            "type": "integer",
+            "description": "Total repositories fetched in this page",
+            "example": 25
+          },
+          "hasNextPage": {
+            "type": "boolean",
+            "description": "Whether more pages are available",
+            "example": false
+          }
+        }
+      },
+      "GitHubStatsResponse": {
+        "type": "object",
+        "required": ["stars", "forks", "reposCount", "version"],
+        "properties": {
+          "stars": {
+            "type": "integer",
+            "description": "Total stars across all public repositories",
+            "example": 42
+          },
+          "forks": {
+            "type": "integer",
+            "description": "Total forks across all public repositories",
+            "example": 12
+          },
+          "reposCount": {
+            "type": "integer",
+            "description": "Number of public repositories analyzed",
+            "example": 30
+          },
+          "version": {
+            "type": "string",
+            "description": "API schema version",
+            "example": "v1"
+          },
+          "pagination": {
+            "$ref": "#/components/schemas/PaginationMetadata"
+          }
+        }
+      },
+      "ErrorDetail": {
+        "type": "object",
+        "required": ["code", "message", "status"],
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Machine-readable error code",
+            "example": "RESOURCE_NOT_FOUND"
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable error description",
+            "example": "The requested API endpoint was not found"
+          },
+          "status": {
+            "type": "integer",
+            "description": "HTTP status code",
+            "example": 404
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "required": ["error", "status"],
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/ErrorDetail"
+          },
+          "status": {
+            "type": "integer",
+            "description": "HTTP status code",
+            "example": 404
           }
         }
       }

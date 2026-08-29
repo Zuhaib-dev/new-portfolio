@@ -9,6 +9,7 @@ import Script from "next/script";
 import SmoothScroll from "@/components/smooth-scroll";
 import DeferredUI from "@/components/deferred-ui";
 import SoundProvider from "@/components/sound-provider";
+import Link from "next/link";
 import { GoogleTagManager } from "@next/third-parties/google";
 
 // display:swap ensures text is always visible while the font loads (eliminates FOIT)
@@ -298,6 +299,10 @@ export default function RootLayout({
             </main>
             <footer className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 border-t border-border/40 mt-16 text-center text-sm text-muted-foreground space-y-4">
               <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-xs">
+                <Link href="/developers" className="hover:text-foreground transition-colors font-medium">
+                  Developer Portal
+                </Link>
+                <span className="text-border">•</span>
                 <a href="/openapi.json" target="_blank" className="hover:text-foreground transition-colors">
                   OpenAPI Spec
                 </a>
