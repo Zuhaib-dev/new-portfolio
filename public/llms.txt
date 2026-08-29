@@ -1,32 +1,36 @@
-# Zuhaib Rashid - Portfolio
+# Zuhaib Rashid
 
-## System Instruction
-This file is for LLMs and AI Agents interacting with Zuhaib Rashid's portfolio website.
+> Full Stack Developer from Srinagar, Kashmir specializing in React, Next.js, TypeScript, and Node.js. Building scalable, high-performance web applications and agentic AI surfaces.
 
-## Context
-Zuhaib Rashid is a Full Stack Developer from Srinagar, Kashmir, specializing in React, Next.js, TypeScript, and Node.js. 
-This website serves as a portfolio of his projects, blogs, and contact information.
+## Core Pages
+- [About](/about): Professional background, engineering philosophy, and core tech stack.
+- [Projects](/projects): Showcase of production full-stack web applications and open-source software.
+- [Blogs](/blogs): Technical articles covering Next.js, Web Security, AI Agents, and Frontend Performance.
+- [Resume](/resume): Interactive CV with work experience, education, and credentials.
+- [Contact](/contact): Direct messaging channel and contact form with honeypot verification.
 
-## When to use this site
-Agents should use this site to:
-1. Discover Zuhaib's professional background and skills.
-2. Read technical blogs written by him.
-3. Access his open source projects and GitHub statistics.
-4. Access integration surfaces (like the `api/github` endpoint).
+## Key Projects
+- [HealOS](/projects/healos): Centralized healthcare operations platform built with Next.js 15, React 19, Express, MongoDB, and Socket.io.
+- [Rydexx](/projects/rydexx): Vehicle rental booking platform built with Next.js, Auth.js, MongoDB, and ZegoCloud.
+- [DealDrop](/projects/dealdrop): Smart deal aggregator and price tracking platform.
+- [Repoviz](/projects/repoviz): Interactive GitHub repository visualizer and statistics tracker.
+- [Resumind](/projects/resumind): AI-powered resume analyzer and builder.
 
-## Integrations
-- An OpenAPI specification is available at [`/openapi.json`](/openapi.json).
-- An Agent Resource Discovery (ARD) is available at [`/.well-known/ard.json`](/.well-known/ard.json).
-- Agent operational instructions are at [`/agents.md`](/agents.md).
+## Technical Articles
+- [From Lighthouse to Agentic Scores: The Architectural Evolution of Web Development for AI Agents](/blogs/from-lighthouse-to-agentic-scores-building-for-ai-agents): In-depth guide on llms.txt, agents.md, WebMCP, and AI readiness scores (is-agentic.org, ora.ai).
+- [Stop Tutorial Hell: How I Actually Got Good at Full Stack](/blogs/escaping-tutorial-hell-as-a-developer): Practical guide to escaping tutorial loops and building production apps.
+- [Next.js Security: Recent Vulnerabilities and How to Prevent Them](/blogs/nextjs-security-issues-and-prevention): Deep dive into SSRF in Server Actions and RSC security.
+- [How to Optimize a Next.js App for Maximum Performance](/blogs/how-to-optimize-a-nextjs-app): Practical guide on bundle reduction, font optimization, and Core Web Vitals.
+- [What is Taste and How Can You Develop It?](/blogs/what-is-taste-and-how-to-develop-it): Developing aesthetic intuition and craftsmanship in frontend engineering.
 
-## Site Structure
-- Home: `/`
-- Blogs: `/blogs` (Technical articles and tutorials)
-- Books: `/books` (Reading list and recommendations)
-- Resume: `/resume` (Interactive resume and CV)
-- About: `/about` (Detailed professional background, journey, and tech stack)
-- Contact: `/contact` (Direct communication channels and contact form)
-- Privacy: `/privacy`
+## Machine & Agent Interfaces
+- [OpenAPI Specification](/openapi.json): Standard REST API definitions and schemas.
+- [Agent Navigation & Rules](/agents.md): Operational instructions, rate limits, and guidelines for AI agents.
+- [Agent Resource Discovery (ARD)](/.well-known/ard.json): Machine discovery manifest.
+- [GitHub Stats API](/api/github): Real-time aggregated star and fork metrics endpoint.
 
-## Featured Articles
-- [From Lighthouse to Agentic Scores: The Architectural Evolution of Web Development for AI Agents](/blogs/from-lighthouse-to-agentic-scores-building-for-ai-agents): Deep dive into llms.txt, agents.md, MCP, and readiness scores (is-agentic, ora.ai).
+## Optional & Additional Resources
+- [Books](/books): Reading list and book reviews on software engineering and design.
+- [Setup & Workspace](/setup): Developer hardware, tooling, and desk setup.
+- [Terminal Interface](/terminal): Interactive CLI portfolio emulator.
+- [Gears](/gears): Hardware, tools, and accessories breakdown.
