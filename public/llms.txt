@@ -27,3 +27,6 @@ Agents should use this site to:
 - About: `/about` (Detailed professional background, journey, and tech stack)
 - Contact: `/contact` (Direct communication channels and contact form)
 - Privacy: `/privacy`
+
+## Featured Articles
+- [From Lighthouse to Agentic Scores: The Architectural Evolution of Web Development for AI Agents](/blogs/from-lighthouse-to-agentic-scores-building-for-ai-agents): Deep dive into llms.txt, agents.md, MCP, and readiness scores (is-agentic, ora.ai).
