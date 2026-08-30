@@ -42,6 +42,51 @@ This portfolio is engineered not just for human visitors, but as a **first-class
 
 ---
 
+## ⭐ Flagship Projects Spotlight
+
+### 1. 🏥 HealOS — Centralized Healthcare & Hospital Operations Platform
+
+<p align="center">
+  <img src="https://zuhaibrashid.com/HealOs.webp" alt="HealOS Preview" width="700" style="border-radius: 12px;" />
+</p>
+
+<p align="center">
+  <a href="https://healos-theta.vercel.app/"><img src="https://img.shields.io/badge/🚀_Live_Demo-HealOS-10B981?style=for-the-badge" alt="HealOS Live Demo" /></a>
+  <a href="https://github.com/zuhaib-dev/HealOS"><img src="https://img.shields.io/badge/💻_Source_Code-GitHub-181717?style=for-the-badge&logo=github" alt="HealOS GitHub" /></a>
+</p>
+
+> **HealOS** is a mission-critical, enterprise-grade healthcare management system designed to eliminate clinical administrative friction. It centralizes patient records, doctor appointment scheduling, staff duty rosters, billing pipelines, and real-time ICU/ward bed occupancy.
+
+#### 🛠️ Tech Stack & Architecture
+- **Frontend:** Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS, Framer Motion
+- **State Management:** Zustand (Client state), TanStack React Query (Server caching & optimistic updates)
+- **Backend & APIs:** Node.js, Express.js (RESTful APIs with strict validation)
+- **Database & Realtime:** MongoDB & Mongoose, Socket.io (instant Pub/Sub vitals & bed updates)
+- **Security & Payments:** JWT Role-Based Access Control (Admin/Doctor/Patient), Razorpay Payment Gateway
+
+---
+
+### 2. 🚗 Rydexx — Instant Multi-Vehicle Rental & Booking Marketplace
+
+<p align="center">
+  <img src="https://zuhaibrashid.com/rydexx.webp" alt="Rydexx Preview" width="700" style="border-radius: 12px;" />
+</p>
+
+<p align="center">
+  <a href="https://rydexx.netlify.app/"><img src="https://img.shields.io/badge/🚀_Live_Demo-Rydexx-3B82F6?style=for-the-badge" alt="Rydexx Live Demo" /></a>
+  <a href="https://github.com/zuhaib-dev/rydex"><img src="https://img.shields.io/badge/💻_Source_Code-GitHub-181717?style=for-the-badge&logo=github" alt="Rydexx GitHub" /></a>
+</p>
+
+> **Rydexx** brings the modern, on-demand rental experience to bikes, cars, and trucks. Built as a peer-to-peer and fleet marketplace, it eliminates rental double-bookings through atomic date-range calendar locks and supports instant media delivery.
+
+#### 🛠️ Tech Stack & Architecture
+- **Frontend:** Next.js (SSR & SEO Optimized), TypeScript, Tailwind CSS, Framer Motion, Axios
+- **Authentication:** Auth.js / NextAuth (OAuth Providers & Credential Security)
+- **Database & Storage:** MongoDB (Flexible vehicle schemas & booking records), Cloudinary API (Automated media optimization)
+- **Real-Time Layer:** ZegoCloud integration for owner-renter in-app communication
+
+---
+
 ## 🤖 Agentic Interfaces & Machine Manifests
 
 Autonomous AI agents, LLMs (GPT-4o, Claude 3.5/3.7, Gemini, Perplexity), and coding assistants can interact with this site through standard machine-readable interfaces:
@@ -125,11 +170,12 @@ I'm currently open to **freelance projects** and **full-time opportunities** —
 
 ---
 
-## 💼 Featured Projects
+## 💼 All Featured Projects
 
 | Project | Stack | Links |
 |---|---|---|
-| **Rydexx** — Vehicle booking platform | Next.js, Auth.js, MongoDB, Cloudinary, ZegoCloud | [Live](https://rydexx.netlify.app/) |
+| **HealOS** — Healthcare operations platform | Next.js 15, React 19, MongoDB, Socket.io | [Live](https://healos-theta.vercel.app/) · [Code](https://github.com/zuhaib-dev/HealOS) |
+| **Rydexx** — Vehicle booking platform | Next.js, Auth.js, MongoDB, Cloudinary, ZegoCloud | [Live](https://rydexx.netlify.app/) · [Code](https://github.com/zuhaib-dev/rydex) |
 | **Resumind** — AI-powered resume builder (GPT-3.5) | Next.js, TypeScript, Tailwind CSS | [Live](https://resumind-ebon.vercel.app/) · [Code](https://github.com/Zuhaib-dev/Resumind) |
 | **Roomify** — AI architectural visualization (Claude + Gemini) | React, Vite, TypeScript, Puter.js | [Live](https://airoomify.netlify.app/) · [Code](https://github.com/Zuhaib-dev/Roomify) |
 | **CarePulse** — Healthcare management dashboard | Next.js, TypeScript, Appwrite | [Live](https://hms-seven-green.vercel.app/) · [Code](https://github.com/Zuhaib-dev/HMS) |
