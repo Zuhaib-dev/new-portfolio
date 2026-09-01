@@ -72,24 +72,58 @@ export default function Hero() {
 
   return (
     <section id="about" className="relative py-12 md:py-20">
-      <div
-        className="flex flex-col md:flex-row gap-8 items-start md:items-center relative animate-in fade-in slide-in-from-bottom-5 duration-500"
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.15,
+            },
+          },
+        }}
+        className="flex flex-col md:flex-row gap-8 items-start md:items-center relative"
       >
         {/* Avatar Placeholder */}
-        <div className="relative shrink-0 w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-border bg-muted/50 flex items-center justify-center">
-          <Image
-            src="/profilePic.webp"
-            alt="Zuhaib Rashid"
-            width={128}
-            height={128}
-            className="object-cover w-full h-full"
-            priority
-          />
-        </div>
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, scale: 0.8 },
+            visible: { 
+              opacity: 1, 
+              scale: 1,
+              transition: {
+                type: "spring",
+                stiffness: 100,
+                damping: 15
+              }
+            },
+          }}
+        >
+          <motion.div 
+            animate={{ y: [0, -8, 0] }}
+            transition={{ 
+              duration: 4, 
+              repeat: Infinity, 
+              ease: "easeInOut" 
+            }}
+            className="relative shrink-0 w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-border bg-muted/50 flex items-center justify-center"
+          >
+            <Image
+              src="/profilePic.webp"
+              alt="Zuhaib Rashid"
+              width={128}
+              height={128}
+              className="object-cover w-full h-full"
+              priority
+            />
+          </motion.div>
+        </motion.div>
 
         <div className="space-y-4 flex-1">
           {/* Name & Subtitle */}
-          <div>
+          <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 }}}>
             <h1 className="text-3xl sm:text-4xl font-bold tracking-tight mb-2">
               Zuhaib Rashid
             </h1>
@@ -110,51 +144,59 @@ export default function Hero() {
                 )}
               </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Description */}
-          <p className="text-muted-foreground text-sm sm:text-base max-w-lg leading-relaxed">
+          <motion.p 
+            variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 }}}
+            className="text-muted-foreground text-sm sm:text-base max-w-lg leading-relaxed"
+          >
             Love to build cool stuff, adventure & explore new technologies.
-          </p>
+          </motion.p>
 
           {/* Spotify Currently Playing */}
-          {spotifyData ? (
-            spotifyData.hasTrack ? (
-              <a
-                href={spotifyData.songUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground bg-muted/10 px-3 py-1.5 rounded-full border border-[#1DB954]/30 hover:bg-[#1DB954]/10 transition-colors group relative overflow-hidden shadow-[0_0_15px_-5px_#1DB954]"
-              >
-                <div className="relative flex items-center justify-center w-4 h-4">
-                  <FaSpotify className="absolute h-4 w-4 text-[#1DB954] z-10" />
-                  {spotifyData.isPlaying && (
-                    <span className="absolute h-full w-full rounded-full bg-[#1DB954] opacity-50 animate-ping"></span>
-                  )}
+          <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 }}}>
+            {spotifyData ? (
+              spotifyData.hasTrack ? (
+                <a
+                  href={spotifyData.songUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground bg-muted/10 px-3 py-1.5 rounded-full border border-[#1DB954]/30 hover:bg-[#1DB954]/10 transition-colors group relative overflow-hidden shadow-[0_0_15px_-5px_#1DB954]"
+                >
+                  <div className="relative flex items-center justify-center w-4 h-4">
+                    <FaSpotify className="absolute h-4 w-4 text-[#1DB954] z-10" />
+                    {spotifyData.isPlaying && (
+                      <span className="absolute h-full w-full rounded-full bg-[#1DB954] opacity-50 animate-ping"></span>
+                    )}
+                  </div>
+                  <span className="text-xs truncate max-w-[200px] sm:max-w-[300px]">
+                    {spotifyData.isPlaying ? "Listening to" : "Recently Played"}{" "}
+                    <span className="text-foreground font-semibold">
+                      {spotifyData.title}
+                    </span>{" "}
+                    &middot; {spotifyData.artist}
+                  </span>
+                </a>
+              ) : (
+                <div className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground bg-muted/20 px-3 py-1.5 rounded-full border border-border/50">
+                  <FaSpotify className="h-4 w-4" />
+                  <span className="text-xs">Not listening to anything</span>
                 </div>
-                <span className="text-xs truncate max-w-[200px] sm:max-w-[300px]">
-                  {spotifyData.isPlaying ? "Listening to" : "Recently Played"}{" "}
-                  <span className="text-foreground font-semibold">
-                    {spotifyData.title}
-                  </span>{" "}
-                  &middot; {spotifyData.artist}
-                </span>
-              </a>
+              )
             ) : (
               <div className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground bg-muted/20 px-3 py-1.5 rounded-full border border-border/50">
-                <FaSpotify className="h-4 w-4" />
-                <span className="text-xs">Not listening to anything</span>
+                <FaSpotify className="h-4 w-4 text-muted-foreground/50 animate-pulse" />
+                <span className="text-xs">Loading Spotify...</span>
               </div>
-            )
-          ) : (
-            <div className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground bg-muted/20 px-3 py-1.5 rounded-full border border-border/50">
-              <FaSpotify className="h-4 w-4 text-muted-foreground/50 animate-pulse" />
-              <span className="text-xs">Loading Spotify...</span>
-            </div>
-          )}
+            )}
+          </motion.div>
 
           {/* Social Icons */}
-          <div className="flex items-center gap-3 pt-2 flex-wrap">
+          <motion.div 
+            variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 }}}
+            className="flex items-center gap-3 pt-2 flex-wrap"
+          >
             {socialLinks.map((s, idx) => {
               const Icon = s.icon;
               return (
@@ -172,9 +214,9 @@ export default function Hero() {
                 </motion.a>
               );
             })}
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

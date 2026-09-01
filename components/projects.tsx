@@ -1,9 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Github, ExternalLink, ArrowRight, Layers } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRef } from "react";
 import { projects, type Project } from "@/lib/projects-data";
 import {
   SiNextdotjs,
@@ -81,15 +82,52 @@ export function ProjectCard({
   project: Project;
   index: number;
 }) {
+  const ref = useRef<HTMLDivElement>(null);
+  
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 });
+  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 });
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
   return (
     <motion.div
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={{ y: -4 }}
-      className="group relative flex flex-col rounded-2xl border border-border/40 bg-muted/10 backdrop-blur-sm overflow-hidden transition-all duration-300"
-      style={{ boxShadow: "0 0 0 1px rgba(255,255,255,0.03) inset" }}
+      className="group relative flex flex-col rounded-2xl border border-border/40 bg-muted/10 backdrop-blur-sm overflow-hidden transition-colors duration-300 z-10"
+      style={{ 
+        rotateX, 
+        rotateY, 
+        transformStyle: "preserve-3d",
+        transformPerspective: 1000,
+        boxShadow: "0 0 0 1px rgba(255,255,255,0.03) inset" 
+      }}
     >
       {/* Hover glow overlay */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0 rounded-2xl bg-[radial-gradient(ellipse_at_top_left,rgba(120,80,255,0.08),transparent_65%)]" />
