@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 import { Github, ExternalLink, GitCommit, Star, GitFork } from "lucide-react";
-import { GitHubCalendar } from "react-github-calendar";
+import { ActivityCalendar, type Activity } from "react-activity-calendar";
 
 const username = "Zuhaib-dev";
 
@@ -12,6 +12,8 @@ export default function GithubStats() {
   const { theme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [stats, setStats] = useState({ stars: 0, forks: 0, loaded: false });
+  const [contributions, setContributions] = useState<Activity[] | null>(null);
+  const [loadingCalendar, setLoadingCalendar] = useState(true);
   const [tooltip, setTooltip] = useState<{
     visible: boolean;
     x: number;
@@ -37,7 +39,29 @@ export default function GithubStats() {
       }
     };
 
+    const fetchContributions = async () => {
+      try {
+        setLoadingCalendar(true);
+        const res = await fetch(`/api/github/contributions?username=${username}`);
+        if (!res.ok) {
+          throw new Error("Failed to fetch contributions");
+        }
+        const data = await res.json();
+        if (data && Array.isArray(data.contributions)) {
+          setContributions(data.contributions);
+        } else {
+          setContributions([]);
+        }
+      } catch (error) {
+        console.error("Error fetching GitHub contributions:", error);
+        setContributions([]);
+      } finally {
+        setLoadingCalendar(false);
+      }
+    };
+
     fetchStats();
+    fetchContributions();
   }, []);
 
   const currentTheme = mounted
@@ -88,13 +112,15 @@ export default function GithubStats() {
             </div>
 
             <div className="p-4 sm:p-6 w-full overflow-hidden">
-              {!mounted ? (
-                <div className="w-full h-[180px] animate-pulse bg-muted rounded-xl" />
+              {!mounted || loadingCalendar ? (
+                <div className="w-full h-[180px] animate-pulse bg-muted/40 rounded-xl flex items-center justify-center">
+                  <span className="text-xs text-muted-foreground animate-pulse">Loading GitHub contributions...</span>
+                </div>
               ) : (
                 <div className="w-full overflow-x-auto pb-4 relative">
                   <div className="min-w-[750px] p-4 sm:p-6 rounded-xl border border-border/50 bg-background/50 flex justify-center relative">
-                    <GitHubCalendar
-                      username={username}
+                    <ActivityCalendar
+                      data={contributions || []}
                       colorScheme={isDark ? "dark" : "light"}
                       theme={{
                         light: ["#ebedf0", "#c4b5fd", "#a78bfa", "#8b5cf6", "#7c3aed"],
@@ -103,8 +129,11 @@ export default function GithubStats() {
                       fontSize={12}
                       blockSize={12}
                       blockMargin={4}
+                      labels={{
+                        totalCount: `{{count}} contributions in the last year`,
+                      }}
                       style={{
-                        width: '100%',
+                        width: "100%",
                       }}
                       renderBlock={(block, activity) => {
                         const blockElement = block as React.ReactElement<any>;
@@ -122,7 +151,7 @@ export default function GithubStats() {
                             setTooltip((prev) => ({ ...prev, visible: false }));
                           },
                           className: "hover:opacity-60 transition-opacity duration-200 outline-none",
-                          style: { ...blockElement.props.style, cursor: "pointer", pointerEvents: "auto" }
+                          style: { ...blockElement.props.style, cursor: "pointer", pointerEvents: "auto" },
                         });
                       }}
                     />
