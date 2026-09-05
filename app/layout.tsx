@@ -245,12 +245,7 @@ export default function RootLayout({
                 "@type": "Country",
                 name: "Worldwide"
               },
-              description: "Full Stack Web Development, Next.js architecture, and AI Agent Readiness engineering services.",
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: "5.0",
-                reviewCount: "28"
-              }
+              description: "Full Stack Web Development, Next.js architecture, and AI Agent Readiness engineering services."
             }),
           }}
         />
