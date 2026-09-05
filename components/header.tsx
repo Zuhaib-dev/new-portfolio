@@ -102,7 +102,7 @@ export default function Header() {
                   className="hidden md:flex relative h-8 w-full justify-start rounded-[0.5rem] bg-background text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-32 lg:w-40 border-muted-foreground/20 hover:bg-accent/50 hover:text-accent-foreground group"
                   onClick={triggerCommandMenu}
                 >
-                  <Search className="mr-2 h-4 w-4 shrink-0 opacity-50 group-hover:opacity-100 transition-opacity" />
+                  <Search className="mr-2 h-4 w-4 shrink-0 opacity-50 group-hover:opacity-100 transition-opacity" data-icon="inline-start" />
                   <span className="hidden lg:inline-flex">Search...</span>
                   <span className="inline-flex lg:hidden">Search</span>
                   <kbd className="pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
