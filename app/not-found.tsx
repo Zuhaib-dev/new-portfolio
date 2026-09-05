@@ -50,7 +50,7 @@ export default function NotFound() {
           
           <Button asChild variant="outline" size="lg" className="rounded-full px-8 gap-2 group">
             <Link href="/blogs">
-              <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" />
+              <ArrowLeft className="h-4 w-4 group-hover:-translate-x-1 transition-transform" data-icon="inline-start" />
               View Blogs
             </Link>
           </Button>

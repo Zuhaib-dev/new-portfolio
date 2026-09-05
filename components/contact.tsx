@@ -307,6 +307,7 @@ export default function Contact() {
                         id="email"
                         type="email"
                         placeholder="your@email.com"
+                        autoComplete="email"
                         value={formData.email}
                         onChange={handleChange}
                         required
