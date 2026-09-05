@@ -43,7 +43,7 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
           <Button asChild variant="default" size="lg" className="rounded-full px-8 gap-2 group">
             <Link href="/">
-              <Home className="h-4 w-4" />
+              <Home className="h-4 w-4" data-icon="inline-start" />
               Back to Home
             </Link>
           </Button>

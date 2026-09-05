@@ -159,6 +159,8 @@ export default function Header() {
                 size="icon"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label="Toggle menu"
+                aria-expanded={mobileMenuOpen}
+                aria-controls="mobile-menu"
                 className="h-9 w-9"
               >
                 {mobileMenuOpen ? (
@@ -175,6 +177,7 @@ export default function Header() {
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
+              id="mobile-menu"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}

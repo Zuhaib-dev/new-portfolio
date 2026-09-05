@@ -31,9 +31,16 @@ export default function ProjectsPage() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {projects.map((project, index) => (
-          <ProjectCard key={project.title} project={project} index={index} />
-        ))}
+        {projects.length > 0 ? (
+          projects.map((project, index) => (
+            <ProjectCard key={project.title} project={project} index={index} />
+          ))
+        ) : (
+          <div className="col-span-full py-20 text-center rounded-2xl border border-dashed border-border/50 bg-muted/20">
+            <h3 className="text-lg font-bold">No projects found</h3>
+            <p className="text-muted-foreground mt-2">Check back later for new projects.</p>
+          </div>
+        )}
       </div>
     </main>
   );

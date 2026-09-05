@@ -11,6 +11,7 @@ import DeferredUI from "@/components/deferred-ui";
 import SoundProvider from "@/components/sound-provider";
 import Link from "next/link";
 import { GoogleTagManager } from "@next/third-parties/google";
+import { Toaster } from "@/components/ui/toaster";
 
 // display:swap ensures text is always visible while the font loads (eliminates FOIT)
 const inter = Inter({ subsets: ["latin"], display: "swap" });
@@ -367,6 +368,7 @@ export default function RootLayout({
             </footer>
             <DeferredUI />
           </SmoothScroll>
+          <Toaster />
         </ThemeProvider>
 
         {/* ✅ Microsoft Clarity */}

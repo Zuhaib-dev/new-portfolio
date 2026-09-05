@@ -68,6 +68,7 @@ export default function BlogsClient() {
           </div>
           <input
             type="text"
+            aria-label="Search articles, topics, or tags"
             className="block w-full pl-11 pr-10 py-3.5 border border-border/60 rounded-2xl bg-muted/20 focus:bg-muted/40 text-sm focus:ring-2 focus:ring-violet-500/20 focus:border-violet-500/50 outline-none transition-all placeholder:text-muted-foreground/60 shadow-sm"
             placeholder="Search articles, topics, or tags..."
             value={searchQuery}

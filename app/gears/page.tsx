@@ -133,7 +133,7 @@ export default function GearsPage() {
                 </div>
                 <div className="flex-1 flex items-center gap-2 min-w-0 py-2 border-b border-border/50 group-last:border-0 hover:bg-muted/10 px-2 rounded-lg transition-colors cursor-pointer">
                   <p className="font-medium text-sm text-foreground/80 group-hover:text-foreground transition-colors">{ext.name}</p>
-                  <a href={ext.link} target="_blank" rel="noreferrer" className="text-muted-foreground/50 hover:text-foreground transition-colors">
+                  <a href={ext.link} target="_blank" rel="noreferrer" aria-label={`Link to ${ext.name}`} className="text-muted-foreground/50 hover:text-foreground transition-colors">
                     <LinkIcon className="h-3.5 w-3.5" />
                   </a>
                 </div>
@@ -161,7 +161,7 @@ export default function GearsPage() {
                 </div>
                 <div className="flex-1 flex items-center gap-2 min-w-0 py-2 border-b border-border/50 group-last:border-0 hover:bg-muted/10 px-2 rounded-lg transition-colors cursor-pointer">
                   <p className="font-medium text-sm text-foreground/80 group-hover:text-foreground transition-colors">{sw.name}</p>
-                  <a href={sw.link} target="_blank" rel="noreferrer" className="text-muted-foreground/50 hover:text-foreground transition-colors">
+                  <a href={sw.link} target="_blank" rel="noreferrer" aria-label={`Link to ${sw.name}`} className="text-muted-foreground/50 hover:text-foreground transition-colors">
                     <LinkIcon className="h-3.5 w-3.5" />
                   </a>
                 </div>

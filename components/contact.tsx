@@ -272,6 +272,7 @@ export default function Contact() {
                       <Input
                         id="website"
                         type="text"
+                        aria-label="Website (leave empty)"
                         tabIndex={-1}
                         autoComplete="off"
                         value={formData.website}
@@ -289,6 +290,7 @@ export default function Contact() {
                       <Input
                         id="name"
                         placeholder="Your name"
+                        autoComplete="name"
                         value={formData.name}
                         onChange={handleChange}
                         required
