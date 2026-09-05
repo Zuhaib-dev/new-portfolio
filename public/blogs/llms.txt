@@ -1,0 +1,6 @@
+# Zuhaib Rashid - Blogs
+
+This section contains technical articles focusing on software architecture, AI agents, and web development.
+
+- [Escaping Tutorial Hell](https://zuhaibrashid.com/blogs/escaping-tutorial-hell-as-a-developer)
+- [Next.js Security](https://zuhaibrashid.com/blogs/nextjs-security-issues-and-prevention)

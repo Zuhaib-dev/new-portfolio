@@ -143,6 +143,71 @@
         }
       }
     },
+    "/api/v1/jobs": {
+      "post": {
+        "operationId": "createDummyJob",
+        "summary": "Create an asynchronous job (Dummy)",
+        "description": "Dummy endpoint for demonstrating REST async-job pattern and idempotency for agent readiness.",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": true,
+            "description": "Unique idempotency token for safe, deterministic retries",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "example": "data_sync"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Job accepted for processing",
+            "headers": {
+              "Location": {
+                "description": "URL to poll for job status",
+                "schema": {
+                  "type": "string",
+                  "example": "/api/v1/jobs/job-12345"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "jobId": {
+                      "type": "string",
+                      "example": "job-12345"
+                    },
+                    "status": {
+                      "type": "string",
+                      "example": "pending"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/github": {
       "get": {
         "operationId": "getGithubStats",

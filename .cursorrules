@@ -1,0 +1,8 @@
+# Cursor Rules
+
+- Follow standard React/Next.js conventions for the App Router.
+- Prefer `lucide-react` for icons.
+- Ensure strict TypeScript typing and avoid `any`.
+- Keep components focused and use shadcn/ui primitives.
+- When generating markup, ensure proper heading structure (h1 -> h2 -> h3) for accessibility.
+- Favor Tailwind CSS classes instead of inline styles.

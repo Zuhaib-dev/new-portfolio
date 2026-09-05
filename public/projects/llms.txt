@@ -1,0 +1,8 @@
+# Zuhaib Rashid - Projects
+
+This section contains case studies for production applications engineered by Zuhaib Rashid.
+
+- [HealOS](https://zuhaibrashid.com/projects/healos)
+- [Rydexx](https://zuhaibrashid.com/projects/rydexx)
+- [DealDrop](https://zuhaibrashid.com/projects/dealdrop)
+- [Repoviz](https://zuhaibrashid.com/projects/repoviz)

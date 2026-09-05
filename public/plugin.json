@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_model": "zuhaibrashid_portfolio",
+  "name_for_human": "Zuhaib Rashid Portfolio",
+  "description_for_model": "Plugin for accessing Zuhaib Rashid's portfolio, live GitHub statistics, and developer API.",
+  "description_for_human": "Explore Zuhaib Rashid's engineering portfolio and live stats.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://www.zuhaibrashid.com/openapi.json"
+  },
+  "logo_url": "https://www.zuhaibrashid.com/icon.png",
+  "contact_email": "zuhaibrashid01@gmail.com",
+  "legal_info_url": "https://www.zuhaibrashid.com/privacy"
+}

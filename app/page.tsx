@@ -13,7 +13,7 @@ import Development from "@/components/development";
 
 export default function Home() {
   return (
-    <div className="mx-auto max-w-5xl space-y-20 py-10">
+    <main className="mx-auto max-w-5xl space-y-20 py-10">
       <Hero />
       <Experience />
       <Education />
@@ -26,6 +26,6 @@ export default function Home() {
       <PersonalLife />
       <Contact />
       <DailyQuote />
-    </div>
+    </main>
   );
 }

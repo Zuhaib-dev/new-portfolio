@@ -24,7 +24,8 @@ AI Agents should use this site to:
 - **Canonical Markdown Fallback:** `/index.md`
 - **Authentication Policy:** `/auth.md`
 
-## Zero-Auth API Access
+## Zero-Auth API Access & Onboarding
+We provide public, keyless REST endpoints with zero-auth access. Additionally, there is a free tier available with self-serve key generation for a sandbox/test environment coming soon.
 We provide public, keyless REST endpoints:
 - **Endpoint (v1):** `GET /api/v1/github?page=1&limit=100` (supports cursor pagination)
 - **Legacy Alias:** `GET /api/github`
