@@ -9,6 +9,9 @@ last-updated: 2026-08-29
 
 > Full Stack Developer from Srinagar, Kashmir specializing in React, Next.js, TypeScript, and Node.js. Building scalable, high-performance web applications and agentic AI surfaces.
 
+## Developer Onboarding
+Explore our APIs using the free tier available, with self-serve key generation and a sandbox/test environment that features zero-auth access for developers and autonomous agents.
+
 ## Key Navigation
 - [About](https://www.zuhaibrashid.com/about): Professional background, philosophy, and tech stack.
 - [Projects](https://www.zuhaibrashid.com/projects): Production web apps and open-source contributions.

@@ -1,0 +1,4 @@
+# About Section
+
+This section details the professional background, engineering philosophy, and core tech stack of Zuhaib Rashid.
+For more details, see the main [LLM Manifest](https://www.zuhaibrashid.com/llms.txt).

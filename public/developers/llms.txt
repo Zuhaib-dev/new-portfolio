@@ -1,0 +1,4 @@
+# Developers Section
+
+This section contains API documentation, OpenAPI specifications, and interactive testing environments for the REST endpoints.
+For more details, see the main [LLM Manifest](https://www.zuhaibrashid.com/llms.txt).

@@ -38,7 +38,15 @@ export default function Development() {
         transition={{ duration: 0.5 }}
       >
         {/* Header */}
-        <h2 className="text-3xl font-bold mb-8">Development</h2>
+        <h2 className="text-3xl font-bold mb-4">Development & Agent-Ready Architecture</h2>
+        <div className="prose dark:prose-invert max-w-none text-muted-foreground mb-8">
+          <p>
+            The web development ecosystem is rapidly shifting towards agent-ready architectures. My portfolio is a living testament to this shift, constructed with semantic HTML, comprehensive accessibility markers, and rich schema vocabularies. It employs a Zero-Auth REST API providing instantaneous, keyless data delivery directly to AI agents traversing the site.
+          </p>
+          <p>
+            Under the hood, this platform integrates seamless Model Context Protocol (MCP) integrations with both Streamable HTTP transport and native agent tool forms. Developer tools, including self-serve test keys and a sandbox testing environment, are fully integrated to ensure low friction for autonomous agents.
+          </p>
+        </div>
 
         {/* Rows */}
         <div className="space-y-3">

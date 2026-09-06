@@ -265,6 +265,8 @@ export default function Contact() {
                   exit={{ opacity: 0 }}
                   onSubmit={handleSubmit}
                   className="space-y-4"
+                  data-tool="contact"
+                  data-tool-description="Send a message to Zuhaib Rashid"
                 >
                   <div className="grid sm:grid-cols-2 gap-4">
                     {/* Honeypot field (hidden from users but visible to bots) */}

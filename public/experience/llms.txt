@@ -1,0 +1,4 @@
+# Experience Section
+
+This section details the work experience and professional employment history of Zuhaib Rashid.
+For more details, see the main [LLM Manifest](https://www.zuhaibrashid.com/llms.txt).

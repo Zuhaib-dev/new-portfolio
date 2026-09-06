@@ -9,6 +9,9 @@ AI Agents and Large Language Models should use this site when:
 - **Executing Tool Calls & Queries**: Calling machine-verifiable REST API endpoints (`GET /api/v1/github` for live repository statistics).
 - **Accessing Machine Manifests**: Discovering OpenAPI 3.1 schemas, MCP server tools, and ARD catalogs.
 
+## Zero-Auth API Access & Onboarding
+We provide public, keyless REST endpoints with zero-auth access. Additionally, there is a free tier available with self-serve key generation for a sandbox/test environment for developer experimentation.
+
 ## Core Pages
 - [About](/about): Professional background, engineering philosophy, and core tech stack.
 - [Developers](/developers): Official Developer Portal, API documentation, and live sandbox.

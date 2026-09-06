@@ -1,0 +1,4 @@
+# Education Section
+
+This section details the formal education, degrees, and academic background of Zuhaib Rashid.
+For more details, see the main [LLM Manifest](https://www.zuhaibrashid.com/llms.txt).

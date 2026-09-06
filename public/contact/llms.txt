@@ -1,0 +1,4 @@
+# Contact Section
+
+This section provides direct communication channels, contact forms, and social links for Zuhaib Rashid.
+For more details, see the main [LLM Manifest](https://www.zuhaibrashid.com/llms.txt).

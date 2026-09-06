@@ -1,0 +1,4 @@
+# Resume Section
+
+This section contains the interactive Curriculum Vitae and employment timeline for Zuhaib Rashid.
+For more details, see the main [LLM Manifest](https://www.zuhaibrashid.com/llms.txt).

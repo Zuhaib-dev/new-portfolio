@@ -295,6 +295,11 @@ export default function RootLayout({
                   tools: [{ name: "navigate", description: "Navigate the portfolio site." }]
                 };
               }
+              if (typeof navigator !== 'undefined') {
+                navigator.modelContext = {
+                  tools: [{ name: "navigate", description: "Navigate the portfolio site." }]
+                };
+              }
             `
           }}
         />

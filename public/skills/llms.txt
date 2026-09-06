@@ -1,0 +1,4 @@
+# Skills Section
+
+This section lists the programming languages, frameworks, libraries, and developer tools mastered by Zuhaib Rashid.
+For more details, see the main [LLM Manifest](https://www.zuhaibrashid.com/llms.txt).
