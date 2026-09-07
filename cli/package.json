@@ -1,6 +1,6 @@
 {
   "name": "zuhaibrashid",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Official CLI for Zuhaib Rashid's Developer Portfolio and AI Agent Interfaces",
   "main": "index.js",
   "bin": {
@@ -12,6 +12,8 @@
   "author": "Zuhaib Rashid",
   "license": "MIT",
   "dependencies": {
+    "boxen": "^5.1.2",
+    "chalk": "^4.1.2",
     "commander": "^11.0.0"
   }
 }
