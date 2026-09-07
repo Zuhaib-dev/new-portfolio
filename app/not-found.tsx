@@ -72,8 +72,8 @@ export default function NotFound() {
         </div>
       </motion.div>
 
-      <script type="text/markdown" dangerouslySetInnerHTML={{ __html: `
-# 404 Not Found
+      <pre className="sr-only" aria-hidden="true">
+        {`# 404 Not Found
 The page you requested could not be found. 
 
 ## Site Map & Agent Recovery
@@ -82,7 +82,8 @@ The page you requested could not be found.
 - [Projects](/projects)
 - [Developer Portal](/developers)
 - [LLM Manifest](/llms.txt)
-      ` }} />
+        `}
+      </pre>
 
       {/* Decorative Background Glows */}
       <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-500/5 rounded-full blur-[120px] pointer-events-none z-[-1]" />

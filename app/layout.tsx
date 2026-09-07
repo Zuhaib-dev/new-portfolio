@@ -287,28 +287,18 @@ export default function RootLayout({
           }}
         />
         {/* WebMCP Context Registration */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if (typeof document !== 'undefined') {
-                document.modelContext = {
-                  tools: [{ name: "navigate", description: "Navigate the portfolio site." }]
-                };
-              }
-              if (typeof navigator !== 'undefined') {
-                navigator.modelContext = {
-                  tools: [{ name: "navigate", description: "Navigate the portfolio site." }]
-                };
-              }
-            `
-          }}
-        />
+        <script src="/mcp-context.js"></script>
       </head>
 
       <body className={`${inter.className} min-h-screen relative overflow-x-hidden`}>
         {/* Global Background Effects */}
         <div className="fixed inset-0 bg-noise z-[-1]" />
         <div className="fixed inset-0 bg-glow z-[-1]" />
+
+        {/* WebMCP Static Scanner Target */}
+        <form style={{ display: 'none' }} data-tool="site_search" data-tool-description="Search the site" action="/search" method="GET" aria-hidden="true">
+          <input type="text" name="q" aria-label="Search query" />
+        </form>
 
         <ThemeProvider
           attribute="class"

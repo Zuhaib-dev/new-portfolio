@@ -26,13 +26,60 @@ async function handleRequest(request: NextRequest) {
     }
   }
 
-  return NextResponse.json({
-    answer: `Hello! You asked: "${query}". This is a dummy response from Zuhaib Rashid's portfolio NLWeb endpoint.`,
-    messages: [
-      {
-        role: "assistant",
-        content: `Hello! You asked: "${query}". This is a dummy response from Zuhaib Rashid's portfolio NLWeb endpoint.`
-      }
-    ]
+  const stream = new ReadableStream({
+    start(controller) {
+      const encoder = new TextEncoder();
+      const message = `Hello! You asked: "${query}". This is a dummy response from Zuhaib Rashid's portfolio NLWeb endpoint.`;
+      const chunks = message.split(" ");
+      let i = 0;
+      
+      const interval = setInterval(() => {
+        if (i < chunks.length) {
+          const text = chunks[i] + (i < chunks.length - 1 ? " " : "");
+          const chunkData = JSON.stringify({
+            id: "chatcmpl-123",
+            object: "chat.completion.chunk",
+            created: Math.floor(Date.now() / 1000),
+            model: "portfolio-gpt",
+            choices: [
+              {
+                index: 0,
+                delta: { content: text },
+                finish_reason: null
+              }
+            ]
+          });
+          controller.enqueue(encoder.encode(`data: ${chunkData}\n\n`));
+          i++;
+        } else {
+          const doneData = JSON.stringify({
+            id: "chatcmpl-123",
+            object: "chat.completion.chunk",
+            created: Math.floor(Date.now() / 1000),
+            model: "portfolio-gpt",
+            choices: [
+              {
+                index: 0,
+                delta: {},
+                finish_reason: "stop"
+              }
+            ]
+          });
+          controller.enqueue(encoder.encode(`data: ${doneData}\n\n`));
+          controller.enqueue(encoder.encode(`data: [DONE]\n\n`));
+          controller.close();
+          clearInterval(interval);
+        }
+      }, 50);
+    }
+  });
+
+  return new NextResponse(stream, {
+    headers: {
+      "Content-Type": "text/event-stream",
+      "Cache-Control": "no-cache, no-transform",
+      "Connection": "keep-alive",
+      "Access-Control-Allow-Origin": "*"
+    }
   });
 }
