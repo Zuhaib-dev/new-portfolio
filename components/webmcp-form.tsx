@@ -1,17 +1,10 @@
 "use client"
 
-import { useFormStatus } from "react-dom"
-
-function SubmitButton() {
-  const { pending } = useFormStatus()
-  return (
-    <button type="submit" disabled={pending} aria-disabled={pending}>
-      {pending ? "Searching..." : "Search"}
-    </button>
-  )
-}
+import { useState } from "react"
 
 export function WebMCPForm() {
+  const [pending, setPending] = useState(false)
+
   return (
     <form 
       style={{ display: 'none' }} 
@@ -20,6 +13,10 @@ export function WebMCPForm() {
       action="/search" 
       method="GET" 
       aria-hidden="true"
+      onSubmit={async (e) => {
+        setPending(true)
+        // allow native submission
+      }}
     >
       <input 
         type="text" 
@@ -29,7 +26,9 @@ export function WebMCPForm() {
         minLength={3} 
         maxLength={100} 
       />
-      <SubmitButton />
+      <button type="submit" disabled={pending} aria-disabled={pending}>
+        {pending ? "Searching..." : "Search"}
+      </button>
     </form>
   )
 }
