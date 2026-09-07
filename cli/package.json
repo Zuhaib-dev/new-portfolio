@@ -1,7 +1,17 @@
 {
   "name": "zuhaibrashid",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Official CLI for Zuhaib Rashid's Developer Portfolio and AI Agent Interfaces",
+  "keywords": [
+    "portfolio",
+    "cli",
+    "business-card",
+    "ai",
+    "mcp",
+    "agentic",
+    "developer",
+    "npx"
+  ],
   "main": "index.js",
   "bin": {
     "zuhaibrashid": "index.js"
