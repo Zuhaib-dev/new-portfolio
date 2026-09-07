@@ -13,6 +13,8 @@ import Link from "next/link";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Toaster } from "@/components/ui/toaster";
 
+import { WebMCPForm } from "@/components/webmcp-form";
+
 // display:swap ensures text is always visible while the font loads (eliminates FOIT)
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
@@ -296,9 +298,7 @@ export default function RootLayout({
         <div className="fixed inset-0 bg-glow z-[-1]" />
 
         {/* WebMCP Static Scanner Target */}
-        <form style={{ display: 'none' }} data-tool="site_search" data-tool-description="Search the site" action="/search" method="GET" aria-hidden="true">
-          <input type="text" name="q" aria-label="Search query" />
-        </form>
+        <WebMCPForm />
 
         <ThemeProvider
           attribute="class"
