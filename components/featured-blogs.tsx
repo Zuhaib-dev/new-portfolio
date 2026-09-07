@@ -4,7 +4,7 @@ import Image from "next/image";
 import { ArrowRight, Calendar } from "lucide-react";
 
 export default function FeaturedBlogs() {
-  const featured = blogs.slice(0, 2);
+  const featured = blogs.slice(0, 4);
 
   return (
     <section id="blogs" className="py-10">
