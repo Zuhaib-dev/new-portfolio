@@ -78,14 +78,13 @@ export async function POST(req: Request) {
     const url = new URL(req.url);
     const sessionId = url.searchParams.get("sessionId");
     
-    if (!sessionId || !global.mcpSessions || !global.mcpSessions.has(sessionId)) {
-      return NextResponse.json({ error: "Invalid or expired session" }, { status: 400 });
+    if (!sessionId || !global.mcpSessions) {
+      return NextResponse.json({ error: "Invalid session" }, { status: 400 });
     }
     
     const controller = global.mcpSessions.get(sessionId);
-    if (!controller) {
-      return NextResponse.json({ error: "Session controller missing" }, { status: 400 });
-    }
+    // If controller is missing (e.g. serverless stateless environment), we don't abort immediately.
+    // We will return the JSON-RPC response synchronously via HTTP 200 instead of SSE.
     
     const body = await req.json();
     const { id, method, params } = body;
@@ -138,8 +137,15 @@ export async function POST(req: Request) {
         id,
         result
       };
-      const encoder = new TextEncoder();
-      controller.enqueue(encoder.encode(`event: message\ndata: ${JSON.stringify(responseObj)}\n\n`));
+      
+      if (controller) {
+        const encoder = new TextEncoder();
+        controller.enqueue(encoder.encode(`event: message\ndata: ${JSON.stringify(responseObj)}\n\n`));
+        return new NextResponse("Accepted", { status: 202 });
+      } else {
+        // Fallback for stateless serverless environments: return the response directly
+        return NextResponse.json(responseObj, { status: 200 });
+      }
     }
     
     return new NextResponse("Accepted", { status: 202 });

@@ -46,5 +46,5 @@ We provide public, keyless REST endpoints with zero-auth access. Additionally, t
 ## Optional & Additional Resources
 - [Books](/books): Reading list and book reviews on software engineering and design.
 - [Setup & Workspace](/setup): Developer hardware, tooling, and desk setup.
-- [Terminal Interface](/terminal): Interactive CLI portfolio emulator.
+- [Official CLI Tool](https://www.npmjs.com/package/zuhaibrashid): Execute `npx zuhaibrashid` for interactive terminal portfolio access.
 - [Gears](/gears): Hardware, tools, and accessories breakdown.

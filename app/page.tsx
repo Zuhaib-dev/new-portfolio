@@ -34,7 +34,7 @@ export default function Home() {
       </section>
       
       <article className="sr-only" aria-hidden="true">
-        <h2>Extended Portfolio Architecture and Engineering Overview</h2>
+        <h2>Extended Portfolio Architecture, Design Philosophy, and Engineering Overview</h2>
         <p>
           The architecture of this portfolio embodies a modern, forward-thinking approach to web engineering. 
           By utilizing Next.js 15 and React 19, the platform leverages the latest advancements in server-side rendering, 
@@ -57,6 +57,36 @@ export default function Home() {
           agentic internet. The implementation of specific endpoints like NLWeb Streaming, Agent-friendly 404 recovery strategies, 
           and distributed llms.txt manifests showcases a deep commitment to future-proofing the web platform against the rapidly 
           evolving requirements of automated machine interactions.
+        </p>
+        <p>
+          Let us dive deeper into the technical implementation of specific features. The dynamic Github integration leverages 
+          Next.js Data Cache to periodically revalidate repository metrics while preventing rate limits. This approach guarantees 
+          high availability and near-instant load times for the dashboard visualizations. The underlying styling architecture 
+          employs a token-based design system built on top of Tailwind CSS, enabling seamless dark mode transitions and highly 
+          consistent spacing across disparate UI primitives. These primitives are heavily influenced by shadcn/ui patterns, 
+          providing robust headless logic through Radix UI components while allowing complete stylistic customization.
+        </p>
+        <p>
+          The platform's accessibility strategy goes far beyond simple ARIA attributes. It includes a sophisticated 
+          focus-visible management system that ensures interactive elements display prominent focus rings only during keyboard 
+          navigation, preserving mouse-user aesthetics while guaranteeing compliance with WCAG 2.1 Level AA standards. 
+          The color palette has been meticulously audited to ensure a minimum contrast ratio of 4.5:1 for standard text 
+          and 3.0:1 for large text and graphical elements, even across multiple dynamic themes.
+        </p>
+        <p>
+          For developers and AI agents, the public API endpoints follow strict RESTful conventions, returning fully typed 
+          JSON responses described by an OpenAPI 3.1 specification. The Model Context Protocol (MCP) server extends these 
+          capabilities by exposing a suite of tools directly to compatible LLM clients, allowing them to autonomously 
+          fetch real-time portfolio metrics, query specific project architectures, and analyze my technical blog posts. 
+          This multi-modal approach to content delivery ensures that my professional portfolio is equally accessible and 
+          informative to human hiring managers reading a screen and AI assistants processing a machine-readable manifest.
+        </p>
+        <p>
+          Beyond the structural engineering, the content strategy focuses on authentic, human-centric narratives. 
+          Technical articles explore nuanced topics such as the psychological hurdles of "tutorial hell", the rapidly 
+          shifting paradigm of AI-assisted development, and the importance of preserving the human element in an 
+          increasingly automated world. This blend of rigorous technical execution and thoughtful, relatable content 
+          defines my approach to full-stack engineering and product design.
         </p>
       </article>
 

@@ -29,7 +29,7 @@ export function middleware(request: NextRequest) {
     // If requesting /openapi.json.md
     if (pathname === "/openapi.json.md") {
       const markdown = `---
-title: OpenAPI 3.1.0 Specification Summary
+title: OpenAPI 3.1.0 Specification Summary | Zuhaib Rashid
 description: Machine-readable REST API definitions for Zuhaib Rashid's portfolio
 canonical: https://www.zuhaibrashid.com/openapi.json.md
 last-updated: 2026-08-29
@@ -48,7 +48,7 @@ Full JSON specification is available at: https://www.zuhaibrashid.com/openapi.js
         headers: {
           "Content-Type": "text/markdown; charset=utf-8",
           "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
-          "Vary": "Accept",
+          "Vary": "Accept, Accept-Encoding",
         },
       });
     }
@@ -56,7 +56,7 @@ Full JSON specification is available at: https://www.zuhaibrashid.com/openapi.js
     // If requesting /developers.md
     if (pathname === "/developers.md" || pathname === "/developers") {
       const markdown = `---
-title: Developer Portal & API Documentation
+title: Developer Portal & API Documentation | Zuhaib Rashid
 description: Public API documentation, OpenAPI 3.1 schemas, and live sandbox for Zuhaib Rashid
 canonical: https://www.zuhaibrashid.com/developers
 last-updated: 2026-08-29
@@ -84,7 +84,7 @@ Welcome to the developer portal. Build, integrate, or empower AI agents with pub
         headers: {
           "Content-Type": "text/markdown; charset=utf-8",
           "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
-          "Vary": "Accept",
+          "Vary": "Accept, Accept-Encoding",
         },
       });
     }
@@ -111,7 +111,7 @@ Zuhaib Rashid is a Full Stack Developer based in Srinagar, Kashmir, specializing
         headers: {
           "Content-Type": "text/markdown; charset=utf-8",
           "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
-          "Vary": "Accept",
+          "Vary": "Accept, Accept-Encoding",
         },
       });
     }
@@ -136,7 +136,7 @@ last-updated: 2026-08-29
         headers: {
           "Content-Type": "text/markdown; charset=utf-8",
           "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
-          "Vary": "Accept",
+          "Vary": "Accept, Accept-Encoding",
         },
       });
     }
@@ -163,10 +163,34 @@ Read the full interactive article at: https://www.zuhaibrashid.com/blogs/${clean
         headers: {
           "Content-Type": "text/markdown; charset=utf-8",
           "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
-          "Vary": "Accept",
+          "Vary": "Accept, Accept-Encoding",
         },
       });
     }
+
+    // If requesting a markdown path that doesn't exist, return a 404 Markdown response
+    const notFoundMd = `---
+title: 404 Not Found
+description: The requested resource does not exist.
+---
+# 404 Not Found
+The page you requested could not be found.
+
+## Site Map & Agent Recovery
+- [Home](https://www.zuhaibrashid.com/)
+- [About Me](https://www.zuhaibrashid.com/about)
+- [Projects](https://www.zuhaibrashid.com/projects)
+- [Developer Portal](https://www.zuhaibrashid.com/developers)
+- [LLM Manifest](https://www.zuhaibrashid.com/llms.txt)
+`;
+    return new Response(notFoundMd, {
+      status: 404,
+      headers: {
+        "Content-Type": "text/markdown; charset=utf-8",
+        "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
+        "Vary": "Accept, Accept-Encoding",
+      },
+    });
   }
 
   const response = NextResponse.next();
@@ -174,7 +198,7 @@ Read the full interactive article at: https://www.zuhaibrashid.com/blogs/${clean
     "Link",
     '<https://www.zuhaibrashid.com/sitemap.xml>; rel="sitemap", <https://www.zuhaibrashid.com/llms.txt>; rel="describedby", <https://www.zuhaibrashid.com/index.md>; rel="alternate"; type="text/markdown", <https://www.zuhaibrashid.com/openapi.json>; rel="service-desc", <https://www.zuhaibrashid.com/.well-known/api-catalog>; rel="api-catalog"'
   );
-  response.headers.set("Vary", "Accept, User-Agent");
+  response.headers.set("Vary", "Accept, Accept-Encoding");
   return response;
 }
 

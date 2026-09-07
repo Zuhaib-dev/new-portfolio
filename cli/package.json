@@ -1,0 +1,17 @@
+{
+  "name": "zuhaibrashid",
+  "version": "1.0.0",
+  "description": "Official CLI for Zuhaib Rashid's Developer Portfolio and AI Agent Interfaces",
+  "main": "index.js",
+  "bin": {
+    "zuhaibrashid": "index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zuhaib Rashid",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.0.0"
+  }
+}
