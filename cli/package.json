@@ -1,6 +1,6 @@
 {
   "name": "zuhaibrashid",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Premium Interactive CLI for Zuhaib Rashid's Developer Portfolio and AI Agent Interfaces",
   "keywords": [
     "portfolio",
@@ -18,14 +18,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zuhaib-dev/zuhaibrashid"
+    "url": "git+https://github.com/zuhaib-dev/new-portfolio.git"
   },
   "homepage": "https://www.zuhaibrashid.com",
   "bugs": {
-    "url": "https://github.com/zuhaib-dev/zuhaibrashid/issues"
+    "url": "https://github.com/zuhaib-dev/new-portfolio/issues"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test test/cli.test.js"
   },
   "author": "Zuhaib Rashid",
   "license": "MIT",
