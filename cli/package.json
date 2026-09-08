@@ -1,7 +1,7 @@
 {
   "name": "zuhaibrashid",
-  "version": "1.0.3",
-  "description": "Official CLI for Zuhaib Rashid's Developer Portfolio and AI Agent Interfaces",
+  "version": "1.1.0",
+  "description": "Premium Interactive CLI for Zuhaib Rashid's Developer Portfolio and AI Agent Interfaces",
   "keywords": [
     "portfolio",
     "cli",
@@ -16,6 +16,14 @@
   "bin": {
     "zuhaibrashid": "index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zuhaib-dev/zuhaibrashid"
+  },
+  "homepage": "https://www.zuhaibrashid.com",
+  "bugs": {
+    "url": "https://github.com/zuhaib-dev/zuhaibrashid/issues"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,6 +32,9 @@
   "dependencies": {
     "boxen": "^5.1.2",
     "chalk": "^4.1.2",
-    "commander": "^11.0.0"
+    "clear": "^0.1.0",
+    "commander": "^11.0.0",
+    "figlet": "^1.11.4",
+    "inquirer": "^8.2.6"
   }
 }
