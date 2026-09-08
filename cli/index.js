@@ -61,18 +61,36 @@ const showCard = () => {
 const showProjects = () => {
   const output = chalk.bold.white('  HealOS\n') +
                  chalk.gray('  Healthcare management platform\n') +
-                 chalk.cyan('  Next.js • React • MongoDB • Socket.io\n\n') +
+                 chalk.cyan('  Next.js • React • MongoDB • Socket.io\n') +
+                 chalk.magenta('  🔗 https://healos-theta.vercel.app/\n\n') +
                  chalk.bold.white('  Rydexx\n') +
                  chalk.gray('  Vehicle booking platform\n') +
-                 chalk.cyan('  Next.js • TypeScript • MongoDB\n\n') +
+                 chalk.cyan('  Next.js • TypeScript • MongoDB\n') +
+                 chalk.magenta('  🔗 https://rydexx.netlify.app/\n\n') +
                  chalk.bold.white('  Resumind\n') +
                  chalk.gray('  AI-powered resume builder\n') +
-                 chalk.cyan('  React • TypeScript • GPT\n\n') +
+                 chalk.cyan('  React • TypeScript • GPT\n') +
+                 chalk.magenta('  🔗 https://resumind-ebon.vercel.app/\n\n') +
                  chalk.bold.white('  Roomify\n') +
                  chalk.gray('  AI Architecture Platform\n') +
-                 chalk.cyan('  React • Tailwind CSS • Three.js');
+                 chalk.cyan('  React • Tailwind CSS • Three.js\n') +
+                 chalk.magenta('  🔗 https://airoomify.netlify.app/');
 
   console.log(boxen(output, { padding: 1, margin: 1, borderStyle: 'round', borderColor: 'blue', title: 'Featured Projects', titleAlignment: 'center' }));
+};
+
+const showBlogs = () => {
+  const output = chalk.bold.white('  The Human Element in an AGI World\n') +
+                 chalk.gray('  Why Our Imperfections Are Our Greatest Feature\n') +
+                 chalk.magenta('  🔗 https://zuhaibrashid.com/blogs/the-human-element-in-an-agi-world\n\n') +
+                 chalk.bold.white('  From Lighthouse to Agentic Scores\n') +
+                 chalk.gray('  The Architectural Evolution of Web Development for AI Agents\n') +
+                 chalk.magenta('  🔗 https://zuhaibrashid.com/blogs/from-lighthouse-to-agentic-scores-building-for-ai-agents\n\n') +
+                 chalk.bold.white('  Escaping Tutorial Hell as a Developer\n') +
+                 chalk.gray('  Stop watching, start building.\n') +
+                 chalk.magenta('  🔗 https://zuhaibrashid.com/blogs/escaping-tutorial-hell-as-a-developer');
+
+  console.log(boxen(output, { padding: 1, margin: 1, borderStyle: 'round', borderColor: 'cyan', title: 'Featured Technical Blogs', titleAlignment: 'center' }));
 };
 
 const showSkills = () => {
@@ -118,6 +136,7 @@ const promptMenu = async () => {
         'About me',
         'Projects',
         'Skills',
+        'Blogs',
         'GitHub Stats',
         'Contact & Links',
         'Exit'
@@ -141,6 +160,11 @@ const promptMenu = async () => {
     case 'Skills':
       printHeader();
       showSkills();
+      await promptMenu();
+      break;
+    case 'Blogs':
+      printHeader();
+      showBlogs();
       await promptMenu();
       break;
     case 'Contact & Links':
@@ -177,6 +201,10 @@ program.command('projects').description('View featured projects').action(() => {
 
 program.command('skills').description('View tech stack').action(() => {
   showSkills();
+});
+
+program.command('blogs').description('Read featured technical blogs').action(() => {
+  showBlogs();
 });
 
 program.command('contact').description('Contact information').action(() => {
