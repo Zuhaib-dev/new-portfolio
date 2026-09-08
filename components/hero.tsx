@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Copy, Mail, Terminal } from "lucide-react";
+import { Copy, Mail, Terminal, Check } from "lucide-react";
 import {
   FaXTwitter,
   FaLinkedinIn,
@@ -179,15 +179,17 @@ export default function Hero() {
               <div className="w-px h-4 bg-border/80 mx-1"></div>
               <button 
                 onClick={copyCli} 
-                className="p-1.5 hover:bg-background rounded-md transition-all relative text-muted-foreground hover:text-foreground"
+                className="flex items-center gap-1.5 p-1 hover:bg-background rounded-md transition-all text-muted-foreground hover:text-foreground w-16 justify-center"
                 aria-label="Copy command"
                 title="Copy command"
               >
-                <Copy className="h-3.5 w-3.5" />
-                {cliCopied && (
-                  <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-[10px] text-background bg-foreground font-sans font-medium px-2 py-0.5 rounded shadow-sm">
-                    Copied
-                  </span>
+                {cliCopied ? (
+                  <>
+                    <Check className="h-3.5 w-3.5 text-green-500" />
+                    <span className="text-[10px] font-medium text-green-500">Copied</span>
+                  </>
+                ) : (
+                  <Copy className="h-3.5 w-3.5" />
                 )}
               </button>
             </div>
