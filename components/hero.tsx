@@ -110,15 +110,7 @@ export default function Hero() {
             },
           }}
         >
-          <motion.div 
-            animate={{ y: [0, -8, 0] }}
-            transition={{ 
-              duration: 4, 
-              repeat: Infinity, 
-              ease: "easeInOut" 
-            }}
-            className="relative shrink-0 w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-border bg-muted/50 flex items-center justify-center"
-          >
+          <div className="relative shrink-0 w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-border bg-muted/50 flex items-center justify-center">
             <Image
               src="/profilePic.webp"
               alt="Zuhaib Rashid"
@@ -127,7 +119,7 @@ export default function Hero() {
               className="object-cover w-full h-full"
               priority
             />
-          </motion.div>
+          </div>
         </motion.div>
 
         <div className="space-y-4 flex-1">
