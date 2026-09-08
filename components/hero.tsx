@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Copy, Mail } from "lucide-react";
+import { Copy, Mail, Terminal } from "lucide-react";
 import {
   FaXTwitter,
   FaLinkedinIn,
@@ -36,6 +36,7 @@ const socialLinks = [
 
 export default function Hero() {
   const [copied, setCopied] = useState(false);
+  const [cliCopied, setCliCopied] = useState(false);
   const [spotifyData, setSpotifyData] = useState<any>(null);
 
   useEffect(() => {
@@ -68,6 +69,14 @@ export default function Hero() {
     navigator.clipboard.writeText("zuhaibrashid01@gmail.com");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const copyCli = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigator.clipboard.writeText("npx zuhaibrashid");
+    setCliCopied(true);
+    setTimeout(() => setCliCopied(false), 2000);
   };
 
   return (
@@ -153,6 +162,36 @@ export default function Hero() {
           >
             Love to build cool stuff, adventure & explore new technologies.
           </motion.p>
+
+          {/* CLI Command */}
+          <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 }}}>
+            <div className="inline-flex items-center justify-between gap-2 px-3 py-2 rounded-lg bg-muted/40 border border-border/50 hover:border-border transition-colors group relative shadow-sm">
+              <a 
+                href="https://www.npmjs.com/package/zuhaibrashid" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2.5 text-muted-foreground hover:text-foreground transition-colors"
+                title="View on npm"
+              >
+                <Terminal className="h-4 w-4" />
+                <span className="font-mono text-xs sm:text-sm font-medium tracking-tight">npx zuhaibrashid</span>
+              </a>
+              <div className="w-px h-4 bg-border/80 mx-1"></div>
+              <button 
+                onClick={copyCli} 
+                className="p-1.5 hover:bg-background rounded-md transition-all relative text-muted-foreground hover:text-foreground"
+                aria-label="Copy command"
+                title="Copy command"
+              >
+                <Copy className="h-3.5 w-3.5" />
+                {cliCopied && (
+                  <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-[10px] text-background bg-foreground font-sans font-medium px-2 py-0.5 rounded shadow-sm">
+                    Copied
+                  </span>
+                )}
+              </button>
+            </div>
+          </motion.div>
 
           {/* Spotify Currently Playing */}
           <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 }}}>
