@@ -143,7 +143,9 @@ last-updated: 2026-08-29
 
     // If requesting blog post markdown (e.g. /blogs/escaping-tutorial-hell-as-a-developer.md)
     if (pathname.startsWith("/blogs/")) {
-      const cleanSlug = pathname.replace("/blogs/", "").replace(/\.md$/, "");
+      const rawSlug = pathname.replace("/blogs/", "").replace(/\.md$/, "");
+      // Restrict to URL-safe characters to prevent injection via crafted paths
+      const cleanSlug = rawSlug.replace(/[^a-z0-9-]/gi, "-").replace(/-{2,}/g, "-").replace(/^-|-$/g, "");
       const markdown = `---
 title: Technical Article — ${cleanSlug}
 description: Article published on Zuhaib Rashid's engineering blog

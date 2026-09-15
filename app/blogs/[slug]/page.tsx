@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import type { Metadata } from "next";
+import sanitizeHtml from "sanitize-html";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -153,7 +154,23 @@ export default async function BlogPostPage({ params }: Props) {
           prose-pre:p-0 prose-pre:bg-transparent prose-pre:rounded-none
           prose-a:text-violet-400 prose-a:no-underline hover:prose-a:underline
         "
-        dangerouslySetInnerHTML={{ __html: highlightedContent }}
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(highlightedContent, {
+          allowedTags: [
+            ...sanitizeHtml.defaults.allowedTags,
+            'pre', 'code', 'span', 'figure', 'figcaption',
+            'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+            'details', 'summary', 'mark', 'kbd', 'abbr',
+          ],
+          allowedAttributes: {
+            ...sanitizeHtml.defaults.allowedAttributes,
+            '*':  ['class', 'id', 'data-*', 'aria-*', 'style'],
+            'a':  ['href', 'name', 'target', 'rel'],
+            'img': ['src', 'srcset', 'alt', 'title', 'width', 'height', 'loading'],
+            'pre': ['class', 'data-language'],
+            'code': ['class', 'data-language'],
+          },
+          allowedSchemes: ['https', 'http', 'mailto'],
+        }) }}
       />
 
       {/* Shiki overrides */}

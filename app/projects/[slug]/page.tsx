@@ -10,6 +10,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, Github, Calendar, Layers } from "lucide-react";
 import type { Metadata } from "next";
+import sanitizeHtml from "sanitize-html";
 
 interface Props {
   params: Promise<{
@@ -125,7 +126,23 @@ export default async function ProjectCaseStudy({ params }: Props) {
       {/* Case Study Content */}
       <article className="prose dark:prose-invert prose-violet max-w-none">
         {project.content ? (
-          <div dangerouslySetInnerHTML={{ __html: project.content }} />
+          <div dangerouslySetInnerHTML={{ __html: sanitizeHtml(project.content, {
+            allowedTags: [
+              ...sanitizeHtml.defaults.allowedTags,
+              'pre', 'code', 'span', 'figure', 'figcaption',
+              'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+              'details', 'summary', 'mark', 'kbd', 'abbr',
+            ],
+            allowedAttributes: {
+              ...sanitizeHtml.defaults.allowedAttributes,
+              '*':  ['class', 'id', 'data-*', 'aria-*', 'style'],
+              'a':  ['href', 'name', 'target', 'rel'],
+              'img': ['src', 'srcset', 'alt', 'title', 'width', 'height', 'loading'],
+              'pre': ['class', 'data-language'],
+              'code': ['class', 'data-language'],
+            },
+            allowedSchemes: ['https', 'http', 'mailto'],
+          }) }} />
         ) : (
           <div className="text-center py-20 px-4 border border-border/30 border-dashed rounded-3xl bg-muted/5">
             <Layers className="h-10 w-10 text-muted-foreground/30 mx-auto mb-4" />
