@@ -37,7 +37,7 @@ export const projects: Project[] = [
     title: "Traceora",
     description:
       "Next-generation runtime intelligence and telemetry for modern applications. Traceora connects browser and backend events in a bounded local timeline, with optional trace ID propagation through trace.fetch(). Used by 4K+ developers per week.",
-    image: "/traceora-showcase.jpg",
+    image: "/Traceora.webp",
     tags: ["TypeScript", "React", "Next.js", "Vite", "OpenTelemetry", "Playwright", "Express.js"],
     demoUrl: "",
     githubUrl: "https://github.com/zuhaib-dev/traceora",
