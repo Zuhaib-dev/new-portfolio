@@ -33,7 +33,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${project.title} — Project Case Study`,
       description: project.description,
       images: [{ url: project.image }],
+      type: "article",
     },
+    alternates: { canonical: `https://www.zuhaibrashid.com/projects/${project.slug}` },
+    twitter: { card: "summary_large_image", title: `${project.title} — Project Case Study`, description: project.description, images: [project.image] },
   };
 }
 
@@ -47,6 +50,22 @@ export default async function ProjectCaseStudy({ params }: Props) {
 
   return (
     <main className="mx-auto max-w-4xl px-4 py-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            name: project.title,
+            description: project.description,
+            url: `https://www.zuhaibrashid.com/projects/${project.slug}`,
+            image: `https://www.zuhaibrashid.com${project.image}`,
+            author: { "@type": "Person", name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" },
+            keywords: project.tags.join(", "),
+            sameAs: [project.demoUrl, project.githubUrl, project.npmUrl].filter(Boolean),
+          }),
+        }}
+      />
       {/* Back navigation */}
       <Link
         href="/#projects"
@@ -85,15 +104,27 @@ export default async function ProjectCaseStudy({ params }: Props) {
                 Code
               </a>
             )}
-            <a
-              href={project.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-xl bg-foreground text-background px-4 py-2.5 text-sm font-semibold hover:opacity-90 transition-opacity"
-            >
-              <ExternalLink className="h-4 w-4" />
-              Live Demo
-            </a>
+            {project.demoUrl && (
+              <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 rounded-xl bg-foreground text-background px-4 py-2.5 text-sm font-semibold hover:opacity-90 transition-opacity"
+              >
+                <ExternalLink className="h-4 w-4" />
+                Live Demo
+              </a>
+            )}
+            {project.npmUrl && (
+              <a
+                href={project.npmUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 rounded-xl border border-border/60 bg-muted/20 px-4 py-2.5 text-sm font-medium hover:bg-muted/60 transition-colors"
+              >
+                npm package
+              </a>
+            )}
           </div>
         </div>
 

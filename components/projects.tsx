@@ -26,6 +26,7 @@ import {
   SiExpress,
   SiSocketdotio,
   SiReactquery,
+  SiNpm,
 } from "react-icons/si";
 import { TbBrandFramerMotion, TbChartBar, TbBrain, TbShieldLock, TbVideo, TbDatabase } from "react-icons/tb";
 
@@ -73,6 +74,10 @@ const techIconMap: Record<
   "React Query": { icon: SiReactquery, color: "#FF4154", label: "React Query" },
   "Express.js": { icon: SiExpress, color: "#ffffff", label: "Express.js" },
   "Socket.io": { icon: SiSocketdotio, color: "#010101", label: "Socket.io" },
+  WebGL: { icon: TbBrain, color: "#8B5CF6", label: "WebGL" },
+  "UI Components": { icon: Layers, color: "#A78BFA", label: "UI Components" },
+  OpenTelemetry: { icon: TbChartBar, color: "#F59E0B", label: "OpenTelemetry" },
+  Playwright: { icon: TbVideo, color: "#2EAD33", label: "Playwright" },
 };
 
 export function ProjectCard({
@@ -143,7 +148,7 @@ export function ProjectCard({
           <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
           <span className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
           <span className="ml-2 flex-1 text-[10px] text-muted-foreground/50 truncate font-mono">
-            {project.demoUrl}
+            {project.demoUrl || project.npmUrl || project.githubUrl}
           </span>
         </div>
 
@@ -182,6 +187,12 @@ export function ProjectCard({
             </div>
           )}
           <h3 className="text-base font-bold tracking-tight">{project.title}</h3>
+          {project.weeklyDownloads && (
+            <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-2.5 py-1 text-[10px] font-semibold text-emerald-300">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" aria-hidden="true" />
+              {project.weeklyDownloads}
+            </span>
+          )}
         </div>
 
         {/* Description */}
@@ -225,15 +236,17 @@ export function ProjectCard({
 
         {/* Action Buttons */}
         <div className="flex items-center gap-2 pt-3 border-t border-border/20">
-          <Link
-            href={project.demoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-foreground text-background text-xs font-semibold hover:opacity-80 transition-opacity"
-          >
-            <ExternalLink className="w-3.5 h-3.5" />
-            Live Demo
-          </Link>
+          {project.demoUrl && (
+            <Link
+              href={project.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-foreground text-background text-xs font-semibold hover:opacity-80 transition-opacity"
+            >
+              <ExternalLink className="w-3.5 h-3.5" />
+              Live Demo
+            </Link>
+          )}
           {project.githubUrl && (
             <Link
               href={project.githubUrl}
@@ -243,6 +256,19 @@ export function ProjectCard({
             >
               <Github className="w-3.5 h-3.5" />
               Code
+            </Link>
+          )}
+          {project.npmUrl && (
+            <Link
+              href={project.npmUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${project.title} on npm`}
+              title="View on npm"
+              className="flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg border border-border/50 text-xs font-medium text-red-400 hover:bg-muted/40 hover:border-border transition-colors"
+            >
+              <SiNpm className="h-4 w-4" aria-hidden="true" />
+              npm
             </Link>
           )}
         </div>

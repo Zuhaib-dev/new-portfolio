@@ -2,7 +2,9 @@
 
 This section contains case studies for production applications engineered by Zuhaib Rashid.
 
-- [HealOS](https://zuhaibrashid.com/projects/healos)
-- [Rydexx](https://zuhaibrashid.com/projects/rydexx)
-- [DealDrop](https://zuhaibrashid.com/projects/dealdrop)
-- [Repoviz](https://zuhaibrashid.com/projects/repoviz)
+- [Flourish UI](https://www.zuhaibrashid.com/projects/flourish-ui) — Premium interactive UI library with 54+ components. [Live library](https://flourish-ui.vercel.app) · [GitHub](https://github.com/Zuhaib-dev/Flourish-UI)
+- [Traceora](https://www.zuhaibrashid.com/projects/traceora) — Runtime intelligence and telemetry toolkit used by 4K+ developers per week. [GitHub](https://github.com/zuhaib-dev/traceora) · [npm](https://www.npmjs.com/package/@traceora/core)
+- [HealOS](https://www.zuhaibrashid.com/projects/healos)
+- [Rydexx](https://www.zuhaibrashid.com/projects/rydexx)
+- [DealDrop](https://www.zuhaibrashid.com/projects/dealdrop)
+- [Repoviz](https://www.zuhaibrashid.com/projects/repoviz)

@@ -2,7 +2,7 @@
 title: Zuhaib Rashid — Full Stack Developer & Next.js Engineer
 description: Portfolio, projects, blogs, and agentic API services by Zuhaib Rashid from Srinagar, Kashmir.
 canonical: https://www.zuhaibrashid.com/index.md
-last-updated: 2026-08-29
+last-updated: 2026-11-18
 ---
 
 # Zuhaib Rashid
@@ -21,6 +21,8 @@ Explore our APIs using the free tier available, with self-serve key generation a
 - [Contact](https://www.zuhaibrashid.com/contact): Direct communication and contact channels.
 
 ## Featured Projects
+- **Flourish UI**: Premium interactive component library with 54+ React components and design experiments. [Live library](https://flourish-ui.vercel.app) · [GitHub](https://github.com/Zuhaib-dev/Flourish-UI).
+- **Traceora**: Runtime intelligence and telemetry for modern apps, including browser/backend event timelines, trace propagation, sanitized reports, and OpenTelemetry. Used by 4K+ developers per week. [GitHub](https://github.com/zuhaib-dev/traceora) · [npm](https://www.npmjs.com/package/@traceora/core).
 - **HealOS**: Centralized healthcare operations platform (Next.js 15, React 19, MongoDB, Socket.io).
 - **Rydexx**: Instant vehicle rental booking platform (Next.js, Auth.js, MongoDB, ZegoCloud).
 - **DealDrop**: Smart deal aggregator and price tracking platform.

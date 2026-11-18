@@ -21,6 +21,8 @@ We provide public, keyless REST endpoints with zero-auth access. Additionally, t
 - [Contact](/contact): Direct messaging channel and contact form with honeypot verification.
 
 ## Key Projects
+- [Flourish UI](/projects/flourish-ui): Premium interactive UI library with 54+ React components and design experiments using Next.js, WebGL, Framer Motion, and Tailwind CSS. [Live library](https://flourish-ui.vercel.app) · [GitHub](https://github.com/Zuhaib-dev/Flourish-UI).
+- [Traceora](/projects/traceora): Runtime intelligence and telemetry toolkit for browser and backend events, trace propagation, sanitized reports, Playwright diagnostics, and OpenTelemetry. Used by 4K+ developers per week. [GitHub](https://github.com/zuhaib-dev/traceora) · [npm](https://www.npmjs.com/package/@traceora/core).
 - [HealOS](/projects/healos): Centralized healthcare operations platform built with Next.js 15, React 19, Express, MongoDB, and Socket.io.
 - [Rydexx](/projects/rydexx): Vehicle rental booking platform built with Next.js, Auth.js, MongoDB, and ZegoCloud.
 - [DealDrop](/projects/dealdrop): Smart deal aggregator and price tracking platform.
