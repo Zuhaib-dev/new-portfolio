@@ -4,14 +4,64 @@ export interface Project {
   description: string;
   image: string;
   tags: string[];
-  demoUrl: string;
+  demoUrl?: string;
   githubUrl?: string;
+  npmUrl?: string;
+  weeklyDownloads?: string;
   label?: string;
   content?: string;
 }
 
 export const projects: Project[] = [
   // ── Top 4 shown on homepage ──────────────────────────────────────────────
+  {
+    slug: "flourish-ui",
+    title: "Flourish UI",
+    description:
+      "A premium, highly interactive UI component library for modern web apps, with 54+ crafted components and design experiments built with React, Next.js, WebGL, Framer Motion, and Tailwind CSS.",
+    image: "/Flourish-UI.webp",
+    tags: ["React", "Next.js", "Tailwind CSS", "Framer Motion", "WebGL", "UI Components"],
+    demoUrl: "https://flourish-ui.vercel.app",
+    githubUrl: "https://github.com/Zuhaib-dev/Flourish-UI",
+    content: `
+<h2>A component library shaped by digital craft</h2>
+<p><strong>Flourish UI</strong> is an ongoing exploration of polished, tactile interface design. Its collection includes more than 54 high-fidelity components and design experiments for modern web applications.</p>
+<h2>Made to feel interactive</h2>
+<p>Components combine React and Next.js with Tailwind CSS, Framer Motion, and WebGL. The collection ranges from expressive text and shader effects to navigation, galleries, forms, dashboards, and editorial layouts.</p>
+<h2>Explore and build</h2>
+<p>Browse the live library to preview the components, or visit the open-source repository to explore the implementation and contribute.</p>
+    `.trim(),
+  },
+  {
+    slug: "traceora",
+    title: "Traceora",
+    description:
+      "Next-generation runtime intelligence and telemetry for modern applications. Traceora connects browser and backend events in a bounded local timeline, with optional trace ID propagation through trace.fetch(). Used by 4K+ developers per week.",
+    image: "/traceora-showcase.jpg",
+    tags: ["TypeScript", "React", "Next.js", "Vite", "OpenTelemetry", "Playwright", "Express.js"],
+    demoUrl: "",
+    githubUrl: "https://github.com/zuhaib-dev/traceora",
+    npmUrl: "https://www.npmjs.com/package/@traceora/core",
+    weeklyDownloads: "4K+ developers / week",
+    content: `
+<h2>Runtime intelligence for modern apps</h2>
+<p><strong>Traceora</strong> records browser and backend events in a bounded local timeline. Pass a trace handle to <code>trace.fetch()</code> to connect an interaction with its request under a shared trace ID.</p>
+<h2>Developer focused diagnostics</h2>
+<ul>
+  <li><strong>Browser diagnostics:</strong> Capture network timing, errors, route changes, and component lifecycle events in local DevTools.</li>
+  <li><strong>IDE navigation and network mocking:</strong> Jump from an error to its source location, or intercept a request and simulate responses.</li>
+  <li><strong>Portable reports:</strong> Export versioned, sanitized diagnostic reports for offline inspection or CI.</li>
+  <li><strong>Playwright support:</strong> Attach browser timelines to failed and flaky tests.</li>
+  <li><strong>Performance clues:</strong> Correlate render, network, and database timings with evidence-linked investigation suggestions.</li>
+  <li><strong>OpenTelemetry bridge:</strong> Convert events to spans or load OTLP-style spans into the local timeline.</li>
+  <li><strong>Framework packages:</strong> React bindings, Next.js App Router diagnostics, Vite component instrumentation, Express middleware, and Node.js integrations.</li>
+</ul>
+<h2>Packages</h2>
+<p>The ecosystem includes <code>@traceora/core</code>, <code>@traceora/react</code>, <code>@traceora/next</code>, <code>@traceora/vite-plugin</code>, <code>@traceora/express</code>, <code>@traceora/node</code>, and <code>@traceora/playwright</code>. The core package is available on npm.</p>
+<h2>Privacy-aware by default</h2>
+<p>Development instrumentation is enabled by default. The event buffer keeps the latest 1,000 events, and request bodies and headers are not captured unless explicitly enabled. Performance suggestions are investigation clues, not automatic diagnoses.</p>
+    `.trim(),
+  },
   {
     slug: "healos",
     title: "HealOS",
