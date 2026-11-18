@@ -22,7 +22,7 @@ Explore our APIs using the free tier available, with self-serve key generation a
 
 ## Featured Projects
 - **Flourish UI**: Premium interactive component library with 54+ React components and design experiments. [Live library](https://flourish-ui.vercel.app) · [GitHub](https://github.com/Zuhaib-dev/Flourish-UI).
-- **Traceora**: Runtime intelligence and telemetry for modern apps, including browser/backend event timelines, trace propagation, sanitized reports, and OpenTelemetry. Used by 4K+ developers per week. [GitHub](https://github.com/zuhaib-dev/traceora) · [npm](https://www.npmjs.com/package/@traceora/core).
+- **Traceora**: Runtime intelligence and telemetry for modern apps, including browser/backend event timelines, trace propagation, sanitized reports, and OpenTelemetry. Used by 4K+ developers per week. [Live demo](https://traceora-web.vercel.app/) · [GitHub](https://github.com/zuhaib-dev/traceora) · [npm](https://www.npmjs.com/package/@traceora/core).
 - **HealOS**: Centralized healthcare operations platform (Next.js 15, React 19, MongoDB, Socket.io).
 - **Rydexx**: Instant vehicle rental booking platform (Next.js, Auth.js, MongoDB, ZegoCloud).
 - **DealDrop**: Smart deal aggregator and price tracking platform.

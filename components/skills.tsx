@@ -8,6 +8,7 @@ import {
   FaGithub,
   FaHtml5,
   FaJs,
+  FaJava,
   FaReact,
   FaNodeJs,
 } from "react-icons/fa";
@@ -43,6 +44,7 @@ const skillCategories = [
     labelColor: "text-yellow-400",
     skills: [
       { name: "JavaScript", icon: <FaJs className="text-yellow-400" /> },
+      { name: "Java", icon: <FaJava className="text-red-500" /> },
       { name: "TypeScript", icon: <SiTypescript className="text-blue-500" /> },
       { name: "HTML5", icon: <FaHtml5 className="text-orange-500" /> },
       { name: "CSS3", icon: <FaCss3 className="text-blue-400" /> },

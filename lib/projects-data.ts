@@ -10,6 +10,11 @@ export interface Project {
   weeklyDownloads?: string;
   label?: string;
   content?: string;
+  quickstart?: {
+    intro: string;
+    dependencies: string[];
+    steps: Array<{ title: string; description: string; code: string; language: string }>;
+  };
 }
 
 export const projects: Project[] = [
@@ -23,6 +28,36 @@ export const projects: Project[] = [
     tags: ["React", "Next.js", "Tailwind CSS", "Framer Motion", "WebGL", "UI Components"],
     demoUrl: "https://flourish-ui.vercel.app",
     githubUrl: "https://github.com/Zuhaib-dev/Flourish-UI",
+    quickstart: {
+      intro: "Install a component directly into your app, then own and customize the source code.",
+      dependencies: ["framer-motion", "lucide-react"],
+      steps: [
+        {
+          title: "Initialize shadcn/ui",
+          description: "Run once in a Next.js or React project that uses shadcn/ui.",
+          language: "shell",
+          code: "pnpm dlx shadcn@latest init",
+        },
+        {
+          title: "Add Botanical Pixel Dispersion",
+          description: "The registry copies editable source into components/flourish/.",
+          language: "shell",
+          code: "pnpm dlx shadcn@latest add https://flourish-ui.vercel.app/r/botanical-pixel-dispersion.json",
+        },
+        {
+          title: "Install its dependencies",
+          description: "Add the animation and icon packages used by this registry component.",
+          language: "shell",
+          code: "pnpm add framer-motion lucide-react",
+        },
+        {
+          title: "Render the component",
+          description: "Import the generated component into any page or section.",
+          language: "tsx",
+          code: 'import { BotanicalPixelDispersion } from "@/components/flourish/botanical-pixel-dispersion";\n\nexport default function Page() {\n  return <BotanicalPixelDispersion />;\n}',
+        },
+      ],
+    },
     content: `
 <h2>A component library shaped by digital craft</h2>
 <p><strong>Flourish UI</strong> is an ongoing exploration of polished, tactile interface design. Its collection includes more than 54 high-fidelity components and design experiments for modern web applications.</p>
@@ -39,10 +74,34 @@ export const projects: Project[] = [
       "Next-generation runtime intelligence and telemetry for modern applications. Traceora connects browser and backend events in a bounded local timeline, with optional trace ID propagation through trace.fetch(). Used by 4K+ developers per week.",
     image: "/Traceora.webp",
     tags: ["TypeScript", "React", "Next.js", "Vite", "OpenTelemetry", "Playwright", "Express.js"],
-    demoUrl: "",
+    demoUrl: "https://traceora-web.vercel.app/",
     githubUrl: "https://github.com/zuhaib-dev/traceora",
     npmUrl: "https://www.npmjs.com/package/@traceora/core",
     weeklyDownloads: "4K+ developers / week",
+    quickstart: {
+      intro: "Add Traceora to a React + Vite app and open its floating timeline while you work.",
+      dependencies: ["@traceora/core", "@traceora/react", "@traceora/vite-plugin"],
+      steps: [
+        {
+          title: "Install the React + Vite packages",
+          description: "The core event engine, React bindings, and Vite instrumentation plugin.",
+          language: "shell",
+          code: "npm install @traceora/core @traceora/react @traceora/vite-plugin",
+        },
+        {
+          title: "Enable component instrumentation",
+          description: "Place Traceora before the React plugin so it can transform supported components.",
+          language: "tsx",
+          code: 'import { defineConfig } from "vite";\nimport react from "@vitejs/plugin-react";\nimport { traceoraPlugin } from "@traceora/vite-plugin";\n\nexport default defineConfig({\n  plugins: [traceoraPlugin(), react()],\n});',
+        },
+        {
+          title: "Wrap the app and mount DevTools",
+          description: "The provider, error boundary, and floating timeline capture local development activity.",
+          language: "tsx",
+          code: 'import {\n  TraceoraProvider,\n  TraceoraErrorBoundary,\n  TraceoraDevtools,\n} from "@traceora/react";\n\n<TraceoraProvider>\n  <TraceoraErrorBoundary>\n    <App />\n    <TraceoraDevtools />\n  </TraceoraErrorBoundary>\n</TraceoraProvider>',
+        },
+      ],
+    },
     content: `
 <h2>Runtime intelligence for modern apps</h2>
 <p><strong>Traceora</strong> records browser and backend events in a bounded local timeline. Pass a trace handle to <code>trace.fetch()</code> to connect an interaction with its request under a shared trace ID.</p>

@@ -11,6 +11,7 @@ import Link from "next/link";
 import { ArrowLeft, ExternalLink, Github, Calendar, Layers } from "lucide-react";
 import type { Metadata } from "next";
 import sanitizeHtml from "sanitize-html";
+import { ProjectQuickstart } from "@/components/project-quickstart";
 
 interface Props {
   params: Promise<{
@@ -153,6 +154,8 @@ export default async function ProjectCaseStudy({ params }: Props) {
           />
         </div>
       </header>
+
+      <ProjectQuickstart project={project} />
 
       {/* Case Study Content */}
       <article className="prose dark:prose-invert prose-violet max-w-none">
