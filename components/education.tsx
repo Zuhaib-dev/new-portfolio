@@ -5,12 +5,12 @@ import { Calendar, MapPin, Award } from "lucide-react";
 
 const education = [
   {
-    institution: "Amar Singh College, Srinagar",
+    institution: "Cluster University of Srinagar",
     degree: "Bachelor of Computer Applications (BCA)",
     period: "2026 – Present",
     location: "Srinagar, J&K",
     status: "1st Semester",
-    initials: "AS",
+    initials: "CUS",
     gradient: "from-blue-500 to-cyan-600",
     glowColor: "rgba(59,130,246,0.15)",
     statusColor: "text-blue-400 bg-blue-400/10 border-blue-400/20",
