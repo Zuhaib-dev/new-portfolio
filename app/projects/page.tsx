@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "All Projects | Zuhaib",
   description:
     "Browse all projects built by Zuhaib — from AI SaaS to healthcare dashboards, weather apps, and more.",
+  alternates: { canonical: "https://www.zuhaibrashid.com/projects" },
 };
 
 export default function ProjectsPage() {
