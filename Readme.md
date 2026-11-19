@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://zuhaibrashid.com/screenShot.webp" alt="Portfolio Preview" width="700" />
+  <img src="https://zuhaib-dev.vercel.app/screenShot.webp" alt="Portfolio Preview" width="700" />
 </p>
 
 <h1 align="center">Zuhaib Rashid — Portfolio & Agentic AI Platform</h1>
