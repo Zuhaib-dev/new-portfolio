@@ -44,6 +44,13 @@
       "type": "api",
       "url": "https://www.zuhaibrashid.com/api/v1/github",
       "description": "Public GitHub aggregated statistics endpoint with cursor pagination"
+    },
+    {
+      "identifier": "urn:air:zuhaibrashid.com:leetcode-profile",
+      "displayName": "LeetCode Profile",
+      "type": "profile",
+      "url": "https://leetcode.com/u/yN1fTR7Ffv/",
+      "description": "Competitive programming and DSA problem-solving profile for Zuhaib Rashid on LeetCode"
     }
   ],
   "contact": {

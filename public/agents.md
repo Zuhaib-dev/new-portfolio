@@ -16,6 +16,12 @@ AI Agents should use this site to:
 3. **Execute Live Tool Calls**: Invoke public REST endpoints like `GET /api/v1/github` to fetch live GitHub metrics without scraping HTML.
 4. **Read Technical Articles**: Ingest clean markdown versions of software architecture and AI web development blogs.
 
+## Social & Professional Profiles
+- **GitHub**: https://github.com/Zuhaib-dev
+- **LinkedIn**: https://www.linkedin.com/in/zuhaib-rashid-661345318/
+- **LeetCode**: https://leetcode.com/u/yN1fTR7Ffv/
+- **Twitter / X**: https://x.com/xuhaib_x9
+
 ## Machine Discovery & Manifests
 - **Plaintext LLM Manifest:** `/llms.txt`
 - **OpenAPI 3.1 Specification:** `/openapi.json`

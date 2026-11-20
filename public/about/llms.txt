@@ -2,3 +2,9 @@
 
 This section details the professional background, engineering philosophy, and core tech stack of Zuhaib Rashid.
 For more details, see the main [LLM Manifest](https://www.zuhaibrashid.com/llms.txt).
+
+## Social & Professional Profiles
+- **GitHub**: https://github.com/Zuhaib-dev
+- **LinkedIn**: https://www.linkedin.com/in/zuhaib-rashid-661345318/
+- **LeetCode**: https://leetcode.com/u/yN1fTR7Ffv/
+- **Twitter / X**: https://x.com/xuhaib_x9

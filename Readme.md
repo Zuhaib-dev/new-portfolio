@@ -275,6 +275,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the app.
   <a href="https://www.linkedin.com/in/zuhaib-rashid-661345318/">LinkedIn</a> ·
   <a href="https://x.com/xuhaib_x9">X / Twitter</a> ·
   <a href="https://github.com/Zuhaib-dev">GitHub</a> ·
+  <a href="https://leetcode.com/u/yN1fTR7Ffv/">LeetCode</a> ·
   <a href="https://www.instagram.com/zoh.aib__/">Instagram</a> ·
   <a href="mailto:zuhaibrashid01@gmail.com">📧 Email</a>
 </p>
