@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight, MapPin, Github, Twitter, Linkedin, Briefcase, GraduationCap, Code2, Coffee } from "lucide-react";
+import { SiLeetcode } from "react-icons/si";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -126,7 +127,7 @@ export default function AboutClient() {
               <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
             </Link>
             <Link href="https://leetcode.com/u/yN1fTR7Ffv/" target="_blank" className="flex items-center justify-between p-3 rounded-xl hover:bg-background transition-colors border border-transparent hover:border-border/50">
-              <div className="flex items-center gap-3"><Code2 className="h-5 w-5" /><span className="text-sm font-medium">LeetCode</span></div>
+              <div className="flex items-center gap-3"><SiLeetcode className="h-5 w-5" /><span className="text-sm font-medium">LeetCode</span></div>
               <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
             </Link>
           </div>

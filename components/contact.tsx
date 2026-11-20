@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, Phone, MapPin, CheckCircle, Send } from "lucide-react";
-import { FaGithub, FaXTwitter, FaLinkedinIn, FaCode } from "react-icons/fa6";
+import { FaGithub, FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
+import { SiLeetcode } from "react-icons/si";
 import Link from "next/link";
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
@@ -58,7 +59,7 @@ const socialLinks = [
     href: "https://www.linkedin.com/in/zuhaib-rashid-661345318/",
   },
   {
-    icon: FaCode,
+    icon: SiLeetcode,
     label: "LeetCode",
     href: "https://leetcode.com/u/yN1fTR7Ffv/",
   },

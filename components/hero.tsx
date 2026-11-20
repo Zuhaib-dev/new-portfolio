@@ -9,8 +9,8 @@ import {
   FaInstagram,
   FaPinterest,
   FaSpotify,
-  FaCode,
 } from "react-icons/fa6";
+import { SiLeetcode } from "react-icons/si";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
@@ -33,7 +33,7 @@ const socialLinks = [
     label: "Pinterest",
   },
   {
-    icon: FaCode,
+    icon: SiLeetcode,
     href: "https://leetcode.com/u/yN1fTR7Ffv/",
     label: "LeetCode",
   },
