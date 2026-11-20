@@ -9,6 +9,7 @@ import {
   FaInstagram,
   FaPinterest,
   FaSpotify,
+  FaCode,
 } from "react-icons/fa6";
 import Image from "next/image";
 import { useState, useEffect } from "react";
@@ -30,6 +31,11 @@ const socialLinks = [
     icon: FaPinterest,
     href: "https://in.pinterest.com/xuhaibx9/",
     label: "Pinterest",
+  },
+  {
+    icon: FaCode,
+    href: "https://leetcode.com/u/yN1fTR7Ffv/",
+    label: "LeetCode",
   },
   { icon: Mail, href: "mailto:zuhaibrashid01@gmail.com", label: "Email" },
 ];

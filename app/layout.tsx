@@ -140,6 +140,7 @@ export default function RootLayout({
                 "https://x.com/xuhaib_x9",
                 "https://github.com/Zuhaib-dev",
                 "https://www.linkedin.com/in/zuhaib-rashid-661345318/",
+                "https://leetcode.com/u/yN1fTR7Ffv/",
               ],
               jobTitle: "Full Stack Developer",
               address: {
