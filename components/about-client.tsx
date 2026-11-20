@@ -125,6 +125,10 @@ export default function AboutClient() {
               <div className="flex items-center gap-3"><Linkedin className="h-5 w-5" /><span className="text-sm font-medium">LinkedIn</span></div>
               <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
             </Link>
+            <Link href="https://leetcode.com/u/yN1fTR7Ffv/" target="_blank" className="flex items-center justify-between p-3 rounded-xl hover:bg-background transition-colors border border-transparent hover:border-border/50">
+              <div className="flex items-center gap-3"><Code2 className="h-5 w-5" /><span className="text-sm font-medium">LeetCode</span></div>
+              <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
+            </Link>
           </div>
         </motion.div>
 

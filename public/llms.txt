@@ -20,6 +20,12 @@ We provide public, keyless REST endpoints with zero-auth access. Additionally, t
 - [Resume](/resume): Interactive CV with work experience, education, and credentials.
 - [Contact](/contact): Direct messaging channel and contact form with honeypot verification.
 
+## Social Profiles
+- [GitHub](https://github.com/Zuhaib-dev): Open-source repositories and contributions.
+- [LinkedIn](https://www.linkedin.com/in/zuhaib-rashid-661345318/): Professional network profile.
+- [LeetCode](https://leetcode.com/u/yN1fTR7Ffv/): Competitive programming and DSA problem-solving profile.
+- [Twitter / X](https://x.com/xuhaib_x9): Tech commentary and updates.
+
 ## Key Projects
 - [Flourish UI](/projects/flourish-ui): Premium interactive UI library with 54+ React components and design experiments using Next.js, WebGL, Framer Motion, and Tailwind CSS. [Live library](https://flourish-ui.vercel.app) · [GitHub](https://github.com/Zuhaib-dev/Flourish-UI).
 - [Traceora](/projects/traceora): Runtime intelligence and telemetry toolkit for browser and backend events, trace propagation, sanitized reports, Playwright diagnostics, and OpenTelemetry. Used by 4K+ developers per week. [Live demo](https://traceora-web.vercel.app/) · [GitHub](https://github.com/zuhaib-dev/traceora) · [npm](https://www.npmjs.com/package/@traceora/core).

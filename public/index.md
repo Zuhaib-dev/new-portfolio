@@ -36,3 +36,9 @@ Explore our APIs using the free tier available, with self-serve key generation a
 - **Authentication Policy**: https://www.zuhaibrashid.com/auth.md
 - **MCP Server Manifest**: https://www.zuhaibrashid.com/.well-known/mcp.json
 - **Agent Resource Discovery (ARD)**: https://www.zuhaibrashid.com/.well-known/ard.json
+
+## Social & Professional Profiles
+- **GitHub**: https://github.com/Zuhaib-dev
+- **LinkedIn**: https://www.linkedin.com/in/zuhaib-rashid-661345318/
+- **LeetCode**: https://leetcode.com/u/yN1fTR7Ffv/
+- **Twitter / X**: https://x.com/xuhaib_x9

@@ -373,6 +373,16 @@ export function CommandMenu() {
               <Twitter className="mr-2 h-4 w-4" />
               <span>Go to Twitter</span>
             </CommandItem>
+            <CommandItem
+              onSelect={() => {
+                runCommand(() =>
+                  window.open("https://leetcode.com/u/yN1fTR7Ffv/", "_blank"),
+                );
+              }}
+            >
+              <Code className="mr-2 h-4 w-4" />
+              <span>Go to LeetCode</span>
+            </CommandItem>
           </CommandGroup>
         </CommandList>
       </CommandDialog>
