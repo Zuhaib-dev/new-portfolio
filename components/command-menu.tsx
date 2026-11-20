@@ -25,6 +25,7 @@ import { blogs } from "@/lib/blogs";
 import { projects } from "@/lib/projects-data";
 import { useFollower } from "@/hooks/use-follower";
 import { Cat, MousePointer2, MousePointerClick, Users } from "lucide-react";
+import { SiLeetcode } from "react-icons/si";
 
 
 import {
@@ -380,7 +381,7 @@ export function CommandMenu() {
                 );
               }}
             >
-              <Code className="mr-2 h-4 w-4" />
+              <SiLeetcode className="mr-2 h-4 w-4" />
               <span>Go to LeetCode</span>
             </CommandItem>
           </CommandGroup>
