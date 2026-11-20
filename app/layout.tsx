@@ -44,6 +44,8 @@ export const metadata: Metadata = {
     "Zuhaib Rashid Developer Tools",
     "MCP Server",
     "AI Agent Resources",
+    "LeetCode",
+    "Zuhaib Rashid LeetCode",
   ],
   authors: [{ name: "Zuhaib Rashid", url: "https://www.zuhaibrashid.com" }],
   creator: "Zuhaib Rashid",

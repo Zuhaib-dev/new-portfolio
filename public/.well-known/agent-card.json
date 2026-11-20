@@ -6,7 +6,13 @@
   "provider": {
     "name": "Zuhaib Rashid",
     "url": "https://www.zuhaibrashid.com",
-    "contact": "zuhaibrashid01@gmail.com"
+    "contact": "zuhaibrashid01@gmail.com",
+    "sameAs": [
+      "https://github.com/Zuhaib-dev",
+      "https://www.linkedin.com/in/zuhaib-rashid-661345318/",
+      "https://leetcode.com/u/yN1fTR7Ffv/",
+      "https://x.com/xuhaib_x9"
+    ]
   },
   "capabilities": {
     "tools": [
